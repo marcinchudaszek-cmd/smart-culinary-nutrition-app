@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# Android build outputs (keep source, ignore generated)
+android/app/build/
+android/build/
+android/.gradle/
+android/local.properties
+
+# Keystore (sensitive — keep locally only!)
+*.keystore
+*.jks
+
+# Capacitor generated
+android/app/src/main/assets/public/
