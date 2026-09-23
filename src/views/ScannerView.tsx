@@ -1,9 +1,12 @@
 import { useState, useRef, useCallback } from 'react';
-import { Camera, Upload, X, RefreshCw, BookmarkPlus, Flame, ChefHat, Loader, Settings, Barcode } from 'lucide-react';
-import { useAppStore } from '../store/useAppStore';
+import { Camera as CameraIcon, Upload, X, RefreshCw, BookmarkPlus, Flame, ChefHat, Loader, Settings, Barcode } from 'lucide-react';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { useAppStore, activeAI } from '../store/useAppStore';
+import { callAI, parseAiJson, type AiProvider } from '../lib/aiProvider';
 import toast from 'react-hot-toast';
 import ChefAI from '../components/ChefAI';
 import BarcodeScanner from '../components/BarcodeScanner';
+import { todayISO } from '../lib/date';
 
 type ScannerTab = 'scan' | 'barcode' | 'chef';
 
@@ -23,17 +26,13 @@ interface DetectedFood {
   emoji: string;
 }
 
-async function analyzeWithGemini(base64: string, mimeType: string, apiKey: string): Promise<DetectedFood> {
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{
-          parts: [
-            {
-              text: `Zidentyfikuj potrawę na tym zdjęciu. Oceń wizualnie ile gramów jedzenia widać na talerzu/zdjęciu (porcja).
+async function analyzeFood(
+  provider: AiProvider,
+  apiKey: string,
+  model: string,
+  imageDataUrl: string,
+): Promise<DetectedFood> {
+  const prompt = `Zidentyfikuj potrawę na tym zdjęciu. Oceń wizualnie ile gramów jedzenia widać na talerzu/zdjęciu (porcja).
 Odpowiedz WYŁĄCZNIE obiektem JSON w dokładnie tym formacie (bez żadnego dodatkowego tekstu):
 {
   "name": "polska nazwa potrawy",
@@ -50,31 +49,10 @@ Odpowiedz WYŁĄCZNIE obiektem JSON w dokładnie tym formacie (bez żadnego doda
   "description": "krótki opis po polsku (1 zdanie)",
   "emoji": "pasujące emoji"
 }
-Jeśli na zdjęciu nie ma jedzenia, zwróć: {"error": "brak jedzenia na zdjęciu"}`
-            },
-            {
-              inline_data: {
-                mime_type: mimeType,
-                data: base64.split(',')[1],
-              },
-            },
-          ],
-        }],
-        generationConfig: { temperature: 0.1 },
-      }),
-    }
-  );
+Jeśli na zdjęciu nie ma jedzenia, zwróć: {"error": "brak jedzenia na zdjęciu"}`;
 
-  if (!response.ok) {
-    const err = await response.json().catch(() => ({}));
-    throw new Error((err as { error?: { message?: string } })?.error?.message || `HTTP ${response.status}`);
-  }
-
-  const data = await response.json();
-  const text: string = data.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
-  const match = text.match(/\{[\s\S]*\}/);
-  if (!match) throw new Error('Nieprawidłowa odpowiedź AI');
-  const parsed = JSON.parse(match[0]);
+  const text = await callAI(provider, apiKey, model, { text: prompt, imageDataUrl });
+  const parsed = parseAiJson<DetectedFood & { error?: string }>(text);
   if (parsed.error) throw new Error(parsed.error);
   return parsed as DetectedFood;
 }
@@ -104,9 +82,10 @@ const FALLBACK_DB: DetectedFood[] = [
 ];
 
 export default function ScannerView() {
-  const { setSelectedRecipe, setActiveView, addFoodEntry, geminiApiKey } = useAppStore();
+  const store = useAppStore();
+  const { setSelectedRecipe, setActiveView, addFoodEntry, aiProvider } = store;
+  const { apiKey: activeKey, model: activeModel, label: providerLabel } = activeAI(store);
   const fileRef = useRef<HTMLInputElement>(null);
-  const cameraRef = useRef<HTMLInputElement>(null);
 
   const [activeTab, setActiveTab] = useState<ScannerTab>('scan');
   const [image, setImage] = useState<string | null>(null);
@@ -117,20 +96,48 @@ export default function ScannerView() {
   const [scanComplete, setScanComplete] = useState(false);
   const [usingFallback, setUsingFallback] = useState(false);
 
-  const handleImage = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const applyImage = useCallback((dataUrl: string) => {
+    setImage(dataUrl);
+    setMimeType('image/jpeg');
+    setDetected(null);
+    setScanComplete(false);
+    setAlternatives([]);
+    setUsingFallback(false);
+  }, []);
+
+  const openCamera = useCallback(async () => {
+    try {
+      const photo = await Camera.getPhoto({
+        source: CameraSource.Camera,
+        resultType: CameraResultType.DataUrl,
+        quality: 85,
+      });
+      if (photo.dataUrl) applyImage(photo.dataUrl);
+    } catch {
+      // user cancelled
+    }
+  }, [applyImage]);
+
+  const openGallery = useCallback(async () => {
+    try {
+      const photo = await Camera.getPhoto({
+        source: CameraSource.Photos,
+        resultType: CameraResultType.DataUrl,
+        quality: 85,
+      });
+      if (photo.dataUrl) applyImage(photo.dataUrl);
+    } catch {
+      fileRef.current?.click();
+    }
+  }, [applyImage]);
+
+  const handleFileInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    setMimeType(file.type || 'image/jpeg');
     const reader = new FileReader();
-    reader.onload = () => {
-      setImage(reader.result as string);
-      setDetected(null);
-      setScanComplete(false);
-      setAlternatives([]);
-      setUsingFallback(false);
-    };
+    reader.onload = () => applyImage(reader.result as string);
     reader.readAsDataURL(file);
-  }, []);
+  }, [applyImage]);
 
   const runFallback = () => {
     const shuffled = [...FALLBACK_DB].sort(() => Math.random() - 0.5);
@@ -146,9 +153,9 @@ export default function ScannerView() {
     setDetected(null);
     setScanComplete(false);
 
-    if (geminiApiKey) {
+    if (activeKey) {
       try {
-        const result = await analyzeWithGemini(image, mimeType, geminiApiKey);
+        const result = await analyzeFood(aiProvider, activeKey, activeModel, image);
         setDetected(result);
         setAlternatives([]);
         setUsingFallback(false);
@@ -169,7 +176,7 @@ export default function ScannerView() {
         setScanning(false);
       }, 2000);
     }
-  }, [image, mimeType, geminiApiKey]);
+  }, [image, mimeType, activeKey]);
 
   const reset = () => {
     setImage(null);
@@ -197,7 +204,7 @@ export default function ScannerView() {
   };
 
   const addToCalories = (food: DetectedFood) => {
-    const today = new Date().toISOString().split('T')[0];
+    const today = todayISO();
     addFoodEntry({
       id: `entry-${Date.now()}`,
       name: food.name,
@@ -214,7 +221,7 @@ export default function ScannerView() {
   };
 
   const tabs: { id: ScannerTab; label: string; icon: React.ReactNode }[] = [
-    { id: 'scan', label: 'Potrawa', icon: <Camera size={13} /> },
+    { id: 'scan', label: 'Potrawa', icon: <CameraIcon size={13} /> },
     { id: 'barcode', label: 'Kod EAN', icon: <Barcode size={13} /> },
     { id: 'chef', label: 'Szef AI', icon: <span>👨‍🍳</span> },
   ];
@@ -226,14 +233,14 @@ export default function ScannerView() {
         <div className="flex items-center justify-between mb-3">
           <div>
             <h1 className="text-xl font-bold text-gray-800 flex items-center gap-2 mb-0.5">
-              <Camera size={22} className="text-orange-500" />
+              <CameraIcon size={22} className="text-orange-500" />
               AI Kuchnia
             </h1>
             <p className="text-xs text-gray-400">
-              {geminiApiKey ? '🟢 Gemini AI aktywny' : '⚪ Demo — dodaj klucz API w Ustawieniach'}
+              {activeKey ? `🟢 ${providerLabel} • ${activeModel}` : '⚪ Demo — dodaj klucz API w Ustawieniach'}
             </p>
           </div>
-          {!geminiApiKey && (
+          {!activeKey && (
             <button
               onClick={() => setActiveView('settings')}
               className="flex items-center gap-1.5 bg-orange-50 text-orange-500 text-xs font-semibold px-3 py-2 rounded-xl"
@@ -274,22 +281,22 @@ export default function ScannerView() {
             {!image ? (
               <div className="space-y-4">
                 <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-3xl p-8 text-center border-2 border-dashed border-orange-200">
-                  <div className="text-6xl mb-3">{geminiApiKey ? '🧠' : '🤖'}</div>
+                  <div className="text-6xl mb-3">{activeKey ? '🧠' : '🤖'}</div>
                   <h2 className="font-bold text-gray-700 text-lg mb-1">Rozpoznaj potrawę</h2>
                   <p className="text-gray-400 text-sm mb-6">
-                    {geminiApiKey
-                      ? 'Gemini AI przeanalizuje zdjęcie i rozpozna danie z kaloriami'
+                    {activeKey
+                      ? `${providerLabel} AI przeanalizuje zdjęcie i rozpozna danie z kaloriami`
                       : 'Zrób zdjęcie lub wybierz z galerii — AI rozpozna danie i poda kalorie'}
                   </p>
                   <div className="flex gap-3 justify-center">
                     <button
-                      onClick={() => cameraRef.current?.click()}
+                      onClick={openCamera}
                       className="flex items-center gap-2 bg-orange-500 text-white px-5 py-3 rounded-2xl font-semibold shadow-lg shadow-orange-200 active:scale-95 transition-all"
                     >
-                      <Camera size={18} /> Aparat
+                      <CameraIcon size={18} /> Aparat
                     </button>
                     <button
-                      onClick={() => fileRef.current?.click()}
+                      onClick={openGallery}
                       className="flex items-center gap-2 bg-white text-gray-700 border border-gray-200 px-5 py-3 rounded-2xl font-semibold shadow-sm active:scale-95 transition-all"
                     >
                       <Upload size={18} /> Galeria
@@ -311,7 +318,7 @@ export default function ScannerView() {
                   ))}
                 </div>
 
-                {!geminiApiKey && (
+                {!activeKey && (
                   <div className="bg-blue-50 rounded-2xl p-4">
                     <p className="font-semibold text-blue-700 text-sm mb-1">💡 Aktywuj prawdziwe AI</p>
                     <p className="text-blue-500 text-xs mb-3">
@@ -345,7 +352,7 @@ export default function ScannerView() {
                         </div>
                       </div>
                       <p className="text-white font-semibold mt-4 text-sm animate-pulse">
-                        {geminiApiKey ? 'Gemini analizuje...' : 'Analizuję zdjęcie...'}
+                        {activeKey ? `${providerLabel} analizuje...` : 'Analizuję zdjęcie...'}
                       </p>
                     </div>
                   )}
@@ -362,7 +369,7 @@ export default function ScannerView() {
 
                 {scanComplete && detected && (
                   <div className="space-y-3">
-                    {usingFallback && !geminiApiKey && (
+                    {usingFallback && !activeKey && (
                       <div className="bg-yellow-50 border border-yellow-200 rounded-xl px-4 py-2.5 text-xs text-yellow-700">
                         ⚠️ Tryb demo — dodaj klucz API w Ustawieniach dla prawdziwego AI
                       </div>
@@ -376,7 +383,7 @@ export default function ScannerView() {
                             <span className="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-semibold">
                               {detected.confidence}% pewność
                             </span>
-                            {geminiApiKey && !usingFallback && (
+                            {activeKey && !usingFallback && (
                               <span className="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-semibold">
                                 Gemini AI
                               </span>
@@ -474,8 +481,7 @@ export default function ScannerView() {
 
       </div>
 
-      <input ref={cameraRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={handleImage} />
-      <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleImage} />
+      <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleFileInput} />
     </div>
   );
 }

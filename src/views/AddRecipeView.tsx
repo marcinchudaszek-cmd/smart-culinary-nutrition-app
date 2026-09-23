@@ -4,22 +4,26 @@ import { useAppStore, Ingredient } from '../store/useAppStore';
 import toast from 'react-hot-toast';
 
 export default function AddRecipeView() {
-  const { setActiveView, addMyRecipe } = useAppStore();
+  const { setActiveView, addMyRecipe, updateMyRecipe, selectedRecipe } = useAppStore();
   const fileRef = useRef<HTMLInputElement>(null);
   const cameraRef = useRef<HTMLInputElement>(null);
 
+  const isEditing = !!selectedRecipe;
+
   const [form, setForm] = useState({
-    name: '',
-    category: '',
-    area: '',
-    servings: 4,
-    instructions: '',
-    photo: '',
+    name: selectedRecipe?.name ?? '',
+    category: selectedRecipe?.category ?? '',
+    area: selectedRecipe?.area ?? '',
+    servings: selectedRecipe?.servings ?? 4,
+    instructions: selectedRecipe?.instructions ?? '',
+    photo: selectedRecipe?.photo ?? selectedRecipe?.thumbnail ?? '',
   });
 
-  const [ingredients, setIngredients] = useState<Ingredient[]>([
-    { name: '', amount: '', calories: 0 },
-  ]);
+  const [ingredients, setIngredients] = useState<Ingredient[]>(
+    selectedRecipe && selectedRecipe.ingredients.length > 0
+      ? selectedRecipe.ingredients.map((i) => ({ ...i }))
+      : [{ name: '', amount: '', calories: 0 }]
+  );
 
   const handleIngredientChange = (i: number, field: keyof Ingredient, value: string | number) => {
     setIngredients((prev) => {
@@ -57,6 +61,27 @@ export default function AddRecipeView() {
 
     const filtered = ingredients.filter((i) => i.name.trim());
 
+    if (isEditing && selectedRecipe) {
+      updateMyRecipe({
+        ...selectedRecipe,
+        id: selectedRecipe.isCustom ? selectedRecipe.id : `custom-${Date.now()}`,
+        name: form.name.trim(),
+        category: form.category.trim() || 'Własny',
+        area: form.area.trim() || 'Polska',
+        instructions: form.instructions.trim(),
+        thumbnail: form.photo || selectedRecipe.thumbnail,
+        photo: form.photo || undefined,
+        ingredients: filtered,
+        totalCalories,
+        servings: Number(form.servings) || 4,
+        isCustom: true,
+        dateAdded: selectedRecipe.dateAdded ?? new Date().toISOString(),
+      });
+      toast.success('Przepis zaktualizowany! 🎉');
+      setActiveView('recipe-detail');
+      return;
+    }
+
     addMyRecipe({
       id: `custom-${Date.now()}`,
       name: form.name.trim(),
@@ -82,12 +107,12 @@ export default function AddRecipeView() {
       <div className="bg-white px-4 pt-12 pb-4 shadow-sm sticky top-0 z-40">
         <div className="flex items-center gap-3">
           <button
-            onClick={() => setActiveView('my-recipes')}
+            onClick={() => setActiveView(isEditing ? 'recipe-detail' : 'my-recipes')}
             className="bg-gray-100 rounded-full p-2"
           >
             <ArrowLeft size={20} className="text-gray-700" />
           </button>
-          <h1 className="text-xl font-bold text-gray-800">Dodaj Przepis</h1>
+          <h1 className="text-xl font-bold text-gray-800">{isEditing ? 'Edytuj Przepis' : 'Dodaj Przepis'}</h1>
         </div>
       </div>
 
@@ -276,7 +301,7 @@ export default function AddRecipeView() {
           onClick={handleSubmit}
           className="w-full bg-orange-500 text-white py-4 rounded-2xl font-bold text-base shadow-lg shadow-orange-200 active:scale-95 transition-all hover:bg-orange-600"
         >
-          💾 Zapisz Przepis
+          {isEditing ? '💾 Zapisz zmiany' : '💾 Zapisz Przepis'}
         </button>
       </div>
     </div>

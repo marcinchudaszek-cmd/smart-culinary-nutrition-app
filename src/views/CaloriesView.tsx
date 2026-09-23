@@ -1,46 +1,55 @@
-import { useState } from 'react';
-import { Plus, Trash2, Flame, Target, Search, X, TrendingUp, Calendar } from 'lucide-react';
+import { useState, useCallback, useRef, useMemo } from 'react';
+import { Plus, Trash2, Flame, Target, Search, X, TrendingUp, Calendar, Loader, Camera, BarChart3, ChefHat, Barcode, Clock } from 'lucide-react';
 import { useAppStore, FoodEntry } from '../store/useAppStore';
+import PhotoCalorieScanner from '../components/PhotoCalorieScanner';
+import BarcodeScanner from '../components/BarcodeScanner';
+import BarcodeScanSheet from '../components/BarcodeScanSheet';
+import CalorieStatsTab from '../components/CalorieStatsTab';
+import { POLISH_DISHES } from '../data/polishDishes';
+import { COMMON_FOODS, normalizeText, matchesQuery, type FoodItem } from '../data/commonFoods';
 import toast from 'react-hot-toast';
+import { todayISO, toLocalISO } from '../lib/date';
 
 const MEAL_TYPES = [
-  { id: 'breakfast', label: 'Śniadanie', emoji: '🌅' },
-  { id: 'lunch', label: 'Obiad', emoji: '☀️' },
-  { id: 'dinner', label: 'Kolacja', emoji: '🌙' },
-  { id: 'snack', label: 'Przekąska', emoji: '🍎' },
+  { id: 'breakfast', label: 'Śniadanie', short: 'Śniad.', emoji: '🌅' },
+  { id: 'lunch',     label: 'Obiad',     short: 'Obiad',  emoji: '☀️' },
+  { id: 'dinner',    label: 'Kolacja',   short: 'Kolacja', emoji: '🌙' },
+  { id: 'snack',     label: 'Przekąska', short: 'Przek.', emoji: '🍎' },
 ] as const;
 
-const COMMON_FOODS = [
-  { name: 'Jajko', calories: 78, protein: 6, carbs: 0.6, fat: 5, unit: 'szt' },
-  { name: 'Chleb pszenny', calories: 265, protein: 9, carbs: 49, fat: 3.2, unit: '100g' },
-  { name: 'Mleko 2%', calories: 50, protein: 3.4, carbs: 4.8, fat: 2, unit: '100ml' },
-  { name: 'Pierś z kurczaka', calories: 165, protein: 31, carbs: 0, fat: 3.6, unit: '100g' },
-  { name: 'Ryż biały', calories: 130, protein: 2.7, carbs: 28, fat: 0.3, unit: '100g' },
-  { name: 'Makaron', calories: 131, protein: 5, carbs: 25, fat: 1.1, unit: '100g' },
-  { name: 'Ziemniaki', calories: 77, protein: 2, carbs: 17, fat: 0.1, unit: '100g' },
-  { name: 'Banan', calories: 89, protein: 1.1, carbs: 23, fat: 0.3, unit: 'szt' },
-  { name: 'Jabłko', calories: 52, protein: 0.3, carbs: 14, fat: 0.2, unit: 'szt' },
-  { name: 'Ser żółty', calories: 400, protein: 25, carbs: 1.3, fat: 33, unit: '100g' },
-  { name: 'Jogurt naturalny', calories: 61, protein: 3.5, carbs: 4.7, fat: 3.3, unit: '100g' },
-  { name: 'Masło', calories: 717, protein: 0.9, carbs: 0.1, fat: 81, unit: '100g' },
-  { name: 'Oliwa z oliwek', calories: 884, protein: 0, carbs: 0, fat: 100, unit: '100ml' },
-  { name: 'Łosoś', calories: 208, protein: 20, carbs: 0, fat: 13, unit: '100g' },
-  { name: 'Twaróg', calories: 98, protein: 11, carbs: 3.4, fat: 4.3, unit: '100g' },
-];
 
 const DAY_NAMES = ['Nd', 'Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So'];
 const DAY_NAMES_FULL = ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'];
 
+const CLEANUP_OPTIONS = [
+  { days: 7,  label: '7 dni' },
+  { days: 14, label: '14 dni' },
+  { days: 30, label: '30 dni' },
+  { days: 90, label: '90 dni' },
+] as const;
+
 function HistoryTab() {
-  const { foodDiary, dailyGoal } = useAppStore();
+  const { foodDiary, dailyGoal, removeOldFoodEntries } = useAppStore();
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [showCleanup, setShowCleanup] = useState(false);
+  const [cleanupDays, setCleanupDays] = useState<number>(7);
+
+  const handleCleanup = () => {
+    const removed = removeOldFoodEntries(cleanupDays);
+    setShowCleanup(false);
+    if (removed > 0) {
+      toast.success(`Usunięto ${removed} ${removed === 1 ? 'wpis' : removed < 5 ? 'wpisy' : 'wpisów'} starszych niż ${cleanupDays} dni`);
+    } else {
+      toast('Brak wpisów starszych niż ' + cleanupDays + ' dni', { icon: 'ℹ️' });
+    }
+  };
 
   const today = new Date();
 
   const last30 = Array.from({ length: 30 }, (_, i) => {
     const d = new Date(today);
     d.setDate(today.getDate() - (29 - i));
-    return d.toISOString().split('T')[0];
+    return toLocalISO(d);
   });
 
   const last7 = last30.slice(-7);
@@ -85,6 +94,45 @@ function HistoryTab() {
         </div>
       </div>
 
+      {/* Cleanup old entries */}
+      <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+        <button
+          onClick={() => setShowCleanup((v) => !v)}
+          className="w-full flex items-center justify-between px-4 py-3 active:scale-[0.99] transition-all"
+        >
+          <span className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+            <Trash2 size={16} className="text-red-400" />
+            Usuń stare wpisy z dziennika
+          </span>
+          <span className="text-xs text-gray-400">{showCleanup ? 'zwiń' : 'pokaż'}</span>
+        </button>
+        {showCleanup && (
+          <div className="px-4 pb-4 border-t border-gray-50 pt-3">
+            <p className="text-xs text-gray-400 mb-2.5">Usuń wpisy starsze niż:</p>
+            <div className="grid grid-cols-4 gap-2 mb-3">
+              {CLEANUP_OPTIONS.map(({ days, label }) => (
+                <button
+                  key={days}
+                  onClick={() => setCleanupDays(days)}
+                  className={`py-2 rounded-xl text-xs font-semibold transition-all ${
+                    cleanupDays === days ? 'bg-red-500 text-white' : 'bg-gray-100 text-gray-600'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={handleCleanup}
+              className="w-full bg-red-50 text-red-600 py-2.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 active:scale-95 transition-all hover:bg-red-100"
+            >
+              <Trash2 size={15} /> Usuń wpisy starsze niż {cleanupDays} dni
+            </button>
+            <p className="text-[11px] text-gray-400 mt-2 text-center">Tej operacji nie można cofnąć</p>
+          </div>
+        )}
+      </div>
+
       {/* 7-day bar chart */}
       <div className="bg-white rounded-3xl p-4 shadow-sm">
         <div className="flex items-center justify-between mb-4">
@@ -99,7 +147,7 @@ function HistoryTab() {
           {last7.map((date) => {
             const cal = caloriesByDate[date] || 0;
             const barHeight = cal > 0 ? Math.max((cal / maxCal) * 100, 6) : 0;
-            const isToday = date === today.toISOString().split('T')[0];
+            const isToday = date === toLocalISO(today);
             const isSelected = date === selectedDate;
             const overGoal = cal > dailyGoal;
             const onTarget = cal >= dailyGoal * 0.8 && cal <= dailyGoal * 1.2;
@@ -191,7 +239,7 @@ function HistoryTab() {
         <div className="grid grid-cols-10 gap-1">
           {last30.map((date) => {
             const cal = caloriesByDate[date] || 0;
-            const isToday = date === today.toISOString().split('T')[0];
+            const isToday = date === toLocalISO(today);
             const overGoal = cal > dailyGoal;
             const onTarget = cal >= dailyGoal * 0.8 && cal <= dailyGoal * 1.2;
 
@@ -217,36 +265,193 @@ function HistoryTab() {
 }
 
 export default function CaloriesView() {
-  const { foodDiary, addFoodEntry, removeFoodEntry, dailyGoal, setDailyGoal, proteinGoal, carbsGoal, fatGoal } = useAppStore();
-  const [mainTab, setMainTab] = useState<'today' | 'history'>('today');
+  const { foodDiary, recentProducts, myProducts, addMyProduct, addFoodEntry, removeFoodEntry, dailyGoal, setDailyGoal,
+          proteinGoal, carbsGoal, fatGoal, activityLog } = useAppStore();
+  const [mainTab, setMainTab] = useState<'today' | 'history' | 'stats'>('today');
   const [showAdd, setShowAdd] = useState(false);
+  const [showPhotoScanner, setShowPhotoScanner] = useState(false);
+  const [showBarcodeScanner, setShowBarcodeScanner] = useState(false);
   const [showGoalEdit, setShowGoalEdit] = useState(false);
   const [tempGoal, setTempGoal] = useState(dailyGoal);
   const [foodSearch, setFoodSearch] = useState('');
   const [selectedMealType, setSelectedMealType] = useState<FoodEntry['mealType']>('breakfast');
   const [amount, setAmount] = useState(100);
-  const [selectedFood, setSelectedFood] = useState<typeof COMMON_FOODS[0] | null>(null);
+  const [selectedFood, setSelectedFood] = useState<FoodItem | null>(null);
+  // Dla produktów „na szt." pozwala przełączyć wpisywanie na gramy.
+  const [entryUnit, setEntryUnit] = useState<'szt' | 'g'>('szt');
   const [customFood, setCustomFood] = useState({ name: '', calories: 0, protein: 0, carbs: 0, fat: 0 });
   const [isCustom, setIsCustom] = useState(false);
+  const [saveCustom, setSaveCustom] = useState(true);
+  const [customBarcode, setCustomBarcode] = useState<string | null>(null);
+  const [showCustomScanner, setShowCustomScanner] = useState(false);
+  const [offResults, setOffResults] = useState<FoodItem[]>([]);
+  const [offLoading, setOffLoading] = useState(false);
+  const searchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const today = new Date().toISOString().split('T')[0];
+  const today = todayISO();
   const todayEntries = foodDiary.filter((e) => e.date === today);
   const todayCalories = todayEntries.reduce((s, e) => s + e.calories, 0);
   const todayProtein = todayEntries.reduce((s, e) => s + e.protein, 0);
   const todayCarbs = todayEntries.reduce((s, e) => s + e.carbs, 0);
   const todayFat = todayEntries.reduce((s, e) => s + e.fat, 0);
 
+  const todayBurned = activityLog
+    .filter((e) => e.date === today)
+    .reduce((s, e) => s + e.caloriesBurned, 0);
+  const netCalories = Math.max(0, todayCalories - todayBurned);
+
   const progress = Math.min((todayCalories / dailyGoal) * 100, 100);
 
-  const filteredFoods = COMMON_FOODS.filter((f) =>
-    f.name.toLowerCase().includes(foodSearch.toLowerCase())
-  );
+  const isSzt = selectedFood?.unit === 'szt';
+  const gramsPerPiece = selectedFood?.gramsPerPiece;
+  const canSwitchUnit = isSzt && !!gramsPerPiece; // można przełączać szt ⇄ g
+  const inGrams = isSzt && entryUnit === 'g' && !!gramsPerPiece;
+
+  // Mnożnik makroskładników względem wartości bazowej produktu.
+  const macroFactor = !selectedFood
+    ? 0
+    : isSzt
+      ? (inGrams ? amount / (gramsPerPiece || 1) : amount) // g: ułamek sztuki • szt: liczba sztuk
+      : amount / 100;
+  const calcCalories = selectedFood ? Math.round(selectedFood.calories * macroFactor) : 0;
+
+  const foodQ = normalizeText(foodSearch);
+  // Własne produkty użytkownika — pokazywane jako pierwsze.
+  const filteredMine: FoodItem[] = myProducts
+    .filter((p) => matchesQuery(p, foodSearch))
+    .map((p) => ({
+      name: p.name, calories: p.calories, protein: p.protein, carbs: p.carbs, fat: p.fat,
+      unit: p.unit, gramsPerPiece: p.gramsPerPiece,
+    }));
+  const filteredFoods = COMMON_FOODS.filter((f) => matchesQuery(f, foodSearch));
+
+  const filteredDishes: FoodItem[] = foodSearch.length >= 2
+    ? POLISH_DISHES
+        .filter((d) => matchesQuery(d, foodSearch))
+        .map((d) => ({ ...d }))
+    : [];
+
+  const searchOFF = useCallback(async (q: string) => {
+    if (q.length < 3) { setOffResults([]); return; }
+    setOffLoading(true);
+    try {
+      // Sortujemy po popularności (najczęściej skanowane) i bierzemy więcej wyników,
+      // żeby znane produkty pojawiały się na górze.
+      const res = await fetch(
+        `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(q)}&search_simple=1&action=process&json=1&sort_by=unique_scans_n&page_size=40&fields=product_name,product_name_pl,brands,nutriments`
+      );
+      const data = await res.json();
+      const items: FoodItem[] = (data.products || [])
+        .map((p: Record<string, unknown>) => {
+          const n = (p.nutriments as Record<string, number>) || {};
+          const brand = ((p.brands as string) || '').split(',')[0].trim();
+          const base = ((p.product_name_pl as string) || (p.product_name as string) || '').trim();
+          const name = base && brand && !base.toLowerCase().includes(brand.toLowerCase())
+            ? `${base} (${brand})` : base;
+          return {
+            name,
+            calories: Math.round(n['energy-kcal_100g'] ?? (n.energy_100g ?? 0) / 4.184),
+            protein: Math.round((n.proteins_100g ?? 0) * 10) / 10,
+            carbs: Math.round((n.carbohydrates_100g ?? 0) * 10) / 10,
+            fat: Math.round((n.fat_100g ?? 0) * 10) / 10,
+            unit: '100g',
+          };
+        })
+        .filter((f: FoodItem) => f.name && f.calories > 0);
+      // Usuń duplikaty nazw
+      const seen = new Set<string>();
+      const unique = items.filter((f) => {
+        const k = f.name.toLowerCase();
+        if (seen.has(k)) return false;
+        seen.add(k);
+        return true;
+      });
+      setOffResults(unique.slice(0, 25));
+    } catch {
+      setOffResults([]);
+    } finally {
+      setOffLoading(false);
+    }
+  }, []);
+
+  const handleSearchChange = (val: string) => {
+    setFoodSearch(val);
+    setSelectedFood(null);
+    if (searchTimer.current) clearTimeout(searchTimer.current);
+    searchTimer.current = setTimeout(() => searchOFF(val), 600);
+  };
+
+  const allFoods: FoodItem[] = foodSearch.length >= 2
+    ? [
+        ...filteredMine,
+        ...filteredDishes,
+        ...filteredFoods.filter(f => !filteredDishes.find(d => d.name === f.name) && !filteredMine.find(m => m.name === f.name)),
+        ...(foodSearch.length >= 3 ? offResults.filter(o => !filteredFoods.find(f => f.name === o.name) && !filteredDishes.find(d => d.name === o.name)) : []),
+      ]
+    : [...filteredMine, ...filteredFoods];
+
+  // „Ostatnio dodane" — trwała pamięć produktów ze store (nie znika po czyszczeniu
+  // dziennika ani po wielu tygodniach). Filtrowana wg wpisywanego tekstu.
+  const recentFoods = useMemo(() => {
+    if (!foodQ) return recentProducts;
+    return recentProducts.filter((p) => matchesQuery(p, foodSearch));
+  }, [recentProducts, foodQ]);
+
+  // Kliknięcie pozycji z historii → wybiera produkt z normalnym edytorem ilości.
+  // Jeśli produkt jest w bazie, bierzemy jego dane (pełne makro); w innym wypadku
+  // odtwarzamy wartości „na jednostkę" z zapisanego wpisu.
+  const selectRecent = (e: { name: string; amount: number; unit: string; calories: number; protein: number; carbs: number; fat: number }) => {
+    setIsCustom(false);
+    setFoodSearch('');
+    setEntryUnit('szt');
+    const known =
+      COMMON_FOODS.find((f) => f.name === e.name) ||
+      POLISH_DISHES.find((d) => d.name === e.name);
+    if (known) {
+      setSelectedFood({ ...known });
+      // Jeśli ostatnio dodano ten produkt w gramach — od razu wróć do trybu gramów.
+      const knownGpp = (known as FoodItem).gramsPerPiece;
+      if (known.unit === 'szt' && e.unit === 'g' && knownGpp) {
+        setEntryUnit('g');
+        setAmount(e.amount > 0 ? e.amount : knownGpp);
+      } else {
+        setAmount(e.amount > 0 ? e.amount : known.portionG ?? (known.unit === 'szt' ? 1 : 100));
+      }
+      return;
+    }
+    const isPieces = e.unit === 'szt';
+    const isVolume = e.unit === 'ml' || e.unit === '100ml';
+    const unit = isPieces ? 'szt' : isVolume ? '100ml' : '100g';
+    const factor = isPieces ? (e.amount || 1) : (e.amount || 100) / 100;
+    const per = (v: number) => (factor > 0 ? Math.round((v / factor) * 10) / 10 : v);
+    setSelectedFood({
+      name: e.name,
+      calories: factor > 0 ? Math.round(e.calories / factor) : e.calories,
+      protein: per(e.protein),
+      carbs: per(e.carbs),
+      fat: per(e.fat),
+      unit,
+    });
+    setAmount(isPieces ? (e.amount || 1) : (e.amount || 100));
+  };
 
   const handleAddEntry = () => {
     if (isCustom) {
       if (!customFood.name.trim() || customFood.calories <= 0) {
         toast.error('Podaj nazwę i kalorie');
         return;
+      }
+      // Zapamiętaj produkt na stałe (opcjonalnie z zeskanowanym kodem).
+      if (saveCustom) {
+        addMyProduct({
+          name: customFood.name.trim(),
+          calories: customFood.calories,
+          protein: customFood.protein,
+          carbs: customFood.carbs,
+          fat: customFood.fat,
+          unit: '100g',
+          barcode: customBarcode || undefined,
+        });
       }
       addFoodEntry({
         id: `entry-${Date.now()}`,
@@ -260,9 +465,10 @@ export default function CaloriesView() {
         date: today,
         mealType: selectedMealType,
       });
+      setCustomBarcode(null);
     } else {
       if (!selectedFood) { toast.error('Wybierz produkt'); return; }
-      const multiplier = amount / 100;
+      const multiplier = macroFactor;
       addFoodEntry({
         id: `entry-${Date.now()}`,
         name: selectedFood.name,
@@ -271,7 +477,7 @@ export default function CaloriesView() {
         carbs: Math.round(selectedFood.carbs * multiplier * 10) / 10,
         fat: Math.round(selectedFood.fat * multiplier * 10) / 10,
         amount,
-        unit: selectedFood.unit,
+        unit: inGrams ? 'g' : selectedFood.unit,
         date: today,
         mealType: selectedMealType,
       });
@@ -280,7 +486,9 @@ export default function CaloriesView() {
     setShowAdd(false);
     setSelectedFood(null);
     setAmount(100);
+    setEntryUnit('szt');
     setFoodSearch('');
+    setOffResults([]);
     setCustomFood({ name: '', calories: 0, protein: 0, carbs: 0, fat: 0 });
   };
 
@@ -290,7 +498,7 @@ export default function CaloriesView() {
   }));
 
   return (
-    <div className="pb-20 min-h-screen bg-gray-50">
+    <div className="pb-20 min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
       <div className="bg-gradient-to-br from-red-500 to-orange-500 text-white px-4 pt-12 pb-6">
         <div className="flex items-center justify-between mb-4">
@@ -349,39 +557,71 @@ export default function CaloriesView() {
           <span>Pozostało: <b>{Math.max(dailyGoal - todayCalories, 0)} kcal</b></span>
           <span>{Math.round(progress)}% celu</span>
         </div>
+        {todayBurned > 0 && (
+          <div className="mt-2 bg-white/10 rounded-xl p-2 flex justify-between text-xs text-white/90">
+            <span>🏃 Spalone: <b>{todayBurned} kcal</b></span>
+            <span>Netto: <b>{netCalories} kcal</b></span>
+          </div>
+        )}
       </div>
 
       {/* Main tab switcher */}
       <div className="px-4 mt-4">
-        <div className="flex gap-2 bg-gray-200 rounded-2xl p-1 mb-4">
+        <div className="flex gap-1.5 bg-gray-200 rounded-2xl p-1 mb-4">
           <button
             onClick={() => setMainTab('today')}
-            className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+            className={`flex-1 flex items-center justify-center gap-1 py-2.5 rounded-xl text-xs font-semibold transition-all ${
               mainTab === 'today' ? 'bg-white shadow text-gray-800' : 'text-gray-500'
             }`}
           >
-            <Flame size={15} /> Dzisiaj
+            <Flame size={13} /> Dzisiaj
           </button>
           <button
             onClick={() => setMainTab('history')}
-            className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+            className={`flex-1 flex items-center justify-center gap-1 py-2.5 rounded-xl text-xs font-semibold transition-all ${
               mainTab === 'history' ? 'bg-white shadow text-gray-800' : 'text-gray-500'
             }`}
           >
-            <TrendingUp size={15} /> Historia
+            <TrendingUp size={13} /> Historia
+          </button>
+          <button
+            onClick={() => setMainTab('stats')}
+            className={`flex-1 flex items-center justify-center gap-1 py-2.5 rounded-xl text-xs font-semibold transition-all ${
+              mainTab === 'stats' ? 'bg-white shadow text-gray-800' : 'text-gray-500'
+            }`}
+          >
+            <BarChart3 size={13} /> Wykresy
           </button>
         </div>
 
-        {mainTab === 'history' ? (
+        {mainTab === 'stats' ? (
+          <CalorieStatsTab />
+        ) : mainTab === 'history' ? (
           <HistoryTab />
         ) : (
           <>
-            <button
-              onClick={() => setShowAdd(true)}
-              className="w-full bg-orange-500 text-white py-3.5 rounded-2xl font-semibold flex items-center justify-center gap-2 shadow-lg shadow-orange-200 active:scale-95 transition-all mb-4 hover:bg-orange-600"
-            >
-              <Plus size={20} /> Dodaj posiłek
-            </button>
+            <div className="flex gap-2 mb-4">
+              <button
+                onClick={() => setShowAdd(true)}
+                className="flex-1 bg-orange-500 text-white py-3.5 rounded-2xl font-semibold flex items-center justify-center gap-2 shadow-lg shadow-orange-200 active:scale-95 transition-all hover:bg-orange-600"
+              >
+                <Plus size={20} /> Dodaj posiłek
+              </button>
+              <button
+                onClick={() => setShowPhotoScanner(true)}
+                className="bg-orange-100 text-orange-600 px-4 rounded-2xl flex items-center justify-center gap-1.5 font-semibold active:scale-95 transition-all hover:bg-orange-200"
+                title="Dodaj przez zdjęcie"
+              >
+                <Camera size={20} />
+              </button>
+              <button
+                onClick={() => setShowBarcodeScanner(true)}
+                className="bg-purple-100 text-purple-600 px-4 rounded-2xl flex items-center justify-center gap-1.5 font-semibold active:scale-95 transition-all hover:bg-purple-200"
+                title="Skanuj kod kreskowy"
+              >
+                <Barcode size={20} />
+              </button>
+            </div>
 
             {groupedEntries.map((group) => (
               <div key={group.id} className="mb-4">
@@ -425,7 +665,7 @@ export default function CaloriesView() {
 
       {/* Goal edit modal */}
       {showGoalEdit && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-end justify-center">
+        <div className="fixed inset-0 bg-black/50 z-[60] flex items-end justify-center">
           <div className="bg-white rounded-t-3xl w-full max-w-lg p-6">
             <h3 className="font-bold text-gray-800 text-lg mb-4">Ustaw dzienny cel kalorii</h3>
             <input
@@ -460,23 +700,26 @@ export default function CaloriesView() {
 
       {/* Add food modal */}
       {showAdd && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-end justify-center">
-          <div className="bg-white rounded-t-3xl w-full max-w-lg max-h-[85vh] flex flex-col">
+        <div className="fixed inset-0 bg-black/50 z-[60] flex items-end justify-center pb-16">
+          <div className="bg-white rounded-t-3xl w-full max-w-lg max-h-[82vh] flex flex-col">
             <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100">
               <h3 className="font-bold text-gray-800 text-lg">Dodaj posiłek</h3>
               <button onClick={() => setShowAdd(false)}><X size={22} className="text-gray-400" /></button>
             </div>
-            <div className="overflow-y-auto flex-1 px-5 pb-5 pt-3">
-              <div className="flex gap-2 mb-4 overflow-x-auto pb-1">
+            <div className="overflow-y-auto flex-1 px-5 pb-2 pt-3">
+              <div className="grid grid-cols-4 gap-1.5 mb-4">
                 {MEAL_TYPES.map((mt) => (
                   <button
                     key={mt.id}
                     onClick={() => setSelectedMealType(mt.id)}
-                    className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                      selectedMealType === mt.id ? 'bg-orange-500 text-white' : 'bg-gray-100 text-gray-600'
+                    className={`flex flex-col items-center py-2 px-1 rounded-xl text-[11px] font-semibold transition-all active:scale-95 ${
+                      selectedMealType === mt.id
+                        ? 'bg-orange-500 text-white shadow-sm shadow-orange-200'
+                        : 'bg-gray-100 text-gray-600'
                     }`}
                   >
-                    {mt.emoji} {mt.label}
+                    <span className="text-lg leading-tight">{mt.emoji}</span>
+                    <span className="mt-0.5 leading-tight">{mt.short}</span>
                   </button>
                 ))}
               </div>
@@ -487,36 +730,139 @@ export default function CaloriesView() {
 
               {!isCustom ? (
                 <>
-                  <div className="relative mb-3">
+                  <div className="relative mb-2">
                     <Search size={16} className="absolute left-3 top-3 text-gray-400" />
                     <input
                       type="text"
                       value={foodSearch}
-                      onChange={(e) => setFoodSearch(e.target.value)}
-                      placeholder="Szukaj produktu..."
-                      className="w-full bg-gray-100 rounded-xl pl-9 pr-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-orange-400"
+                      onChange={(e) => handleSearchChange(e.target.value)}
+                      placeholder="np. jajecznica, kotlet, pierogi..."
+                      className="w-full bg-gray-100 rounded-xl pl-9 pr-9 py-2.5 text-sm outline-none focus:ring-2 focus:ring-orange-400"
                     />
+                    {offLoading && <Loader size={14} className="absolute right-3 top-3 text-orange-400 animate-spin" />}
                   </div>
-                  <div className="space-y-2 mb-4 max-h-52 overflow-y-auto">
-                    {filteredFoods.map((food) => (
-                      <button
-                        key={food.name}
-                        onClick={() => setSelectedFood(food)}
-                        className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition-all ${
-                          selectedFood?.name === food.name ? 'bg-orange-50 border border-orange-300' : 'bg-gray-50 hover:bg-gray-100'
-                        }`}
-                      >
-                        <div>
-                          <p className="font-medium text-sm text-gray-800">{food.name}</p>
-                          <p className="text-xs text-gray-400">B:{food.protein}g · W:{food.carbs}g · T:{food.fat}g</p>
-                        </div>
-                        <span className="text-orange-500 font-bold text-sm">{food.calories} kcal/{food.unit}</span>
-                      </button>
-                    ))}
-                  </div>
+
+                  {/* Ostatnio dodane — szybki wybór bez wyszukiwania (chowamy po wybraniu produktu) */}
+                  {!selectedFood && foodSearch.length < 2 && recentFoods.length > 0 && (
+                    <div className="mb-3">
+                      <p className="text-xs text-gray-400 mb-1.5 flex items-center gap-1">
+                        <Clock size={11} /> Ostatnio dodane
+                      </p>
+                      <div className="space-y-1.5 max-h-60 overflow-y-auto">
+                        {recentFoods.map((e) => (
+                          <button
+                            key={e.name}
+                            onClick={() => selectRecent(e)}
+                            className="w-full flex items-center justify-between p-2.5 rounded-xl text-left transition-all bg-gray-50 hover:bg-gray-100"
+                          >
+                            <div className="flex-1 min-w-0 pr-2">
+                              <p className="font-medium text-sm text-gray-800 leading-tight truncate">{e.name}</p>
+                              <p className="text-[11px] text-gray-400 mt-0.5">
+                                ostatnio: {e.amount}
+                                {e.unit === 'szt' ? ' szt'
+                                  : e.unit === '100ml' || e.unit === 'ml' ? ' ml'
+                                  : e.unit === '100g' || e.unit === 'g' ? ' g'
+                                  : ` ${e.unit}`}
+                                {' · '}{e.calories} kcal
+                              </p>
+                            </div>
+                            <span className="text-orange-400 text-lg font-bold flex-shrink-0 leading-none">+</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Lista wyników — tylko podczas wyszukiwania i gdy nic nie wybrano */}
+                  {!selectedFood && foodSearch.length >= 2 && (
+                    <>
+                      <p className="text-xs text-gray-400 mb-2 flex items-center gap-1">
+                        <ChefHat size={11} /> {allFoods.length} wyników (polskie dania + składniki{foodSearch.length >= 3 ? ' + OpenFoodFacts' : ''})
+                      </p>
+                      <div className="space-y-2 mb-3 max-h-60 overflow-y-auto">
+                        {allFoods.map((food, idx) => {
+                          const isDish = !!food.description;
+                          return (
+                            <button
+                              key={`${food.name}-${idx}`}
+                              onClick={() => {
+                                setSelectedFood(food);
+                                setEntryUnit('szt');
+                                setAmount(food.portionG ?? (food.unit === 'szt' ? 1 : 100));
+                              }}
+                              className="w-full flex items-start justify-between p-3 rounded-xl text-left transition-all bg-gray-50 hover:bg-gray-100"
+                            >
+                              <div className="flex-1 min-w-0 pr-2">
+                                <div className="flex items-center gap-1.5">
+                                  {isDish && <ChefHat size={12} className="text-orange-400 flex-shrink-0" />}
+                                  <p className="font-medium text-sm text-gray-800 leading-tight">{food.name}</p>
+                                </div>
+                                <p className="text-xs text-gray-400 mt-0.5">B:{food.protein}g · W:{food.carbs}g · T:{food.fat}g</p>
+                                {isDish && food.portionG && (
+                                  <p className="text-[11px] text-orange-500 mt-0.5">🍽 porcja ~{food.portionG}g</p>
+                                )}
+                              </div>
+                              <span className="text-orange-500 font-bold text-sm flex-shrink-0">{food.calories} kcal/{food.unit === 'szt' ? 'szt' : food.unit === '100ml' ? '100ml' : '100g'}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </>
+                  )}
                   {selectedFood && (
-                    <div className="mb-4">
-                      <label className="text-xs text-gray-500 font-medium mb-1 block">Ilość ({selectedFood.unit})</label>
+                    <div className="mb-3">
+                      {/* Wybrany produkt + powrót do listy */}
+                      <div className="flex items-center justify-between mb-2">
+                        <p className="font-semibold text-gray-800 text-sm truncate pr-2">{selectedFood.name}</p>
+                        <button
+                          type="button"
+                          onClick={() => { setSelectedFood(null); }}
+                          className="text-xs text-orange-500 font-semibold flex-shrink-0 flex items-center gap-1"
+                        >
+                          <X size={13} /> Zmień produkt
+                        </button>
+                      </div>
+                      {selectedFood.description && (
+                        <div className="bg-orange-50 border border-orange-100 rounded-xl p-3 mb-3 text-xs text-gray-600 leading-relaxed">
+                          <p className="font-semibold text-orange-600 mb-1 flex items-center gap-1"><ChefHat size={12} /> Składniki / opis</p>
+                          {selectedFood.description}
+                        </div>
+                      )}
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="text-xs text-gray-500 font-medium">
+                          {inGrams ? 'Ilość (g)' : isSzt ? 'Ilość (szt)' : `Ilość (${selectedFood.unit === '100g' ? 'g' : 'ml'})`}
+                          {selectedFood.portionG && !isSzt && (
+                            <button
+                              type="button"
+                              onClick={() => setAmount(selectedFood.portionG!)}
+                              className="ml-2 text-orange-500 underline text-[11px]"
+                            >
+                              ustaw porcję ({selectedFood.portionG}g)
+                            </button>
+                          )}
+                        </label>
+                        {canSwitchUnit && (
+                          <div className="flex rounded-lg overflow-hidden border border-gray-200">
+                            <button
+                              type="button"
+                              onClick={() => { setEntryUnit('szt'); setAmount(1); }}
+                              className={`px-3 py-1 text-xs font-semibold transition-colors ${!inGrams ? 'bg-orange-500 text-white' : 'bg-white text-gray-500'}`}
+                            >
+                              szt
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => { setEntryUnit('g'); setAmount(gramsPerPiece!); }}
+                              className={`px-3 py-1 text-xs font-semibold transition-colors ${inGrams ? 'bg-orange-500 text-white' : 'bg-white text-gray-500'}`}
+                            >
+                              gramy
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                      {canSwitchUnit && (
+                        <p className="text-[11px] text-gray-400 mb-1">1 szt ≈ {gramsPerPiece} g</p>
+                      )}
                       <input
                         type="number"
                         value={amount}
@@ -524,7 +870,7 @@ export default function CaloriesView() {
                         className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-center text-lg font-bold outline-none focus:ring-2 focus:ring-orange-400"
                       />
                       <p className="text-center text-orange-500 font-bold mt-1">
-                        = {Math.round(selectedFood.calories * amount / 100)} kcal
+                        = {calcCalories} kcal
                       </p>
                     </div>
                   )}
@@ -556,18 +902,72 @@ export default function CaloriesView() {
                       </div>
                     ))}
                   </div>
+
+                  {/* Zapamiętanie produktu + kod kreskowy */}
+                  <div className="bg-gray-50 rounded-xl p-3 space-y-2">
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={saveCustom}
+                        onChange={(e) => setSaveCustom(e.target.checked)}
+                        className="w-4 h-4 accent-orange-500"
+                      />
+                      <span className="text-sm text-gray-700 font-medium">Zapamiętaj ten produkt</span>
+                    </label>
+                    <p className="text-[11px] text-gray-400">
+                      Trafi do Twojej bazy — znajdziesz go potem przez wyszukiwarkę.
+                    </p>
+                    {saveCustom && (
+                      customBarcode ? (
+                        <div className="flex items-center justify-between bg-white rounded-lg px-3 py-2">
+                          <span className="text-xs text-gray-600">Kod: <strong>{customBarcode}</strong></span>
+                          <button onClick={() => setCustomBarcode(null)} className="text-xs text-red-400 font-semibold">usuń</button>
+                        </div>
+                      ) : (
+                        <button
+                          onClick={() => setShowCustomScanner(true)}
+                          className="w-full flex items-center justify-center gap-2 bg-purple-100 text-purple-700 py-2 rounded-lg text-xs font-semibold active:scale-95 transition-all"
+                        >
+                          <Barcode size={14} /> Przypisz kod kreskowy (opcjonalnie)
+                        </button>
+                      )
+                    )}
+                  </div>
                 </div>
               )}
 
+            </div>
+            {/* Przycisk zawsze widoczny na dole — poza scrollem */}
+            <div className="px-5 pb-5 pt-3 border-t border-gray-100">
               <button
                 onClick={handleAddEntry}
-                className="w-full bg-orange-500 text-white py-3.5 rounded-2xl font-semibold active:scale-95 transition-all"
+                className="w-full bg-orange-500 text-white py-3.5 rounded-2xl font-semibold active:scale-95 transition-all shadow-lg shadow-orange-200"
               >
                 + Dodaj do dziennika
               </button>
             </div>
           </div>
         </div>
+      )}
+
+      {/* Photo calorie scanner */}
+      {showPhotoScanner && <PhotoCalorieScanner onClose={() => setShowPhotoScanner(false)} />}
+      {showBarcodeScanner && <BarcodeScanner onClose={() => setShowBarcodeScanner(false)} />}
+      {showCustomScanner && (
+        <BarcodeScanSheet
+          onPick={(p) => {
+            setCustomBarcode(p.barcode);
+            setCustomFood((c) => ({
+              name: c.name || p.name,
+              calories: c.calories || p.calories,
+              protein: c.protein || p.protein,
+              carbs: c.carbs || p.carbs,
+              fat: c.fat || p.fat,
+            }));
+            setShowCustomScanner(false);
+          }}
+          onClose={() => setShowCustomScanner(false)}
+        />
       )}
     </div>
   );

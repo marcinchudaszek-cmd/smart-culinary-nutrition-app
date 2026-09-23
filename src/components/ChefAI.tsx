@@ -1,6 +1,9 @@
-import { useState, useRef, useCallback } from 'react';
-import { Camera, Upload, X, Loader, Plus, Search, Settings, Clock, ChefHat, Trash2 } from 'lucide-react';
-import { useAppStore } from '../store/useAppStore';
+import { useState, useCallback } from 'react';
+import { Camera, Upload, X, Loader, Plus, Search, Clock, ChefHat, Trash2, BookOpen } from 'lucide-react';
+import { Camera as CapCamera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { useAppStore, activeAI } from '../store/useAppStore';
+import { callAI, parseAiJson, type AiProvider } from '../lib/aiProvider';
+import { POLISH_RECIPES } from '../data/polishRecipes';
 import toast from 'react-hot-toast';
 
 interface MealSuggestion {
@@ -24,12 +27,13 @@ const DIFFICULTY_COLOR: Record<string, string> = {
   trudne: 'bg-red-100 text-red-700',
 };
 
-async function askGeminiChef(
+async function askChefAI(
+  provider: AiProvider,
   apiKey: string,
+  model: string,
   mode: 'fridge' | 'text',
   ingredients?: string[],
-  base64?: string,
-  mimeType?: string,
+  imageDataUrl?: string,
 ): Promise<ChefResult> {
   const fridgePrompt = `Jesteś kulinarnym asystentem. Przeanalizuj zawartość lodówki/spiżarni na tym zdjęciu.
 Odpowiedz WYŁĄCZNIE obiektem JSON (bez dodatkowego tekstu):
@@ -67,74 +71,70 @@ Odpowiedz WYŁĄCZNIE obiektem JSON (bez dodatkowego tekstu):
 }
 Możesz zakładać że są dostępne: olej, sól, pieprz, cukier, mąka.`;
 
-  const parts: object[] = [{ text: mode === 'fridge' ? fridgePrompt : textPrompt }];
-  if (mode === 'fridge' && base64 && mimeType) {
-    parts.push({ inline_data: { mime_type: mimeType, data: base64.split(',')[1] } });
-  }
+  const text = await callAI(provider, apiKey, model, {
+    text: mode === 'fridge' ? fridgePrompt : textPrompt,
+    imageDataUrl: mode === 'fridge' ? imageDataUrl : undefined,
+  });
 
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts }],
-        generationConfig: { temperature: 0.4 },
-      }),
-    }
-  );
-
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error((err as { error?: { message?: string } })?.error?.message || `HTTP ${res.status}`);
-  }
-
-  const data = await res.json();
-  const text: string = data.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
-  const match = text.match(/\{[\s\S]*\}/);
-  if (!match) throw new Error('Nieprawidłowa odpowiedź AI');
-  return JSON.parse(match[0]) as ChefResult;
+  return parseAiJson<ChefResult>(text);
 }
+
+const GROQ_TEXT_ONLY_MODELS = new Set([
+  'llama-3.3-70b-versatile',
+  'llama-3.1-8b-instant',
+]);
 
 // ---------- Fridge Scanner ----------
 function FridgeScanner() {
-  const { geminiApiKey, setActiveView } = useAppStore();
-  const fileRef = useRef<HTMLInputElement>(null);
-  const cameraRef = useRef<HTMLInputElement>(null);
+  const store = useAppStore();
+  const { aiProvider, groqModel, setActiveView } = store;
+  const { apiKey: activeKey, model: activeModel } = activeAI(store);
+  const visionBlocked = aiProvider === 'groq' && GROQ_TEXT_ONLY_MODELS.has(groqModel);
   const [image, setImage] = useState<string | null>(null);
-  const [mimeType, setMimeType] = useState('image/jpeg');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ChefResult | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleImage = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setMimeType(file.type || 'image/jpeg');
-    const reader = new FileReader();
-    reader.onload = () => { setImage(reader.result as string); setResult(null); };
-    reader.readAsDataURL(file);
+  const applyImage = useCallback((dataUrl: string) => {
+    setImage(dataUrl);
+    setResult(null);
   }, []);
 
-  const analyze = async () => {
-    if (!image || !geminiApiKey) return;
-    setLoading(true);
+  const openCamera = useCallback(async () => {
     try {
-      const data = await askGeminiChef(geminiApiKey, 'fridge', [], image, mimeType);
+      const photo = await CapCamera.getPhoto({ source: CameraSource.Camera, resultType: CameraResultType.DataUrl, quality: 85 });
+      if (photo.dataUrl) applyImage(photo.dataUrl);
+    } catch { /* cancelled */ }
+  }, [applyImage]);
+
+  const openGallery = useCallback(async () => {
+    try {
+      const photo = await CapCamera.getPhoto({ source: CameraSource.Photos, resultType: CameraResultType.DataUrl, quality: 85 });
+      if (photo.dataUrl) applyImage(photo.dataUrl);
+    } catch { /* cancelled */ }
+  }, [applyImage]);
+
+  const analyze = async () => {
+    if (!image || !activeKey) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await askChefAI(aiProvider, activeKey, activeModel, 'fridge', [], image);
       setResult(data);
       toast.success(`Zaproponowano ${data.suggestions.length} potraw!`);
     } catch (err: unknown) {
-      toast.error(err instanceof Error ? err.message : 'Błąd AI');
+      setError(err instanceof Error ? err.message : 'Błąd AI');
     } finally {
       setLoading(false);
     }
   };
 
-  if (!geminiApiKey) {
+  if (!activeKey) {
     return (
       <div className="bg-blue-50 rounded-2xl p-5 text-center">
         <p className="text-4xl mb-3">🧠</p>
-        <p className="font-semibold text-blue-700 mb-1">Wymagany klucz Gemini API</p>
-        <p className="text-blue-500 text-sm mb-4">Ta funkcja potrzebuje AI do analizy zdjęcia lodówki.</p>
+        <p className="font-semibold text-blue-700 mb-1">Wymagany klucz API</p>
+        <p className="text-blue-500 text-sm mb-4">Ta funkcja potrzebuje AI. Zalecamy Groq — darmowy, bez karty.</p>
         <button
           onClick={() => setActiveView('settings')}
           className="bg-blue-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl active:scale-95 transition-all"
@@ -147,6 +147,23 @@ function FridgeScanner() {
 
   return (
     <div className="space-y-4">
+      {visionBlocked && (
+        <div className="bg-yellow-50 border border-yellow-300 rounded-2xl px-4 py-3 flex gap-3 items-start">
+          <span className="text-lg flex-shrink-0">⚠️</span>
+          <div>
+            <p className="text-sm font-semibold text-yellow-800">Model bez obsługi zdjęć</p>
+            <p className="text-xs text-yellow-700 mt-0.5">
+              Wybrany model <strong>{groqModel}</strong> nie obsługuje zdjęć. Zmień na <strong>Llama 4 Scout</strong> w Ustawieniach.
+            </p>
+            <button
+              onClick={() => setActiveView('settings')}
+              className="mt-2 text-xs font-semibold text-yellow-800 underline"
+            >
+              Zmień model →
+            </button>
+          </div>
+        </div>
+      )}
       {!image ? (
         <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 text-center border-2 border-dashed border-green-200">
           <div className="text-5xl mb-3">🫙</div>
@@ -154,13 +171,13 @@ function FridgeScanner() {
           <p className="text-gray-400 text-sm mb-5">AI rozpozna składniki i zaproponuje co ugotować</p>
           <div className="flex gap-3 justify-center">
             <button
-              onClick={() => cameraRef.current?.click()}
+              onClick={openCamera}
               className="flex items-center gap-2 bg-green-500 text-white px-5 py-3 rounded-2xl font-semibold shadow-lg active:scale-95 transition-all"
             >
               <Camera size={18} /> Aparat
             </button>
             <button
-              onClick={() => fileRef.current?.click()}
+              onClick={openGallery}
               className="flex items-center gap-2 bg-white text-gray-700 border border-gray-200 px-5 py-3 rounded-2xl font-semibold shadow-sm active:scale-95 transition-all"
             >
               <Upload size={18} /> Galeria
@@ -185,6 +202,12 @@ function FridgeScanner() {
             )}
           </div>
 
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-2xl p-4">
+              <p className="text-red-600 text-sm font-semibold mb-1">❌ Błąd AI</p>
+              <p className="text-red-500 text-xs">{error}</p>
+            </div>
+          )}
           {!loading && !result && (
             <button
               onClick={analyze}
@@ -220,19 +243,20 @@ function FridgeScanner() {
         </div>
       )}
 
-      <input ref={cameraRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={handleImage} />
-      <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleImage} />
     </div>
   );
 }
 
 // ---------- Text Ingredients ----------
 function TextIngredients() {
-  const { geminiApiKey, setActiveView } = useAppStore();
+  const store = useAppStore();
+  const { aiProvider, setActiveView } = store;
+  const { apiKey: activeKey, model: activeModel } = activeAI(store);
   const [input, setInput] = useState('');
   const [chips, setChips] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ChefResult | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const addChip = () => {
     const trimmed = input.trim();
@@ -246,15 +270,16 @@ function TextIngredients() {
 
   const analyze = async () => {
     if (chips.length === 0) { toast.error('Dodaj przynajmniej jeden składnik'); return; }
-    if (!geminiApiKey) { toast.error('Brak klucza API — przejdź do Ustawień'); return; }
+    if (!activeKey) { toast.error('Brak klucza API — przejdź do Ustawień'); return; }
     setLoading(true);
     setResult(null);
+    setError(null);
     try {
-      const data = await askGeminiChef(geminiApiKey, 'text', chips);
+      const data = await askChefAI(aiProvider, activeKey, activeModel, 'text', chips);
       setResult(data);
       toast.success(`Zaproponowano ${data.suggestions.length} potraw!`);
     } catch (err: unknown) {
-      toast.error(err instanceof Error ? err.message : 'Błąd AI');
+      setError(err instanceof Error ? err.message : 'Błąd AI');
     } finally {
       setLoading(false);
     }
@@ -297,9 +322,9 @@ function TextIngredients() {
         )}
       </div>
 
-      {!geminiApiKey ? (
+      {!activeKey ? (
         <div className="bg-blue-50 rounded-2xl p-4 text-center">
-          <p className="text-blue-600 text-sm font-medium mb-2">Wymagany klucz Gemini API</p>
+          <p className="text-blue-600 text-sm font-medium mb-2">Wymagany klucz API (Groq lub Gemini)</p>
           <button
             onClick={() => setActiveView('settings')}
             className="bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-xl"
@@ -310,18 +335,24 @@ function TextIngredients() {
       ) : (
         <button
           onClick={analyze}
-          disabled={loading || chips.length === 0}
+          disabled={loading || chips.length === 0 || !activeKey}
           className="w-full bg-orange-500 text-white py-4 rounded-2xl font-bold shadow-lg active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
         >
           {loading ? <><Loader size={18} className="animate-spin" /> Analizuję...</> : <><Search size={18} /> Co mogę ugotować?</>}
         </button>
       )}
 
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-2xl p-4">
+          <p className="text-red-600 text-sm font-semibold mb-1">❌ Błąd AI</p>
+          <p className="text-red-500 text-xs">{error}</p>
+        </div>
+      )}
       {result && (
         <div className="space-y-3">
           <SuggestionsList suggestions={result.suggestions} />
           <button
-            onClick={() => { setResult(null); setChips([]); }}
+            onClick={() => { setResult(null); setChips([]); setError(null); }}
             className="w-full flex items-center justify-center gap-2 bg-gray-100 text-gray-600 py-3 rounded-2xl font-medium text-sm active:scale-95 transition-all"
           >
             <X size={16} /> Wyczyść i zacznij od nowa
@@ -332,9 +363,42 @@ function TextIngredients() {
   );
 }
 
+function findLocalRecipe(name: string) {
+  const q = name.toLowerCase();
+  return POLISH_RECIPES.find((r) => {
+    const rn = r.name.toLowerCase();
+    return rn.includes(q) || q.includes(rn) ||
+      q.split(' ').some((w) => w.length > 3 && rn.includes(w));
+  }) ?? null;
+}
+
 // ---------- Shared Suggestions List ----------
 function SuggestionsList({ suggestions }: { suggestions: MealSuggestion[] }) {
+  const { setActiveView, setSelectedRecipe, setPendingSearchQuery } = useAppStore();
   const [expanded, setExpanded] = useState<number | null>(null);
+
+  const openRecipe = (suggestion: MealSuggestion) => {
+    const found = findLocalRecipe(suggestion.name);
+    if (found) {
+      setSelectedRecipe({
+        id: found.id,
+        name: found.name,
+        category: found.category,
+        area: 'Polska',
+        instructions: found.instructions,
+        thumbnail: found.thumbnail,
+        ingredients: found.ingredients,
+        totalCalories: found.totalCalories,
+        servings: found.servings,
+        tags: found.time,
+      });
+      setActiveView('recipe-detail');
+    } else {
+      setPendingSearchQuery(suggestion.name, 'online');
+      setActiveView('search');
+      toast(`Szukam "${suggestion.name}" w przepisach...`);
+    }
+  };
 
   return (
     <div className="space-y-3">
@@ -387,6 +451,13 @@ function SuggestionsList({ suggestions }: { suggestions: MealSuggestion[] }) {
                   </div>
                 </div>
               )}
+              <button
+                onClick={(e) => { e.stopPropagation(); openRecipe(meal); }}
+                className="w-full mt-2 flex items-center justify-center gap-2 bg-orange-500 text-white text-sm font-semibold py-2.5 rounded-xl active:scale-95 transition-all"
+              >
+                <BookOpen size={15} />
+                {findLocalRecipe(meal.name) ? 'Otwórz przepis' : 'Szukaj przepisu'}
+              </button>
             </div>
           )}
         </button>
@@ -398,10 +469,10 @@ function SuggestionsList({ suggestions }: { suggestions: MealSuggestion[] }) {
 // ---------- Main Export ----------
 type ChefMode = 'fridge' | 'text';
 
-export default function ChefAI() {
+export default function ChefAI({ onClose }: { onClose?: () => void } = {}) {
   const [mode, setMode] = useState<ChefMode>('fridge');
 
-  return (
+  const content = (
     <div className="space-y-4">
       {/* Sub-tabs */}
       <div className="flex gap-2 bg-gray-100 rounded-2xl p-1">
@@ -426,4 +497,27 @@ export default function ChefAI() {
       {mode === 'fridge' ? <FridgeScanner /> : <TextIngredients />}
     </div>
   );
+
+  if (onClose) {
+    return (
+      <div className="fixed inset-0 z-[60] bg-black/50 flex items-end">
+        <div className="bg-white w-full max-h-[92vh] rounded-t-3xl flex flex-col overflow-hidden">
+          <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0">
+            <h2 className="font-bold text-gray-800 flex items-center gap-2">
+              <ChefHat size={18} className="text-orange-500" />
+              Co ugotować?
+            </h2>
+            <button onClick={onClose} className="p-2 text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-100">
+              <X size={20} />
+            </button>
+          </div>
+          <div className="overflow-y-auto flex-1 px-5 py-4">
+            {content}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return content;
 }
