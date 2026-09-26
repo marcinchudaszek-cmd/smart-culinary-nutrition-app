@@ -112,7 +112,7 @@ export default function MealPlanView() {
   })();
 
   return (
-    <div className="pb-24 bg-gray-50 min-h-screen">
+    <div className="pb-24 bg-gray-50 min-h-dvh">
       {/* Header */}
       <div className="bg-gradient-to-br from-teal-500 to-emerald-500 text-white px-5 pt-12 pb-5 rounded-b-3xl shadow-lg">
         <div className="flex items-center justify-between mb-4">
@@ -173,7 +173,7 @@ export default function MealPlanView() {
 
       {/* Shopping list overlay */}
       {showShopping && (
-        <div className="fixed inset-0 z-[60] bg-black/40 flex items-end">
+        <div className="fixed inset-0 z-[60] bg-black/40 flex items-end pb-[var(--sa-bottom)]">
           <div className="bg-white w-full max-h-[80vh] rounded-t-3xl overflow-hidden flex flex-col">
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
               <h2 className="font-bold text-gray-800 flex items-center gap-2">
@@ -210,7 +210,7 @@ export default function MealPlanView() {
 
       {/* Recipe picker modal */}
       {pickerSlot && (
-        <div className="fixed inset-0 z-[60] bg-black/40 flex items-end">
+        <div className="fixed inset-0 z-[60] bg-black/40 flex items-end pb-[var(--sa-bottom)]">
           <div className="bg-white w-full max-h-[75vh] rounded-t-3xl overflow-hidden flex flex-col">
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
               <h2 className="font-bold text-gray-800">

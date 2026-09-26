@@ -522,7 +522,7 @@ export default function SearchView() {
   };
 
   return (
-    <div className="pb-20 min-h-screen bg-gray-50">
+    <div className="pb-20 min-h-dvh bg-gray-50">
       {/* Header */}
       <div className="bg-white px-4 pt-12 pb-4 shadow-sm sticky top-0 z-40">
         <h1 className="text-xl font-bold text-gray-800 mb-3 flex items-center gap-2">

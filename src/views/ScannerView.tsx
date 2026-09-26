@@ -227,7 +227,7 @@ export default function ScannerView() {
   ];
 
   return (
-    <div className="pb-20 min-h-screen bg-gray-50">
+    <div className="pb-20 min-h-dvh bg-gray-50">
       {/* Header */}
       <div className="bg-white px-4 pt-12 pb-4 shadow-sm">
         <div className="flex items-center justify-between mb-3">

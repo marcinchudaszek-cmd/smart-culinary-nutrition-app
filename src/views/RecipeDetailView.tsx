@@ -178,7 +178,7 @@ export default function RecipeDetailView() {
   const shortInstructions = instructions.slice(0, 300);
 
   return (
-    <div className="pb-28 min-h-screen bg-gray-50">
+    <div className="pb-28 min-h-dvh bg-gray-50">
       {/* Hero Image */}
       <div className="relative">
         <img

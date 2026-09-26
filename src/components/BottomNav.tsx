@@ -15,7 +15,7 @@ export default function BottomNav() {
   const { activeView, setActiveView } = useAppStore();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 pb-[var(--sa-bottom)] bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
       <div className="flex items-center justify-around max-w-lg mx-auto">
         {navItems.map(({ view, icon: Icon, label }) => {
           const isActive = activeView === view || (activeView === 'recipe-detail' && view === 'search');

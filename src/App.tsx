@@ -42,15 +42,15 @@ export default function App() {
 
   if (!onboardingDone) {
     return (
-      <div className={`max-w-lg mx-auto min-h-screen relative overflow-hidden${darkMode ? ' dark' : ''}`}>
+      <div className={`max-w-lg mx-auto min-h-dvh relative overflow-hidden${darkMode ? ' dark' : ''}`}>
         <OnboardingView />
       </div>
     );
   }
 
   return (
-    <div className={`max-w-lg mx-auto min-h-screen relative overflow-hidden bg-gray-50 dark:bg-gray-900${darkMode ? ' dark' : ''}`}>
-      <div className="overflow-y-auto h-screen">
+    <div className={`max-w-lg mx-auto min-h-dvh relative overflow-hidden bg-gray-50 dark:bg-gray-900${darkMode ? ' dark' : ''}`}>
+      <div className="overflow-y-auto h-dvh pb-[var(--sa-bottom)]">
         {/* key forces remount on view change → triggers .view-enter animation */}
         <div key={activeView} className="view-enter">
           {renderView()}
@@ -62,7 +62,7 @@ export default function App() {
           {/* Global floating camera / scanner button */}
           <button
             onClick={() => setShowGlobalScanner(true)}
-            className="fixed bottom-[68px] right-4 z-50 w-13 h-13 bg-orange-500 hover:bg-orange-600 active:scale-90 text-white rounded-full shadow-lg shadow-orange-500/40 flex items-center justify-center transition-all duration-200"
+            className="fixed bottom-[calc(68px+var(--sa-bottom))] right-4 z-50 w-13 h-13 bg-orange-500 hover:bg-orange-600 active:scale-90 text-white rounded-full shadow-lg shadow-orange-500/40 flex items-center justify-center transition-all duration-200"
             style={{ width: 52, height: 52 }}
             title="Skanuj posiłek"
           >

@@ -74,7 +74,7 @@ export default function HomeView() {
   };
 
   return (
-    <div className="pb-20 bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <div className="pb-20 bg-gray-50 dark:bg-gray-900 min-h-dvh">
       {/* Header */}
       <div className="bg-gradient-to-br from-orange-500 to-red-500 text-white px-5 pt-12 pb-8 rounded-b-3xl shadow-lg">
         <div className="flex items-center justify-between mb-4">

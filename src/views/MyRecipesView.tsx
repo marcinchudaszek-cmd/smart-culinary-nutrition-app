@@ -60,7 +60,7 @@ export default function MyRecipesView() {
   const list = tab === 'saved' ? filteredSaved : favorites;
 
   return (
-    <div className="pb-20 min-h-screen bg-gray-50">
+    <div className="pb-20 min-h-dvh bg-gray-50">
       {/* Header */}
       <div className="bg-white px-4 pt-12 pb-4 shadow-sm sticky top-0 z-40">
         <div className="flex items-center justify-between mb-3">

@@ -191,7 +191,7 @@ export default function SettingsView() {
   const activeKeyStored = aiProvider === 'gemini' ? geminiApiKey : aiProvider === 'openrouter' ? openrouterApiKey : groqApiKey;
 
   return (
-    <div className="pb-24 min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="pb-24 min-h-dvh bg-gray-50 dark:bg-gray-900">
       <div className="bg-white px-4 pt-12 pb-4 shadow-sm sticky top-0 z-40">
         <div className="flex items-center gap-3">
           <button onClick={() => setActiveView('home')} className="bg-gray-100 rounded-full p-2">

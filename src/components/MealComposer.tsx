@@ -194,7 +194,7 @@ export default function MealComposer({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <div className="fixed inset-0 z-[60] bg-black/40 flex items-end">
+    <div className="fixed inset-0 z-[60] bg-black/40 flex items-end pb-[var(--sa-bottom)]">
       <div className="bg-white w-full max-h-[92vh] rounded-t-3xl flex flex-col overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0">

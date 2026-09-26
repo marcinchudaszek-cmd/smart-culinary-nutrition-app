@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+// Dane podpisu NIE w kodzie: android/keystore.properties (nieśledzony w git)
+def ksProps = new Properties()
+def ksPropsFile = rootProject.file("keystore.properties")
+if (ksPropsFile.exists()) { ksPropsFile.withInputStream { ksProps.load(it) } }
 android {
     namespace = "com.beagleappsstudio.kulinapp"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -7,8 +11,8 @@ android {
         applicationId "com.beagleappsstudio.kulinapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 71
-        versionName "3.12.0"
+        versionCode 72
+        versionName "3.12.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -18,10 +22,10 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file('kulinapp-release.keystore')
-            storePassword ''
-            keyAlias 'kulinapp'
-            keyPassword ''
+            storeFile ksProps.getProperty("storeFile") ? rootProject.file(ksProps.getProperty("storeFile")) : null
+            storePassword ksProps.getProperty("storePassword")
+            keyAlias ksProps.getProperty("keyAlias")
+            keyPassword ksProps.getProperty("keyPassword")
         }
     }
     buildTypes {

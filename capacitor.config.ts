@@ -4,6 +4,8 @@ const config: CapacitorConfig = {
   appId: 'com.beagleappsstudio.kulinapp',
   appName: 'KulinApp',
   webDir: 'dist',
+  // Tło WebView przed wczytaniem strony (gray-50 jak tło aplikacji)
+  backgroundColor: '#f9fafb',
   android: {
     buildOptions: {
       keystorePath: undefined,

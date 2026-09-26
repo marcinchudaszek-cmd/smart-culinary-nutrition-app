@@ -405,7 +405,7 @@ function JournalTab() {
 
       {/* Add modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/60 z-[60] flex items-end justify-center">
+        <div className="fixed inset-0 bg-black/60 z-[60] flex items-end pb-[var(--sa-bottom)] justify-center">
           <div className="bg-white dark:bg-gray-800 rounded-t-3xl w-full max-w-lg max-h-[88vh] flex flex-col">
             <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100 dark:border-gray-700">
               <div>
@@ -868,7 +868,7 @@ export default function FitnessView() {
   ];
 
   return (
-    <div className="pb-24 bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <div className="pb-24 bg-gray-50 dark:bg-gray-900 min-h-dvh">
       {/* Header */}
       <div className="bg-gradient-to-br from-green-500 to-teal-500 text-white px-5 pt-12 pb-5 rounded-b-3xl shadow-lg">
         <div className="flex items-center justify-between mb-4">

@@ -53,7 +53,7 @@ export default function ProgressView() {
   const diff = latest && prev ? (latest.weight - prev.weight) : null;
 
   return (
-    <div className="pb-24 bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <div className="pb-24 bg-gray-50 dark:bg-gray-900 min-h-dvh">
       {/* Header */}
       <div className="bg-gradient-to-br from-purple-600 to-indigo-600 text-white px-5 pt-12 pb-6 rounded-b-3xl shadow-lg">
         <div className="flex items-center gap-3 mb-4">

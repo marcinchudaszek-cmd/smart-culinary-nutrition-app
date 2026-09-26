@@ -498,7 +498,7 @@ export default function CaloriesView() {
   }));
 
   return (
-    <div className="pb-20 min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="pb-20 min-h-dvh bg-gray-50 dark:bg-gray-900">
       {/* Header */}
       <div className="bg-gradient-to-br from-red-500 to-orange-500 text-white px-4 pt-12 pb-6">
         <div className="flex items-center justify-between mb-4">
@@ -665,7 +665,7 @@ export default function CaloriesView() {
 
       {/* Goal edit modal */}
       {showGoalEdit && (
-        <div className="fixed inset-0 bg-black/50 z-[60] flex items-end justify-center">
+        <div className="fixed inset-0 bg-black/50 z-[60] flex items-end pb-[var(--sa-bottom)] justify-center">
           <div className="bg-white rounded-t-3xl w-full max-w-lg p-6">
             <h3 className="font-bold text-gray-800 text-lg mb-4">Ustaw dzienny cel kalorii</h3>
             <input
@@ -700,7 +700,7 @@ export default function CaloriesView() {
 
       {/* Add food modal */}
       {showAdd && (
-        <div className="fixed inset-0 bg-black/50 z-[60] flex items-end justify-center pb-16">
+        <div className="fixed inset-0 bg-black/50 z-[60] flex items-end justify-center pb-[calc(4rem+var(--sa-bottom))]">
           <div className="bg-white rounded-t-3xl w-full max-w-lg max-h-[82vh] flex flex-col">
             <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100">
               <h3 className="font-bold text-gray-800 text-lg">Dodaj posiłek</h3>

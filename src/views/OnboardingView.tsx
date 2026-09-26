@@ -71,7 +71,7 @@ export default function OnboardingView() {
 
   /* ── Step 0: Welcome ── */
   if (step === 0) return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex flex-col items-center justify-center px-8 text-white slide-up">
+    <div className="min-h-dvh bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex flex-col items-center justify-center px-8 text-white slide-up">
       <div className="bg-white/20 rounded-3xl p-6 mb-8">
         <ChefHat size={64} className="text-white" />
       </div>
@@ -110,7 +110,7 @@ export default function OnboardingView() {
 
   /* ── Step 1: Profile ── */
   if (step === 1) return (
-    <div className="min-h-screen bg-gray-50 flex flex-col px-6 pt-14 pb-8 slide-up">
+    <div className="min-h-dvh bg-gray-50 flex flex-col px-6 pt-14 pb-8 slide-up">
       <Dots />
       <h2 className="text-2xl font-black text-gray-800 mb-1">O Tobie</h2>
       <p className="text-gray-400 text-sm mb-8">Podaj swoje dane, by obliczyć indywidualne cele.</p>
@@ -168,7 +168,7 @@ export default function OnboardingView() {
 
   /* ── Step 2: Goal & Activity ── */
   if (step === 2) return (
-    <div className="min-h-screen bg-gray-50 flex flex-col px-6 pt-14 pb-8 slide-up">
+    <div className="min-h-dvh bg-gray-50 flex flex-col px-6 pt-14 pb-8 slide-up">
       <Dots />
       <h2 className="text-2xl font-black text-gray-800 mb-1">Twój cel</h2>
       <p className="text-gray-400 text-sm mb-8">Dostosujemy plan kalorii do Twojego celu.</p>
@@ -228,7 +228,7 @@ export default function OnboardingView() {
 
   /* ── Step 3: Summary ── */
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6 pt-14 pb-8 slide-up">
+    <div className="min-h-dvh bg-gray-50 flex flex-col items-center px-6 pt-14 pb-8 slide-up">
       <Dots />
 
       <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">

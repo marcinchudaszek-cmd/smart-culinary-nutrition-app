@@ -110,7 +110,7 @@ export default function BarcodeScanSheet({
   };
 
   return (
-    <div className="fixed inset-0 z-[70] bg-black/50 flex items-end">
+    <div className="fixed inset-0 z-[70] bg-black/50 flex items-end pb-[var(--sa-bottom)]">
       <div className="bg-white w-full max-h-[92vh] rounded-t-3xl flex flex-col overflow-hidden">
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 flex-shrink-0">
           <h2 className="font-bold text-gray-800 flex items-center gap-2">

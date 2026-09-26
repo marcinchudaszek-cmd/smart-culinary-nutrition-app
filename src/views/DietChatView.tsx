@@ -134,7 +134,7 @@ export default function DietChatView() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
+    <div className="flex flex-col h-dvh bg-gray-50">
       {/* Header */}
       <div className="bg-white px-4 pt-12 pb-3 shadow-sm flex-shrink-0">
         <div className="flex items-center justify-between">
