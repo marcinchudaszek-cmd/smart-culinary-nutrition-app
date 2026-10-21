@@ -20,8 +20,10 @@ export default function MyRecipesView() {
   );
 
   // Favorites — from both POLISH_RECIPES and myRecipes
+  // Przepis z katalogu zapisany w „Moich" ma to samo id — bierzemy wersję zapisaną.
+  const myIds = new Set(myRecipes.map(r => r.id));
   const allRecipes = [
-    ...POLISH_RECIPES.map(r => ({
+    ...POLISH_RECIPES.filter(r => !myIds.has(r.id)).map(r => ({
       id: r.id, name: r.name, category: r.category,
       thumbnail: r.thumbnail, totalCalories: r.totalCalories,
       servings: r.servings, isCustom: false as const,

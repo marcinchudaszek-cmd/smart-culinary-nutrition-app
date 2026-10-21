@@ -5,8 +5,25 @@ import { Search, X, ChefHat, Globe, Loader2, Wifi, SlidersHorizontal, WifiOff, H
 const CACHE_PREFIX = 'onlineRecipeCache_';
 const CACHE_TTL = 24 * 60 * 60 * 1000;
 
+const CACHE_MAX = 15;
+
+// Zapisuje wyniki i sprząta: usuwa wpisy przeterminowane i ponad limit (najstarsze).
+// Wcześniej pamięć podręczna rosła bez końca i zapychała localStorage.
 function saveCache(key: string, data: OnlineRecipe[]) {
-  try { localStorage.setItem(CACHE_PREFIX + key, JSON.stringify({ ts: Date.now(), data })); } catch {}
+  try {
+    const now = Date.now();
+    const entries = Object.keys(localStorage)
+      .filter((k) => k.startsWith(CACHE_PREFIX) && k !== CACHE_PREFIX + key)
+      .map((k) => {
+        try { return { k, ts: (JSON.parse(localStorage.getItem(k) ?? '{}') as { ts?: number }).ts ?? 0 }; }
+        catch { return { k, ts: 0 }; }
+      })
+      .sort((a, b) => b.ts - a.ts);
+    entries.forEach((e, i) => {
+      if (now - e.ts >= CACHE_TTL || i >= CACHE_MAX - 1) localStorage.removeItem(e.k);
+    });
+    localStorage.setItem(CACHE_PREFIX + key, JSON.stringify({ ts: now, data }));
+  } catch { /* brak miejsca — pamięć podręczna nie jest niezbędna */ }
 }
 function loadCache(key: string): OnlineRecipe[] | null {
   try {
@@ -408,6 +425,7 @@ export default function SearchView() {
   const [onlineLoading, setOnlineLoading] = useState(false);
   const [onlineError, setOnlineError] = useState('');
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const searchSeq = useRef(0);
 
   const localResults = useMemo(() => {
     const words = normalize(query.trim()).split(/\s+/).filter(Boolean);
@@ -432,16 +450,28 @@ export default function SearchView() {
     if (debounceRef.current) clearTimeout(debounceRef.current);
     const q = query.trim();
     if (!q) {
+      searchSeq.current++; // unieważnij zapytanie, które jeszcze trwa
       setOnlineResults([]);
       setOnlineError('');
+      setOnlineLoading(false);
       return;
     }
     debounceRef.current = setTimeout(async () => {
-      setOnlineLoading(true);
+      const seq = ++searchSeq.current;
+      const translatedQ = translateQuery(q);
       setOnlineError('');
+      // Świeże wyniki z ostatnich 24 h — bez ponownego pytania serwera i AI
+      // (każde tłumaczenie zużywało dzienny limit zapytań AI).
+      const fresh = loadCache(translatedQ);
+      if (fresh) {
+        setOnlineResults(fresh);
+        setFromCache(false);
+        setOnlineLoading(false);
+        return;
+      }
+      setOnlineLoading(true);
       setFromCache(false);
       try {
-        const translatedQ = translateQuery(q);
         const results = spoonacularApiKey
           ? await searchSpoonacular(translatedQ, spoonacularApiKey)
           : await searchMealDb(translatedQ);
@@ -451,20 +481,15 @@ export default function SearchView() {
           ? await translateRecipesBatch(results, aiProvider, aiKey, aiModel)
           : results;
         saveCache(translatedQ, translated);
-        setOnlineResults(translated);
+        // Odpowiedź na starsze zapytanie nie nadpisuje wyników nowszego.
+        if (seq === searchSeq.current) setOnlineResults(translated);
       } catch (e: unknown) {
-        const translatedQ = translateQuery(q);
-        const cached = loadCache(translatedQ);
-        if (cached) {
-          setOnlineResults(cached);
-          setFromCache(true);
-        } else {
-          const msg = e instanceof Error ? e.message : String(e);
-          setOnlineError(msg);
-          setOnlineResults([]);
-        }
+        if (seq !== searchSeq.current) return;
+        const msg = e instanceof Error ? e.message : String(e);
+        setOnlineError(msg);
+        setOnlineResults([]);
       } finally {
-        setOnlineLoading(false);
+        if (seq === searchSeq.current) setOnlineLoading(false);
       }
     }, 500);
   }, [query, tab, spoonacularApiKey]);

@@ -4,7 +4,7 @@ import {
   Users, Flame, ChevronDown, ChevronUp, Check, Share2,
   PlusCircle, Timer, Play, Pause, RotateCcw, Minus, Plus, Pencil,
 } from 'lucide-react';
-import { useAppStore } from '../store/useAppStore';
+import { useAppStore, recipeBackTarget } from '../store/useAppStore';
 import toast from 'react-hot-toast';
 import { todayISO } from '../lib/date';
 import { onImgError, RECIPE_FALLBACK } from '../lib/images';
@@ -72,11 +72,7 @@ export default function RecipeDetailView() {
   } = useAppStore();
 
   // Powrót do ekranu, z którego otwarto przepis (Główna, Szukaj, Moje, Plan…).
-  // Pomijamy widoki, które nie są sensownym „źródłem" przepisu.
-  const goBack = () => {
-    const skip = ['recipe-detail', 'add-recipe'];
-    setActiveView(skip.includes(previousView) ? 'home' : previousView);
-  };
+  const goBack = () => setActiveView(recipeBackTarget(previousView));
 
   const [showFull, setShowFull]           = useState(false);
   const [mealPickerOpen, setMealPickerOpen] = useState(false);
@@ -124,7 +120,13 @@ export default function RecipeDetailView() {
     if (intervalRef.current) clearInterval(intervalRef.current);
   }
 
-  if (!selectedRecipe) { setActiveView('home'); return null; }
+  // Bez przepisu wracamy na Główną — w efekcie, nie w trakcie renderowania
+  // (zmiana stanu innego komponentu podczas renderu to błąd Reacta).
+  useEffect(() => {
+    if (!selectedRecipe) setActiveView('home');
+  }, [selectedRecipe, setActiveView]);
+
+  if (!selectedRecipe) return null;
 
   const isSaved    = myRecipes.some((r) => r.id === selectedRecipe.id);
   const isFavorite = favoriteIds.includes(selectedRecipe.id);
@@ -133,14 +135,16 @@ export default function RecipeDetailView() {
   const timerPct   = timerTotal > 0 ? ((timerTotal - timerLeft) / timerTotal) * 100 : 0;
 
   const addToDiary = (mealType: MealType) => {
+    // perServing jest już przemnożone przez liczbę porcji — makro liczymy z niego
+    // bez ponownego mnożenia (wcześniej przy ×2 trafiało do dziennika ×4).
     const macros = estimateMacros(perServing, selectedRecipe.category);
     addFoodEntry({
       id: `entry-${Date.now()}`,
       name: selectedRecipe.name + (multiplier > 1 ? ` (×${multiplier})` : ''),
       calories: perServing,
-      protein: macros.protein * multiplier,
-      carbs:   macros.carbs   * multiplier,
-      fat:     macros.fat     * multiplier,
+      protein: macros.protein,
+      carbs:   macros.carbs,
+      fat:     macros.fat,
       amount:  multiplier,
       unit:    'porcja',
       date:    todayISO(),

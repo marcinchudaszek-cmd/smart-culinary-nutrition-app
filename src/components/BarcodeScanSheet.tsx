@@ -4,6 +4,7 @@ import { X, ScanLine, Loader, Package, CameraOff, History, Barcode } from 'lucid
 import { type ProductInfo, fetchProduct, loadHistory, saveToHistory } from '../lib/openFoodFacts';
 import { useAppStore } from '../store/useAppStore';
 import toast from 'react-hot-toast';
+import { useBackHandler } from '../lib/backButton';
 
 /**
  * Uproszczony skaner kodów: skanuje, pobiera produkt i ODDAJE go przez onPick.
@@ -35,6 +36,7 @@ export default function BarcodeScanSheet({
   };
 
   const close = () => { stopScanner(); onClose(); };
+  useBackHandler(true, close);
   const pick = (p: ProductInfo) => { stopScanner(); onPick(p); };
 
   useEffect(() => {

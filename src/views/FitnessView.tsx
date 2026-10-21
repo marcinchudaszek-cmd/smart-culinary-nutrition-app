@@ -10,7 +10,8 @@ import {
   Activity as ActivityType,
 } from '../data/activities';
 import toast from 'react-hot-toast';
-import { todayISO } from '../lib/date';
+import { todayISO, toLocalISO } from '../lib/date';
+import { useBackHandler } from '../lib/backButton';
 
 type FitnessTab = 'journal' | 'calculator' | 'indicators' | 'macro';
 
@@ -72,6 +73,9 @@ const MACRO_GOALS = [
 ];
 
 // ── Health Connect sync card ─────────────────────────────────────────────────
+// Tylko to, czego używa import treningów: sesje ćwiczeń + spalone kalorie
+// (aktywne, a gdy ich brak — całkowite). Musi się zgadzać z AndroidManifest.xml.
+const HC_READ: Array<'workouts' | 'calories' | 'totalCalories'> = ['workouts', 'calories', 'totalCalories'];
 function HealthSyncCard() {
   const { activityLog, addActivityEntry, userProfile } = useAppStore();
   const [hcAvailable, setHcAvailable] = useState(false);
@@ -85,7 +89,7 @@ function HealthSyncCard() {
       .then((r) => {
         setHcAvailable(r.available);
         if (r.available) {
-          return Health.checkAuthorization({ read: ['workouts', 'totalCalories', 'steps'] });
+          return Health.checkAuthorization({ read: HC_READ });
         }
       })
       .then((status) => {
@@ -99,10 +103,7 @@ function HealthSyncCard() {
 
   async function handleConnect() {
     try {
-      const status = await Health.requestAuthorization({
-        read: ['workouts', 'totalCalories', 'steps'],
-        write: ['calories'],
-      });
+      const status = await Health.requestAuthorization({ read: HC_READ, write: [] });
       setHcAuthorized(status.readAuthorized.length > 0);
       if (status.readAuthorized.length > 0) {
         toast.success('Połączono z Health Connect! 🔗');
@@ -131,7 +132,9 @@ function HealthSyncCard() {
         const entryId = `hc-${w.platformId || w.startDate}`;
         if (activityLog.find((e) => e.id === entryId)) continue;
 
-        const date = w.startDate.split('T')[0];
+        // Dzień wg lokalnej strefy — split('T') dawał dzień w UTC, więc trening
+        // zaczęty tuż po północy trafiał pod poprzedni dzień.
+        const date = toLocalISO(new Date(w.startDate));
         const durationMin = Math.round(w.duration / 60);
         const calories = w.totalEnergyBurned
           ? Math.round(w.totalEnergyBurned)
@@ -275,6 +278,7 @@ function JournalTab() {
   const [catFilter, setCatFilter] = useState('Cardio');
   const [selected, setSelected] = useState<ActivityType | null>(null);
   const [duration, setDuration] = useState(30);
+  useBackHandler(showModal, () => setShowModal(false));
 
   const today = todayISO();
   const todayLog = activityLog.filter((e) => e.date === today);

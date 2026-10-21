@@ -1,4 +1,5 @@
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { Capacitor } from '@capacitor/core';
 
 export interface MealReminder {
   id: number;
@@ -14,6 +15,17 @@ export const DEFAULT_REMINDERS: MealReminder[] = [
   { id: 3, label: 'Kolacja',   hour: 19, minute: 0, enabled: false },
 ];
 
+const REMINDERS_KEY = 'mealReminders';
+
+export function loadReminders(): MealReminder[] {
+  try { return JSON.parse(localStorage.getItem(REMINDERS_KEY) ?? 'null') ?? DEFAULT_REMINDERS; }
+  catch { return DEFAULT_REMINDERS; }
+}
+
+export function saveReminders(r: MealReminder[]) {
+  try { localStorage.setItem(REMINDERS_KEY, JSON.stringify(r)); } catch { /* brak miejsca */ }
+}
+
 export async function requestPermission(): Promise<boolean> {
   try {
     const { display } = await LocalNotifications.requestPermissions();
@@ -23,18 +35,16 @@ export async function requestPermission(): Promise<boolean> {
   }
 }
 
+// Codziennie o wskazanej godzinie. NIE używamy `at` + `repeats` — wtyczka liczy
+// wtedy odstęp jako „czas do pierwszego powiadomienia" (np. co 11 h zamiast
+// co dobę). `on` z godziną i minutą wtyczka przelicza na kolejny dzień sama.
 export async function scheduleReminder(r: MealReminder): Promise<void> {
-  const now = new Date();
-  const at = new Date(now);
-  at.setHours(r.hour, r.minute, 0, 0);
-  if (at <= now) at.setDate(at.getDate() + 1);
-
   await LocalNotifications.schedule({
     notifications: [{
       id: r.id,
       title: '🍽️ KulinApp — czas na posiłek!',
       body: `Pamiętaj o wpisaniu ${r.label} do dziennika kalorii`,
-      schedule: { at, repeats: true, every: 'day' },
+      schedule: { on: { hour: r.hour, minute: r.minute }, allowWhileIdle: true },
     }],
   });
 }
@@ -50,4 +60,17 @@ export async function syncReminders(reminders: MealReminder[]): Promise<void> {
     await cancelReminder(r.id);
     if (r.enabled) await scheduleReminder(r);
   }
+}
+
+// Przy starcie aplikacji: przeplanuj włączone przypomnienia. Naprawia to
+// powiadomienia zaplanowane starą, błędną metodą (bez wchodzenia w Ustawienia).
+export async function resyncRemindersOnStart(): Promise<void> {
+  if (!Capacitor.isNativePlatform()) return;
+  const reminders = loadReminders();
+  if (!reminders.some((r) => r.enabled)) return;
+  try {
+    const { display } = await LocalNotifications.checkPermissions();
+    if (display !== 'granted') return;
+    await syncReminders(reminders);
+  } catch { /* brak wtyczki / uprawnień — pomijamy */ }
 }

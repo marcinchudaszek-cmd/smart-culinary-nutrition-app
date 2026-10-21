@@ -4,6 +4,7 @@ import { useAppStore, activeAI } from '../store/useAppStore';
 import { callAI, parseAiJson } from '../lib/aiProvider';
 import { todayISO, toLocalISO } from '../lib/date';
 import toast from 'react-hot-toast';
+import { useBackHandler } from '../lib/backButton';
 
 // Poniedziałek danego tygodnia (offset 0 = ten tydzień, 1 = następny).
 function getMonday(offset: number): Date {
@@ -169,6 +170,7 @@ Jeśli danego posiłku nie ma w danym dniu, pomiń to pole. Zachowaj polski jęz
 export default function PdfDietImporter({ onClose }: { onClose: () => void }) {
   const store = useAppStore();
   const { aiProvider, addFoodEntry, setMealTextSlot } = store;
+  useBackHandler(true, onClose);
 
   const [mode, setMode]         = useState<'pdf' | 'text'>('pdf');
   const [pasteText, setPasteText] = useState('');

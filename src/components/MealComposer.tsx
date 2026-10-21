@@ -8,6 +8,7 @@ import { RECIPE_FALLBACK } from '../lib/images';
 import BarcodeScanSheet from './BarcodeScanSheet';
 import type { ProductInfo } from '../lib/openFoodFacts';
 import toast from 'react-hot-toast';
+import { useBackHandler } from '../lib/backButton';
 
 type MealType = FoodEntry['mealType'];
 const MEALS: { id: MealType; label: string }[] = [
@@ -35,6 +36,7 @@ function weightOf(f: FoodItem, amount: number): number | null {
 
 export default function MealComposer({ onClose }: { onClose: () => void }) {
   const { addFoodEntry, myProducts, addMyRecipe } = useAppStore();
+  useBackHandler(true, onClose);
   const [q, setQ] = useState('');
   const [ings, setIngs] = useState<Ing[]>([]);
   const [dishName, setDishName] = useState('');

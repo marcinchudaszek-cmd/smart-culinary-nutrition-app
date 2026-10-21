@@ -105,9 +105,15 @@ export default function ProgressView() {
               <span className="text-sm text-purple-100">Cel: <strong>{targetWeight} kg</strong></span>
             </div>
             <span className="text-sm font-semibold">
-              {(latest.weight - targetWeight) > 0
-                ? `${(latest.weight - targetWeight).toFixed(1)} kg do celu`
-                : '🎯 Cel osiągnięty!'}
+              {(() => {
+                // Kierunek celu z pierwszego pomiaru (cel poniżej startu = chudnięcie,
+                // powyżej = przybieranie). Wcześniej zakładaliśmy zawsze odchudzanie,
+                // więc przy celu „masa" od razu pokazywało „Cel osiągnięty".
+                const start = sorted[0]?.weight ?? latest.weight;
+                const gaining = targetWeight > start;
+                const left = gaining ? targetWeight - latest.weight : latest.weight - targetWeight;
+                return left > 0.05 ? `${left.toFixed(1)} kg do celu` : '🎯 Cel osiągnięty!';
+              })()}
             </span>
           </div>
         )}

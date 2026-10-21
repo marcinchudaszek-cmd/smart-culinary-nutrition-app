@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import toast from 'react-hot-toast';
 import { toLocalISO } from '../lib/date';
 import type { AiProvider } from '../lib/aiProvider';
 
@@ -77,7 +78,6 @@ export type ActiveView =
   | 'my-recipes'
   | 'add-recipe'
   | 'calories'
-  | 'scanner'
   | 'recipe-detail'
   | 'settings'
   | 'progress'
@@ -240,11 +240,10 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Śmietana', amount: '200ml', calories: 340 },
       { name: 'Kurczak', amount: '500g', calories: 825 },
       { name: 'Makaron', amount: '200g', calories: 312 },
-      { name: 'Ryż', amount: '100 g', calories: 360 },
       { name: 'Cukier', amount: '2 łyżki', calories: 100 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 2117,
+    totalCalories: 1757,
     servings: 4,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -373,12 +372,10 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Mąka pszenna', amount: '3 łyżki', calories: 90 },
       { name: 'Cebula', amount: '1 szt', calories: 40 },
       { name: 'Olej do smażenia', amount: '60ml', calories: 530 },
-      { name: 'Jajka', amount: '2 szt', calories: 156 },
-      { name: 'Cukier', amount: '2 łyżki', calories: 100 },
       { name: 'Śmietana', amount: '200 ml', calories: 368 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 2132,
+    totalCalories: 1876,
     servings: 3,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -505,11 +502,11 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Ogórek kiszony', amount: '3 szt', calories: 30 },
       { name: 'Cebula', amount: '2 szt', calories: 80 },
       { name: 'Śmietana 18%', amount: '150ml', calories: 276 },
-      { name: 'Mąka pszenna', amount: '150 g', calories: 546 },
+      { name: 'Mąka pszenna', amount: '2 łyżki', calories: 60 },
       { name: 'Olej', amount: '2 łyżki', calories: 240 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 2532,
+    totalCalories: 2046,
     servings: 4,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -520,7 +517,7 @@ const SAMPLE_RECIPES: Recipe[] = [
     category: 'Dania główne',
     area: 'Polska',
     instructions:
-      'Kaczkę umyj, osusz i natrzyj solą, pieprzem, majerankiem i czosnkiem. Jabłka obierz i pokrój w ćwiartki, dopraw cynamonem i cukrem. Wypełnij kaczkę jabłkami i zaszpilkuj wykałaczkami. Piecz w 180°C przez 2–2,5 godziny, podlewając wytopioną jagodą. Ostatnie 20 minut piecz bez przykrycia dla chrupiącej skórki. Podawaj z modrą kapustą i kopytkami.',
+      'Kaczkę umyj, osusz i natrzyj solą, pieprzem, majerankiem i czosnkiem. Jabłka obierz i pokrój w ćwiartki, dopraw cynamonem i cukrem. Wypełnij kaczkę jabłkami i zaszpilkuj wykałaczkami. Piecz w 180°C przez 2–2,5 godziny, podlewając wytopionym tłuszczem. Ostatnie 20 minut piecz bez przykrycia dla chrupiącej skórki. Podawaj z modrą kapustą i kopytkami.',
     thumbnail: 'https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=400',
     ingredients: [
       { name: 'Kaczka (cała)', amount: '2kg', calories: 3800 },
@@ -575,11 +572,10 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Papryka słodka mielona', amount: '2 łyżki', calories: 30 },
       { name: 'Czosnek', amount: '3 ząbki', calories: 15 },
       { name: 'Ziemniaki', amount: '600 g', calories: 462 },
-      { name: 'Kasza', amount: '150 g', calories: 520 },
       { name: 'Olej', amount: '2 łyżki', calories: 240 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 2827,
+    totalCalories: 2307,
     servings: 4,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -598,11 +594,10 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Jajko', amount: '2 szt', calories: 156 },
       { name: 'Masło', amount: '60g', calories: 430 },
       { name: 'Twaróg półtłusty', amount: '200g', calories: 196 },
-      { name: 'Jajka', amount: '2 szt', calories: 156 },
       { name: 'Śmietana', amount: '200 ml', calories: 368 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 2926,
+    totalCalories: 2770,
     servings: 5,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -621,12 +616,11 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Ziemniaki', amount: '300g', calories: 231 },
       { name: 'Śmietana 18%', amount: '200ml', calories: 368 },
       { name: 'Koperek', amount: '1 pęczek', calories: 10 },
-      { name: 'Mąka pszenna', amount: '150 g', calories: 546 },
+      { name: 'Mąka pszenna', amount: '2 łyżki', calories: 60 },
       { name: 'Masło', amount: '30 g', calories: 215 },
-      { name: 'Kurczak', amount: '600 g', calories: 990 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 2550,
+    totalCalories: 1074,
     servings: 4,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -735,10 +729,10 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Cebula', amount: '1 szt', calories: 40 },
       { name: 'Smalec', amount: '2 łyżki', calories: 180 },
       { name: 'Czosnek', amount: '3 ząbki', calories: 15 },
-      { name: 'Wieprzowina', amount: '500 g', calories: 910 },
+      { name: 'Kość wieprzowa', amount: '500 g', calories: 400 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 3275,
+    totalCalories: 2765,
     servings: 6,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -758,9 +752,8 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Cebula', amount: '2 szt', calories: 80 },
       { name: 'Jabłko', amount: '1 szt', calories: 72 },
       { name: 'Cukier', amount: '2 łyżki', calories: 100 },
-      { name: 'Jabłka', amount: '3 szt', calories: 220 },
     ],
-    totalCalories: 1930,
+    totalCalories: 1710,
     servings: 6,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -779,10 +772,8 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Jajko', amount: '1 szt', calories: 78 },
       { name: 'Masło', amount: '50g', calories: 358 },
       { name: 'Boczek do okrasy', amount: '80g', calories: 272 },
-      { name: 'Jajka', amount: '2 szt', calories: 156 },
-      { name: 'Kapusta', amount: '500 g', calories: 125 },
     ],
-    totalCalories: 2473,
+    totalCalories: 2192,
     servings: 5,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -844,10 +835,10 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Śmietana 18%', amount: '200ml', calories: 368 },
       { name: 'Jajka', amount: '4 szt', calories: 312 },
       { name: 'Masło', amount: '30g', calories: 215 },
-      { name: 'Mąka pszenna', amount: '150 g', calories: 546 },
+      { name: 'Mąka pszenna', amount: '2 łyżki', calories: 60 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 1671,
+    totalCalories: 1185,
     servings: 4,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -889,11 +880,11 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Piwo jasne', amount: '330ml', calories: 142 },
       { name: 'Majeranek', amount: '2 łyżki', calories: 20 },
       { name: 'Oliwa z oliwek', amount: '3 łyżki', calories: 360 },
-      { name: 'Mąka pszenna', amount: '150 g', calories: 546 },
+      { name: 'Mąka pszenna', amount: '2 łyżki', calories: 60 },
       { name: 'Olej', amount: '2 łyżki', calories: 240 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 3748,
+    totalCalories: 3262,
     servings: 6,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -937,11 +928,10 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Bułka tarta', amount: '80g', calories: 316 },
       { name: 'Cebula', amount: '2 szt', calories: 80 },
       { name: 'Ziemniaki', amount: '600 g', calories: 462 },
-      { name: 'Jajka', amount: '2 szt', calories: 156 },
       { name: 'Olej', amount: '2 łyżki', calories: 240 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 2910,
+    totalCalories: 2754,
     servings: 5,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -1093,9 +1083,8 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Miód', amount: '1 łyżka', calories: 64 },
       { name: 'Orzechy włoskie', amount: '30g', calories: 196 },
       { name: 'Rodzynki', amount: '50 g', calories: 150 },
-      { name: 'Jabłka', amount: '3 szt', calories: 220 },
     ],
-    totalCalories: 1138,
+    totalCalories: 918,
     servings: 1,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -1136,10 +1125,9 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Koperek świeży', amount: '1 pęczek', calories: 10 },
       { name: 'Cukier', amount: '1 łyżeczka', calories: 20 },
       { name: 'Sok z cytryny', amount: '1 łyżka', calories: 4 },
-      { name: 'Wieprzowina', amount: '500 g', calories: 910 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 1310,
+    totalCalories: 400,
     servings: 4,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -1252,10 +1240,9 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Cukier', amount: '100g', calories: 387 },
       { name: 'Mleko', amount: '200ml', calories: 100 },
       { name: 'Jajka', amount: '3 szt', calories: 234 },
-      { name: 'Twaróg', amount: '250 g', calories: 245 },
       { name: 'Drożdże', amount: '25 g', calories: 25 },
     ],
-    totalCalories: 3767,
+    totalCalories: 3522,
     servings: 10,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -1429,9 +1416,8 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Banan', amount: '1 szt', calories: 105 },
       { name: 'Masło orzechowe', amount: '20g', calories: 118 },
       { name: 'Miód', amount: '2 łyżki', calories: 120 },
-      { name: 'Orzechy', amount: '50 g', calories: 320 },
     ],
-    totalCalories: 1021,
+    totalCalories: 701,
     servings: 1,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -1600,10 +1586,9 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Boczek wędzony', amount: '150g', calories: 510 },
       { name: 'Żółtka jaj', amount: '4 szt', calories: 220 },
       { name: 'Parmezan', amount: '60g', calories: 259 },
-      { name: 'Jajka', amount: '2 szt', calories: 156 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 2195,
+    totalCalories: 2039,
     servings: 4,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -1845,10 +1830,9 @@ const SAMPLE_RECIPES: Recipe[] = [
       { name: 'Cebula', amount: '150g', calories: 60 },
       { name: 'Czosnek', amount: '3 ząbki', calories: 15 },
       { name: 'Ryż', amount: '100 g', calories: 360 },
-      { name: 'Kasza', amount: '150 g', calories: 520 },
       { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 },
     ],
-    totalCalories: 2280,
+    totalCalories: 1760,
     servings: 4,
     isCustom: false,
     dateAdded: new Date().toISOString(),
@@ -2039,6 +2023,34 @@ const loadFromStorage = <T>(key: string, fallback: T): T => {
   }
 };
 
+// Zapis do localStorage, który nie wywraca akcji przy braku miejsca. Wcześniej
+// błąd QuotaExceededError przerywał set() — wpis po cichu się nie dodawał.
+// Najpierw zwalniamy miejsce (pamięć podręczna wyszukiwania online), potem
+// próbujemy ponownie; jeśli dalej się nie da, mówimy o tym użytkownikowi.
+let quotaWarned = false;
+export function persist(key: string, value: unknown): boolean {
+  const json = JSON.stringify(value);
+  try {
+    localStorage.setItem(key, json);
+    return true;
+  } catch {
+    try {
+      Object.keys(localStorage)
+        .filter((k) => k.startsWith('onlineRecipeCache_'))
+        .forEach((k) => localStorage.removeItem(k));
+      localStorage.setItem(key, json);
+      return true;
+    } catch {
+      if (!quotaWarned) {
+        quotaWarned = true;
+        toast.error('Brak miejsca w pamięci aplikacji — usuń stare wpisy z dziennika albo zdjęcia z własnych przepisów.', { duration: 6000 });
+        setTimeout(() => { quotaWarned = false; }, 10000);
+      }
+      return false;
+    }
+  }
+}
+
 // Każdy dostawca ma na stałe przypisany jeden, sprawdzony model z obsługą zdjęć.
 // Nie ma już wyboru modelu w UI — dzięki temu nie da się utknąć na modelu tekstowym
 // (skaner zdjęć nie działał) ani na wycofanym/płatnym modelu. Przy każdym starcie
@@ -2050,7 +2062,7 @@ export const GROQ_VISION_MODEL = 'qwen/qwen3.6-27b';
 export const OPENROUTER_VISION_MODEL = 'google/gemma-4-31b-it:free';
 
 const pinModel = (key: string, model: string): string => {
-  if (loadFromStorage(key, '') !== model) localStorage.setItem(key, JSON.stringify(model));
+  if (loadFromStorage(key, '') !== model) persist(key, model);
   return model;
 };
 // Wczytuje trwałą pamięć produktów; jeśli jest pusta, jednorazowo zasila ją
@@ -2074,7 +2086,7 @@ const loadRecentProducts = (): RecentProduct[] => {
     });
     if (seeded.length >= 200) break;
   }
-  localStorage.setItem('recentProducts', JSON.stringify(seeded));
+  persist('recentProducts', seeded);
   return seeded;
 };
 
@@ -2083,21 +2095,39 @@ const loadGroqModel = () => pinModel('groqModel', GROQ_VISION_MODEL);
 const loadOpenrouterModel = () => pinModel('openrouterModel', OPENROUTER_VISION_MODEL);
 
 /**
- * Merge stored recipes with SAMPLE_RECIPES:
- * - keeps all user-created recipes (isCustom: true)
- * - replaces/adds every sample recipe by id (so new samples always appear)
+ * Łączy zapisane przepisy z przykładowymi (SAMPLE_RECIPES):
+ * - zachowuje WSZYSTKIE zapisane przepisy — własne, ale też zapisane z katalogu
+ *   i z wyszukiwania online (wcześniej znikały po restarcie, bo nie miały isCustom),
+ * - przykładowy przepis, który nadal jest na liście, dostaje aktualną treść,
+ * - przykładowy przepis usunięty przez użytkownika już nie wraca: dodajemy tylko
+ *   te, których użytkownik jeszcze nigdy nie widział (lista `seenSampleIds`).
  */
+const SAMPLE_IDS = new Set(SAMPLE_RECIPES.map((r) => r.id));
+
+// Zdjęcie własnego przepisu trzymamy tylko w `photo`. Starsze wersje kopiowały
+// je też do `thumbnail`, co podwajało zajętość pamięci.
+const DEFAULT_THUMB = 'https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg';
+function dedupePhoto(r: Recipe): Recipe {
+  return r.photo && r.thumbnail === r.photo ? { ...r, thumbnail: DEFAULT_THUMB } : r;
+}
+
 function mergeWithSamples(stored: Recipe[]): Recipe[] {
-  const customRecipes = stored.filter(r => r.isCustom === true);
-  const merged = [...SAMPLE_RECIPES, ...customRecipes];
-  // persist merged list so next load is clean
-  try { localStorage.setItem('myRecipes', JSON.stringify(merged)); } catch { /* ignore */ }
+  // Pierwsze uruchomienie z nową logiką: wszystkie obecne próbki były już
+  // pokazane (stara wersja dopisywała je przy każdym starcie).
+  const seen = new Set(loadFromStorage<string[]>('seenSampleIds', SAMPLE_RECIPES.map((r) => r.id)));
+  const fresh = new Map(SAMPLE_RECIPES.map((r) => [r.id, r]));
+  const merged = stored.map((r) => dedupePhoto(fresh.get(r.id) ?? r));
+  for (const s of SAMPLE_RECIPES) {
+    if (!seen.has(s.id)) merged.push(s);
+  }
+  persist('seenSampleIds', [...SAMPLE_IDS]);
+  persist('myRecipes', merged);
   return merged;
 }
 
-const _stored = loadFromStorage<Recipe[]>('myRecipes', []);
-const _initialRecipes = _stored.length === 0
-  ? SAMPLE_RECIPES
+const _stored = loadFromStorage<Recipe[] | null>('myRecipes', null);
+const _initialRecipes = _stored === null
+  ? (persist('seenSampleIds', [...SAMPLE_IDS]), SAMPLE_RECIPES)
   : mergeWithSamples(_stored);
 
 const DEFAULT_PROFILE: UserProfile = {
@@ -2146,11 +2176,11 @@ export const useAppStore = create<AppState>((set, get) => ({
         : { activeView: view, previousView: state.activeView }
     ),
   setDarkMode: (dark) => {
-    localStorage.setItem('darkMode', JSON.stringify(dark));
+    persist('darkMode', dark);
     set({ darkMode: dark });
   },
   setOnboardingDone: (done) => {
-    localStorage.setItem('onboardingDone', JSON.stringify(done));
+    persist('onboardingDone', done);
     set({ onboardingDone: done });
   },
   setPendingSearchQuery: (q, tab) => set({ pendingSearchQuery: q, pendingSearchTab: tab ?? '' }),
@@ -2159,7 +2189,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   addMyRecipe: (recipe) =>
     set((state) => {
       const updated = [...state.myRecipes, recipe];
-      localStorage.setItem('myRecipes', JSON.stringify(updated));
+      persist('myRecipes', updated);
       return { myRecipes: updated };
     }),
 
@@ -2169,14 +2199,14 @@ export const useAppStore = create<AppState>((set, get) => ({
       const updated = exists
         ? state.myRecipes.map((r) => (r.id === recipe.id ? recipe : r))
         : [...state.myRecipes, recipe];
-      localStorage.setItem('myRecipes', JSON.stringify(updated));
+      persist('myRecipes', updated);
       return { myRecipes: updated, selectedRecipe: recipe };
     }),
 
   removeMyRecipe: (id) =>
     set((state) => {
       const updated = state.myRecipes.filter((r) => r.id !== id);
-      localStorage.setItem('myRecipes', JSON.stringify(updated));
+      persist('myRecipes', updated);
       return { myRecipes: updated };
     }),
 
@@ -2193,7 +2223,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const updated = existing
       ? state.myProducts.map((x) => (x.id === existing.id ? saved : x))
       : [saved, ...state.myProducts].slice(0, 500);
-    localStorage.setItem('myProducts', JSON.stringify(updated));
+    persist('myProducts', updated);
     set({ myProducts: updated });
     return saved;
   },
@@ -2201,14 +2231,14 @@ export const useAppStore = create<AppState>((set, get) => ({
   removeMyProduct: (id) =>
     set((state) => {
       const updated = state.myProducts.filter((p) => p.id !== id);
-      localStorage.setItem('myProducts', JSON.stringify(updated));
+      persist('myProducts', updated);
       return { myProducts: updated };
     }),
 
   addFoodEntry: (entry) =>
     set((state) => {
       const updated = [...state.foodDiary, entry];
-      localStorage.setItem('foodDiary', JSON.stringify(updated));
+      persist('foodDiary', updated);
 
       // Zapamiętaj produkt na stałe (dedup po nazwie, najnowszy na górze, limit 200).
       const key = entry.name.trim().toLowerCase();
@@ -2228,7 +2258,7 @@ export const useAppStore = create<AppState>((set, get) => ({
         },
         ...rest,
       ].slice(0, 200);
-      localStorage.setItem('recentProducts', JSON.stringify(recent));
+      persist('recentProducts', recent);
 
       return { foodDiary: updated, recentProducts: recent };
     }),
@@ -2236,7 +2266,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   removeFoodEntry: (id) =>
     set((state) => {
       const updated = state.foodDiary.filter((e) => e.id !== id);
-      localStorage.setItem('foodDiary', JSON.stringify(updated));
+      persist('foodDiary', updated);
       return { foodDiary: updated };
     }),
 
@@ -2254,101 +2284,101 @@ export const useAppStore = create<AppState>((set, get) => ({
         if (!keep) removedCount++;
         return keep;
       });
-      localStorage.setItem('foodDiary', JSON.stringify(updated));
+      persist('foodDiary', updated);
       return { foodDiary: updated };
     });
     return removedCount;
   },
 
   setDailyGoal: (goal) => {
-    localStorage.setItem('dailyGoal', JSON.stringify(goal));
+    persist('dailyGoal', goal);
     set({ dailyGoal: goal });
   },
 
   setProteinGoal: (goal) => {
-    localStorage.setItem('proteinGoal', JSON.stringify(goal));
+    persist('proteinGoal', goal);
     set({ proteinGoal: goal });
   },
 
   setCarbsGoal: (goal) => {
-    localStorage.setItem('carbsGoal', JSON.stringify(goal));
+    persist('carbsGoal', goal);
     set({ carbsGoal: goal });
   },
 
   setFatGoal: (goal) => {
-    localStorage.setItem('fatGoal', JSON.stringify(goal));
+    persist('fatGoal', goal);
     set({ fatGoal: goal });
   },
 
   setGeminiApiKey: (key) => {
-    localStorage.setItem('geminiApiKey', JSON.stringify(key));
+    persist('geminiApiKey', key);
     set({ geminiApiKey: key });
   },
 
   setGeminiModel: (model) => {
-    localStorage.setItem('geminiModel', JSON.stringify(model));
+    persist('geminiModel', model);
     set({ geminiModel: model });
   },
   setAiProvider: (p) => {
-    localStorage.setItem('aiProvider', JSON.stringify(p));
+    persist('aiProvider', p);
     set({ aiProvider: p });
   },
   setGroqApiKey: (key) => {
-    localStorage.setItem('groqApiKey', JSON.stringify(key));
+    persist('groqApiKey', key);
     set({ groqApiKey: key });
   },
   setGroqModel: (model) => {
-    localStorage.setItem('groqModel', JSON.stringify(model));
+    persist('groqModel', model);
     set({ groqModel: model });
   },
   setOpenrouterApiKey: (key) => {
-    localStorage.setItem('openrouterApiKey', JSON.stringify(key));
+    persist('openrouterApiKey', key);
     set({ openrouterApiKey: key });
   },
   setOpenrouterModel: (model) => {
-    localStorage.setItem('openrouterModel', JSON.stringify(model));
+    persist('openrouterModel', model);
     set({ openrouterModel: model });
   },
   setSpoonacularApiKey: (key) => {
-    localStorage.setItem('spoonacularApiKey', JSON.stringify(key));
+    persist('spoonacularApiKey', key);
     set({ spoonacularApiKey: key });
   },
 
   setUserProfile: (profile) => {
-    localStorage.setItem('userProfile', JSON.stringify(profile));
+    persist('userProfile', profile);
     set({ userProfile: profile });
   },
   setWaterGoal: (ml) => {
-    localStorage.setItem('waterGoal', JSON.stringify(ml));
+    persist('waterGoal', ml);
     set({ waterGoal: ml });
   },
   addWaterEntry: (entry) =>
     set((state) => {
       const updated = [...state.waterLog, entry];
-      localStorage.setItem('waterLog', JSON.stringify(updated));
+      persist('waterLog', updated);
       return { waterLog: updated };
     }),
   clearWaterToday: (date) =>
     set((state) => {
       const updated = state.waterLog.filter((e) => e.date !== date);
-      localStorage.setItem('waterLog', JSON.stringify(updated));
+      persist('waterLog', updated);
       return { waterLog: updated };
     }),
   addWeightEntry: (entry) =>
     set((state) => {
       const filtered = state.weightLog.filter((e) => e.date !== entry.date);
       const updated = [...filtered, entry].sort((a, b) => a.date.localeCompare(b.date));
-      localStorage.setItem('weightLog', JSON.stringify(updated));
+      persist('weightLog', updated);
       return { weightLog: updated };
     }),
   removeWeightEntry: (date) =>
     set((state) => {
       const updated = state.weightLog.filter((e) => e.date !== date);
-      localStorage.setItem('weightLog', JSON.stringify(updated));
+      persist('weightLog', updated);
       return { weightLog: updated };
     }),
   setTargetWeight: (w) => {
-    localStorage.setItem('targetWeight', JSON.stringify(w));
+    persist('targetWeight', w);
     set({ targetWeight: w });
   },
   setMealSlot: (date, slot, recipeId) =>
@@ -2357,7 +2387,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       if (recipeId === undefined) delete day[slot];
       else day[slot] = recipeId;
       const updated = { ...state.mealPlan, [date]: day };
-      localStorage.setItem('mealPlan', JSON.stringify(updated));
+      persist('mealPlan', updated);
       return { mealPlan: updated };
     }),
   setMealTextSlot: (date, slot, meal) =>
@@ -2368,7 +2398,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       const updated = { ...state.mealPlanText };
       if (Object.keys(day).length) updated[date] = day;
       else delete updated[date];
-      localStorage.setItem('mealPlanText', JSON.stringify(updated));
+      persist('mealPlanText', updated);
       return { mealPlanText: updated };
     }),
   toggleFavorite: (id) =>
@@ -2376,22 +2406,28 @@ export const useAppStore = create<AppState>((set, get) => ({
       const updated = state.favoriteIds.includes(id)
         ? state.favoriteIds.filter((f) => f !== id)
         : [...state.favoriteIds, id];
-      localStorage.setItem('favoriteIds', JSON.stringify(updated));
+      persist('favoriteIds', updated);
       return { favoriteIds: updated };
     }),
   addActivityEntry: (entry) =>
     set((state) => {
       const updated = [...state.activityLog, entry];
-      localStorage.setItem('activityLog', JSON.stringify(updated));
+      persist('activityLog', updated);
       return { activityLog: updated };
     }),
   removeActivityEntry: (id) =>
     set((state) => {
       const updated = state.activityLog.filter((e) => e.id !== id);
-      localStorage.setItem('activityLog', JSON.stringify(updated));
+      persist('activityLog', updated);
       return { activityLog: updated };
     }),
 }));
+
+// Powrót z widoku przepisu do ekranu, z którego go otwarto (Główna, Szukaj, Moje,
+// Plan…). Widoki, które nie są sensownym „źródłem" przepisu, kierują na Główną.
+export function recipeBackTarget(previousView: ActiveView): ActiveView {
+  return previousView === 'recipe-detail' || previousView === 'add-recipe' ? 'home' : previousView;
+}
 
 // Zwraca klucz i model aktywnego dostawcy AI. Dzięki temu widoki nie muszą
 // powtarzać warunków dla każdego dostawcy (i nie trzeba ich poprawiać przy

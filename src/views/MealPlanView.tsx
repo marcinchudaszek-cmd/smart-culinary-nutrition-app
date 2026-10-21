@@ -6,6 +6,7 @@ import { POLISH_RECIPES } from '../data/polishRecipes';
 import toast from 'react-hot-toast';
 import { todayISO, toLocalISO } from '../lib/date';
 import { onImgError } from '../lib/images';
+import { useBackHandler } from '../lib/backButton';
 
 const DAYS_PL = ['Pon', 'Wt', 'Śr', 'Czw', 'Pt', 'Sob', 'Nd'];
 const SLOTS: { key: keyof MealSlot; label: string; emoji: string }[] = [
@@ -30,11 +31,14 @@ function dateStr(d: Date): string {
 export default function MealPlanView() {
   const { mealPlan, mealPlanText, setMealSlot, setMealTextSlot, myRecipes, addFoodEntry } = useAppStore();
   const [weekOffset, setWeekOffset] = useState(0);
-  const [selectedDay, setSelectedDay] = useState(0); // 0=Mon ... 6=Sun
+  // Otwieramy na dzisiejszym dniu (0=Pon … 6=Nd), a nie zawsze na poniedziałku.
+  const [selectedDay, setSelectedDay] = useState(() => (new Date().getDay() + 6) % 7);
   const [pickerSlot, setPickerSlot] = useState<keyof MealSlot | null>(null);
   const [pickerSearch, setPickerSearch] = useState('');
   const [showShopping, setShowShopping] = useState(false);
   const [showPdfImporter, setShowPdfImporter] = useState(false);
+  useBackHandler(!!pickerSlot, () => { setPickerSlot(null); setPickerSearch(''); });
+  useBackHandler(showShopping, () => setShowShopping(false));
 
   const weekStart = useMemo(() => getWeekStart(weekOffset), [weekOffset]);
 
@@ -50,9 +54,11 @@ export default function MealPlanView() {
   const dayText = mealPlanText[selectedDate] ?? {};
 
   const recipes = useMemo(() => {
+    // Przepis z katalogu zapisany w „Moich" ma to samo id — pokazujemy go raz.
+    const myIds = new Set(myRecipes.map(r => r.id));
     const all = [
-      ...POLISH_RECIPES.map(r => ({ id: r.id, name: r.name, category: r.category, thumbnail: r.thumbnail, totalCalories: r.totalCalories, servings: r.servings, ingredients: r.ingredients })),
-      ...myRecipes.map(r => ({ id: r.id, name: r.name, category: r.category, thumbnail: r.thumbnail, totalCalories: r.totalCalories, servings: r.servings, ingredients: r.ingredients })),
+      ...POLISH_RECIPES.filter(r => !myIds.has(r.id)).map(r => ({ id: r.id, name: r.name, category: r.category, thumbnail: r.thumbnail, totalCalories: r.totalCalories, servings: r.servings, ingredients: r.ingredients })),
+      ...myRecipes.map(r => ({ id: r.id, name: r.name, category: r.category, thumbnail: r.photo || r.thumbnail, totalCalories: r.totalCalories, servings: r.servings, ingredients: r.ingredients })),
     ];
     if (!pickerSearch) return all;
     const q = pickerSearch.toLowerCase();
@@ -157,8 +163,8 @@ export default function MealPlanView() {
                 }`}
               >
                 <span>{DAYS_PL[i]}</span>
-                <span className={`text-[10px] ${isSelected ? 'text-teal-400' : 'text-white/60'}`}>
-                  {new Date(date).getDate()}
+                <span className={`text-[10px] ${isSelected ? 'text-teal-600' : 'text-white/70'}`}>
+                  {new Date(date + 'T12:00:00').getDate()}
                 </span>
                 {hasAny && <div className={`w-1 h-1 rounded-full mt-0.5 ${isSelected ? 'bg-teal-400' : 'bg-white/60'}`} />}
                 {isToday && !hasAny && <div className="w-1 h-1 rounded-full mt-0.5 bg-yellow-300" />}
@@ -263,7 +269,7 @@ export default function MealPlanView() {
       {/* Day meal slots */}
       <div className="px-4 mt-4 space-y-3">
         <p className="text-sm text-gray-500 font-medium">
-          {new Date(selectedDate).toLocaleDateString('pl-PL', { weekday: 'long', day: 'numeric', month: 'long' })}
+          {new Date(selectedDate + 'T12:00:00').toLocaleDateString('pl-PL', { weekday: 'long', day: 'numeric', month: 'long' })}
         </p>
 
         {SLOTS.map(({ key, label, emoji }) => {

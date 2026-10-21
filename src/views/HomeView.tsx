@@ -12,6 +12,7 @@ import { todayISO } from '../lib/date';
 
 export default function HomeView() {
   const { setActiveView, setSelectedRecipe, myRecipes, foodDiary, dailyGoal,
+          proteinGoal, carbsGoal, fatGoal,
           waterLog, waterGoal, addWaterEntry, clearWaterToday, weightLog,
           activityLog } = useAppStore();
   const [showChefAI, setShowChefAI] = useState(false);
@@ -27,7 +28,7 @@ export default function HomeView() {
     .filter((e) => e.date === today)
     .reduce((s, e) => s + e.caloriesBurned, 0);
   const netCalories = Math.max(0, todayCalories - todayBurned);
-  const progress = Math.min((todayCalories / dailyGoal) * 100, 100);
+  const progress = dailyGoal > 0 ? Math.min((todayCalories / dailyGoal) * 100, 100) : 0;
 
   // Water tracking
   const todayWater = waterLog.filter(e => e.date === today).reduce((s, e) => s + e.amount, 0);
@@ -138,9 +139,9 @@ export default function HomeView() {
           {/* Macro bars */}
           <div className="grid grid-cols-3 gap-2 mt-3">
             {[
-              { label: 'Białko', val: todayProtein, goal: 60,  color: 'bg-blue-300' },
-              { label: 'Węgle',  val: todayCarbs,   goal: 250, color: 'bg-yellow-300' },
-              { label: 'Tłuszcz', val: todayFat,    goal: 65,  color: 'bg-red-300' },
+              { label: 'Białko', val: todayProtein, goal: proteinGoal, color: 'bg-blue-300' },
+              { label: 'Węgle',  val: todayCarbs,   goal: carbsGoal,   color: 'bg-yellow-300' },
+              { label: 'Tłuszcz', val: todayFat,    goal: fatGoal,     color: 'bg-red-300' },
             ].map(({ label, val, goal, color }) => (
               <div key={label}>
                 <div className="flex justify-between text-xs text-orange-100 mb-1">
@@ -150,7 +151,7 @@ export default function HomeView() {
                 <div className="h-1.5 bg-white/20 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full ${color}`}
-                    style={{ width: `${Math.min((val / goal) * 100, 100)}%` }}
+                    style={{ width: `${goal > 0 ? Math.min((val / goal) * 100, 100) : 0}%` }}
                   />
                 </div>
               </div>

@@ -9,6 +9,7 @@ import { POLISH_DISHES } from '../data/polishDishes';
 import { COMMON_FOODS, normalizeText, matchesQuery, type FoodItem } from '../data/commonFoods';
 import toast from 'react-hot-toast';
 import { todayISO, toLocalISO } from '../lib/date';
+import { useBackHandler } from '../lib/backButton';
 
 const MEAL_TYPES = [
   { id: 'breakfast', label: 'Śniadanie', short: 'Śniad.', emoji: '🌅' },
@@ -279,7 +280,9 @@ export default function CaloriesView() {
   const [selectedFood, setSelectedFood] = useState<FoodItem | null>(null);
   // Dla produktów „na szt." pozwala przełączyć wpisywanie na gramy.
   const [entryUnit, setEntryUnit] = useState<'szt' | 'g'>('szt');
+  // Wartości własnego produktu są na 100 g; `customGrams` to zjedzona ilość.
   const [customFood, setCustomFood] = useState({ name: '', calories: 0, protein: 0, carbs: 0, fat: 0 });
+  const [customGrams, setCustomGrams] = useState(100);
   const [isCustom, setIsCustom] = useState(false);
   const [saveCustom, setSaveCustom] = useState(true);
   const [customBarcode, setCustomBarcode] = useState<string | null>(null);
@@ -287,6 +290,12 @@ export default function CaloriesView() {
   const [offResults, setOffResults] = useState<FoodItem[]>([]);
   const [offLoading, setOffLoading] = useState(false);
   const searchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Numer ostatniego zapytania — odpowiedź na starsze (wolniejsze) zapytanie
+  // nie może nadpisać wyników nowszego.
+  const searchSeq = useRef(0);
+
+  useBackHandler(showAdd, () => setShowAdd(false));
+  useBackHandler(showGoalEdit, () => setShowGoalEdit(false));
 
   const today = todayISO();
   const todayEntries = foodDiary.filter((e) => e.date === today);
@@ -300,7 +309,7 @@ export default function CaloriesView() {
     .reduce((s, e) => s + e.caloriesBurned, 0);
   const netCalories = Math.max(0, todayCalories - todayBurned);
 
-  const progress = Math.min((todayCalories / dailyGoal) * 100, 100);
+  const progress = dailyGoal > 0 ? Math.min((todayCalories / dailyGoal) * 100, 100) : 0;
 
   const isSzt = selectedFood?.unit === 'szt';
   const gramsPerPiece = selectedFood?.gramsPerPiece;
@@ -332,7 +341,8 @@ export default function CaloriesView() {
     : [];
 
   const searchOFF = useCallback(async (q: string) => {
-    if (q.length < 3) { setOffResults([]); return; }
+    const seq = ++searchSeq.current;
+    if (q.length < 3) { setOffResults([]); setOffLoading(false); return; }
     setOffLoading(true);
     try {
       // Sortujemy po popularności (najczęściej skanowane) i bierzemy więcej wyników,
@@ -366,11 +376,11 @@ export default function CaloriesView() {
         seen.add(k);
         return true;
       });
-      setOffResults(unique.slice(0, 25));
+      if (seq === searchSeq.current) setOffResults(unique.slice(0, 25));
     } catch {
-      setOffResults([]);
+      if (seq === searchSeq.current) setOffResults([]);
     } finally {
-      setOffLoading(false);
+      if (seq === searchSeq.current) setOffLoading(false);
     }
   }, []);
 
@@ -441,6 +451,11 @@ export default function CaloriesView() {
         toast.error('Podaj nazwę i kalorie');
         return;
       }
+      if (!(customGrams > 0)) {
+        toast.error('Podaj zjedzoną ilość w gramach');
+        return;
+      }
+      const f = customGrams / 100;
       // Zapamiętaj produkt na stałe (opcjonalnie z zeskanowanym kodem).
       if (saveCustom) {
         addMyProduct({
@@ -455,19 +470,21 @@ export default function CaloriesView() {
       }
       addFoodEntry({
         id: `entry-${Date.now()}`,
-        name: customFood.name,
-        calories: customFood.calories,
-        protein: customFood.protein,
-        carbs: customFood.carbs,
-        fat: customFood.fat,
-        amount: 100,
+        name: customFood.name.trim(),
+        calories: Math.round(customFood.calories * f),
+        protein: Math.round(customFood.protein * f * 10) / 10,
+        carbs: Math.round(customFood.carbs * f * 10) / 10,
+        fat: Math.round(customFood.fat * f * 10) / 10,
+        amount: customGrams,
         unit: 'g',
         date: today,
         mealType: selectedMealType,
       });
       setCustomBarcode(null);
+      setCustomGrams(100);
     } else {
       if (!selectedFood) { toast.error('Wybierz produkt'); return; }
+      if (!(amount > 0)) { toast.error('Podaj ilość większą od zera'); return; }
       const multiplier = macroFactor;
       addFoodEntry({
         id: `entry-${Date.now()}`,
@@ -688,7 +705,10 @@ export default function CaloriesView() {
             <div className="flex gap-3">
               <button onClick={() => setShowGoalEdit(false)} className="flex-1 py-3 bg-gray-100 rounded-xl text-gray-600 font-medium">Anuluj</button>
               <button
-                onClick={() => { setDailyGoal(tempGoal); setShowGoalEdit(false); toast.success('Cel zaktualizowany!'); }}
+                onClick={() => {
+                  if (!(tempGoal >= 800 && tempGoal <= 10000)) { toast.error('Podaj cel od 800 do 10 000 kcal'); return; }
+                  setDailyGoal(Math.round(tempGoal)); setShowGoalEdit(false); toast.success('Cel zaktualizowany!');
+                }}
                 className="flex-1 py-3 bg-orange-500 text-white rounded-xl font-semibold"
               >
                 Zapisz
@@ -886,10 +906,10 @@ export default function CaloriesView() {
                   />
                   <div className="grid grid-cols-2 gap-2">
                     {[
-                      { label: 'Kalorie (kcal)', key: 'calories' },
-                      { label: 'Białko (g)', key: 'protein' },
-                      { label: 'Węglowodany (g)', key: 'carbs' },
-                      { label: 'Tłuszcze (g)', key: 'fat' },
+                      { label: 'Kalorie (kcal / 100 g)', key: 'calories' },
+                      { label: 'Białko (g / 100 g)', key: 'protein' },
+                      { label: 'Węglowodany (g / 100 g)', key: 'carbs' },
+                      { label: 'Tłuszcze (g / 100 g)', key: 'fat' },
                     ].map((field) => (
                       <div key={field.key}>
                         <label className="text-xs text-gray-500 mb-1 block">{field.label}</label>
@@ -901,6 +921,21 @@ export default function CaloriesView() {
                         />
                       </div>
                     ))}
+                  </div>
+
+                  <div>
+                    <label className="text-xs text-gray-500 mb-1 block">Zjedzona ilość (g)</label>
+                    <input
+                      type="number"
+                      value={customGrams || ''}
+                      onChange={(e) => setCustomGrams(Number(e.target.value))}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-orange-400"
+                    />
+                    {customFood.calories > 0 && customGrams > 0 && (
+                      <p className="text-center text-orange-500 font-bold mt-1 text-sm">
+                        = {Math.round(customFood.calories * customGrams / 100)} kcal
+                      </p>
+                    )}
                   </div>
 
                   {/* Zapamiętanie produktu + kod kreskowy */}

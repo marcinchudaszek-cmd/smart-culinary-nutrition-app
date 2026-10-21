@@ -2,6 +2,9 @@ import { useState, useRef } from 'react';
 import { ArrowLeft, Plus, Trash2, Camera, Image } from 'lucide-react';
 import { useAppStore, Ingredient } from '../store/useAppStore';
 import toast from 'react-hot-toast';
+import { readFileResized } from '../lib/resizeImage';
+
+const DEFAULT_THUMB = 'https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg';
 
 export default function AddRecipeView() {
   const { setActiveView, addMyRecipe, updateMyRecipe, selectedRecipe } = useAppStore();
@@ -41,13 +44,25 @@ export default function AddRecipeView() {
 
   const totalCalories = ingredients.reduce((s, i) => s + Number(i.calories || 0), 0);
 
-  const handlePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePhoto = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
+    e.target.value = '';
     if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => setForm((prev) => ({ ...prev, photo: reader.result as string }));
-    reader.readAsDataURL(file);
+    try {
+      // Zmniejszamy do 1024 px — pełne zdjęcie z aparatu zapychało pamięć aplikacji.
+      const photo = await readFileResized(file, 1024, 0.8);
+      setForm((prev) => ({ ...prev, photo }));
+    } catch {
+      toast.error('Nie udało się wczytać zdjęcia');
+    }
   };
+
+  // Zdjęcie wgrane przez użytkownika (data URL) trzymamy tylko w `photo`;
+  // `thumbnail` zostaje zwykłym adresem obrazka, żeby nie zapisywać zdjęcia dwa razy.
+  const isUploaded = form.photo.startsWith('data:');
+  const photoField = isUploaded ? form.photo : undefined;
+  const thumbFor = (fallback: string) =>
+    isUploaded ? (fallback.startsWith('data:') ? DEFAULT_THUMB : fallback) : (form.photo || fallback);
 
   const handleSubmit = () => {
     if (!form.name.trim()) {
@@ -69,8 +84,8 @@ export default function AddRecipeView() {
         category: form.category.trim() || 'Własny',
         area: form.area.trim() || 'Polska',
         instructions: form.instructions.trim(),
-        thumbnail: form.photo || selectedRecipe.thumbnail,
-        photo: form.photo || undefined,
+        thumbnail: thumbFor(selectedRecipe.thumbnail || DEFAULT_THUMB),
+        photo: photoField,
         ingredients: filtered,
         totalCalories,
         servings: Number(form.servings) || 4,
@@ -88,8 +103,8 @@ export default function AddRecipeView() {
       category: form.category.trim() || 'Własny',
       area: form.area.trim() || 'Polska',
       instructions: form.instructions.trim(),
-      thumbnail: form.photo || 'https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg',
-      photo: form.photo || undefined,
+      thumbnail: thumbFor(DEFAULT_THUMB),
+      photo: photoField,
       ingredients: filtered,
       totalCalories,
       servings: Number(form.servings) || 4,

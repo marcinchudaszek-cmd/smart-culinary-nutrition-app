@@ -2,17 +2,9 @@ import { useState, useMemo } from 'react';
 import { ArrowLeft, Target, Eye, EyeOff, ExternalLink, RotateCcw, FlaskConical, CheckCircle, XCircle, Loader, Search, Bell, Calculator, Moon, Sun } from 'lucide-react';
 import { useAppStore, type UserProfile, GEMINI_MODEL, GROQ_VISION_MODEL, OPENROUTER_VISION_MODEL } from '../store/useAppStore';
 import { callAI } from '../lib/aiProvider';
-import { DEFAULT_REMINDERS, requestPermission, syncReminders, type MealReminder } from '../lib/notifications';
+import { loadReminders, saveReminders, requestPermission, syncReminders, type MealReminder } from '../lib/notifications';
+import { appVersion } from '../lib/appInfo';
 import toast from 'react-hot-toast';
-
-const REMINDERS_KEY = 'mealReminders';
-function loadReminders(): MealReminder[] {
-  try { return JSON.parse(localStorage.getItem(REMINDERS_KEY) ?? 'null') ?? DEFAULT_REMINDERS; }
-  catch { return DEFAULT_REMINDERS; }
-}
-function saveReminders(r: MealReminder[]) {
-  localStorage.setItem(REMINDERS_KEY, JSON.stringify(r));
-}
 
 const CALORIE_PRESETS = [1500, 1800, 2000, 2200, 2500, 3000];
 
@@ -715,7 +707,7 @@ export default function SettingsView() {
 
         {/* App info */}
         <div className="bg-orange-50 rounded-2xl p-4 text-center space-y-2">
-          <p className="text-xs text-orange-600 font-medium">KulinApp v2.9</p>
+          <p className="text-xs text-orange-600 font-medium">KulinApp v{appVersion}</p>
           <p className="text-xs text-orange-400">Dane zapisywane lokalnie na urządzeniu</p>
           <button
             onClick={() => { setOnboardingDone(false); toast.success('Onboarding zresetowany'); }}

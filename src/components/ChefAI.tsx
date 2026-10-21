@@ -5,6 +5,8 @@ import { useAppStore, activeAI } from '../store/useAppStore';
 import { callAI, parseAiJson, type AiProvider } from '../lib/aiProvider';
 import { POLISH_RECIPES } from '../data/polishRecipes';
 import toast from 'react-hot-toast';
+import { resizeDataUrl } from '../lib/resizeImage';
+import { useBackHandler } from '../lib/backButton';
 
 interface MealSuggestion {
   name: string;
@@ -95,9 +97,10 @@ function FridgeScanner() {
   const [result, setResult] = useState<ChefResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const applyImage = useCallback((dataUrl: string) => {
-    setImage(dataUrl);
+  // Zmniejszamy zdjęcie przed wysłaniem do AI (pełne z aparatu ma kilka MB).
+  const applyImage = useCallback(async (dataUrl: string) => {
     setResult(null);
+    setImage(await resizeDataUrl(dataUrl));
   }, []);
 
   const openCamera = useCallback(async () => {
@@ -471,6 +474,7 @@ type ChefMode = 'fridge' | 'text';
 
 export default function ChefAI({ onClose }: { onClose?: () => void } = {}) {
   const [mode, setMode] = useState<ChefMode>('fridge');
+  useBackHandler(!!onClose, onClose);
 
   const content = (
     <div className="space-y-4">

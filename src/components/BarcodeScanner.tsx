@@ -4,6 +4,7 @@ import { useAppStore } from '../store/useAppStore';
 import toast from 'react-hot-toast';
 import { Flame, RotateCcw, X, Package, Loader, ScanLine, CameraOff, History, Trash2, Barcode } from 'lucide-react';
 import { todayISO } from '../lib/date';
+import { useBackHandler } from '../lib/backButton';
 import { type ProductInfo, fetchProduct, loadHistory, saveToHistory, clearHistory } from '../lib/openFoodFacts';
 
 type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
@@ -47,6 +48,8 @@ export default function BarcodeScanner({ onClose }: { onClose?: () => void } = {
     readerRef.current = null;
     setScanning(false);
   };
+
+  useBackHandler(!!onClose, () => { stopScanner(); onClose?.(); });
 
   const startScanner = async () => {
     setError(null);

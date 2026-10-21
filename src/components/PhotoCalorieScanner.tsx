@@ -8,6 +8,8 @@ import { useAppStore, activeAI } from '../store/useAppStore';
 import { callAI, parseAiJson } from '../lib/aiProvider';
 import toast from 'react-hot-toast';
 import { todayISO } from '../lib/date';
+import { resizeDataUrl } from '../lib/resizeImage';
+import { useBackHandler } from '../lib/backButton';
 
 type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
 const MEAL_LABELS: Record<MealType, string> = {
@@ -55,6 +57,7 @@ export default function PhotoCalorieScanner({ onClose }: { onClose: () => void }
   const [added, setAdded]           = useState(false);
   const [customGrams, setCustomGrams] = useState<number | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  useBackHandler(true, onClose);
 
   // Wyciąga liczbę gramów z tekstu porcji np. "250 g" → 250, "1 talerz (ok. 350 g)" → 350
   function parsePortion(portion: string): number {
@@ -100,14 +103,16 @@ export default function PhotoCalorieScanner({ onClose }: { onClose: () => void }
     e.target.value = '';
   }
 
-  async function analyse(dataUrl: string) {
+  async function analyse(original: string) {
     if (!apiKey) { toast.error('Brak klucza API — uzupełnij w Ustawieniach'); return; }
-    setImageUrl(dataUrl);
+    setImageUrl(original);
     setLoading(true);
     setResult(null);
     setAdded(false);
 
     try {
+      // Pełne zdjęcie z aparatu (kilka MB) wysyła się wolno i bywa odrzucane.
+      const dataUrl = await resizeDataUrl(original);
       const raw = await callAI(aiProvider, apiKey, model, {
         text: PROMPT,
         imageDataUrl: dataUrl,

@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Camera } from 'lucide-react';
-import { useAppStore } from './store/useAppStore';
+import { App as CapApp } from '@capacitor/app';
+import { Capacitor } from '@capacitor/core';
+import { useAppStore, recipeBackTarget, type ActiveView } from './store/useAppStore';
+import { closeTopOverlay } from './lib/backButton';
+import { resyncRemindersOnStart } from './lib/notifications';
 import BottomNav from './components/BottomNav';
 import HomeView from './views/HomeView';
 import SearchView from './views/SearchView';
 import MyRecipesView from './views/MyRecipesView';
 import AddRecipeView from './views/AddRecipeView';
 import CaloriesView from './views/CaloriesView';
-import ScannerView from './views/ScannerView';
 import RecipeDetailView from './views/RecipeDetailView';
 import SettingsView from './views/SettingsView';
 import ProgressView from './views/ProgressView';
@@ -18,9 +21,40 @@ import FitnessView from './views/FitnessView';
 import OnboardingView from './views/OnboardingView';
 import PhotoCalorieScanner from './components/PhotoCalorieScanner';
 
+// Dokąd prowadzi systemowe „wstecz" z danego ekranu (null = wyjście z aplikacji).
+function backTarget(): ActiveView | null {
+  const s = useAppStore.getState();
+  if (!s.onboardingDone) return null;
+  switch (s.activeView) {
+    case 'home':          return null;
+    case 'recipe-detail': return recipeBackTarget(s.previousView);
+    case 'add-recipe':    return s.selectedRecipe ? 'recipe-detail' : 'my-recipes';
+    default:              return 'home';
+  }
+}
+
 export default function App() {
   const { activeView, darkMode, onboardingDone } = useAppStore();
   const [showGlobalScanner, setShowGlobalScanner] = useState(false);
+
+  // Przycisk „wstecz" Androida: najpierw zamyka otwarte okno, potem cofa ekran,
+  // a dopiero na ekranie głównym wychodzi z aplikacji (wcześniej zawsze wychodził).
+  useEffect(() => {
+    if (!Capacitor.isNativePlatform()) return;
+    const sub = CapApp.addListener('backButton', () => {
+      if (closeTopOverlay()) return;
+      const target = backTarget();
+      if (target) useAppStore.getState().setActiveView(target);
+      else void CapApp.exitApp();
+    });
+    void resyncRemindersOnStart();
+    return () => { void sub.then((h) => h.remove()); };
+  }, []);
+
+  // Tło dokumentu pod widokiem (np. przy przewijaniu poza krawędź) zgodne z motywem.
+  useEffect(() => {
+    document.documentElement.style.background = darkMode ? '#111827' : '#f9fafb';
+  }, [darkMode]);
 
   const renderView = () => {
     switch (activeView) {
@@ -29,7 +63,6 @@ export default function App() {
       case 'my-recipes':   return <MyRecipesView />;
       case 'add-recipe':   return <AddRecipeView />;
       case 'calories':     return <CaloriesView />;
-      case 'scanner':      return <ScannerView />;
       case 'recipe-detail':return <RecipeDetailView />;
       case 'settings':     return <SettingsView />;
       case 'progress':     return <ProgressView />;
