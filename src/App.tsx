@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Camera } from 'lucide-react';
 import { App as CapApp } from '@capacitor/app';
@@ -6,6 +6,9 @@ import { Capacitor } from '@capacitor/core';
 import { useAppStore, recipeBackTarget, type ActiveView } from './store/useAppStore';
 import { closeTopOverlay } from './lib/backButton';
 import { resyncRemindersOnStart } from './lib/notifications';
+import { LocalNotifications } from '@capacitor/local-notifications';
+import { usePantryStore } from './store/usePantryStore';
+import { schedulePantryReminders, PANTRY_NOTIFICATION_IDS } from './lib/pantryNotifications';
 import BottomNav from './components/BottomNav';
 import HomeView from './views/HomeView';
 import SearchView from './views/SearchView';
@@ -18,6 +21,7 @@ import ProgressView from './views/ProgressView';
 import MealPlanView from './views/MealPlanView';
 import DietChatView from './views/DietChatView';
 import FitnessView from './views/FitnessView';
+import PantryView from './views/PantryView';
 import OnboardingView from './views/OnboardingView';
 import PhotoCalorieScanner from './components/PhotoCalorieScanner';
 
@@ -36,6 +40,11 @@ function backTarget(): ActiveView | null {
 export default function App() {
   const { activeView, darkMode, onboardingDone } = useAppStore();
   const [showGlobalScanner, setShowGlobalScanner] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Nowy ekran zaczyna się od góry — wcześniej przejmował przewinięcie poprzedniego
+  // (np. spiżarnia otwarta z połowy strony głównej startowała bez nagłówka).
+  useEffect(() => { scrollRef.current?.scrollTo(0, 0); }, [activeView]);
 
   // Przycisk „wstecz" Androida: najpierw zamyka otwarte okno, potem cofa ekran,
   // a dopiero na ekranie głównym wychodzi z aplikacji (wcześniej zawsze wychodził).
@@ -49,6 +58,30 @@ export default function App() {
     });
     void resyncRemindersOnStart();
     return () => { void sub.then((h) => h.remove()); };
+  }, []);
+
+  // Przypomnienia spiżarni: treść zależy od listy, więc przeplanowujemy je przy
+  // starcie i po każdej zmianie (z opóźnieniem — skan paragonu to wiele zmian naraz).
+  // Stuknięcie w takie powiadomienie otwiera spiżarnię.
+  useEffect(() => {
+    if (!Capacitor.isNativePlatform()) return;
+    const resync = () => {
+      const { items, reminder } = usePantryStore.getState();
+      void schedulePantryReminders(items, reminder);
+    };
+    resync();
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const unsub = usePantryStore.subscribe((s, prev) => {
+      if (s.items === prev.items && s.reminder === prev.reminder) return;
+      clearTimeout(timer);
+      timer = setTimeout(resync, 1500);
+    });
+    const tap = LocalNotifications.addListener('localNotificationActionPerformed', (e) => {
+      if (PANTRY_NOTIFICATION_IDS.includes(e.notification.id)) {
+        useAppStore.getState().setActiveView('pantry');
+      }
+    });
+    return () => { unsub(); clearTimeout(timer); void tap.then((h) => h.remove()); };
   }, []);
 
   // Tło dokumentu pod widokiem (np. przy przewijaniu poza krawędź) zgodne z motywem.
@@ -69,6 +102,7 @@ export default function App() {
       case 'meal-plan':    return <MealPlanView />;
       case 'diet-chat':    return <DietChatView />;
       case 'fitness':      return <FitnessView />;
+      case 'pantry':       return <PantryView />;
       default:             return <HomeView />;
     }
   };
@@ -83,7 +117,7 @@ export default function App() {
 
   return (
     <div className={`max-w-lg mx-auto min-h-dvh relative overflow-hidden bg-gray-50 dark:bg-gray-900${darkMode ? ' dark' : ''}`}>
-      <div className="overflow-y-auto h-dvh pb-[var(--sa-bottom)]">
+      <div ref={scrollRef} className="overflow-y-auto h-dvh pb-[var(--sa-bottom)]">
         {/* key forces remount on view change → triggers .view-enter animation */}
         <div key={activeView} className="view-enter">
           {renderView()}

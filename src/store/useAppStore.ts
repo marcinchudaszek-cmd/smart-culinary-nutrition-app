@@ -83,7 +83,8 @@ export type ActiveView =
   | 'progress'
   | 'meal-plan'
   | 'diet-chat'
-  | 'fitness';
+  | 'fitness'
+  | 'pantry';
 
 export interface ActivityEntry {
   id: string;

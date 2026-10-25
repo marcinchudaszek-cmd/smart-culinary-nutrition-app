@@ -251,12 +251,12 @@ function FridgeScanner() {
 }
 
 // ---------- Text Ingredients ----------
-function TextIngredients() {
+function TextIngredients({ initial = [] }: { initial?: string[] }) {
   const store = useAppStore();
   const { aiProvider, setActiveView } = store;
   const { apiKey: activeKey, model: activeModel } = activeAI(store);
   const [input, setInput] = useState('');
-  const [chips, setChips] = useState<string[]>([]);
+  const [chips, setChips] = useState<string[]>(initial);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ChefResult | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -472,8 +472,9 @@ function SuggestionsList({ suggestions }: { suggestions: MealSuggestion[] }) {
 // ---------- Main Export ----------
 type ChefMode = 'fridge' | 'text';
 
-export default function ChefAI({ onClose }: { onClose?: () => void } = {}) {
-  const [mode, setMode] = useState<ChefMode>('fridge');
+export default function ChefAI({ onClose, initialIngredients }: { onClose?: () => void; initialIngredients?: string[] } = {}) {
+  // Ze spiżarni przychodzimy z gotową listą — od razu tryb „Składniki”.
+  const [mode, setMode] = useState<ChefMode>(initialIngredients?.length ? 'text' : 'fridge');
   useBackHandler(!!onClose, onClose);
 
   const content = (
@@ -498,7 +499,7 @@ export default function ChefAI({ onClose }: { onClose?: () => void } = {}) {
         </button>
       </div>
 
-      {mode === 'fridge' ? <FridgeScanner /> : <TextIngredients />}
+      {mode === 'fridge' ? <FridgeScanner /> : <TextIngredients initial={initialIngredients} />}
     </div>
   );
 

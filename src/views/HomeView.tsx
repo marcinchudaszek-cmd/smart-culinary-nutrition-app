@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
-import { ChefHat, TrendingUp, BookOpen, Search, Flame, Star, Settings, Droplets, Scale, Bot, Utensils } from 'lucide-react';
+import { ChefHat, TrendingUp, BookOpen, Search, Flame, Star, Settings, Droplets, Scale, Bot, Utensils, Refrigerator } from 'lucide-react';
+import { usePantryStore } from '../store/usePantryStore';
+import { daysLeft } from '../lib/pantry';
 import { useAppStore } from '../store/useAppStore';
 import { POLISH_RECIPES } from '../data/polishRecipes';
 import WeeklyRecommendations from '../components/WeeklyRecommendations';
@@ -17,6 +19,7 @@ export default function HomeView() {
           activityLog } = useAppStore();
   const [showChefAI, setShowChefAI] = useState(false);
   const [showComposer, setShowComposer] = useState(false);
+  const pantryItems = usePantryStore((s) => s.items);
 
   const today = todayISO();
   const todayEntries = foodDiary.filter((e) => e.date === today);
@@ -255,6 +258,7 @@ export default function HomeView() {
 
         {/* NutriBot + Recommendations */}
         <div className="mb-5 space-y-3">
+          <PantryButton items={pantryItems} today={today} onOpen={() => setActiveView('pantry')} />
           <button
             onClick={() => setActiveView('diet-chat')}
             className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-2xl p-4 flex items-center gap-3 shadow-sm active:scale-95 transition-all"
@@ -339,5 +343,34 @@ export default function HomeView() {
       {showChefAI && <ChefAI onClose={() => setShowChefAI(false)} />}
       {showComposer && <MealComposer onClose={() => setShowComposer(false)} />}
     </div>
+  );
+}
+
+function PantryButton({ items, today, onOpen }: {
+  items: ReturnType<typeof usePantryStore.getState>['items']; today: string; onOpen: () => void;
+}) {
+  const active = items.filter((i) => i.status === 'active');
+  const urgent = active.filter((i) => daysLeft(i.expiresAt, today) <= 2).length;
+  const subtitle = !active.length
+    ? 'Zeskanuj paragon — podpowiemy, co zjeść, zanim się zepsuje'
+    : urgent
+      ? `${urgent} ${urgent === 1 ? 'produkt kończy' : urgent < 5 ? 'produkty kończą' : 'produktów kończy'} termin — zobacz, co z nich ugotować`
+      : `${active.length} w spiżarni, nic się nie psuje`;
+  return (
+    <button
+      onClick={onOpen}
+      className="w-full bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-2xl p-4 flex items-center gap-3 shadow-sm active:scale-95 transition-all"
+    >
+      <div className="bg-white/20 rounded-xl p-2">
+        <Refrigerator size={20} />
+      </div>
+      <div className="text-left flex-1 min-w-0">
+        <p className="font-bold text-sm">Moja spiżarnia</p>
+        <p className="text-xs text-teal-50">{subtitle}</p>
+      </div>
+      {urgent > 0 && (
+        <span className="bg-white text-teal-700 text-xs font-bold rounded-full min-w-6 h-6 px-2 flex items-center justify-center">{urgent}</span>
+      )}
+    </button>
   );
 }
