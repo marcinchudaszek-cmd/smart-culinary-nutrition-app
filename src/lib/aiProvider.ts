@@ -19,16 +19,28 @@ function maxTokensFor(provider: AiProvider): number {
 // Modele zapasowe dla dostawców zgodnych z OpenAI. Gdy wybrany model jest
 // niedostępny albo ma wyczerpany limit, próbujemy kolejnych — jeden zablokowany
 // model nie może wyłączać całego dostawcy.
+// Osobne listy dla zapytań ze zdjęciem: model tylko tekstowy odrzuca obraz
+// komunikatem „messages[0].content must be a string” — tak skończył się skaner
+// paragonów, gdy Groq wyłączył qwen3.6 (14.09.2026) i kolejką doszliśmy do gpt-oss.
 const OPENROUTER_FALLBACKS = [
   'google/gemma-4-31b-it:free',
   'google/gemma-4-26b-a4b-it:free',
   'nvidia/nemotron-nano-12b-v2-vl:free',
   'openrouter/free',
 ];
+const OPENROUTER_VISION_FALLBACKS = [
+  'google/gemma-4-31b-it:free',
+  'google/gemma-4-26b-a4b-it:free',
+  'nvidia/nemotron-nano-12b-v2-vl:free',
+];
+// Groq (stan 10.2026): obrazy przyjmuje tylko qwen3.8-27b; llama-3.3 i qwen3.6 wyłączone.
 const GROQ_FALLBACKS = [
-  'qwen/qwen3.6-27b',
-  'llama-3.3-70b-versatile',
+  'qwen/qwen3.8-27b',
+  'openai/gpt-oss-120b',
   'openai/gpt-oss-20b',
+];
+const GROQ_VISION_FALLBACKS = [
+  'qwen/qwen3.8-27b',
 ];
 
 export async function callAI(
@@ -39,10 +51,13 @@ export async function callAI(
 ): Promise<string> {
   const maxTokens = maxTokensFor(provider);
   if (provider === 'gemini') return callGemini(apiKey, model, req, maxTokens);
+  const withImage = !!req.imageDataUrl;
   if (provider === 'openrouter') {
-    return callOpenAiCompat('https://openrouter.ai/api/v1/chat/completions', apiKey, model, req, maxTokens, OPENROUTER_FALLBACKS);
+    return callOpenAiCompat('https://openrouter.ai/api/v1/chat/completions', apiKey, model, req, maxTokens,
+      withImage ? OPENROUTER_VISION_FALLBACKS : OPENROUTER_FALLBACKS);
   }
-  return callOpenAiCompat('https://api.groq.com/openai/v1/chat/completions', apiKey, model, req, maxTokens, GROQ_FALLBACKS);
+  return callOpenAiCompat('https://api.groq.com/openai/v1/chat/completions', apiKey, model, req, maxTokens,
+    withImage ? GROQ_VISION_FALLBACKS : GROQ_FALLBACKS);
 }
 
 // Czytelny komunikat, gdy dostawca wycofa model (zdarzyło się już z Gemini 1.5 i Llama 4).
@@ -66,6 +81,9 @@ function friendlyModelError(msg: string, _model: string): string {
       + 'Wejdź na openrouter.ai/settings/privacy i włącz darmowe modele („free endpoints"), '
       + 'albo przełącz dostawcę na Gemini w Ustawieniach → Skaner AI.';
   }
+  if (isNoVision(msg)) {
+    return 'Wybrany dostawca AI nie odczytuje teraz zdjęć. Przełącz dostawcę w Ustawieniach → Skaner AI na Gemini i spróbuj ponownie.';
+  }
   if (isModelUnavailable(msg)) {
     return 'Model AI jest chwilowo niedostępny u dostawcy. Spróbuj ponownie lub przełącz dostawcę w Ustawieniach → Skaner AI (np. na Gemini).';
   }
@@ -86,10 +104,11 @@ async function callOpenAiCompat(
   maxTokens: number,
   fallbacks: string[] = [],
 ): Promise<string> {
-  const content: unknown[] = [{ type: 'text', text: req.text }];
-  if (req.imageDataUrl) {
-    content.push({ type: 'image_url', image_url: { url: req.imageDataUrl } });
-  }
+  // Bez zdjęcia wysyłamy zwykły tekst — część modeli (np. gpt-oss na Groq)
+  // przyjmuje treść wyłącznie jako string, a nie tablicę części.
+  const content: string | unknown[] = req.imageDataUrl
+    ? [{ type: 'text', text: req.text }, { type: 'image_url', image_url: { url: req.imageDataUrl } }]
+    : req.text;
 
   const candidates = [model, ...fallbacks].filter((m, i, a) => a.indexOf(m) === i);
   let lastErr = 'Błąd połączenia';
@@ -122,6 +141,8 @@ async function callOpenAiCompat(
     // Problem z konfiguracją konta (np. polityka danych) dotyczy wszystkich
     // darmowych modeli — zmiana modelu nic nie da, więc przerywamy od razu.
     if (isDataPolicyBlocked(lastErr)) break;
+    // Model bez obsługi obrazów — kolejny z listy (same modele „vision”) może zadziałać.
+    if (isNoVision(lastErr)) continue;
     if (!isModelUnavailable(lastErr) && !isRateLimited(lastErr) && res.status !== 429) break;
   }
   throw aiError(lastErr, model);
@@ -157,6 +178,11 @@ export function parseAiJson<T>(raw: string): T {
     try { return JSON.parse(c) as T; } catch { /* próbuj dalej */ }
   }
   throw new Error('AI zwróciło odpowiedź w nieoczekiwanym formacie. Spróbuj ponownie.');
+}
+
+// Model nie przyjmuje obrazu (Groq: „content must be a string”, inni: „image input”).
+function isNoVision(msg: string): boolean {
+  return /content must be a string|does not support image|image input|not support(ed)? .*image|vision (input|is )?not supported/i.test(msg);
 }
 
 function isModelUnavailable(msg: string): boolean {

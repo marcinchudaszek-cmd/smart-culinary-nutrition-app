@@ -2059,7 +2059,7 @@ export function persist(key: string, value: unknown): boolean {
 // Stabilny model GA. NIE używamy aliasu „*-latest" jako podstawowego — wskazuje on
 // na wersje preview z zaostrzonymi limitami zapytań (stąd wcześniejsze błędy AI).
 export const GEMINI_MODEL = 'gemini-3.5-flash-lite';
-export const GROQ_VISION_MODEL = 'qwen/qwen3.6-27b';
+export const GROQ_VISION_MODEL = 'qwen/qwen3.8-27b'; // qwen3.6 wyłączony przez Groq 14.09.2026
 export const OPENROUTER_VISION_MODEL = 'google/gemma-4-31b-it:free';
 
 const pinModel = (key: string, model: string): string => {
