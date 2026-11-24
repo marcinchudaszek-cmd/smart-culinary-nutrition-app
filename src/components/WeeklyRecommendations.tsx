@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Sparkles, Loader, ChevronDown, ChevronUp, RefreshCw } from 'lucide-react';
 import { useAppStore, activeAI } from '../store/useAppStore';
 import { callAI, parseAiJson } from '../lib/aiProvider';
-import { POLISH_RECIPES } from '../data/polishRecipes';
+import { POLISH_RECIPES, catalogToRecipe } from '../data/polishRecipes';
 import { onImgError } from '../lib/images';
 import toast from 'react-hot-toast';
 import { toLocalISO } from '../lib/date';
@@ -87,12 +87,7 @@ Odpowiedz WYŁĄCZNIE jako JSON (bez markdown):
   function openRecipe(rec: Recommendation) {
     const r = POLISH_RECIPES.find(p => p.id === rec.recipeId);
     if (!r) { toast.error('Przepis nie znaleziony'); return; }
-    setSelectedRecipe({
-      id: r.id, name: r.name, category: r.category,
-      area: 'Polska', instructions: r.instructions,
-      thumbnail: r.thumbnail, ingredients: r.ingredients,
-      totalCalories: r.totalCalories, servings: r.servings, tags: r.time,
-    });
+    setSelectedRecipe(catalogToRecipe(r));
     setActiveView('recipe-detail');
   }
 

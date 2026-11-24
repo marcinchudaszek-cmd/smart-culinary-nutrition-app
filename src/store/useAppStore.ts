@@ -9,7 +9,15 @@ export interface Ingredient {
   calories: number;
 }
 
+/** Makroskładniki całego przepisu w gramach (na wszystkie porcje). */
+export interface RecipeMacros {
+  protein: number;
+  carbs: number;
+  fat: number;
+}
+
 export interface Recipe {
+  macros?: RecipeMacros;
   id: string;
   name: string;
   category: string;
@@ -150,6 +158,8 @@ interface AppState {
   spoonacularApiKey: string;
   pendingSearchQuery: string;
   pendingSearchTab: 'local' | 'online' | '';
+  /** Kategoria do otwarcia w wyszukiwarce (np. z karty sezonowej na Głównej). */
+  pendingSearchCategory: string;
   // Health & Diet
   userProfile: UserProfile;
   waterGoal: number;
@@ -170,6 +180,7 @@ interface AppState {
   setDarkMode: (dark: boolean) => void;
   setOnboardingDone: (done: boolean) => void;
   setPendingSearchQuery: (q: string, tab?: 'local' | 'online') => void;
+  setPendingSearchCategory: (category: string) => void;
   setSelectedRecipe: (recipe: Recipe | null) => void;
   addMyRecipe: (recipe: Recipe) => void;
   updateMyRecipe: (recipe: Recipe) => void;
@@ -2158,6 +2169,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   spoonacularApiKey: loadFromStorage('spoonacularApiKey', ''),
   pendingSearchQuery: '',
   pendingSearchTab: '',
+  pendingSearchCategory: '',
   userProfile: loadFromStorage('userProfile', DEFAULT_PROFILE),
   waterGoal: loadFromStorage('waterGoal', 2000),
   waterLog: loadFromStorage('waterLog', []),
@@ -2185,6 +2197,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     set({ onboardingDone: done });
   },
   setPendingSearchQuery: (q, tab) => set({ pendingSearchQuery: q, pendingSearchTab: tab ?? '' }),
+  setPendingSearchCategory: (category) => set({ pendingSearchCategory: category }),
   setSelectedRecipe: (recipe) => set({ selectedRecipe: recipe }),
 
   addMyRecipe: (recipe) =>

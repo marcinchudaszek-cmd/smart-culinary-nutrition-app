@@ -3,7 +3,7 @@ import { Camera, Upload, X, Loader, Plus, Search, Clock, ChefHat, Trash2, BookOp
 import { Camera as CapCamera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { useAppStore, activeAI } from '../store/useAppStore';
 import { callAI, parseAiJson, type AiProvider } from '../lib/aiProvider';
-import { POLISH_RECIPES } from '../data/polishRecipes';
+import { POLISH_RECIPES, catalogToRecipe } from '../data/polishRecipes';
 import toast from 'react-hot-toast';
 import { resizeDataUrl } from '../lib/resizeImage';
 import { useBackHandler } from '../lib/backButton';
@@ -383,18 +383,7 @@ function SuggestionsList({ suggestions }: { suggestions: MealSuggestion[] }) {
   const openRecipe = (suggestion: MealSuggestion) => {
     const found = findLocalRecipe(suggestion.name);
     if (found) {
-      setSelectedRecipe({
-        id: found.id,
-        name: found.name,
-        category: found.category,
-        area: 'Polska',
-        instructions: found.instructions,
-        thumbnail: found.thumbnail,
-        ingredients: found.ingredients,
-        totalCalories: found.totalCalories,
-        servings: found.servings,
-        tags: found.time,
-      });
+      setSelectedRecipe(catalogToRecipe(found));
       setActiveView('recipe-detail');
     } else {
       setPendingSearchQuery(suggestion.name, 'online');

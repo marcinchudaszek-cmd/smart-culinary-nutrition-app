@@ -27,13 +27,16 @@ function estimateMacros(calories: number, category: string) {
     'Sałatki':            [18, 38, 44],
     'Śniadania':          [18, 55, 27],
     'Wegetariańskie':     [16, 52, 32],
-    'Makarony i ryż':     [15, 65, 20],
-    'Ryby i owoce morza': [45, 10, 45],
-    'Mięsne':             [35, 10, 55],
+    'Makarony':           [15, 65, 20],
     'Grillowane':         [38,  8, 54],
     'Kuchnia regionalna': [22, 40, 38],
-    'Świąteczne':         [14, 52, 34],
-    'Napoje':             [ 5, 80, 15],
+    'Fit i Dieta':        [25, 45, 30],
+    'Niskokaloryczne':    [30, 40, 30],
+    'Dieta białkowa':     [40, 30, 30],
+    'Śródziemnomorska':   [18, 42, 40],
+    'Wigilia':            [18, 45, 37],
+    'Boże Narodzenie':    [22, 40, 38],
+    'Wielkanoc':          [18, 45, 37],
   };
   const [pp, cp, fp] = ratios[category] ?? [22, 44, 34];
   return {
@@ -134,10 +137,20 @@ export default function RecipeDetailView() {
   const perServing = Math.round(basePerServing * multiplier);
   const timerPct   = timerTotal > 0 ? ((timerTotal - timerLeft) / timerTotal) * 100 : 0;
 
+  // Makro na wybraną liczbę porcji: dokładne, gdy przepis ma je policzone ze
+  // składników, w przeciwnym razie szacunek z proporcji typowych dla kategorii.
+  const exactMacros = !!selectedRecipe.macros;
+  const portionMacros = selectedRecipe.macros
+    ? {
+        protein: Math.round(selectedRecipe.macros.protein / selectedRecipe.servings * multiplier * 10) / 10,
+        carbs:   Math.round(selectedRecipe.macros.carbs   / selectedRecipe.servings * multiplier * 10) / 10,
+        fat:     Math.round(selectedRecipe.macros.fat     / selectedRecipe.servings * multiplier * 10) / 10,
+      }
+    // perServing jest już przemnożone przez liczbę porcji — bez ponownego mnożenia.
+    : estimateMacros(perServing, selectedRecipe.category);
+
   const addToDiary = (mealType: MealType) => {
-    // perServing jest już przemnożone przez liczbę porcji — makro liczymy z niego
-    // bez ponownego mnożenia (wcześniej przy ×2 trafiało do dziennika ×4).
-    const macros = estimateMacros(perServing, selectedRecipe.category);
+    const macros = portionMacros;
     addFoodEntry({
       id: `entry-${Date.now()}`,
       name: selectedRecipe.name + (multiplier > 1 ? ` (×${multiplier})` : ''),
@@ -273,6 +286,30 @@ export default function RecipeDetailView() {
             <Clock size={16} className="text-green-500 mx-auto mb-1" />
             <p className="text-lg font-bold text-gray-800">{perServing}</p>
             <p className="text-xs text-gray-400">kcal/porcja</p>
+          </div>
+        </div>
+
+        {/* ── Makro na porcję ── */}
+        <div className="bg-white rounded-2xl px-4 py-3 shadow-sm mb-4">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-sm font-semibold text-gray-700">
+              Makro {multiplier > 1 ? `(×${multiplier})` : 'na porcję'}
+            </span>
+            <span className={`text-[11px] px-2 py-0.5 rounded-full ${exactMacros ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
+              {exactMacros ? 'liczone ze składników' : 'szacunkowo'}
+            </span>
+          </div>
+          <div className="grid grid-cols-3 gap-2 text-center">
+            {[
+              { label: 'Białko', val: portionMacros.protein, color: 'text-blue-600' },
+              { label: 'Węglowodany', val: portionMacros.carbs, color: 'text-yellow-600' },
+              { label: 'Tłuszcze', val: portionMacros.fat, color: 'text-red-500' },
+            ].map(({ label, val, color }) => (
+              <div key={label}>
+                <p className={`text-base font-bold ${color}`}>{exactMacros ? '' : '~'}{Math.round(val)} g</p>
+                <p className="text-[11px] text-gray-400">{label}</p>
+              </div>
+            ))}
           </div>
         </div>
 

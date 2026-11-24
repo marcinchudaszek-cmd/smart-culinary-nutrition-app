@@ -3,7 +3,7 @@ import { ChefHat, TrendingUp, BookOpen, Search, Flame, Star, Settings, Droplets,
 import { usePantryStore } from '../store/usePantryStore';
 import { daysLeft } from '../lib/pantry';
 import { useAppStore } from '../store/useAppStore';
-import { POLISH_RECIPES } from '../data/polishRecipes';
+import { POLISH_RECIPES, catalogToRecipe, isChristmasSeason } from '../data/polishRecipes';
 import WeeklyRecommendations from '../components/WeeklyRecommendations';
 import ChefAI from '../components/ChefAI';
 import MealComposer from '../components/MealComposer';
@@ -16,8 +16,23 @@ export default function HomeView() {
   const { setActiveView, setSelectedRecipe, myRecipes, foodDiary, dailyGoal,
           proteinGoal, carbsGoal, fatGoal,
           waterLog, waterGoal, addWaterEntry, clearWaterToday, weightLog,
-          activityLog } = useAppStore();
+          activityLog, setPendingSearchCategory } = useAppStore();
   const [showChefAI, setShowChefAI] = useState(false);
+
+  // Karta sezonowa „Wigilia i święta” (15.11–6.01) z odliczaniem do Wigilii.
+  const xmasSeason = isChristmasSeason();
+  const daysToWigilia = (() => {
+    const now = new Date();
+    const eve = new Date(now.getFullYear(), 11, 24);
+    const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return Math.round((eve.getTime() - start.getTime()) / 86400000);
+  })();
+  const wigiliaCount = POLISH_RECIPES.filter((r) => r.category === 'Wigilia').length;
+  const swietaCount = POLISH_RECIPES.filter((r) => r.category === 'Boże Narodzenie').length;
+  const openCategory = (category: string) => {
+    setPendingSearchCategory(category);
+    setActiveView('search');
+  };
   const [showComposer, setShowComposer] = useState(false);
   const pantryItems = usePantryStore((s) => s.items);
 
@@ -62,18 +77,7 @@ export default function HomeView() {
   const openRecipe = (id: string) => {
     const recipe = POLISH_RECIPES.find((r) => r.id === id);
     if (!recipe) return;
-    setSelectedRecipe({
-      id: recipe.id,
-      name: recipe.name,
-      category: recipe.category,
-      area: 'Polska',
-      instructions: recipe.instructions,
-      thumbnail: recipe.thumbnail,
-      ingredients: recipe.ingredients,
-      totalCalories: recipe.totalCalories,
-      servings: recipe.servings,
-      tags: recipe.time,
-    });
+    setSelectedRecipe(catalogToRecipe(recipe));
     setActiveView('recipe-detail');
   };
 
@@ -255,6 +259,42 @@ export default function HomeView() {
             <p className="text-[10px] text-gray-500">Waga (kg)</p>
           </button>
         </div>
+
+        {/* Wigilia i święta — tylko w sezonie */}
+        {xmasSeason && (
+          <div className="mb-5 rounded-2xl overflow-hidden shadow-sm bg-gradient-to-br from-red-600 to-emerald-700 text-white">
+            <div className="p-4">
+              <div className="flex items-center justify-between mb-1">
+                <p className="font-bold text-base">🎄 Wigilia i święta</p>
+                {daysToWigilia > 0 && daysToWigilia <= 40 && (
+                  <span className="bg-white/20 text-xs font-semibold px-2.5 py-1 rounded-full">
+                    do Wigilii: {daysToWigilia} {daysToWigilia === 1 ? 'dzień' : 'dni'}
+                  </span>
+                )}
+                {daysToWigilia === 0 && (
+                  <span className="bg-white/20 text-xs font-semibold px-2.5 py-1 rounded-full">Dziś Wigilia ✨</span>
+                )}
+              </div>
+              <p className="text-xs text-white/85 mb-3">
+                Barszcz na zakwasie, karp na trzy sposoby, śledzie, pierogi, kapusta z grzybami, makowce i pierniki — {wigiliaCount + swietaCount} sprawdzonych przepisów.
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => openCategory('Wigilia')}
+                  className="bg-white/20 hover:bg-white/30 rounded-xl py-2.5 text-sm font-semibold active:scale-95 transition-all"
+                >
+                  🕯️ Wigilia ({wigiliaCount})
+                </button>
+                <button
+                  onClick={() => openCategory('Boże Narodzenie')}
+                  className="bg-white/20 hover:bg-white/30 rounded-xl py-2.5 text-sm font-semibold active:scale-95 transition-all"
+                >
+                  🎁 Święta ({swietaCount})
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* NutriBot + Recommendations */}
         <div className="mb-5 space-y-3">

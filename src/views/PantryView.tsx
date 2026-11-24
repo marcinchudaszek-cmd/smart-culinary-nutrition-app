@@ -5,7 +5,7 @@ import {
 import toast from 'react-hot-toast';
 import { useAppStore, type Recipe } from '../store/useAppStore';
 import { usePantryStore, monthStats } from '../store/usePantryStore';
-import { POLISH_RECIPES } from '../data/polishRecipes';
+import { POLISH_RECIPES, catalogToRecipe } from '../data/polishRecipes';
 import ReceiptScanner from '../components/ReceiptScanner';
 import ChefAI from '../components/ChefAI';
 import { useBackHandler } from '../lib/backButton';
@@ -43,11 +43,7 @@ function useAllRecipes(): CatalogRecipe[] {
     const myIds = new Set(myRecipes.map((r) => r.id));
     const catalog = POLISH_RECIPES.filter((r) => !myIds.has(r.id)).map((r) => ({
       id: r.id, name: r.name, time: r.time, thumbnail: r.thumbnail, ingredients: r.ingredients,
-      source: {
-        id: r.id, name: r.name, category: r.category, area: 'Polska', instructions: r.instructions,
-        thumbnail: r.thumbnail, ingredients: r.ingredients, totalCalories: r.totalCalories,
-        servings: r.servings, tags: r.time,
-      } as Recipe,
+      source: catalogToRecipe(r),
     }));
     const mine = myRecipes.map((r) => ({
       id: r.id, name: r.name, time: r.tags, thumbnail: r.photo || r.thumbnail, ingredients: r.ingredients, source: r,

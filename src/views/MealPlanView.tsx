@@ -99,9 +99,10 @@ export default function MealPlanView() {
       id: `mp-${Date.now()}`,
       name: rec.name,
       calories: kcalPer,
-      protein: Math.round(kcalPer * 0.22 / 4),
-      carbs: Math.round(kcalPer * 0.44 / 4),
-      fat: Math.round(kcalPer * 0.34 / 9),
+      // Dokładne makro, gdy przepis ma je policzone ze składników; inaczej szacunek.
+      protein: rec.macros ? Math.round(rec.macros.protein / rec.servings * 10) / 10 : Math.round(kcalPer * 0.22 / 4),
+      carbs: rec.macros ? Math.round(rec.macros.carbs / rec.servings * 10) / 10 : Math.round(kcalPer * 0.44 / 4),
+      fat: rec.macros ? Math.round(rec.macros.fat / rec.servings * 10) / 10 : Math.round(kcalPer * 0.34 / 9),
       amount: 1,
       unit: 'porcja',
       date: selectedDate,

@@ -34,7 +34,7 @@ function loadCache(key: string): OnlineRecipe[] | null {
   } catch { return null; }
 }
 import { useAppStore, activeAI } from '../store/useAppStore';
-import { POLISH_RECIPES, CATEGORIES_PL } from '../data/polishRecipes';
+import { POLISH_RECIPES, categoriesForToday, catalogToRecipe } from '../data/polishRecipes';
 import { callAI, type AiProvider } from '../lib/aiProvider';
 import toast from 'react-hot-toast';
 import { todayISO } from '../lib/date';
@@ -418,7 +418,13 @@ export default function SearchView() {
       setPendingSearchQuery('');
     }
   }, [pendingSearchQuery, pendingSearchTab, setPendingSearchQuery]);
-  const [activeCategory, setActiveCategory] = useState('Wszystkie');
+  // Kategoria może przyjść z innego ekranu (np. karta „Wigilia i święta” na Głównej).
+  const [activeCategory, setActiveCategory] = useState(
+    () => useAppStore.getState().pendingSearchCategory || 'Wszystkie',
+  );
+  useEffect(() => {
+    if (useAppStore.getState().pendingSearchCategory) useAppStore.getState().setPendingSearchCategory('');
+  }, []);
 
   // Online search state
   const [onlineResults, setOnlineResults] = useState<OnlineRecipe[]>([]);
@@ -497,18 +503,7 @@ export default function SearchView() {
   const openLocalRecipe = (id: string) => {
     const recipe = POLISH_RECIPES.find((r) => r.id === id);
     if (!recipe) return;
-    setSelectedRecipe({
-      id: recipe.id,
-      name: recipe.name,
-      category: recipe.category,
-      area: 'Polska',
-      instructions: recipe.instructions,
-      thumbnail: recipe.thumbnail,
-      ingredients: recipe.ingredients,
-      totalCalories: recipe.totalCalories,
-      servings: recipe.servings,
-      tags: recipe.time,
-    });
+    setSelectedRecipe(catalogToRecipe(recipe));
     setActiveView('recipe-detail');
   };
 
@@ -599,7 +594,7 @@ export default function SearchView() {
         {tab === 'local' && (
           <>
             <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-              {CATEGORIES_PL.map((cat) => (
+              {categoriesForToday().map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}

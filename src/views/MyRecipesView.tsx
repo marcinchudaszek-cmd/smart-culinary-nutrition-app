@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Plus, Trash2, BookOpen, Flame, Search, Heart } from 'lucide-react';
 import { useAppStore } from '../store/useAppStore';
-import { POLISH_RECIPES } from '../data/polishRecipes';
+import { POLISH_RECIPES, catalogToRecipe } from '../data/polishRecipes';
 import { onImgError } from '../lib/images';
 import toast from 'react-hot-toast';
 
@@ -23,13 +23,7 @@ export default function MyRecipesView() {
   // Przepis z katalogu zapisany w „Moich" ma to samo id — bierzemy wersję zapisaną.
   const myIds = new Set(myRecipes.map(r => r.id));
   const allRecipes = [
-    ...POLISH_RECIPES.filter(r => !myIds.has(r.id)).map(r => ({
-      id: r.id, name: r.name, category: r.category,
-      thumbnail: r.thumbnail, totalCalories: r.totalCalories,
-      servings: r.servings, isCustom: false as const,
-      instructions: r.instructions, ingredients: r.ingredients,
-      area: 'Polska', photo: undefined, tags: r.time,
-    })),
+    ...POLISH_RECIPES.filter(r => !myIds.has(r.id)).map(catalogToRecipe),
     ...myRecipes,
   ];
   const favorites = allRecipes.filter(r =>
@@ -43,13 +37,7 @@ export default function MyRecipesView() {
     if (myR) { setSelectedRecipe(myR); setActiveView('recipe-detail'); return; }
     const pr = POLISH_RECIPES.find(r => r.id === id);
     if (pr) {
-      setSelectedRecipe({
-        id: pr.id, name: pr.name, category: pr.category,
-        area: 'Polska', instructions: pr.instructions,
-        thumbnail: pr.thumbnail, ingredients: pr.ingredients,
-        totalCalories: pr.totalCalories, servings: pr.servings,
-        tags: pr.time,
-      });
+      setSelectedRecipe(catalogToRecipe(pr));
       setActiveView('recipe-detail');
     }
   };
