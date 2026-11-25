@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import {
   ArrowLeft, Heart, BookmarkPlus, ExternalLink, Clock,
   Users, Flame, ChevronDown, ChevronUp, Check, Share2,
@@ -8,6 +8,7 @@ import { useAppStore, recipeBackTarget } from '../store/useAppStore';
 import toast from 'react-hot-toast';
 import { todayISO } from '../lib/date';
 import { onImgError, RECIPE_FALLBACK } from '../lib/images';
+import { useCookingTimer, useTimerLeft, fmtTimer } from '../lib/cookingTimer';
 
 // ─── Meal diary ──────────────────────────────────────────────────────────────
 type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
@@ -57,12 +58,6 @@ function scaleAmount(amount: string, multiplier: number): string {
   });
 }
 
-// ─── Timer helpers ───────────────────────────────────────────────────────────
-function fmt(secs: number) {
-  const m = Math.floor(secs / 60).toString().padStart(2, '0');
-  const s = (secs % 60).toString().padStart(2, '0');
-  return `${m}:${s}`;
-}
 const TIMER_PRESETS = [5, 10, 15, 20, 30];
 
 // ─── Main component ───────────────────────────────────────────────────────────
@@ -81,47 +76,19 @@ export default function RecipeDetailView() {
   const [mealPickerOpen, setMealPickerOpen] = useState(false);
   const [multiplier, setMultiplier]       = useState(1);
 
-  // Timer state
-  const [timerTotal, setTimerTotal]   = useState(10 * 60); // seconds
-  const [timerLeft, setTimerLeft]     = useState(10 * 60);
-  const [timerRunning, setTimerRunning] = useState(false);
-  const [timerDone, setTimerDone]     = useState(false);
-  const [customMin, setCustomMin]     = useState('');
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  useEffect(() => {
-    if (timerRunning && timerLeft > 0) {
-      intervalRef.current = setInterval(() => {
-        setTimerLeft((t) => {
-          if (t <= 1) {
-            clearInterval(intervalRef.current!);
-            setTimerRunning(false);
-            setTimerDone(true);
-            toast('⏰ Czas minął!', { duration: 4000 });
-            return 0;
-          }
-          return t - 1;
-        });
-      }, 1000);
-    }
-    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
-  }, [timerRunning]);
-
-  function setPreset(min: number) {
-    const secs = min * 60;
-    setTimerTotal(secs);
-    setTimerLeft(secs);
-    setTimerRunning(false);
-    setTimerDone(false);
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  }
-
-  function resetTimer() {
-    setTimerLeft(timerTotal);
-    setTimerRunning(false);
-    setTimerDone(false);
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  }
+  // Minutnik — wspólny dla całej aplikacji (lib/cookingTimer): liczy od godziny końca,
+  // działa po przejściu na inny ekran i dzwoni powiadomieniem przy wygaszonym telefonie.
+  const timer = useCookingTimer();
+  const timerLeft = useTimerLeft();
+  const timerTotal = timer.total;
+  const timerRunning = timer.endAt !== null;
+  const timerDone = timer.done;
+  const [customMin, setCustomMin] = useState('');
+  const fmt = fmtTimer;
+  const recipeLabel = selectedRecipe?.name ?? '';
+  const setPreset = (min: number) => timer.setPreset(min * 60, recipeLabel);
+  const resetTimer = () => timer.reset();
+  const toggleTimer = () => (timerRunning ? timer.pause() : timer.start(recipeLabel));
 
   // Bez przepisu wracamy na Główną — w efekcie, nie w trakcie renderowania
   // (zmiana stanu innego komponentu podczas renderu to błąd Reacta).
@@ -536,7 +503,7 @@ export default function RecipeDetailView() {
                 <button
                   onClick={() => {
                     if (timerDone) { resetTimer(); return; }
-                    setTimerRunning((r) => !r);
+                    toggleTimer();
                   }}
                   className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl font-semibold text-sm transition-all active:scale-95 ${
                     timerDone

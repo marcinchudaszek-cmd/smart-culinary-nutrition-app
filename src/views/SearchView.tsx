@@ -392,6 +392,18 @@ function isMediterranean(recipe: { ingredients: { name: string }[]; category: st
 
 // ── ─────────────────────────────────────────────────────────────────────────
 
+// Stan wyszukiwarki żyje dłużej niż widok — po powrocie z przepisu wraca tekst,
+// zakładka, kategoria i filtry (widok jest montowany od nowa przy każdej zmianie ekranu).
+type Diet = '' | 'low-cal' | 'mediterranean' | 'daily-goals';
+const remembered = {
+  tab: 'local' as 'local' | 'online',
+  query: '',
+  maxCalFilter: 0,
+  activeDiet: '' as Diet,
+  activeCategory: 'Wszystkie',
+  onlineResults: [] as OnlineRecipe[],
+};
+
 export default function SearchView() {
   const {
     setActiveView, setSelectedRecipe, spoonacularApiKey,
@@ -400,12 +412,12 @@ export default function SearchView() {
     dailyGoal, foodDiary,
     favoriteIds, toggleFavorite,
   } = useAppStore();
-  const [tab, setTab] = useState<'local' | 'online'>('local');
-  const [query, setQuery] = useState('');
-  const [maxCalFilter, setMaxCalFilter] = useState(0);
+  const [tab, setTab] = useState<'local' | 'online'>(remembered.tab);
+  const [query, setQuery] = useState(remembered.query);
+  const [maxCalFilter, setMaxCalFilter] = useState(remembered.maxCalFilter);
   const [showCalFilter, setShowCalFilter] = useState(false);
   const [fromCache, setFromCache] = useState(false);
-  const [activeDiet, setActiveDiet] = useState<'' | 'low-cal' | 'mediterranean' | 'daily-goals'>('');
+  const [activeDiet, setActiveDiet] = useState<Diet>(remembered.activeDiet);
 
   const today = todayISO();
   const todayCalories = foodDiary.filter(e => e.date === today).reduce((s, e) => s + e.calories, 0);
@@ -420,14 +432,17 @@ export default function SearchView() {
   }, [pendingSearchQuery, pendingSearchTab, setPendingSearchQuery]);
   // Kategoria może przyjść z innego ekranu (np. karta „Wigilia i święta” na Głównej).
   const [activeCategory, setActiveCategory] = useState(
-    () => useAppStore.getState().pendingSearchCategory || 'Wszystkie',
+    () => useAppStore.getState().pendingSearchCategory || remembered.activeCategory,
   );
   useEffect(() => {
     if (useAppStore.getState().pendingSearchCategory) useAppStore.getState().setPendingSearchCategory('');
   }, []);
 
   // Online search state
-  const [onlineResults, setOnlineResults] = useState<OnlineRecipe[]>([]);
+  const [onlineResults, setOnlineResults] = useState<OnlineRecipe[]>(remembered.onlineResults);
+  useEffect(() => {
+    Object.assign(remembered, { tab, query, maxCalFilter, activeDiet, activeCategory, onlineResults });
+  }, [tab, query, maxCalFilter, activeDiet, activeCategory, onlineResults]);
   const [onlineLoading, setOnlineLoading] = useState(false);
   const [onlineError, setOnlineError] = useState('');
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);

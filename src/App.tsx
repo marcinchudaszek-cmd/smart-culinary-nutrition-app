@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Camera } from 'lucide-react';
 import { App as CapApp } from '@capacitor/app';
@@ -23,7 +23,9 @@ import DietChatView from './views/DietChatView';
 import FitnessView from './views/FitnessView';
 import PantryView from './views/PantryView';
 import OnboardingView from './views/OnboardingView';
+import ChristmasMenuView from './views/ChristmasMenuView';
 import PhotoCalorieScanner from './components/PhotoCalorieScanner';
+import TimerChip from './components/TimerChip';
 
 // Dokąd prowadzi systemowe „wstecz" z danego ekranu (null = wyjście z aplikacji).
 function backTarget(): ActiveView | null {
@@ -44,7 +46,23 @@ export default function App() {
 
   // Nowy ekran zaczyna się od góry — wcześniej przejmował przewinięcie poprzedniego
   // (np. spiżarnia otwarta z połowy strony głównej startowała bez nagłówka).
-  useEffect(() => { scrollRef.current?.scrollTo(0, 0); }, [activeView]);
+  // Wyjątek: powrót z przepisu przywraca miejsce na liście, z której go otwarto.
+  const scrollMemory = useRef<Partial<Record<ActiveView, number>>>({});
+  const lastView = useRef<ActiveView>(activeView);
+  useLayoutEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const from = lastView.current;
+    lastView.current = activeView;
+    const saved = from === 'recipe-detail' ? scrollMemory.current[activeView] : undefined;
+    el.scrollTo(0, saved ?? 0);
+    // Listy (np. wyniki wyszukiwania) bywają gotowe klatkę później — ponów po wyrenderowaniu.
+    if (saved) requestAnimationFrame(() => el.scrollTo(0, saved));
+  }, [activeView]);
+  const onScroll = () => {
+    const el = scrollRef.current;
+    if (el && lastView.current !== 'recipe-detail') scrollMemory.current[lastView.current] = el.scrollTop;
+  };
 
   // Przycisk „wstecz" Androida: najpierw zamyka otwarte okno, potem cofa ekran,
   // a dopiero na ekranie głównym wychodzi z aplikacji (wcześniej zawsze wychodził).
@@ -102,6 +120,7 @@ export default function App() {
       case 'meal-plan':    return <MealPlanView />;
       case 'diet-chat':    return <DietChatView />;
       case 'fitness':      return <FitnessView />;
+      case 'christmas-menu': return <ChristmasMenuView />;
       case 'pantry':       return <PantryView />;
       default:             return <HomeView />;
     }
@@ -117,7 +136,7 @@ export default function App() {
 
   return (
     <div className={`max-w-lg mx-auto min-h-dvh relative overflow-hidden bg-gray-50 dark:bg-gray-900${darkMode ? ' dark' : ''}`}>
-      <div ref={scrollRef} className="overflow-y-auto h-dvh pb-[var(--sa-bottom)]">
+      <div ref={scrollRef} onScroll={onScroll} className="overflow-y-auto h-dvh pb-[var(--sa-bottom)]">
         {/* key forces remount on view change → triggers .view-enter animation */}
         <div key={activeView} className="view-enter">
           {renderView()}
@@ -137,6 +156,9 @@ export default function App() {
           </button>
         </>
       )}
+
+      {/* Minutnik gotowania — koniec odliczania pilnowany w całej aplikacji */}
+      <TimerChip visible={activeView !== 'recipe-detail'} />
 
       {showGlobalScanner && (
         <PhotoCalorieScanner onClose={() => setShowGlobalScanner(false)} />

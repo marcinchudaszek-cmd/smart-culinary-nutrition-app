@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef, useMemo } from 'react';
-import { Plus, Trash2, Flame, Target, Search, X, TrendingUp, Calendar, Loader, Camera, BarChart3, ChefHat, Barcode, Clock } from 'lucide-react';
+import { Plus, Trash2, Flame, Target, Search, X, TrendingUp, Calendar, Loader, Camera, BarChart3, ChefHat, Barcode, Clock, ChevronLeft, ChevronRight, Pencil } from 'lucide-react';
 import { useAppStore, FoodEntry } from '../store/useAppStore';
 import PhotoCalorieScanner from '../components/PhotoCalorieScanner';
 import BarcodeScanner from '../components/BarcodeScanner';
@@ -10,6 +10,7 @@ import { COMMON_FOODS, normalizeText, matchesQuery, type FoodItem } from '../dat
 import toast from 'react-hot-toast';
 import { todayISO, toLocalISO } from '../lib/date';
 import { useBackHandler } from '../lib/backButton';
+import EditEntrySheet from '../components/EditEntrySheet';
 
 const MEAL_TYPES = [
   { id: 'breakfast', label: 'Śniadanie', short: 'Śniad.', emoji: '🌅' },
@@ -266,7 +267,7 @@ function HistoryTab() {
 }
 
 export default function CaloriesView() {
-  const { foodDiary, recentProducts, myProducts, addMyProduct, addFoodEntry, removeFoodEntry, dailyGoal, setDailyGoal,
+  const { foodDiary, recentProducts, myProducts, addMyProduct, addFoodEntry, removeFoodEntry, restoreFoodEntry, dailyGoal, setDailyGoal,
           proteinGoal, carbsGoal, fatGoal, activityLog } = useAppStore();
   const [mainTab, setMainTab] = useState<'today' | 'history' | 'stats'>('today');
   const [showAdd, setShowAdd] = useState(false);
@@ -297,7 +298,39 @@ export default function CaloriesView() {
   useBackHandler(showAdd, () => setShowAdd(false));
   useBackHandler(showGoalEdit, () => setShowGoalEdit(false));
 
-  const today = todayISO();
+  // Oglądany dzień — można cofnąć się do wcześniejszych dni i dopisać zapomniany posiłek.
+  // Nazwa `today` zostaje dla zgodności z resztą widoku; oznacza „wybrany dzień”.
+  const [viewDate, setViewDate] = useState(todayISO());
+  const today = viewDate;
+  const isViewToday = viewDate === todayISO();
+  const shiftDay = (delta: number) => {
+    const d = new Date(viewDate + 'T12:00:00');
+    d.setDate(d.getDate() + delta);
+    const iso = toLocalISO(d);
+    if (iso <= todayISO()) setViewDate(iso);
+  };
+  const viewDateLabel = isViewToday
+    ? 'Dzisiaj'
+    : viewDate === (() => { const d = new Date(); d.setDate(d.getDate() - 1); return toLocalISO(d); })()
+      ? 'Wczoraj'
+      : new Date(viewDate + 'T12:00:00').toLocaleDateString('pl-PL', { weekday: 'long', day: 'numeric', month: 'long' });
+  const [editEntry, setEditEntry] = useState<FoodEntry | null>(null);
+
+  // Usunięcie z możliwością cofnięcia przez kilka sekund.
+  const deleteWithUndo = (entry: FoodEntry) => {
+    removeFoodEntry(entry.id);
+    toast((t) => (
+      <span className="flex items-center gap-3">
+        Usunięto „{entry.name.length > 24 ? entry.name.slice(0, 24) + '…' : entry.name}”
+        <button
+          onClick={() => { restoreFoodEntry(entry); toast.dismiss(t.id); }}
+          className="text-orange-300 font-bold underline underline-offset-2"
+        >
+          Cofnij
+        </button>
+      </span>
+    ), { duration: 6000 });
+  };
   const todayEntries = foodDiary.filter((e) => e.date === today);
   const todayCalories = todayEntries.reduce((s, e) => s + e.calories, 0);
   const todayProtein = todayEntries.reduce((s, e) => s + e.protein, 0);
@@ -617,6 +650,27 @@ export default function CaloriesView() {
           <HistoryTab />
         ) : (
           <>
+            <div className="flex items-center justify-between bg-white rounded-2xl px-2 py-1.5 shadow-sm mb-3">
+              <button onClick={() => shiftDay(-1)} className="p-2 rounded-xl text-gray-500 hover:bg-gray-100" aria-label="Poprzedni dzień">
+                <ChevronLeft size={20} />
+              </button>
+              <div className="text-center">
+                <p className="text-sm font-semibold text-gray-800 first-letter:uppercase">{viewDateLabel}</p>
+                {!isViewToday && (
+                  <button onClick={() => setViewDate(todayISO())} className="text-[11px] text-orange-500 font-semibold">
+                    wróć do dzisiaj
+                  </button>
+                )}
+              </div>
+              <button
+                onClick={() => shiftDay(1)}
+                disabled={isViewToday}
+                className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 disabled:opacity-30"
+                aria-label="Następny dzień"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
             <div className="flex gap-2 mb-4">
               <button
                 onClick={() => setShowAdd(true)}
@@ -658,15 +712,17 @@ export default function CaloriesView() {
                   <div className="space-y-2">
                     {group.entries.map((entry) => (
                       <div key={entry.id} className="bg-white rounded-xl px-4 py-3 shadow-sm flex items-center justify-between">
-                        <div>
-                          <p className="font-medium text-gray-800 text-sm">{entry.name}</p>
+                        <button onClick={() => setEditEntry(entry)} className="text-left flex-1 min-w-0 pr-2">
+                          <p className="font-medium text-gray-800 text-sm flex items-center gap-1.5">
+                            {entry.name} <Pencil size={11} className="text-gray-300 flex-shrink-0" />
+                          </p>
                           <p className="text-xs text-gray-400 mt-0.5">
                             {entry.amount}{entry.unit} · B: {entry.protein}g · W: {entry.carbs}g · T: {entry.fat}g
                           </p>
-                        </div>
+                        </button>
                         <div className="flex items-center gap-3">
                           <span className="text-orange-500 font-bold text-sm">{entry.calories} kcal</span>
-                          <button onClick={() => { removeFoodEntry(entry.id); toast.success('Usunięto'); }} className="text-red-300 hover:text-red-500">
+                          <button onClick={() => deleteWithUndo(entry)} className="text-red-300 hover:text-red-500" aria-label="Usuń wpis">
                             <Trash2 size={16} />
                           </button>
                         </div>
@@ -723,7 +779,7 @@ export default function CaloriesView() {
         <div className="fixed inset-0 bg-black/50 z-[60] flex items-end justify-center pb-[calc(4rem+var(--sa-bottom))]">
           <div className="bg-white rounded-t-3xl w-full max-w-lg max-h-[82vh] flex flex-col">
             <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100">
-              <h3 className="font-bold text-gray-800 text-lg">Dodaj posiłek</h3>
+              <h3 className="font-bold text-gray-800 text-lg">Dodaj posiłek{!isViewToday && <span className="text-sm font-medium text-orange-500"> · {viewDateLabel}</span>}</h3>
               <button onClick={() => setShowAdd(false)}><X size={22} className="text-gray-400" /></button>
             </div>
             <div className="overflow-y-auto flex-1 px-5 pb-2 pt-3">
@@ -986,6 +1042,7 @@ export default function CaloriesView() {
       )}
 
       {/* Photo calorie scanner */}
+      {editEntry && <EditEntrySheet entry={editEntry} onClose={() => setEditEntry(null)} />}
       {showPhotoScanner && <PhotoCalorieScanner onClose={() => setShowPhotoScanner(false)} />}
       {showBarcodeScanner && <BarcodeScanner onClose={() => setShowBarcodeScanner(false)} />}
       {showCustomScanner && (

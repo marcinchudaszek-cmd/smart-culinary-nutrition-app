@@ -278,6 +278,12 @@ export default function HomeView() {
               <p className="text-xs text-white/85 mb-3">
                 Barszcz na zakwasie, karp na trzy sposoby, śledzie, pierogi, kapusta z grzybami, makowce i pierniki — {wigiliaCount + swietaCount} sprawdzonych przepisów.
               </p>
+              <button
+                onClick={() => setActiveView('christmas-menu')}
+                className="w-full bg-white text-red-700 rounded-xl py-2.5 text-sm font-bold mb-2 active:scale-95 transition-all"
+              >
+                📋 Zaplanuj menu i zakupy
+              </button>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => openCategory('Wigilia')}

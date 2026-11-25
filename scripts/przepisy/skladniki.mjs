@@ -66,4 +66,17 @@ export const DB = {
   orzechy_wloskie: [650, 15, 14, 65], migdaly: [600, 21, 22, 50], orzechy_laskowe: [630, 15, 17, 61],
   pestki_dyni: [560, 30, 11, 49], slonecznik: [580, 21, 20, 51], sezam: [570, 18, 23, 50], siemie: [530, 18, 29, 42],
   chia: [490, 17, 42, 31], maslo_orzechowe: [600, 25, 20, 50], piernik: [350, 5, 70, 6], budyn_proszek: [350, 0.5, 85, 0.5],
+  // dopisane dla starszych przepisów (makro-starych.mjs liczy makro z proporcji produktu)
+  kurczak_caly: [165, 19, 0, 10], zeberka: [260, 16, 0, 21], lopatka: [220, 17, 0, 17], golonka: [250, 18, 0, 20],
+  mielone_wieprzowe: [260, 16, 0, 22], mielone_mieszane: [230, 18, 0, 17], mielone_wolowe: [250, 17, 0, 20],
+  wolowina_gulaszowa: [180, 20, 0, 11], flaki: [90, 15, 0, 3.5], kaszanka: [290, 12, 15, 20], kielbasa: [300, 13, 1, 27],
+  salami: [420, 22, 1, 37], szynka_gotowana: [110, 18, 1, 4], krew: [80, 17, 0, 1], makrela_wedzona: [220, 20, 0, 15],
+  tunczyk_oliwa: [190, 26, 0, 9], mozzarella: [250, 18, 2, 19], mascarpone: [430, 5, 4, 44], oscypek: [310, 22, 2, 24],
+  serek_homog: [120, 9, 12, 4], serek_smietankowy: [250, 6, 4, 24], serek_topiony: [280, 12, 6, 23],
+  smietanka_36: [340, 2, 3, 36], mleko_kokosowe: [180, 1.8, 3, 18], kajmak: [320, 7, 55, 8],
+  chleb_tostowy: [270, 8, 50, 4], bulki: [280, 9, 55, 3], bagietka: [270, 9, 55, 1.5], tortilla_pszenna: [300, 8, 50, 7],
+  kasza_manna: [350, 10, 73, 1], kuskus: [350, 12, 72, 1], pszenica: [340, 13, 70, 2], granola: [450, 10, 60, 18],
+  ciastka: [470, 6, 70, 18], nachos: [500, 7, 60, 25], bakalie_mix: [450, 8, 45, 27], wiorki_kokosowe: [660, 7, 24, 65],
+  dzem: [250, 0.5, 62, 0.2], syrop: [260, 0, 67, 0], smalec: [900, 0, 0, 100], ketchup: [110, 1.5, 25, 0.2],
+  alkohol: [70, 0, 0, 0], przyprawy_suche: [250, 10, 50, 5], pasta_curry: [150, 3, 15, 9],
 };

@@ -5,6 +5,7 @@ import { callAI } from '../lib/aiProvider';
 import { loadReminders, saveReminders, requestPermission, syncReminders, type MealReminder } from '../lib/notifications';
 import { appVersion } from '../lib/appInfo';
 import toast from 'react-hot-toast';
+import BackupSection from '../components/BackupSection';
 
 const CALORIE_PRESETS = [1500, 1800, 2000, 2200, 2500, 3000];
 
@@ -704,6 +705,8 @@ export default function SettingsView() {
             </button>
           </div>
         </div>
+
+        <BackupSection />
 
         {/* App info */}
         <div className="bg-orange-50 rounded-2xl p-4 text-center space-y-2">
