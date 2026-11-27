@@ -6,8 +6,8 @@ beagleapps.pl/apps/kulinapp/zdjecia/<id>.webp, z podpisami autorów w aplikacji.
 ## Zrobione
 - `wybor.json`: 178 zdjęć (wydane w 3.17.0, 27.11) — 171 z Wikimedia Commons (przejrzane ręcznie), 7 z AI (`ai/*.jpg`).
 - `brak.json` (`node scripts/zdjecia/brak.mjs`): 266 przepisów bez zdjęcia — do wygenerowania w Canvie.
-- Aplikacja: `src/data/photoCredits.ts` + podpis w `RecipeDetailView.tsx` (gotowe, niewydane).
-- **Czekamy na odnowienie kredytów AI w Canvie** (Marcin: „czekam na Canvę”, nic nie publikować wcześniej).
+- Aplikacja: `src/data/photoCredits.ts` + podpis w `RecipeDetailView.tsx` (wydane w 3.17.0).
+- **Reszta (266) po odnowieniu kredytów AI w Canvie** — potem `publikuj.py`, nowa wersja, push aplikacji i strony.
 
 ## Jak generować (sprawdzone)
 1. `generate-image`, `aspectRatio: LANDSCAPE_16_9`, kolaż 3 kolumny × 2 rzędy (6 potraw, kolejność wierszami).
