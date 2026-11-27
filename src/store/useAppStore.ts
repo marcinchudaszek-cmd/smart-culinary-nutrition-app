@@ -229,7 +229,7 @@ const SAMPLE_RECIPES: Recipe[] = [
     area: 'Polska',
     instructions:
       'Kapustę kiszoną przepłucz i posiekaj. Boczek podsmaż na złoto. Dodaj mięso wieprzowe pokrojone w kostkę i obsmażaj. Dodaj kapustę, grzyby namoczone i pokrojone, kiełbasę. Zalej wywarem. Dodaj przyprawy: liść laurowy, ziele angielskie, pieprz, majeranek. Gotuj pod przykryciem 2 godziny, mieszając co jakiś czas. Pod koniec dodaj czerwone wino.',
-    thumbnail: 'https://www.themealdb.com/images/media/meals/tkxquw1628771028.jpg',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d1.webp',
     ingredients: [
       { name: 'Kapusta kiszona', amount: '500g', calories: 50 },
       { name: 'Boczek', amount: '200g', calories: 600 },

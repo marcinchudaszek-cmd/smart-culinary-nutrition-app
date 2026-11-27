@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 import { todayISO } from '../lib/date';
 import { onImgError, RECIPE_FALLBACK } from '../lib/images';
 import { useCookingTimer, useTimerLeft, fmtTimer } from '../lib/cookingTimer';
+import { creditFor } from '../data/photoCredits';
 
 // ─── Meal diary ──────────────────────────────────────────────────────────────
 type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
@@ -98,6 +99,7 @@ export default function RecipeDetailView() {
 
   if (!selectedRecipe) return null;
 
+  const photoCredit = creditFor(selectedRecipe.thumbnail);
   const isSaved    = myRecipes.some((r) => r.id === selectedRecipe.id);
   const isFavorite = favoriteIds.includes(selectedRecipe.id);
   const basePerServing = Math.round(selectedRecipe.totalCalories / selectedRecipe.servings);
@@ -172,6 +174,18 @@ export default function RecipeDetailView() {
           onError={onImgError}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+        {/* Podpis zdjęcia: autor i licencja (Wikimedia Commons) albo informacja o ilustracji AI */}
+        {photoCredit && !selectedRecipe.photo && (
+          <div className="absolute bottom-1 right-2 text-[9px] text-white/75 max-w-[80%] truncate text-right">
+            {photoCredit.source === 'ai' ? (
+              'Zdjęcie poglądowe (wygenerowane)'
+            ) : (
+              <a href={photoCredit.url} target="_blank" rel="noopener noreferrer" className="underline-offset-2 hover:underline">
+                Fot. {photoCredit.author} · {photoCredit.license} · Wikimedia Commons
+              </a>
+            )}
+          </div>
+        )}
 
         {/* Top controls */}
         <div className="absolute top-0 left-0 right-0 flex justify-between items-center px-4 pt-12">

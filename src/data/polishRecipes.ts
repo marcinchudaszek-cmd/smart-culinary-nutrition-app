@@ -28,7 +28,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── ZUPY ──────────────────────────────────────────────────────────────────
   {
     id: 'z1', name: 'Rosół z kurczaka', category: 'Zupy', time: '3 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z1.webp',
     instructions: '1. Kurczaka umyj i umieść w dużym garnku, zalej 3 litrami zimnej wody — zimna woda zapewnia klarowny rosół.\n2. Zagotuj na dużym ogniu, a gdy pojawi się szara piana (szumowiny), zbieraj ją łyżką cedzakową przez 5–10 minut.\n3. Cebulę przekrój na pół i przypiecz bezpośrednio nad palnikiem lub na suchej patelni na ciemnobrązowo — doda rosołowi złotego koloru i głębokiego smaku.\n4. Dodaj do garnka podpieczoną cebulę, obrane marchewki, pietruszkę, kawałek selera, liść laurowy, ziele angielskie i kilka ziaren pieprzu.\n5. Zmniejsz ogień do minimum, przykryj garnek i gotuj spokojnie przez 2–3 godziny — rosół nie powinien wrzeć, tylko delikatnie „pyrkotać".\n6. Pod koniec gotowania dopraw solą do smaku; rosół wyjmij, kurczaka odłóż na bok i oddziel mięso od kości.\n7. Rosół przecedź przez drobne sito lub gazę, ugotuj w nim makaron nitki i podawaj posypany świeżą natką pietruszki.',
     ingredients: [{ name: 'Kurczak', amount: '1,2 kg', calories: 1980 }, { name: 'Marchew', amount: '3 szt', calories: 75 }, { name: 'Pietruszka', amount: '2 szt', calories: 60 }, { name: 'Makaron nitki', amount: '200 g', calories: 312 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2507, servings: 6,
@@ -36,7 +36,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z2', name: 'Zupa pomidorowa', category: 'Zupy', time: '45 min',
-    thumbnail: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z2.webp',
     instructions: '1. Ugotuj wywar: kurczaka zalej 1,5 l wody, dodaj marchew, pietruszkę i cebulę, gotuj 45 minut na małym ogniu.\n2. Kurczaka wyjmij, mięso oddziel od kości i odłóż; wywar przecedź przez sito.\n3. Pomidory sparz wrzątkiem, obierz ze skórki i zblenduj lub przeciśnij przez sito — unikniesz grudek.\n4. Przetarte pomidory wlej do wywaru, zagotuj i gotuj 10 minut na średnim ogniu.\n5. Śmietanę zahartuj: wlej do niej chochlę gorącej zupy, wymieszaj, a dopiero potem dodaj do garnka — zapobiegnie to warzeniu się.\n6. Wrzuć z powrotem kawałki mięsa z kurczaka, dopraw solą, pieprzem i szczyptą cukru.\n7. Ugotuj osobno ryż lub makaron, przełóż do talerzy i zalej gorącą zupą pomidorową.',
     ingredients: [{ name: 'Pomidory', amount: '1 kg', calories: 180 }, { name: 'Śmietana', amount: '200 ml', calories: 340 }, { name: 'Kurczak', amount: '500 g', calories: 825 }, { name: 'Makaron', amount: '200 g', calories: 312 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1807, servings: 4,
@@ -44,7 +44,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z3', name: 'Żurek staropolski', category: 'Zupy', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z3.webp',
     instructions: '1. Białą kiełbasę i opcjonalnie kawałek wędzonego boczku umieść w garnku, zalej 1,5 l zimnej wody i zagotuj; dodaj marchew, pietruszkę i seler.\n2. Gotuj wywar na małym ogniu przez 30 minut, następnie wyjmij kiełbasę i pokrój ją w plastry; wywar przecedź.\n3. Do przecedzonego wywaru wlej zakwas żytni (ok. 500 ml) — dodawaj stopniowo, próbując smaku.\n4. Dodaj starty lub drobno posiekany czosnek (3–4 ząbki) oraz hojną łyżkę suszonego majeranku roztartego w dłoniach.\n5. Zagotuj zupę i gotuj na małym ogniu 10 minut, stale mieszając; w razie potrzeby dosyp trochę mąki rozrobionej w zimnej wodzie dla zagęszczenia.\n6. Dopraw do smaku solą, pieprzem i ewentualnie odrobiną chrzanu lub soku z ogórków kiszonych.\n7. Podawaj gorący żurek z plastrami kiełbasy i połówkami jajek ugotowanych na twardo.',
     ingredients: [{ name: 'Zakwas żytni', amount: '500 ml', calories: 160 }, { name: 'Biała kiełbasa', amount: '400 g', calories: 880 }, { name: 'Jajka', amount: '4 szt', calories: 312 }, { name: 'Czosnek', amount: '4 ząbki', calories: 20 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Seler', amount: '1/4 szt', calories: 20 }, { name: 'Mąka pszenna', amount: '2 łyżki', calories: 73 }, { name: 'Boczek', amount: '150 g', calories: 510 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2025, servings: 4,
@@ -52,7 +52,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z4', name: 'Barszcz czerwony z uszkami', category: 'Zupy', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z4.webp',
     instructions: '1. Buraki obierz i zetrzyj na grubej tarce; przełóż do garnka z wrzącym wywarem warzywnym (1,5 l) i gotuj 20 minut na małym ogniu.\n2. Dodaj kilka ziaren pieprzu, liść laurowy i ziele angielskie; nie gotuj zbyt długo — buraki tracą kolor.\n3. Barszcz przecedź przez gęste sito lub gazę, dopraw sokiem z cytryny, odrobiną cukru i solą — powinien mieć wyraźnie kwaśno-słodki smak.\n4. Na uszka: zagnieć ciasto z 200 g mąki, jajka i 2 łyżek wody; odwij i cienko rozwałkuj.\n5. Farsz: grzyby namoczone przez noc ugotuj i drobno posiekaj razem z odsączoną kapustą kiszoną; przypraw pieprzem i cebulką.\n6. Wycinaj kółka o średnicy 4 cm, nakładaj po 1/2 łyżeczki farszu, sklejaj w kształt uszka; gotuj w osolonej wodzie 3–4 minuty od wypłynięcia.\n7. Podawaj gorący barszcz z kilkoma uszkami w miseczce i posyp natką pietruszki.',
     ingredients: [{ name: 'Buraki czerwone', amount: '800 g', calories: 344 }, { name: 'Mąka na uszka', amount: '200 g', calories: 680 }, { name: 'Grzyby suszone', amount: '50 g', calories: 117 }, { name: 'Kapusta kwaszona', amount: '200 g', calories: 20 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Jajka', amount: '2 szt', calories: 156 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1434, servings: 4,
@@ -60,7 +60,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z5', name: 'Kapuśniak z żeberkami', category: 'Zupy', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z5.webp',
     instructions: '1. Żeberka wieprzowe zalej 1,5 l zimnej wody, zagotuj i zbierz szumowiny; dodaj marchew, cebulę, liść laurowy i ziele angielskie.\n2. Gotuj na małym ogniu pod przykryciem 1 godzinę, aż mięso będzie miękkie i będzie odchodzić od kości.\n3. Żeberka wyjmij, oddziel mięso od kości i pokrój na kawałki; wywar zachowaj.\n4. Kapustę kiszoną przepłucz jeśli jest bardzo kwaśna, lub zostaw bez płukania dla intensywniejszego smaku; pokrój na mniejsze kawałki.\n5. Do wywaru dodaj kapustę i gotuj 20 minut; dorzuć obrane i pokrojone w kostkę ziemniaki.\n6. Po kolejnych 15 minutach dodaj mięso z żeberek, cebulę pokrojoną w piórka i przypraw hojnie majerankiem, solą i pieprzem.\n7. Gotuj jeszcze 10 minut, aż ziemniaki zmiękną; podawaj gorący kapuśniak z pieczywem żytnim.',
     ingredients: [{ name: 'Żeberka wieprzowe', amount: '500 g', calories: 1250 }, { name: 'Kapusta kiszona', amount: '500 g', calories: 50 }, { name: 'Ziemniaki', amount: '400 g', calories: 308 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1698, servings: 4,
@@ -68,7 +68,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z6', name: 'Zupa grochowa z boczkiem', category: 'Zupy', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z6.webp',
     instructions: '1. Groch łuskany opłucz i namocz w zimnej wodzie przez całą noc — skróci to czas gotowania i poprawi strawność.\n2. Następnego dnia odcedź groch i przełóż do dużego garnka; zalej 2 l świeżej wody.\n3. Boczek wędzony dodaj w całości do garnka — nada wywarowi głęboki, dymny smak; zagotuj i zbierz szumowiny.\n4. Dodaj obraną marchew, pietruszkę i cebulę; gotuj na małym ogniu 40 minut aż groch zacznie się rozpadać.\n5. Wyjmij boczek, pokrój w kostkę i wróć do garnka; dodaj obrane i pokrojone w kostkę ziemniaki.\n6. Gotuj kolejne 20 minut; przez ostatnie 5 minut dodaj roztarty czosnek, łyżkę majeranku, sól i pieprz.\n7. Zblenduj część zupy blenderem zanurzeniowym lub całość zostaw w kawałkach; podawaj gorącą z grzankami.',
     ingredients: [{ name: 'Groch łuskany', amount: '400 g', calories: 1360 }, { name: 'Boczek wędzony', amount: '200 g', calories: 680 }, { name: 'Ziemniaki', amount: '500 g', calories: 385 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2570, servings: 6,
@@ -76,7 +76,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z7', name: 'Zupa ogórkowa', category: 'Zupy', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z7.webp',
     instructions: '1. Żeberka wieprzowe zalej 1,5 l wody, zagotuj, odszumuj i gotuj 40 minut z marchewką, pietruszką i cebulą na małym ogniu.\n2. Żeberka wyjmij, obierz mięso z kości, pokrój w kawałki i odłóż; wywar przecedź.\n3. Ogórki kiszone zetrzyj na grubej tarce lub pokrój w drobne kawałki — nie wylewaj soku, użyjesz go do doprawienia.\n4. Do przecedzonego wywaru wrzuć starte ogórki i gotuj 15 minut na średnim ogniu.\n5. Ziemniaki obierz, pokrój w kostkę i dodaj do zupy; gotuj kolejne 15–20 minut aż zmiękną.\n6. Śmietanę zahartuj ciepłą zupą i wlej do garnka; dodaj mięso z żeberek.\n7. Dopraw solą, pieprzem i sokiem z kiszonych ogórków do wyraźnie kwaskowego smaku; podawaj posypaną koperkiem.',
     ingredients: [{ name: 'Ogórki kiszone', amount: '6 szt', calories: 90 }, { name: 'Ziemniaki', amount: '400 g', calories: 308 }, { name: 'Żeberka wieprzowe', amount: '400 g', calories: 1000 }, { name: 'Śmietana', amount: '150 ml', calories: 255 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1783, servings: 4,
@@ -84,7 +84,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z8', name: 'Zupa grzybowa', category: 'Zupy', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z8.webp',
     instructions: '1. Grzyby suszone namocz w 400 ml ciepłej wody przez co najmniej 2 godziny (najlepiej całą noc) — wody nie wylewaj, to esencja smaku.\n2. Namoczone grzyby wyjmij, wody z moczenia przecedź przez gazę i zachowaj; grzyby drobno posiekaj.\n3. W dużym garnku przygotuj wywar warzywny z marchewki, pietruszki i cebuli (1,5 l wody, 30 minut gotowania).\n4. Do wywaru dodaj posiekane grzyby i przecedzoną wodę po moczeniu grzybów; gotuj razem 20 minut.\n5. Marchew i pietruszkę z wywaru pokrój w kostkę i wrzuć z powrotem do garnka; dopraw majerankiem, solą i pieprzem.\n6. Makaron ugotuj osobno w osolonej wodzie zgodnie z instrukcją na opakowaniu, odcedź.\n7. Śmietanę zahartuj gorącą zupą i dodaj do garnka; wyłóż makaron do talerzy i zalej gotową zupą grzybową.',
     ingredients: [{ name: 'Grzyby suszone', amount: '100 g', calories: 234 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Makaron', amount: '150 g', calories: 540 }, { name: 'Śmietana', amount: '100 ml', calories: 170 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1074, servings: 4,
@@ -92,7 +92,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z9', name: 'Krupnik', category: 'Zupy', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z9.webp',
     instructions: '1. Żeberka wieprzowe umieść w garnku z 2 l zimnej wody, zagotuj i dokładnie zbierz szumowiny przez 5 minut.\n2. Dodaj obraną marchew, pietruszkę, kawałek selera, cebulę, liść laurowy i 4 ziarna ziela angielskiego; gotuj na małym ogniu 45 minut.\n3. Kaszę pęczak opłucz pod zimną wodą i opłucz kilkukrotnie — zmniejszy to ilość skrobi i skróci czas gotowania.\n4. Wyjmij żeberka z wywaru, oddziel mięso od kości i pokrój w kawałki; wywar przecedź przez sito.\n5. Do przecedzonego wywaru wsyp opłukaną kaszę pęczak i gotuj 20 minut.\n6. Dodaj obrane i pokrojone w kostkę ziemniaki oraz mięso z żeberek; gotuj kolejne 20 minut aż kasza i ziemniaki będą miękkie.\n7. Dopraw solą, pieprzem i natką pietruszki; krupnik powinien być gęsty — w razie potrzeby gotuj bez przykrycia kilka minut.',
     ingredients: [{ name: 'Kasza pęczak', amount: '150 g', calories: 525 }, { name: 'Żeberka', amount: '400 g', calories: 1000 }, { name: 'Ziemniaki', amount: '300 g', calories: 231 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1886, servings: 4,
@@ -100,7 +100,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z10', name: 'Zupa fasolowa', category: 'Zupy', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z10.webp',
     instructions: '1. Fasolę białą namocz w zimnej wodzie przez całą noc, następnego dnia odcedź i zalej świeżą wodą (2 l).\n2. Gotuj fasolę na średnim ogniu 45–60 minut aż będzie miękka, ale nie rozpadająca się; zbierz ewentualne szumowiny.\n3. Na patelni podsmaż pokrojoną w kostkę wędzonkę lub boczek, aż wytopi tłuszcz i lekko się przyrumieni.\n4. Dodaj do patelni posiekaną cebulę i zeszklij przez 5 minut; dodaj starty czosnek i smaż jeszcze 1 minutę.\n5. Cebulę z wędzonką i czosnkiem przełóż do garnka z fasolą; dodaj marchew i pietruszkę pokrojone w kostkę.\n6. Dodaj koncentrat pomidorowy (3 łyżki), majeranek, liść laurowy i ziele angielskie; gotuj razem 20 minut.\n7. Dopraw solą, pieprzem i ewentualnie odrobiną octu jabłkowego; podawaj gorącą z pieczywem.',
     ingredients: [{ name: 'Fasola biała', amount: '400 g', calories: 1360 }, { name: 'Wędzonka', amount: '200 g', calories: 500 }, { name: 'Koncentrat pomidorowy', amount: '3 łyżki', calories: 60 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2025, servings: 6,
@@ -108,7 +108,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z11', name: 'Chłodnik litewski', category: 'Zupy', time: '20 min',
-    thumbnail: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z11.webp',
     instructions: '1. Buraki ugotuj w całości (ok. 40 minut) lub upiecz w folii aluminiowej w 200°C przez 1 godzinę, aż będą miękkie; obierz i zetrzyj lub pokrój w drobną kostkę.\n2. Jajka ugotuj na twardo (10 minut od zagotowania wody), zahartuj w zimnej wodzie i obierz; przekrój na połówki.\n3. Ogórka umyj i zetrzyj na tarce lub pokrój w drobną kostkę; rzodkiewki pokrój w cienkie plasterki.\n4. Szczypiorek drobno posiekaj.\n5. W dużej misce wymieszaj kefir z burakami, ogórkiem, rzodkiewką i szczypiorkiem.\n6. Dopraw solą, sokiem z cytryny i ewentualnie odrobiną cukru dla zbalansowania smaku.\n7. Przykryj folią i wstaw do lodówki na co najmniej 30 minut; podawaj mocno schłodzony z połówkami jajek.',
     ingredients: [{ name: 'Buraki', amount: '500 g', calories: 215 }, { name: 'Kefir', amount: '500 ml', calories: 300 }, { name: 'Ogórek', amount: '1 szt', calories: 30 }, { name: 'Jajka', amount: '4 szt', calories: 312 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 894, servings: 4,
@@ -118,7 +118,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── DANIA GŁÓWNE ──────────────────────────────────────────────────────────
   {
     id: 'd1', name: 'Bigos staropolski', category: 'Dania główne', time: '3 godz',
-    thumbnail: 'https://www.themealdb.com/images/media/meals/tkxquw1628771028.jpg',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d1.webp',
     instructions: '1. Grzyby suszone namocz w ciepłej wodzie przez 2 godziny; wyjmij, posiekaj i zachowaj wodę po moczeniu.\n2. Boczek pokrój w kostkę i podsmaż na dużej patelni lub w garnku żeliwnym, aż będzie złocisty i chrupiący.\n3. Mięso wieprzowe (karkówkę lub łopatkę) pokrój w kostkę 2–3 cm; obsmaż partiami na tłuszczu z boczku do brązowej skórki ze wszystkich stron.\n4. Dodaj kapustę kiszoną (jeśli bardzo kwaśna — przepłucz), pokrojone grzyby, kiełbasę w plastrach i przecedzoną wodę z moczenia grzybów.\n5. Dodaj liście laurowe, ziele angielskie, kilka ziaren pieprzu i majeranek; wlej wywar mięsny lub wodę (ok. 300 ml).\n6. Gotuj pod przykryciem na małym ogniu przez 2 godziny, mieszając co 30 minut; bigos powinien gęstnieć.\n7. Dopraw solą, pieprzem i odrobiną czerwonego wina; bigos smakuje najlepiej następnego dnia po odgrzaniu.',
     ingredients: [{ name: 'Kapusta kiszona', amount: '500 g', calories: 50 }, { name: 'Boczek', amount: '200 g', calories: 600 }, { name: 'Kiełbasa', amount: '300 g', calories: 690 }, { name: 'Grzyby suszone', amount: '30 g', calories: 70 }, { name: 'Wieprzowina', amount: '500 g', calories: 910 }, { name: 'Wino', amount: '100 ml', calories: 85 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2405, servings: 6,
@@ -126,7 +126,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd2', name: 'Kotlet schabowy', category: 'Dania główne', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1599921841143-819065a55cc6?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d2.webp',
     instructions: '1. Schab wieprzowy pokrój na plastry grubości 1,5 cm (w poprzek włókien); każdy plaster lekko natnij z brzegów, by nie wyginał się podczas smażenia.\n2. Każdy kawałek rozbij tłuczkiem do mięsa do grubości ok. 8 mm — zacznij od środka i uderzaj ku brzegom.\n3. Dopraw obustronnie solą i świeżo zmielonym pieprzem; odczekaj 5 minut.\n4. Przygotuj trzy miseczki: z mąką pszenną, roztrzepanym jajkiem i bułką tartą; obtaczaj kotlety kolejno w każdej — mąka, jajko, bułka.\n5. Olej rozgrzej w głębokiej patelni do ok. 175°C (bułka tarta powinna skwierczeć po wrzuceniu); kotlety powinny być częściowo zanurzone w tłuszczu.\n6. Smaż kotlety 4–5 minut z każdej strony, aż panierka będzie równomiernie złotobrązowa; nie przykrywaj patelni.\n7. Odłóż na papierowy ręcznik na 2 minuty, by odsączyć tłuszcz; podawaj z ziemniakami z wody i surówką z kapusty.',
     ingredients: [{ name: 'Schab wieprzowy', amount: '600 g', calories: 1080 }, { name: 'Bułka tarta', amount: '100 g', calories: 395 }, { name: 'Jajka', amount: '2 szt', calories: 156 }, { name: 'Olej', amount: '50 ml', calories: 442 }, { name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Mąka pszenna', amount: '3 łyżki', calories: 109 }, { name: 'Kapusta', amount: '500 g', calories: 125 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2769, servings: 4,
@@ -134,7 +134,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd3', name: 'Pierogi ruskie ze skwarkami', category: 'Dania główne', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d3.webp',
     instructions: '1. Ciasto: na stolnicę wsyp mąkę, zrób dołek, wbij jajko i wlej 150 ml ciepłej wody; zaganieć gładkie, elastyczne ciasto przez 10 minut; owiń folią i odstaw na 30 minut.\n2. Ziemniaki ugotuj w osolonej wodzie do miękkości, odcedź i dokładnie ugnieć tłuczkiem — bez grudek.\n3. Cebulę drobno posiekaj i zeszklij na maśle przez 5–7 minut na złoto; dodaj do ziemniaków.\n4. Twaróg rozgnieć i wymieszaj z ziemniakami i cebulą; dopraw solą i pieprzem — farsz musi być gęsty.\n5. Ciasto cienko rozwałkuj (ok. 2 mm), wycinaj kółka o średnicy 7–8 cm; na każde nałóż łyżeczkę farszu i starannie sklej brzegi, tworząc grzbiecik.\n6. Gotuj partiami w dużej ilości osolonej wrzącej wody przez 3–4 minuty od wypłynięcia na powierzchnię.\n7. Odcedź i przełóż na patelni ze skwarkami ze smażonego boczku i zrumienioną cebulką; podawaj z łyżką śmietany.',
     ingredients: [{ name: 'Mąka pszenna', amount: '400 g', calories: 1360 }, { name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Twaróg', amount: '300 g', calories: 294 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Masło', amount: '30 g', calories: 215 }, { name: 'Śmietana', amount: '200 ml', calories: 368 }, { name: 'Boczek', amount: '150 g', calories: 510 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 3367, servings: 4,
@@ -142,7 +142,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd4', name: 'Pierogi z kapustą i grzybami', category: 'Wigilia', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d4.webp',
     instructions: '1. Grzyby suszone namocz w ciepłej wodzie przez 2–3 godziny; ugotuj w tej samej wodzie 30 minut, wyjmij i drobno posiekaj.\n2. Kapustę kiszoną przepłucz, wyciśnij i posiekaj; podduś na patelni z odrobiną oleju przez 15 minut do zmięknięcia.\n3. Wymieszaj kapustę z posiekanymi grzybami; dopraw solą, pieprzem i szczypiorkiem — farsz musi być suchy, nie wodnisty.\n4. Ciasto: z 400 g mąki, jajka, szczypty soli i 150 ml ciepłej wody zagnieć gładkie ciasto; owiń folią i odstaw 30 minut.\n5. Ciasto cienko rozwałkuj i wycinaj kółka o średnicy 8 cm; nakładaj solidną łyżeczkę farszu na każde kółko.\n6. Sklejaj brzegi mocno, formując charakterystyczny grzebień; upewnij się, że farsz nie jest przy krawędziach.\n7. Gotuj w osolonej wodzie partiami przez 4 minuty od wypłynięcia; podawaj przesmażone na patelni na maśle z cebulką.',
     ingredients: [{ name: 'Kapusta kiszona', amount: '500 g', calories: 50 }, { name: 'Grzyby suszone', amount: '60 g', calories: 140 }, { name: 'Mąka pszenna', amount: '400 g', calories: 1360 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Jajka', amount: '2 szt', calories: 156 }, { name: 'Masło', amount: '30 g', calories: 215 }, { name: 'Olej', amount: '2 łyżki', calories: 240 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2201, servings: 4,
@@ -150,7 +150,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd5', name: 'Gołąbki w sosie pomidorowym', category: 'Dania główne', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d5.webp',
     instructions: '1. Kapustę białą obgotuj w całości w dużym garnku wrzącej wody przez 5 minut, aż zewnętrzne liście staną się elastyczne; ostudź i ostrożnie odrywaj liście jeden po drugim.\n2. Ryż opłucz i ugotuj do połowy miękkości (ok. 10 minut w osolonej wodzie); odcedź i ostudź.\n3. Cebulę drobno posiekaj i zeszklij na oliwie; połącz z mielonym mięsem, częściowo ugotowanym ryżem, jajkiem, solą, pieprzem i majerankiem.\n4. Na każdy liść kapusty kładź 2–3 łyżki farszu; zawijaj zwartą paczuszkę, podwijając boki.\n5. Dno garnka wyłóż poszarpanymi liśćmi kapusty; układaj gołąbki ciasno obok siebie szwem do dołu.\n6. Zalej passatą pomidorową rozcieńczoną odrobiną wody (ok. 600 ml łącznie); przykryj i duś na małym ogniu przez 1,5 godziny.\n7. Podawaj gorące z ziemniakami puree i dodatkową passatą podgrzaną jako sos.',
     ingredients: [{ name: 'Kapusta biała', amount: '1 główka', calories: 150 }, { name: 'Mięso mielone wieprzowe', amount: '600 g', calories: 1020 }, { name: 'Ryż', amount: '150 g', calories: 540 }, { name: 'Passata pomidorowa', amount: '500 ml', calories: 175 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2745, servings: 5,
@@ -158,7 +158,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd6', name: 'Zrazy wołowe z kaszą', category: 'Dania główne', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d6.webp',
     instructions: '1. Wołowinę (rostbef lub zrazówka) pokrój na plastry grubości ok. 1 cm i rozbij tłuczkiem do ok. 5 mm — mięso powinno być możliwie cienkie.\n2. Każdy plaster posmaruj cienką warstwą musztardy; połóż pasek boczku wędzonego, plasterek ogórka kiszonego i kawałek cebuli.\n3. Zawiń ciasno w rulon, mocno spiń 2 wykałaczkami lub zwiąż bawełnianym sznurkiem.\n4. Obtocz każdy zraz w mące, strzepując nadmiar; obsmaż na rozgrzanym oleju ze wszystkich stron do rumianej skórki.\n5. Zrazy przełóż do głębokiego garnka lub naczynia żaroodpornego; zalej ciepłym wywarem wołowym (ok. 500 ml) i dodaj liść laurowy oraz ziele angielskie.\n6. Duś pod przykryciem na małym ogniu lub w piekarniku (160°C) przez 1,5 godziny, aż mięso będzie bardzo miękkie.\n7. Sos przecedź i zredukuj na patelni; kaszę gryczaną ugotuj w osolonej wodzie; podawaj zrazy z kaszą polanią sosem.',
     ingredients: [{ name: 'Wołowina', amount: '600 g', calories: 1380 }, { name: 'Boczek wędzony', amount: '100 g', calories: 340 }, { name: 'Kasza gryczana', amount: '200 g', calories: 686 }, { name: 'Ogórek kiszony', amount: '2 szt', calories: 20 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Olej', amount: '2 łyżki', calories: 240 }, { name: 'Musztarda', amount: '1 łyżka', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2761, servings: 4,
@@ -166,7 +166,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd7', name: 'Łosoś pieczony z warzywami', category: 'Dania główne', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d7.webp',
     instructions: '1. Piekarnik nagrzej do 200°C z termoobiegiem; blachę wyłóż papierem do pieczenia.\n2. Brokuły podziel na różyczki, marchew pokrój ukośnie w plastry ok. 1 cm; warzywa ułóż na blasze.\n3. Skrop warzywa oliwą (2 łyżki), posyp solą, pieprzem i odrobiną czosnku granulowanego; piecz 10 minut, zanim dodasz rybę.\n4. Filety łososia osusz papierowym ręcznikiem; dopraw solą, świeżo zmielonym pieprzem i skrop sokiem z cytryny.\n5. Filety połóż na częściowo upieczonych warzywach; polej pozostałą oliwą i posyp koperkiem lub tymiankiem.\n6. Piecz wszystko razem w 200°C przez 15–18 minut — łosoś jest gotowy, gdy miąższ łatwo się rozdziela widelcem.\n7. Podawaj od razu z plastrem cytryny; opcjonalnie skrop oliwą z oliwek extra virgin.',
     ingredients: [{ name: 'Filet z łososia', amount: '600 g', calories: 1248 }, { name: 'Brokuły', amount: '300 g', calories: 102 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Oliwa z oliwek', amount: '30 ml', calories: 265 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1697, servings: 3,
@@ -174,7 +174,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd8', name: 'Kurczak pieczony z ziołami', category: 'Dania główne', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d8.webp',
     instructions: '1. Kurczaka wyjmij z lodówki 30 minut przed pieczeniem — mięso w temperaturze pokojowej piecze się równomierniej.\n2. Wnętrze kurczaka oprósz solą; pod skórkę piersi wsuwaj delikatnie plastry czosnku i gałązki rozmarynu.\n3. Zewnętrzną powierzchnię natrzyj oliwą wymieszaną z rozgniecionym czosnkiem, tymiankiem i rozmarynem; dopraw solą i pieprzem.\n4. Kurczaka umieść w naczyniu żaroodpornym piersią do góry; opcjonalnie wstaw cytrynę i cebulę do środka.\n5. Piecz w piekarniku nagrzanym do 180°C (grzałka góra-dół) przez pierwsze 30 minut bez podlewania — skórka musi zacząć się rumienić.\n6. Co kolejne 25–30 minut podlewaj kurczaka sosem wytopionym z dna naczynia; łączny czas pieczenia to ok. 1 godzina 20 minut.\n7. Sprawdź gotowość wbijając patyczek w najgrubszą część uda — wyciekające soki powinny być klarowne; odstaw na 10 minut przed krojeniem.',
     ingredients: [{ name: 'Kurczak', amount: '1,5 kg', calories: 2475 }, { name: 'Czosnek', amount: '6 ząbków', calories: 30 }, { name: 'Oliwa', amount: '40 ml', calories: 354 }, { name: 'Zioła prowansalskie', amount: '2 łyżki', calories: 20 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2976, servings: 4,
@@ -182,7 +182,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd9', name: 'Gulasz wieprzowy z papryką', category: 'Dania główne', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d9.webp',
     instructions: '1. Łopatkę wieprzową pokrój w kostkę ok. 3 cm; osusz papierowym ręcznikiem (mokre mięso się parzy, nie smaży).\n2. Na mocno rozgrzanej patelni z odrobiną oleju obsmaż mięso partiami, aż każdy kawałek będzie brązowy z każdej strony — to klucz do głębokiego smaku.\n3. Obsmazone mięso przełóż do głębokiego garnka; na tej samej patelni zeszklij cebulę pokrojoną w piórka przez 5 minut.\n4. Dodaj pokrojoną w paski paprykę czerwoną i żółtą; smaż 3 minuty, aż lekko zmięknie.\n5. Dodaj koncentrat pomidorowy, 2 łyżeczki słodkiej papryki i pół łyżeczki wędzonej papryki; wymieszaj i przełóż do garnka z mięsem.\n6. Zalej bulionem warzywnym lub wodą (ok. 400 ml); dodaj liść laurowy i ziele angielskie; duś pod przykryciem na małym ogniu 1 godzinę.\n7. Sos zagęść mąką rozkłóconą z wodą (opcjonalnie); dopraw solą i pieprzem; podawaj z ziemniakami lub kaszą gryczaną.',
     ingredients: [{ name: 'Łopatka wieprzowa', amount: '600 g', calories: 1140 }, { name: 'Papryka czerwona', amount: '2 szt', calories: 60 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Koncentrat pomidorowy', amount: '3 łyżki', calories: 60 }, { name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Mąka pszenna', amount: '1 łyżka', calories: 36 }, { name: 'Olej', amount: '2 łyżki', calories: 240 }, { name: 'Bulion', amount: '400 ml', calories: 48 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2126, servings: 4,
@@ -190,7 +190,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd10', name: 'Pulpety w sosie pomidorowym', category: 'Dania główne', time: '50 min',
-    thumbnail: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d10.webp',
     instructions: '1. Mięso mielone przełóż do miski; cebulę drobno posiekaj, czosnek zetrzyj na tarce — dodaj do mięsa.\n2. Dodaj bułkę tartą (50 g), jajko, sól, pieprz i łyżeczkę majeranku; dokładnie wymieszaj rękami przez 2 minuty — masa powinna być zwarta.\n3. Wilgotnymi rękami formuj kulki o średnicy ok. 4 cm; obtaczaj delikatnie w mące, strzepując nadmiar.\n4. Rozgrzej olej na patelni na średnim ogniu; smaż pulpety przez 6–8 minut obracając, aż będą równomiernie złotobrązowe ze wszystkich stron.\n5. Passatę pomidorową wlej bezpośrednio do patelni z pulpetami; dodaj szczyptę cukru, sól i pieprz.\n6. Duś pod przykryciem na małym ogniu przez 20 minut, od czasu do czasu delikatnie mieszając.\n7. Podawaj z ugotowanym ryżem, makaronem lub ziemniakami; posyp świeżą bazylią lub natką.',
     ingredients: [{ name: 'Mięso mielone', amount: '500 g', calories: 850 }, { name: 'Passata pomidorowa', amount: '500 ml', calories: 175 }, { name: 'Bułka tarta', amount: '50 g', calories: 197 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Ryż', amount: '100 g', calories: 360 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Olej', amount: '2 łyżki', calories: 240 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1975, servings: 4,
@@ -198,7 +198,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd11', name: 'Schab pieczony z ziołami', category: 'Dania główne', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d11.webp',
     instructions: '1. Schab wyjmij z lodówki godzinę przed pieczeniem; natrzyj ze wszystkich stron solą, pieprzem, rozgniecionym czosnkiem i hojną ilością roztartego majeranku.\n2. Na mocno rozgrzanej patelni z odrobiną oleju obsmaż schab ze wszystkich stron na rumiano przez łącznie ok. 8–10 minut — to zamknie pory i zachowa soczystość.\n3. Przełóż do naczynia żaroodpornego; podlej dnem patelni i odrobiną wody lub białego wina (100 ml).\n4. Piecz w piekarniku nagrzanym do 170°C przez ok. 1 godzinę (duże sztuki mogą wymagać 1 h 15 min).\n5. Co 25 minut podlewaj mięso sosem z dna naczynia, by nie wysychało.\n6. Sprawdź gotowość termometrem kuchennym — wewnątrz powinno być 68–70°C; jeśli nie masz termometru, nakłuj — soki powinny być klarowne.\n7. Odczekaj 10 minut przed krojeniem; pokrój w plastry, polej sosem z pieczenia; podawaj z ziemniakami i surówką.',
     ingredients: [{ name: 'Schab wieprzowy', amount: '1 kg', calories: 1800 }, { name: 'Czosnek', amount: '4 ząbki', calories: 20 }, { name: 'Majeranek', amount: '1 łyżka', calories: 10 }, { name: 'Olej', amount: '30 ml', calories: 265 }, { name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Wino', amount: '100 ml', calories: 85 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2642, servings: 5,
@@ -206,7 +206,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd12', name: 'Ryba po grecku', category: 'Wigilia', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d12.webp',
     instructions: '1. Filety z dorsza pokrój na porcje, oprósz solą i odczekaj 10 minut; osusz papierowym ręcznikiem.\n2. Obtocz kawałki ryby w mące pszennej, strzepując nadmiar; smaż na rozgrzanym oleju ok. 4 minut z każdej strony do złotej skórki.\n3. Usmażoną rybę odłóż na papierowy ręcznik; wyłóż na głęboki półmisek lub do naczynia.\n4. Marchew i pietruszkę zetrzyj na grubej tarce; cebulę pokrój w piórka.\n5. Na patelni rozgrzej olej, zeszklij cebulę przez 5 minut, dodaj startą marchew i pietruszkę; smaż 10 minut na średnim ogniu ciągle mieszając.\n6. Dodaj koncentrat pomidorowy (3 łyżki), sól, pieprz, liść laurowy i ziele angielskie; wlej 200 ml wody i duś 5 minut.\n7. Gorącą zalewą warzywną polej rybę; schłodź i wstaw do lodówki na co najmniej 2 godziny — ryba po grecku smakuje najlepiej podana na zimno.',
     ingredients: [{ name: 'Filet z dorsza', amount: '600 g', calories: 564 }, { name: 'Marchew', amount: '3 szt', calories: 75 }, { name: 'Koncentrat pomidorowy', amount: '3 łyżki', calories: 60 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Olej', amount: '2 łyżki', calories: 240 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1019, servings: 4,
@@ -214,7 +214,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd13', name: 'Kurczak w sosie śmietanowym', category: 'Dania główne', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d13.webp',
     instructions: '1. Piersi kurczaka pokrój w paski o szerokości ok. 2 cm; dopraw solą i pieprzem z obu stron.\n2. Na rozgrzanej patelni z łyżką oliwy obsmaż paski kurczaka partiami po 3–4 minuty z każdej strony, aż będą złotobrązowe; przełóż na talerz.\n3. Na tej samej patelni zeszklij cebulę pokrojoną w pióra przez 5 minut; dodaj drobno posiekany lub przeciśnięty czosnek i smaż 1 minutę.\n4. Wlej wywar drobiowy (200 ml) i gotuj 2 minuty, zdrapując resztki ze dna patelni — to nada sosowi głębię.\n5. Śmietanę zahartuj odrobiną gorącego sosu i wlej do patelni; wymieszaj i zagotuj.\n6. Wróć kawałki kurczaka do patelni i duś w sosie na małym ogniu przez 12–15 minut, aż sos zgęstnieje.\n7. Dopraw solą i pieprzem, posyp świeżym koperkiem; podawaj z ryżem lub makaronem.',
     ingredients: [{ name: 'Pierś z kurczaka', amount: '500 g', calories: 825 }, { name: 'Śmietana 18%', amount: '200 ml', calories: 380 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Koperek', amount: '30 g', calories: 10 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Ryż', amount: '100 g', calories: 360 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1870, servings: 3,
@@ -222,7 +222,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd14', name: 'Kopytka ze skwarkami', category: 'Dania główne', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d14.webp',
     instructions: '1. Ziemniaki obierz, ugotuj w osolonej wodzie do miękkości, odcedź i zostaw na chwilę na gazie, by wyparowała nadmierna wilgoć — suche ziemniaki to klucz.\n2. Ugniecia ziemniaki tłuczkiem (nie blenderem — stają się klejące); pozostaw do całkowitego ostygnięcia.\n3. Do ostygniętych ziemniaków dodaj jajko, mąkę pszenną (ok. 250 g) i szczyptę soli; zagnieć delikatnie — tylko do połączenia składników.\n4. Na oprószonej mąką stolnicy wałkuj ciasto na wałek o grubości ok. 2 cm; kroń ukośnie na kawałki w kształcie kopyta — długości 3–4 cm.\n5. Gotuj partiami w dużej ilości osolonej, wrzącej wody przez 2–3 minuty od wypłynięcia na powierzchnię.\n6. Boczek pokrój w kostkę i wytop na patelni do chrupkości; dodaj pokrojoną cebulę i smaż do zrumienienia.\n7. Odcedzone kopytka przełóż na patelnię ze skwarkami i cebulą, delikatnie podrzuć; podawaj z łyżką śmietany.',
     ingredients: [{ name: 'Ziemniaki', amount: '1 kg', calories: 770 }, { name: 'Mąka pszenna', amount: '250 g', calories: 850 }, { name: 'Boczek', amount: '150 g', calories: 450 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Śmietana', amount: '200 ml', calories: 368 }],
     totalCalories: 2556, servings: 4,
@@ -230,7 +230,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd15', name: 'Duszone żeberka wieprzowe', category: 'Dania główne', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d15.webp',
     instructions: '1. Żeberka podziel na porcje po 2–3 żeberka; natrzyj solą, pieprzem i odrobiną słodkiej papryki; odczekaj 15 minut.\n2. Na mocno rozgrzanej patelni z odrobiną oleju obsmaż żeberka ze wszystkich stron na intensywny brąz — ok. 3–4 minuty na każdą stronę.\n3. Przełóż żeberka do garnka; na patelni zeszklij cebulę pokrojoną w piórka przez 5 minut.\n4. Dodaj posiekany czosnek, smaż 1 minutę; wlej piwo jasne lub wywar, zdrapując resztki ze dna — dodaj do garnka z żeberkami.\n5. Dorzuć liść laurowy, ziele angielskie i kilka ziaren pieprzu; dolej tyle wody lub wywaru, by żeberka były do połowy zanurzone.\n6. Duś pod przykryciem na małym ogniu przez 1,5 godziny, obracając żeberka co 30 minut.\n7. Zdejmij pokrywkę na ostatnie 15 minut, by sos się zredukował i zgęstniał; podawaj z ziemniakami i kapustą zasmażaną.',
     ingredients: [{ name: 'Żeberka wieprzowe', amount: '1 kg', calories: 2500 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '4 ząbki', calories: 20 }, { name: 'Piwo jasne', amount: '330 ml', calories: 150 }, { name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Olej', amount: '2 łyżki', calories: 240 }, { name: 'Kapusta', amount: '500 g', calories: 125 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 3577, servings: 4,
@@ -238,7 +238,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd16', name: 'Kluski śląskie', category: 'Dania główne', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d16.webp',
     instructions: '1. Ziemniaki obierz, ugotuj w osolonej wodzie do miękkości; odcedź i pozostaw na gazie, by nadmierna para odeszła — ziemniaki muszą być suche.\n2. Ugniecia ziemniaki tłuczkiem i ostudź do temperatury pokojowej; nie używaj blendera.\n3. Do ostygniętych ziemniaków dodaj mąkę ziemniaczaną i jajko; zagnieć delikatnie na gładkie ciasto — im mniej mieszasz, tym lepiej.\n4. Zwilżonymi rękami formuj kulki wielkości piłeczki golfowej; w środku każdej kulki zrób wgłębienie kciukiem — to tradycyjny kształt klusek śląskich.\n5. Gotuj partiami w dużej ilości osolonej, wrzącej wody przez 3–4 minuty od wypłynięcia.\n6. Boczek pokrój w drobną kostkę i wytop na patelni do chrupkości; dodaj cebulę w piórach i smaż na złoto.\n7. Odcedzone kluski przełóż na talerz, polej zasmażką z boczku i cebuli; podawaj z sosem pieczeniowym lub gulaszem.',
     ingredients: [{ name: 'Ziemniaki gotowane', amount: '1 kg', calories: 770 }, { name: 'Mąka ziemniaczana', amount: '200 g', calories: 680 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Boczek', amount: '100 g', calories: 300 }, { name: 'Cebula', amount: '2 szt', calories: 80 }],
     totalCalories: 1908, servings: 4,
@@ -248,7 +248,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── ŚNIADANIA ─────────────────────────────────────────────────────────────
   {
     id: 's1', name: 'Jajecznica na maśle', category: 'Śniadania', time: '10 min',
-    thumbnail: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/s1.webp',
     instructions: '1. Jajka wbij do miski i dopraw solą i pieprzem; delikatnie rozkłóć widelcem — nie miksuj, kilka przekłuć wystarczy.\n2. Na patelni rozgrzej masło na małym ogniu — masło nie powinno brązowieć, tylko się stopić i lekko pianić.\n3. Wlej jajka na patelnię i pozostaw na 20–30 sekund bez mieszania.\n4. Zacznij delikatnie składać jajka drewnianą szpatułką od brzegów ku środkowi — na bardzo małym ogniu.\n5. Mieszaj powoli co kilka sekund; jajecznica powinna powoli gęstnieć i tworzyć miękkie, kremowe płaty — to zajmuje ok. 4–5 minut.\n6. Zdejmij z ognia jeszcze przed całkowitym ścięciem — resztkowe ciepło dopiecze resztę; jajecznica powinna być błyszcząca i kremowa.\n7. Przełóż na podgrzany talerz; posyp drobno posiekanym szczypiorkiem i podawaj z pieczywem.',
     ingredients: [{ name: 'Jajka', amount: '3 szt', calories: 234 }, { name: 'Masło', amount: '15 g', calories: 108 }, { name: 'Chleb', amount: '2 kromki', calories: 160 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 502, servings: 1,
@@ -264,7 +264,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 's3', name: 'Placki ziemniaczane', category: 'Śniadania', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1598866594230-a7c12756260f?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/s3.webp',
     instructions: '1. Ziemniaki obierz i zetrzyj na tarce o drobnych oczkach; przełóż na czystą ściereczkę i mocno wyciśnij jak najwięcej wody — im suchsze, tym chrupiące placki.\n2. Zachowaj wodę po ziemniakach na chwilę — skrobia osiądzie na dnie; wlej wodę, a skrobię zostaw i dodaj do masy ziemniaczanej.\n3. Do startych ziemniaków dodaj jajko, 2 łyżki mąki pszennej, drobno posiekaną lub startą cebulę, sól i pieprz; wymieszaj.\n4. Olej rozgrzej na patelni do temperatury ok. 175°C — tłuszcz powinien się skwierczeć gdy wrzucisz odrobinę masy.\n5. Łyżką stołową nakładaj porcje masy na patelnię i spłaszczaj na okrągłe placki grubości ok. 1 cm.\n6. Smaż na średnim ogniu przez 4–5 minut z każdej strony, aż placki będą złotobrązowe i chrupiące — nie ruszaj zbyt wcześnie.\n7. Odłóż na ręcznik papierowy i podawaj gorące ze śmietaną lub cukrem i cynamonem.',
     ingredients: [{ name: 'Ziemniaki', amount: '1 kg', calories: 770 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Olej', amount: '60 ml', calories: 530 }, { name: 'Mąka pszenna', amount: '2 łyżki', calories: 73 }, { name: 'Śmietana', amount: '100 ml', calories: 184 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1675, servings: 3,
@@ -280,7 +280,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 's5', name: 'Kanapki z awokado i jajkiem', category: 'Śniadania', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/s5.webp',
     instructions: '1. Jajka wyjmij z lodówki 10 minut wcześniej; zagotuj wodę w rondelku, ostrożnie wkładaj jajka łyżką i gotuj dokładnie 6 minut od zagotowania.\n2. Jajka zahartuj w zimnej wodzie przez 2 minuty, obierz ostrożnie — białko będzie ścięte, żółtko kremowe.\n3. Chleb żytni opiecz w tosterze lub na suchej patelni na złoto.\n4. Awokado przekrój, wyjmij pestkę i łyżką wyskrob miąższ; rozgnieć widelcem z sokiem z połowy cytryny i szczyptą soli — nie musisz robić gładkiej pasty.\n5. Posmaruj tosty pastą z awokado; ułóż plastry pomidora i opcjonalnie kilka plasterków ogórka.\n6. Jajka przekrój na pół i połóż na kanapkach; posyp solą morską i świeżo zmielonym pieprzem.\n7. Udekoruj kiełkami, płatkami chili lub odrobinę sosu sriracha; podawaj od razu.',
     ingredients: [{ name: 'Chleb żytni', amount: '4 kromki', calories: 390 }, { name: 'Awokado', amount: '1 szt', calories: 240 }, { name: 'Jajka', amount: '2 szt', calories: 156 }, { name: 'Pomidor', amount: '1 szt', calories: 18 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 821, servings: 2,
@@ -312,7 +312,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 's9', name: 'Racuchy z jabłkami', category: 'Śniadania', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1565299543923-37dd37887442?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/s9.webp',
     instructions: '1. Drożdże instant (lub świeże rozpuszczone w odrobinie ciepłego mleka) wymieszaj z ciepłym mlekiem i łyżką cukru; odstaw na 5 minut aż zacznie fermentować.\n2. W misce wymieszaj mąkę z jajkami, mlekiem z drożdżami i resztą cukru na gładkie ciasto; dodaj szczyptę soli.\n3. Jabłka obierz i zetrzyj na grubej tarce; wyciśnij nadmiar soku i dodaj do ciasta wraz z łyżeczką cynamonu.\n4. Wymieszaj dokładnie — ciasto powinno mieć konsystencję gęstej śmietany; odstaw na 10 minut.\n5. Na patelni rozgrzej olej na średnim ogniu; łyżką stołową nakładaj porcje ciasta i spłaszczaj na okrągłe placuszki.\n6. Smaż 3–4 minuty z każdej strony na złotobrązowy kolor; nie za duży ogień — racuchy muszą się wysmażyć w środku.\n7. Odłóż na papierowy ręcznik; podawaj gorące posypane cukrem pudrem i cynamonem lub z łyżką śmietany.',
     ingredients: [{ name: 'Mąka pszenna', amount: '250 g', calories: 850 }, { name: 'Jabłka', amount: '3 szt', calories: 216 }, { name: 'Jajka', amount: '2 szt', calories: 156 }, { name: 'Mleko', amount: '200 ml', calories: 100 }, { name: 'Olej', amount: '2 łyżki', calories: 240 }, { name: 'Cukier', amount: '2 łyżki', calories: 100 }, { name: 'Drożdże', amount: '25 g', calories: 25 }],
     totalCalories: 1687, servings: 3,
@@ -322,7 +322,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── SAŁATKI ───────────────────────────────────────────────────────────────
   {
     id: 'sa1', name: 'Sałatka jarzynowa', category: 'Sałatki', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa1.webp',
     instructions: '1. Marchew, ziemniaki i pietruszkę ugotuj w całości w osolonej wodzie do miękkości; odcedź i ostudź do temperatury pokojowej.\n2. Ugotowane warzywa obierz i pokrój w równą kostkę ok. 8 mm — jednorodna wielkość to klucz do dobrego wyglądu.\n3. Ogórek kiszony pokrój w kostkę tej samej wielkości; jabłko obierz, usuń gniazdo i pokrój podobnie.\n4. Dodaj odsączony groszek z puszki do wszystkich pokrojonych warzyw i owoców.\n5. Majonez wymieszaj z łyżką musztardy dla głębszego smaku; dodaj do sałatki i wymieszaj delikatnie.\n6. Dopraw solą i pieprzem; smakuj i w razie potrzeby dodaj więcej majonezu lub musztardy.\n7. Przykryj folią spożywczą i wstaw do lodówki na co najmniej godzinę — smaki się przegryzą; podawaj schłodzoną.',
     ingredients: [{ name: 'Marchew', amount: '3 szt', calories: 75 }, { name: 'Ziemniaki', amount: '4 szt', calories: 308 }, { name: 'Majonez', amount: '150 g', calories: 1020 }, { name: 'Groszek konserwowy', amount: '200 g', calories: 130 }, { name: 'Jabłko', amount: '1 szt', calories: 72 }, { name: 'Musztarda', amount: '1 łyżka', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1620, servings: 6,
@@ -330,7 +330,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sa2', name: 'Surówka z marchewki', category: 'Sałatki', time: '10 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa2.webp',
     instructions: '1. Marchew dokładnie umyj i obierz; zetrzyj na tarce o grubych oczkach — drobno tarta marchew traci teksturę.\n2. Przełóż startą marchew do miski; wyciśnij sok z połowy pomarańczy lub użyj gotowego soku jabłkowego (ok. 100 ml).\n3. Dodaj rodzynki — jeśli są twarde, wcześniej namocz je w ciepłej wodzie przez 10 minut.\n4. Opcjonalnie wsyp 2 łyżki wiórków kokosowych dla egzotycznej nuty.\n5. Polej miodem i wymieszaj całość delikatnie.\n6. Dopraw odrobiną soli, która wydobędzie naturalną słodycz marchewki.\n7. Przykryj i wstaw do lodówki na 20–30 minut; podawaj schłodzoną jako surówkę do obiadu.',
     ingredients: [{ name: 'Marchew', amount: '500 g', calories: 205 }, { name: 'Sok z pomarańczy', amount: '100 ml', calories: 45 }, { name: 'Rodzynki', amount: '50 g', calories: 150 }, { name: 'Miód', amount: '1 łyżka', calories: 60 }],
     totalCalories: 460, servings: 3,
@@ -338,7 +338,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sa3', name: 'Sałatka z tuńczykiem', category: 'Sałatki', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa3.webp',
     instructions: '1. Tuńczyka z puszki odcedź dokładnie na sicie lub wyciśnij ręką przez wieczko — im mniej płynu, tym lepsza konsystencja.\n2. Rozdrobnij tuńczyka widelcem na nierówne kawałki — nie rozgniataj na papkę.\n3. Cebulę czerwoną drobno posiekaj; jeśli jest ostra, namocz przez 5 minut w zimnej wodzie i odcedź.\n4. Ogórek kiszony pokrój w drobną kostkę; odciśnij delikatnie sok.\n5. Wymieszaj tuńczyka z cebulą i ogórkiem; dodaj majonez i łyżeczkę musztardy; dopraw pieprzem.\n6. Sałatę umyj i osusz; ułóż na talerzu lub w misce; pomidorki koktajlowe przekrój na pół.\n7. Wyłóż masę z tuńczyka na sałatę, udekoruj pomidorkami i posyp szczypiorkiem.',
     ingredients: [{ name: 'Tuńczyk w puszce', amount: '2 puszki', calories: 280 }, { name: 'Majonez', amount: '80 g', calories: 544 }, { name: 'Ogórek kiszony', amount: '3 szt', calories: 45 }, { name: 'Cebula czerwona', amount: '1 szt', calories: 40 }, { name: 'Pomidory', amount: '400 g', calories: 72 }, { name: 'Musztarda', amount: '1 łyżka', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 996, servings: 3,
@@ -346,7 +346,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sa4', name: 'Sałatka z buraków', category: 'Sałatki', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa4.webp',
     instructions: '1. Buraki ugotuj w całości (z łupinami) przez ok. 45 minut lub upiecz w folii aluminiowej w 200°C przez godzinę — pieczenie daje intensywniejszy smak.\n2. Ugotowane buraki zahartuj w zimnej wodzie i obierz ze skórki (najlepiej w rękawiczkach, by nie pobrudzić rąk).\n3. Obrane buraki zetrzyj na grubej tarce lub pokrój w cienkie słupki.\n4. Cebulę drobno posiekaj lub zetrzyj na tarce; można ją obrzucić wrzątkiem, by była mniej ostra.\n5. Wymieszaj buraki z cebulą, chrzanem tartym i octem jabłkowym.\n6. Dopraw cukrem (1–2 łyżeczki), solą i odrobiną pieprzu — smak powinien być wyraźnie słodko-kwaśny.\n7. Wstaw do lodówki na co najmniej 30 minut; podawaj jako zimny dodatek do mięs, gotowanych jajek lub pieczywa.',
     ingredients: [{ name: 'Buraki', amount: '600 g', calories: 258 }, { name: 'Chrzan tarty', amount: '3 łyżki', calories: 45 }, { name: 'Ocet jabłkowy', amount: '2 łyżki', calories: 10 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Cukier', amount: '2 łyżeczki', calories: 40 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 393, servings: 4,
@@ -354,7 +354,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sa5', name: 'Surówka z białej kapusty', category: 'Sałatki', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa5.webp',
     instructions: '1. Kapustę białą oczyść z zewnętrznych liści; pokrój cienko nożem lub mandoliną — im cieńsze szatki, tym delikatniejsza surówka.\n2. Posól kapustę hojnie (1 łyżka soli), wygniataj przez 5 minut rękami aż puści sok — spowoduje to zmiękczenie i usunięcie goryczy.\n3. Wyciśnij kapustę mocno, odlewając nadmiar wody z sokiem.\n4. Marchew zetrzyj na tarce o grubych oczkach i dodaj do kapusty.\n5. Polej octem (2 łyżki), olejem rzepakowym (3 łyżki) i dosłódź cukrem (1–2 łyżeczki).\n6. Dodaj płaską łyżeczkę kminku i świeżo zmielony pieprz; wymieszaj dokładnie.\n7. Przykryj i odstaw na co najmniej 30 minut (najlepiej 1–2 godziny) — smaki się połączą i kapusta zmięknie.',
     ingredients: [{ name: 'Kapusta biała', amount: '800 g', calories: 192 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Olej rzepakowy', amount: '3 łyżki', calories: 400 }, { name: 'Ocet', amount: '2 łyżki', calories: 5 }, { name: 'Cukier', amount: '2 łyżeczki', calories: 40 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 687, servings: 6,
@@ -362,7 +362,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sa6', name: 'Sałatka z jajkiem i majonezem', category: 'Sałatki', time: '20 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa6.webp',
     instructions: '1. Jajka gotuj w zimnej wodzie od początku; po zagotowaniu gotuj dokładnie 10 minut na twardo.\n2. Jajka zahartuj w zimnej wodzie przez 5 minut i obierz; pokrój w kostkę ok. 1 cm.\n3. Szynkę gotowaną pokrój w kostkę tej samej wielkości.\n4. Ogórek kiszony lub świeży pokrój w drobną kostkę; jeśli używasz świeżego, wydrąż środek z pestkami.\n5. Cebulę lub szczypiorek drobno posiekaj.\n6. Wszystkie składniki wymieszaj w misce; dodaj majonez i łyżkę musztardy sarepskiej.\n7. Dopraw solą i pieprzem; wstaw do lodówki na 20 minut i podawaj jako sałatkę lub pastę na kanapki.',
     ingredients: [{ name: 'Jajka', amount: '6 szt', calories: 468 }, { name: 'Szynka gotowana', amount: '200 g', calories: 360 }, { name: 'Majonez', amount: '100 g', calories: 680 }, { name: 'Ogórek', amount: '1 szt', calories: 30 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Musztarda', amount: '1 łyżka', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1593, servings: 4,
@@ -396,7 +396,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'm4', name: 'Makaron z kurczakiem i szpinakiem', category: 'Makarony', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/m4.webp',
     instructions: '1. Piersi kurczaka pokrój w paski 2 cm; dopraw solą, pieprzem i szczyptą papryki; obsmaż na oliwie po 3–4 minuty z każdej strony.\n2. Kurczaka odłóż; na tej samej patelni zeszklij posiekany czosnek przez 1 minutę.\n3. Dodaj szpinak (świeży lub rozmrożony i odciśnięty) i smaż 2–3 minuty aż zwiędnie.\n4. Wlej śmietanę kremówkę i gotuj 3 minuty na małym ogniu; wróć kurczaka na patelnię.\n5. Ugotuj makaron al dente w dużej ilości osolonej wody; zachowaj szklankę wody z gotowania.\n6. Odcedzony makaron przełóż na patelnię z sosem; wymieszaj, dodając łyżkę wody z makaronu dla kremowości.\n7. Podawaj od razu posypany świeżo startym parmezanem i opcjonalnie listkami bazylii.',
     ingredients: [{ name: 'Pierś z kurczaka', amount: '400 g', calories: 660 }, { name: 'Makaron', amount: '400 g', calories: 1440 }, { name: 'Szpinak', amount: '200 g', calories: 46 }, { name: 'Śmietana', amount: '150 ml', calories: 438 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2839, servings: 4,
@@ -404,7 +404,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'm5', name: 'Lasagne mięsna', category: 'Makarony', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/m5.webp',
     instructions: '1. Sos mięsny: zeszklij cebulę i czosnek, obsmaż mielone mięso do brązowego koloru; dodaj passatę, oregano, bazylię, sól i pieprz; duś 20 minut.\n2. Sos beszamelowy: roztop masło, dodaj mąkę i smaż 2 minuty; stopniowo wlewaj mleko (500 ml), ciągle mieszając; gotuj 5 minut do zgęstnienia; dopraw gałką muszkatołową.\n3. Piekarnik nagrzej do 180°C; naczynie żaroodporne posmaruj masłem.\n4. Rozpocznij układanie warstw: cienka warstwa sosu mięsnego na dnie, płaty lasagne (jeśli wymagają gotowania — ugotuj wcześniej), sos mięsny, sos biały.\n5. Powtórz warstwy 3–4 razy; ostatnią warstwą musi być sos beszamelowy.\n6. Na wierzchu posyp obficie startą mozzarellą i parmezanem.\n7. Piecz pod folią aluminiową przez 25 minut, następnie zdejmij folię i piecz kolejne 15 minut do złotobrązowego wierzchu; odstaw 10 minut przed krojeniem.',
     ingredients: [{ name: 'Płaty lasagne', amount: '250 g', calories: 875 }, { name: 'Mięso mielone', amount: '500 g', calories: 850 }, { name: 'Ser mozzarella', amount: '200 g', calories: 560 }, { name: 'Passata', amount: '400 ml', calories: 140 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Mąka pszenna', amount: '40 g', calories: 146 }, { name: 'Mleko', amount: '500 ml', calories: 250 }, { name: 'Masło', amount: '30 g', calories: 215 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 3131, servings: 6,
@@ -422,7 +422,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'w2', name: 'Risotto grzybowe', category: 'Wegetariańskie', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/w2.webp',
     instructions: '1. Pieczarki pokrój w plastry i podsmaż na łyżce masła na dużym ogniu przez 5 minut, aż będą złote; odłóż na bok.\n2. W tym samym garnku lub głębokiej patelni rozgrzej masło; zeszklij drobno posiekaną cebulę przez 5 minut na małym ogniu.\n3. Wsyp ryż arborio i smaż razem z cebulą przez 2 minuty — ziarna powinny stać się szkliste.\n4. Wlej kieliszek białego wina (opcjonalnie) i mieszaj aż odparuje; następnie zacznij dodawać gorący bulion chochlami po ok. 150 ml.\n5. Każdą porcję bulionu wlewaj dopiero gdy poprzednia zostanie wchłonięta; mieszaj prawie stale przez ok. 18–20 minut.\n6. Gdy ryż jest al dente (lekko twardy w środku), dodaj odsmażone pieczarki; wymieszaj.\n7. Zdejmij z ognia, dodaj zimne masło (30 g) i tarty parmezan; energicznie wymieszaj — to nada kremowości; podawaj natychmiast.',
     ingredients: [{ name: 'Ryż arborio', amount: '300 g', calories: 1050 }, { name: 'Pieczarki', amount: '400 g', calories: 100 }, { name: 'Parmezan', amount: '80 g', calories: 320 }, { name: 'Masło', amount: '50 g', calories: 358 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Bulion', amount: '1 l', calories: 120 }, { name: 'Wino', amount: '100 ml', calories: 85 }],
     totalCalories: 2113, servings: 4,
@@ -430,7 +430,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'w3', name: 'Leczo warzywne', category: 'Wegetariańskie', time: '35 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/w3.webp',
     instructions: '1. Cebulę pokrój w pióra, czosnek drobno posiekaj; zeszklij na oliwie przez 5 minut na średnim ogniu.\n2. Paprykę czerwoną, żółtą i zieloną pokrój w grube paski lub kostkę — leczo powinno mieć kawałki z wyraźną teksturą.\n3. Dodaj paprykę do cebuli i smaż 5 minut, mieszając od czasu do czasu.\n4. Cukinię pokrój w półplasterki grubości 1 cm; dodaj do garnka i smaż 3 minuty.\n5. Wlej pomidory z puszki (lub pokrojone świeże pomidory); wymieszaj i dopraw słodką papryką (2 łyżeczki), kminkiem, solą i pieprzem.\n6. Duś pod przykryciem na małym ogniu przez 20 minut, od czasu do czasu mieszając — warzywa muszą zmięknąć, ale nie rozpaść się.\n7. Sprawdź doprawienie; podawaj z chlebem, jajkami sadzonymi na wierzchu lub jako dodatek do mięsa.',
     ingredients: [{ name: 'Papryka', amount: '3 szt', calories: 90 }, { name: 'Cukinia', amount: '2 szt', calories: 60 }, { name: 'Pomidory z puszki', amount: '400 g', calories: 80 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 565, servings: 4,
@@ -438,7 +438,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'w4', name: 'Kotlety z ciecierzycy', category: 'Wegetariańskie', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/w4.webp',
     instructions: '1. Ciecierzycę ugotowaną lub z puszki dokładnie odsącz i osusz ręcznikiem — wilgoć utrudni formowanie i smażenie.\n2. Przełóż do blendera lub rozdrabniacza; dodaj czosnek, kminek, kolendrę, pietruszką i sól; zblenduj do grubej, kleistej pasty.\n3. Dodaj bułkę tartą (3–4 łyżki) i jajko; wymieszaj — masa powinna dać się formować bez rozpadania.\n4. Wilgotnymi rękami formuj płaskie kotlety o grubości ok. 1,5 cm; jeśli masa jest zbyt luźna, wstaw do lodówki na 20 minut.\n5. Obtocz kotlety w bułce tartej z obu stron, strzepując nadmiar.\n6. Smaż na rozgrzanym oleju (warstwa ok. 2–3 mm) przez 4–5 minut z każdej strony na złotobrązową skórkę.\n7. Odłóż na ręcznik papierowy; podawaj z sosem czosnkowym lub tahini, pieczonymi warzywami i sałatą.',
     ingredients: [{ name: 'Ciecierzyca gotowana', amount: '400 g', calories: 656 }, { name: 'Bułka tarta', amount: '80 g', calories: 316 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Olej', amount: '40 ml', calories: 354 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1419, servings: 4,
@@ -446,7 +446,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'w5', name: 'Zapiekanka ziemniaczana z serem', category: 'Wegetariańskie', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/w5.webp',
     instructions: '1. Ziemniaki obierz i pokrój w cienkie plastry (ok. 3 mm) — najlepiej mandoliną dla równomierności; cebulę pokrój w cienkie krążki.\n2. Naczynie żaroodporne posmaruj masłem i delikatnie natrzyj przekrojonym ząbkiem czosnku.\n3. Ułóż warstwę ziemniaków (zachodzących na siebie); posól, popieprzz i ułóż kilka krążków cebuli.\n4. Polej cienką warstwą śmietany (zahartowanej z odrobiną gorącej wody); posyp startym serem żółtym.\n5. Powtarzaj warstwy do wyczerpania składników — ostatnią warstwą powinny być ziemniaki pokryte śmietaną i serem.\n6. Przykryj folią aluminiową i zapiekaj w 180°C przez 30 minut; zdejmij folię i zapiekaj kolejne 15–20 minut.\n7. Zapiekanka jest gotowa gdy ziemniaki dają się nakłuć widelcem, a wierzch jest złotobrązowy i rumiany.',
     ingredients: [{ name: 'Ziemniaki', amount: '1 kg', calories: 770 }, { name: 'Ser żółty', amount: '200 g', calories: 800 }, { name: 'Śmietana', amount: '200 ml', calories: 380 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Masło', amount: '30 g', calories: 215 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2260, servings: 4,
@@ -464,7 +464,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── DESERY ────────────────────────────────────────────────────────────────
   {
     id: 'de1', name: 'Szarlotka babci', category: 'Desery', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/de1.webp',
     instructions: '1. Masło zimne pokrój w kostkę; razem z mąką, cukrem pudrem, żółtkami i szczyptą soli zagnieć kruche ciasto — szybko, by masło się nie rozgrzało; owiń folią i wstaw do lodówki na 30 minut.\n2. Jabłka (kwaśne lub półkwaśne — najlepsza Reneta lub Szara Reneta) obierz, zetrzyj na grubej tarce lub pokrój w kostkę.\n3. Wymieszaj jabłka z cukrem, cynamonem i łyżką mąki — mąka pochłonie sok.\n4. Piekarnik nagrzej do 180°C; formę do tarty (ok. 24 cm) wysmaruj masłem i podsyp mąką.\n5. Połowę zimnego ciasta zetrzyj na tarce bezpośrednio do formy lub wałkuj i wyłóż dno; ugniataj palcami na równą warstwę.\n6. Wyłóż farsz jabłkowy; na wierzchu zetrzyj lub ułóż resztę ciasta; dociśnij delikatnie.\n7. Piecz w 180°C przez 40–45 minut, aż wierzch będzie złotobrązowy; podawaj letnią posypaną cukrem pudrem z lodami lub bitą śmietaną.',
     ingredients: [{ name: 'Mąka pszenna', amount: '400 g', calories: 1360 }, { name: 'Masło', amount: '200 g', calories: 1434 }, { name: 'Jabłka', amount: '1,5 kg', calories: 780 }, { name: 'Cukier', amount: '150 g', calories: 600 }],
     totalCalories: 4174, servings: 10,
@@ -480,7 +480,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'de3', name: 'Makowiec', category: 'Desery', time: '3 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/de3.webp',
     instructions: '1. Ciasto drożdżowe: drożdże rozkrusz w ciepłym mleku z cukrem, odstaw 10 minut; wymieszaj z mąką, jajkami, masłem i solą; zagnieć i zostaw do wyrośnięcia przez 1 godzinę.\n2. Mak zalej wrzącą wodą, gotuj 20 minut na małym ogniu; odcedź i zmiel dwukrotnie przez maszynkę o drobnych oczkach.\n3. Zmielony mak wymieszaj z miodem, cukrem, rodzynkami (namoczonymi w rumie opcjonalnie), posiekanymi orzechami i startą skórką pomarańczową.\n4. Wyrośnięte ciasto odgaz (uderz pięścią) i rozwałkuj na prostokąt grubości ok. 5 mm.\n5. Równomiernie rozsmaruj farsz makowy na cieście, zostawiając ok. 2 cm od brzegów.\n6. Zawiń ciasto w ciasny rulon, umieść w wysmarowanej formie keksowej (35 cm) szwem do dołu; zostaw do ponownego wyrośnięcia na 30 minut.\n7. Piecz w 180°C przez 45–50 minut; po wystudzeniu posyp cukrem pudrem lub polej lukrem cytrynowym.',
     ingredients: [{ name: 'Mak', amount: '300 g', calories: 1485 }, { name: 'Mąka pszenna', amount: '500 g', calories: 1700 }, { name: 'Miód', amount: '100 g', calories: 304 }, { name: 'Rodzynki', amount: '100 g', calories: 299 }, { name: 'Jajka', amount: '2 szt', calories: 156 }, { name: 'Masło', amount: '30 g', calories: 215 }, { name: 'Cukier', amount: '2 łyżki', calories: 100 }, { name: 'Drożdże', amount: '25 g', calories: 25 }, { name: 'Orzechy', amount: '50 g', calories: 320 }, { name: 'Skórka pomarańczowa', amount: '1 łyżka', calories: 6 }, { name: 'Szczypta soli', amount: 'do smaku', calories: 0 }],
     totalCalories: 4610, servings: 12,
@@ -488,7 +488,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'de4', name: 'Babka piaskowa', category: 'Desery', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/de4.webp',
     instructions: '1. Masło wyjmij z lodówki 30 minut wcześniej, by osiągnęło temperaturę pokojową — ułatwi to ubijanie.\n2. Masło utrzyj z cukrem mikserem na najwyższych obrotach przez 5 minut, aż masa będzie jasna i puszysta.\n3. Dodawaj jajka po jednym, ciągle miksując po każdym — masa musi wchłonąć każde jajko przed dodaniem kolejnego.\n4. Mąkę wymieszaj z proszkiem do pieczenia i mąką ziemniaczaną; dodawaj do masy stopniowo, mieszając szpatułką (nie mikserem — zbyt długie mieszanie wyrobi gluten).\n5. Dodaj startą skórkę z cytryny i ekstrakt waniliowy; wymieszaj do połączenia.\n6. Formę babki lub keksową wysmaruj masłem i oprósz mąką; przełóż ciasto i wyrównaj powierzchnię.\n7. Piecz w 175°C przez 45–50 minut; sprawdź patyczkiem — wbity w środek powinien wyjść suchy; ostudź na kratce.',
     ingredients: [{ name: 'Mąka pszenna', amount: '300 g', calories: 1020 }, { name: 'Masło', amount: '200 g', calories: 1434 }, { name: 'Jajka', amount: '4 szt', calories: 312 }, { name: 'Cukier', amount: '150 g', calories: 600 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }],
     totalCalories: 3383, servings: 10,
@@ -538,7 +538,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'p4', name: 'Pasztet domowy', category: 'Przekąski', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1509482560494-4126f8225994?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/p4.webp',
     instructions: '1. Łopatkę wieprzową i wątróbkę drobiową umieść w garnku; dodaj marchew, cebulę, pietruszkę, liść laurowy i ziele angielskie; zalej wodą i gotuj 1 godzinę.\n2. Ugotowane mięso i warzywa odcedź i ostudź; zachowaj wywar.\n3. Mięso zmiel dwukrotnie przez maszynkę z drobnym sitkiem — im drobniej, tym gładszy pasztet.\n4. Do mielonego mięsa dodaj jajka, bułkę tartą (namoczoną w wywarze i odciśniętą), czosnek, majeranek, sól, pieprz i gałkę muszkatołową.\n5. Wymieszaj masę na gładką konsystencję; powinna być zwarta, ale kleista — dodaj trochę wywaru jeśli jest zbyt sucha.\n6. Formę keksową wysmaruj masłem i wyłóż paskami boczku; przełóż masę pasztetową, wyrównaj i przykryj paskami boczku.\n7. Piecz w 180°C przez 50–60 minut; po wystudzeniu wstaw do lodówki na kilka godzin przed krojeniem.',
     ingredients: [{ name: 'Łopatka wieprzowa', amount: '500 g', calories: 950 }, { name: 'Wątroba drobiowa', amount: '200 g', calories: 236 }, { name: 'Jajka', amount: '3 szt', calories: 234 }, { name: 'Bułka tarta', amount: '100 g', calories: 395 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Masło', amount: '30 g', calories: 215 }, { name: 'Boczek', amount: '150 g', calories: 510 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2685, servings: 8,
@@ -546,7 +546,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'p5', name: 'Śledź w oleju z cebulą', category: 'Przekąski', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/p5.webp',
     instructions: '1. Filety śledziowe (a la carte lub matias) namocz w zimnej wodzie przez 2–3 godziny, zmieniając wodę raz — usuwa to nadmiar soli.\n2. Namoczone filety delikatnie osusz papierowym ręcznikiem; pokrój ukośnie na kawałki 3–4 cm.\n3. Cebulę pokrój w cienkie krążki lub półksiężyce; obrzuć wrzątkiem lub blanszuj przez 1 minutę — złagodzi ostrość.\n4. Odcedź cebulę i ostudź; opcjonalnie namocz 10 minut w occie rozcieńczonym wodą.\n5. Ułóż naprzemiennie kawałki śledzia i krążki cebuli w słoiku lub głębokim naczyniu.\n6. Dodaj ziela angielskie, liść laurowy, kilka ziaren pieprzu i ewentualnie plasterki marchewki.\n7. Zalej olejem rzepakowym tak, by przykrył śledziny; przykryj i wstaw do lodówki na co najmniej 4–6 godzin przed podaniem.',
     ingredients: [{ name: 'Filety śledziowe', amount: '400 g', calories: 568 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Olej rzepakowy', amount: '80 ml', calories: 708 }, { name: 'Ziele angielskie', amount: '5 szt', calories: 5 }, { name: 'Marchew', amount: '1 szt', calories: 25 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1386, servings: 4,
@@ -562,7 +562,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'p7', name: 'Guacamole z nachosami', category: 'Przekąski', time: '10 min',
-    thumbnail: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/p7.webp',
     instructions: '1. Awokado sprawdź czy jest dojrzałe — powinno lekko uginać się pod palcem; przekrój, wyjmij pestkę i łyżką wyskrob miąższ do miski.\n2. Rozgnieć awokado widelcem do preferowanej konsystencji — czy wolisz gładkie czy lekko grudkowate.\n3. Cebulę czerwoną drobno posiekaj; jeśli jest ostra, namocz w zimnej wodzie przez 5 minut i odcedź.\n4. Czosnek zetrzyj lub bardzo drobno posiekaj; dodaj do awokado razem z sokiem z limonki (zapobiega ciemnieniu).\n5. Pomidor pokrój w drobną kostkę, odcedź sok; dodaj do guacamole z kolendrą.\n6. Dopraw solą i opcjonalnie szczyptą pieprzu cayenne dla ostrości; wymieszaj wszystko łyżką.\n7. Podawaj od razu z nachosami lub warzywami pokrojonymi w słupki — guacamole najlepiej smakuje świeże.',
     ingredients: [{ name: 'Awokado', amount: '2 szt', calories: 480 }, { name: 'Pomidor', amount: '1 szt', calories: 18 }, { name: 'Cebula czerwona', amount: '0,5 szt', calories: 20 }, { name: 'Nachos', amount: '150 g', calories: 750 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1283, servings: 4,
@@ -660,7 +660,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'db11', name: 'Dorsz pieczony z warzywami', category: 'Dieta białkowa', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/db11.webp',
     instructions: '1. Piekarnik nagrzej do 190°C; blachę wyłóż papierem do pieczenia.\n2. Cukinię pokrój w półplasterki, paprykę w szerokie paski, pomidory w ćwiartki; ułóż na blasze.\n3. Warzywa skrop oliwą, posyp solą, pieprzem, oregano i tymiankiem; wstępnie piecz 10 minut.\n4. Filety z dorsza osusz papierowym ręcznikiem; natrzyj solą, pieprzem i papryką słodką.\n5. Połóż filety na podpeczonych warzywach; skrop oliwą i sokiem z cytryny.\n6. Piecz razem przez 18–20 minut — dorsz jest gotowy gdy staje się nieprzezroczysty i łatwo się rozdziela widelcem.\n7. Podawaj od razu z klinem cytryny i świeżą natką pietruszki; opcjonalnie z chlebem dla wchłonięcia sosów.',
     ingredients: [{ name: 'Filet z dorsza', amount: '400 g', calories: 348 }, { name: 'Cukinia', amount: '200 g', calories: 36 }, { name: 'Papryka', amount: '2 szt', calories: 74 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Pomidory', amount: '400 g', calories: 72 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 787, servings: 2,
@@ -684,7 +684,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'db14', name: 'Krewetki smażone z czosnkiem', category: 'Dieta białkowa', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/db14.webp',
     instructions: '1. Krewetki rozmróź (jeśli mrożone), opłucz pod zimną wodą i osusz papierowym ręcznikiem — mokre krewetki się gotują, nie smażą.\n2. Jeśli krewetki nie są obrane, usuń główki i łupiny; wyciągnij jelito (czarną nitkę) od strony grzbietu.\n3. Na patelni rozgrzej oliwę z oliwek na dużym ogniu; dodaj posiekany czosnek i smaż dokładnie 1 minutę — nie dłużej, bo się przypali.\n4. Dodaj krewetki i smaż na dużym ogniu 2 minuty z każdej strony — będą gotowe gdy zmienią kolor z szarego na różowy i zawinią się.\n5. Wlej sok z połowy cytryny bezpośrednio na patelnię; dodaj szczyptę chili i smaż 30 sekund.\n6. Posyp hojnie posiekaną natką pietruszki; wymieszaj i zdejmij z ognia.\n7. Podawaj od razu z sałatą, chlebem lub makaronem; polej sosem z patelni.',
     ingredients: [{ name: 'Krewetki', amount: '400 g', calories: 380 }, { name: 'Czosnek', amount: '4 ząbki', calories: 20 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Makaron', amount: '200 g', calories: 700 }],
     totalCalories: 1357, servings: 2,
@@ -734,7 +734,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'f5', name: 'Sałatka z rukolą, tuńczykiem i kaparami', category: 'Fit i Dieta', time: '10 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/f5.webp',
     instructions: '1. Rukolę dokładnie umyj pod zimną wodą i odwiruj lub osusz ręcznikiem kuchennym — mokra rukola rozcieńczy dressing.\n2. Tuńczyka z puszki (w wodzie dla mniejszej ilości kalorii) dokładnie odcedź i rozdrobnij widelcem.\n3. Pomidorki koktajlowe przekrój na pół; jeśli używasz dużych pomidorów — pokrój w nieregularne kawałki.\n4. Kapary opłucz pod wodą by usunąć nadmiar soli; odcedź.\n5. Dressing: wymieszaj oliwę extra virgin (2 łyżki), sok z połowy cytryny, szczyptę soli i świeżo zmielony pieprz.\n6. W misce ułóż rukolę, tuńczyka, pomidorki i kapary; polej dressingiem i delikatnie wymieszaj.\n7. Podawaj od razu — rukola szybko traci świeżość po polaniu dressingiem; opcjonalnie posyp płatkami parmezanu.',
     ingredients: [{ name: 'Rukola', amount: '120 g', calories: 30 }, { name: 'Tuńczyk w wodzie', amount: '160 g', calories: 186 }, { name: 'Pomidorki cherry', amount: '150 g', calories: 27 }, { name: 'Kapary', amount: '2 łyżki', calories: 10 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 510, servings: 2,
@@ -766,7 +766,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'f9', name: 'Curry z ciecierzycą i szpinakiem', category: 'Fit i Dieta', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/f9.webp',
     instructions: '1. Cebulę posiekaj drobno; zeszklij na oliwie przez 5 minut; dodaj posiekany czosnek (3 ząbki) i starty imbir (2 cm), smaż 2 minuty.\n2. Dodaj pastę curry (2 łyżki) i smaż 1 minutę — uwolni aromaty; intensywnie mieszaj.\n3. Wlej mleko kokosowe i pomidory krojone z puszki; wymieszaj i zagotuj.\n4. Dodaj odsączoną ciecierzycę z puszki; zmniejsz ogień i gotuj 15 minut, aż sos zgęstnieje.\n5. Na ostatnie 2 minuty wrzuć szpinak baby — zwiędnie w gorącym curry; nie gotuj zbyt długo.\n6. Ryż ugotuj osobno w osolonej wodzie i odcedź; podawaj jako bazę.\n7. Dopraw curry sokiem z limonki, ewentualnie solą; podawaj z ryżem posypanym kolendrą i kleksem jogurtu naturalnego.',
     ingredients: [{ name: 'Ciecierzyca', amount: '400 g', calories: 656 }, { name: 'Szpinak baby', amount: '150 g', calories: 35 }, { name: 'Mleko kokosowe', amount: '200 ml', calories: 290 }, { name: 'Pasta curry', amount: '2 łyżki', calories: 60 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Ryż', amount: '100 g', calories: 360 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Pomidory', amount: '400 g', calories: 72 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1808, servings: 3,
@@ -848,7 +848,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'lc3', name: 'Muffiny owsiane z jagodami', category: 'Fit i Dieta', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/lc3.webp',
     instructions: '1. Piekarnik nagrzej do 180°C; foremki na muffiny wyłóż papilotkami lub wysmaruj olejem.\n2. Płatki owsiane zblenduj w blenderze przez 30 sekund na gruboziarnistą mąkę — nie musisz blendować na pył, nieco tekstury jest pożądana.\n3. Banany (dojrzałe — im ciemniejsza skórka, tym słodsze) rozgnieć dokładnie widelcem na gładką masę.\n4. Wymieszaj mąkę owsianą z bananem, jajkiem, mlekiem, proszkiem do pieczenia i szczyptą soli.\n5. Delikatnie wmieszaj jagody łyżką (nie blenderem) — chcemy, żeby pozostały w całości.\n6. Nałóż ciasto łyżką do foremek na 3/4 ich wysokości; opcjonalnie połóż po kilka jagód na wierzchu każdego muffina.\n7. Piecz w 180°C przez 20–22 minuty; sprawdź patyczkiem — musi wychodzić suchy; ostudź 5 minut przed wyjęciem.',
     ingredients: [{ name: 'Płatki owsiane', amount: '200 g', calories: 778 }, { name: 'Banan', amount: '2 szt', calories: 210 }, { name: 'Jagody', amount: '100 g', calories: 57 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Mleko', amount: '250 ml', calories: 125 }, { name: 'Olej', amount: '1 łyżeczka', calories: 40 }],
     totalCalories: 1288, servings: 8,
@@ -864,7 +864,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'lc5', name: 'Pizza na cieście kalafiorowym', category: 'Fit i Dieta', time: '45 min',
-    thumbnail: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/lc5.webp',
     instructions: '1. Kalafior podziel na różyczki i wrzuć do food processora; zblenduj na drobne okruszki (rice-like) — nie blenduj na papkę.\n2. Zblendowany kalafior wyłóż na blachę i piecz w 200°C przez 10 minut, żeby odparował nadmiar wody.\n3. Ostudź kalafior; przełóż na czystą ściereczkę i mocno wyciśnij — im suchszy, tym twardszy spód.\n4. W misce wymieszaj wysuszony kalafior z jajkiem, tartym parmezanem, oregano, solą i pieprzem na spójną masę.\n5. Uformuj okrągły lub prostokątny placek na blasze z papierem; piecz w 200°C przez 20 minut aż będzie złoty i twardy.\n6. Wyłóż sos pomidorowy (cienka warstwa), startą mozzarellę i ulubione dodatki (pieczarki, oliwki, szpinak).\n7. Piecz jeszcze 10–12 minut aż ser będzie bąbelkujący i złoty; jedz łopatką — spód jest kruchy.',
     ingredients: [{ name: 'Kalafior', amount: '600 g', calories: 150 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Parmezan', amount: '40 g', calories: 172 }, { name: 'Mozzarella', amount: '100 g', calories: 254 }, { name: 'Sos pomidorowy', amount: '100 g', calories: 35 }, { name: 'Pieczarki', amount: '250 g', calories: 55 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 744, servings: 2,
@@ -904,7 +904,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'lc10', name: 'Panna cotta ze skyru z owocami leśnymi', category: 'Fit i Dieta', time: '10 min + 2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/lc10.webp',
     instructions: '1. Żelatynę wsyp do 50 ml zimnej wody; odczekaj 5 minut aż napęcznieje.\n2. Podgrzej żelatynę delikatnie w kąpieli wodnej lub mikrofalówce (10 sekund) do całkowitego rozpuszczenia — nie gotuj.\n3. Skyr naturalny wymieszaj z miodem i ekstraktem waniliowym lub ziarenkami wanilii na gładką masę.\n4. Ostudzoną do temperatury pokojowej żelatynę wlej do skyru cienkim strumieniem, cały czas mieszając — nie wlewaj gorącej do zimnego.\n5. Wymieszaj dokładnie; przelej do foremek lub pucharków (pojemność ok. 150 ml każdy).\n6. Wstaw do lodówki na co najmniej 2–3 godziny aż stwardnieje; przykryj folią by nie wchłonęła zapachów.\n7. Owoce leśne (mrożone — rozmróź i odcedź, lub świeże) ułóż na wierzchu tuż przed podaniem; opcjonalnie skrop miodem.',
     ingredients: [{ name: 'Skyr naturalny', amount: '400 g', calories: 212 }, { name: 'Żelatyna', amount: '8 g', calories: 27 }, { name: 'Owoce leśne mrożone', amount: '150 g', calories: 60 }, { name: 'Miód', amount: '2 łyżki', calories: 128 }],
     totalCalories: 427, servings: 4,
@@ -930,7 +930,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── WIĘCEJ ZUP ────────────────────────────────────────────────────────────
   {
     id: 'z12', name: 'Zupa cebulowa po francusku', category: 'Zupy', time: '50 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z12.webp',
     instructions: '1. Cebulę (1 kg) pokrój w cienkie piórka; roztop masło w szerokim garnku i zeszklij cebulę przez 10 minut na średnim ogniu.\n2. Zmniejsz ogień do minimum i smaż cebulę kolejne 20–30 minut, mieszając co kilka minut — powinna powoli karmelizować na złoto-brązowy kolor; nie spiesz się.\n3. Posyp mąką (1 łyżka) i wymieszaj; smaż 2 minuty.\n4. Wlej białe wino (100 ml) i wymieszaj; gotuj 2 minuty aż odparuje alkohol; dodaj bulion wołowy (1 l) i tymianek.\n5. Gotuj na małym ogniu przez 15 minut; dopraw solą i pieprzem.\n6. Chleb (baguette) pokrój w plastry i opiecz w piekarniku; posyp tartym gruyerem lub serem żółtym.\n7. Zupę przelej do żaroodpornych miseczek; połóż grzankę z serem na wierzchu; zapiecz pod grillem 3–5 minut aż ser się stopi.',
     ingredients: [{ name: 'Cebula', amount: '1 kg', calories: 400 }, { name: 'Masło', amount: '60 g', calories: 430 }, { name: 'Bulion wołowy', amount: '1 l', calories: 80 }, { name: 'Ser gruyere', amount: '100 g', calories: 413 }, { name: 'Mąka pszenna', amount: '1 łyżka', calories: 36 }, { name: 'Wino', amount: '100 ml', calories: 85 }, { name: 'Bagietka', amount: '1/2 szt', calories: 270 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1714, servings: 4,
@@ -946,7 +946,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z14', name: 'Zupa tajska z mleczkiem kokosowym', category: 'Zupy', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z14.webp',
     instructions: '1. Cebulę posiekaj i zeszklij na oleju kokosowym lub roślinnym przez 5 minut; dodaj posiekany czosnek i starty imbir, smaż 1 minutę.\n2. Dodaj pastę curry (czerwoną lub zieloną) i smaż 2 minuty, mieszając — aromaty muszą się uwolnić w tłuszczu.\n3. Wlej mleko kokosowe (400 ml) i bulion (200 ml); wymieszaj i zagotuj.\n4. Kurczaka pokrój w kawałki lub użyj obranych krewetek; dodaj do zupy.\n5. Gotuj na średnim ogniu przez 10 minut — kurczak musi być w pełni ugotowany.\n6. Dopraw sokiem z limonki (2 łyżki), rybnym sosem (1 łyżka — zastępuje sól i dodaje głębi) i świeżą kolendrą.\n7. Podawaj z ryżem jaśminowym i plasterkiem limonki; udekoruj listkami kolendry i ewentualnie cienko pokrojoną papryczką chili.',
     ingredients: [{ name: 'Mleko kokosowe', amount: '400 ml', calories: 580 }, { name: 'Pierś kurczaka', amount: '300 g', calories: 495 }, { name: 'Pasta curry', amount: '2 łyżki', calories: 60 }, { name: 'Limonka', amount: '1 szt', calories: 20 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Ryż', amount: '100 g', calories: 360 }, { name: 'Olej', amount: '1 łyżka', calories: 120 }, { name: 'Bulion', amount: '200 ml', calories: 24 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1754, servings: 3,
@@ -954,7 +954,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z15', name: 'Zupa jarzynowa z kluseczkami', category: 'Zupy', time: '50 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z15.webp',
     instructions: '1. W dużym garnku zagotuj 1,5 l osolonej wody; marchew, pietruszkę i seler pokrój w kostkę 1 cm, cebulę posiekaj.\n2. Wrzuć warzywa do wrzątku i gotuj na małym ogniu przez 20 minut.\n3. Ciasto na kluseczki: mąkę (150 g) wymieszaj z jajkiem, szczyptą soli i łyżką wody na gęste, kleiste ciasto.\n4. Kiedy warzywa będą prawie miękkie, zagotuj zupę mocniej; łyżeczką do herbaty wrzucaj małe porcje ciasta do wrzątku.\n5. Gotuj kluseczki przez 5 minut od ostatniego dodania — będą na wierzchu i miękkie.\n6. Zmniejsz ogień; sprawdź doprawienie; dodaj pietruszkę pokrojoną w kostkę jeśli jej jeszcze nie ma.\n7. Podawaj gorącą zupę posypaną hojną ilością drobno posiekanej natki pietruszki i łyżką masła.',
     ingredients: [{ name: 'Marchew', amount: '3 szt', calories: 75 }, { name: 'Pietruszka', amount: '2 szt', calories: 60 }, { name: 'Mąka pszenna na kluseczki', amount: '150 g', calories: 510 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Seler', amount: '1/4 szt', calories: 20 }, { name: 'Masło', amount: '30 g', calories: 215 }],
     totalCalories: 1038, servings: 4,
@@ -972,7 +972,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd32', name: 'Faszerowana papryka z mięsem', category: 'Dania główne', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d32.webp',
     instructions: '1. Papryki kolorowe umyj; utnij wierzchołki i zachowaj je jako "czapeczki"; usuń gniazda nasienne i białe błony ze środka.\n2. Ryż opłucz i ugotuj w osolonej wodzie do połowy miękkości (ok. 8 minut); odcedź.\n3. Cebulę posiekaj i zeszklij; dodaj mielone mięso i obsmaż na rumiano (ok. 8 minut); odlej nadmiar tłuszczu.\n4. Mięso wymieszaj z częściowo ugotowanym ryżem, solą, pieprzem, majerankiem i jajkiem jako spoiwem.\n5. Nadziewaj papryki farszem do pełna, lekko ubijając; przykryj "czapeczkami".\n6. Ułóż faszerowane papryki w głębokim naczyniu żaroodpornym; zalej sosem pomidorowym (rozcieńczonym bulionem — razem ok. 400 ml).\n7. Przykryj folią i piecz w 180°C przez 45 minut; zdejmij folię na ostatnie 10 minut; podawaj z ziemniakami.',
     ingredients: [{ name: 'Papryka kolorowa', amount: '6 szt', calories: 222 }, { name: 'Mięso mielone wieprzowe', amount: '500 g', calories: 1250 }, { name: 'Ryż', amount: '150 g', calories: 540 }, { name: 'Sos pomidorowy', amount: '400 g', calories: 140 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Bulion', amount: '200 ml', calories: 24 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2796, servings: 4,
@@ -996,7 +996,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd19', name: 'Kluski śląskie z zasmażką', category: 'Dania główne', time: '45 min',
-    thumbnail: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d19.webp',
     instructions: '1. Ziemniaki obierz i ugotuj w osolonej wodzie do całkowitej miękkości; odcedź i pozostaw na gazie kilka minut by odparowała wilgoć.\n2. Ugniecia ziemniaki tłuczkiem do całkowicie gładkiej masy bez grudek; ostudź do temperatury pokojowej.\n3. Do ostygniętych ziemniaków dodaj mąkę pszenną (200 g) i jajko; zagnieć delikatnie — ciasto łącz tylko do połączenia składników.\n4. Z ciasta formuj kulki wielkości orzecha włoskiego; w środku każdej kulki wykonaj wyraźne wgłębienie kciukiem — tradycyjny kształt klusek śląskich.\n5. Gotuj kluski partiami w dużej ilości wrzącej osolonej wody przez 3–4 minuty po wypłynięciu.\n6. Boczek pokrój w kostkę i wytop na patelni do chrupkości; dodaj cebulę pokrojoną w kostkę i smaż na złoto — to zasmażka.\n7. Odcedzone kluski przełóż na talerze, polej zasmażką z boczku; podawaj z sosem gulaszowym lub mięsem duszonym.',
     ingredients: [{ name: 'Ziemniaki', amount: '1 kg', calories: 770 }, { name: 'Mąka pszenna', amount: '200 g', calories: 680 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Boczek do zasmażki', amount: '150 g', calories: 450 }, { name: 'Cebula', amount: '2 szt', calories: 80 }],
     totalCalories: 2058, servings: 4,
@@ -1040,7 +1040,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── NOWE ZUPY (z13–z20) ──────────────────────────────────────────────────
   {
     id: 'z16', name: 'Zupa kalafiorowa', category: 'Zupy', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z16.webp',
     instructions: '1. Kalafior podziel na różyczki; marchew pokrój w plastry, cebulę w kostkę.\n2. W garnku zagotuj bulion warzywny (1 l) i wrzuć warzywa; gotuj na małym ogniu przez 20 minut aż kalafior będzie miękki.\n3. Wyjmij połowę warzyw łyżką cedzakową i odłóż; pozostałą zupę zblenduj blenderem zanurzeniowym na gładki krem.\n4. Wróć odłożone kawałki warzyw do zupy — da to kremową konsystencję z przyjemną teksturą kawałków.\n5. Śmietanę zahartuj ciepłą zupą (wlej chochlę zupy do śmietany, wymieszaj), następnie dodaj do garnka.\n6. Dopraw solą, pieprzem i świeżo startą gałką muszkatołową; delikatnie podgrzej do temperatury serwowania.\n7. Podawaj posypaną drobno posiekaną natką pietruszki i opcjonalnie z grzanką czosnkową.',
     ingredients: [{ name: 'Kalafior', amount: '800 g', calories: 200 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Śmietana 18%', amount: '150 ml', calories: 285 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Bulion', amount: '1 l', calories: 120 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 710, servings: 4,
@@ -1056,7 +1056,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z18', name: 'Flaczki po warszawsku', category: 'Zupy', time: '3 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z18.webp',
     instructions: '1. Flaki wołowe dokładnie opłucz pod bieżącą wodą; zalej zimną wodą, zagotuj i wylej pierwszą wodę — usuwa to silny zapach.\n2. Ponownie zalej świeżą wodą, dodaj sól, liść laurowy i pieprz w ziarnach; gotuj na małym ogniu przez 2 godziny do miękkości.\n3. Ugotowane flaki wyjmij, ostudź i pokrój w cienkie paski 5 mm szerokości i ok. 5 cm długości.\n4. Wywar przecedź przez sito; marchew, pietruszkę i seler ugotuj w wywarze.\n5. Do wywaru z warzywami dodaj flaki, imbir mielony, majeranek, gałkę muszkatołową, paprykę słodką i starty czosnek.\n6. Zagęść zupę zasmażką z masła i mąki (zaprażka); gotuj 30 minut na małym ogniu.\n7. Dopraw solą i pieprzem; podawaj posypaną tartym serem żółtym z pieczywem.',
     ingredients: [{ name: 'Flaki wołowe', amount: '800 g', calories: 720 }, { name: 'Marchew', amount: '3 szt', calories: 75 }, { name: 'Pietruszka', amount: '2 szt', calories: 60 }, { name: 'Ser żółty tarty', amount: '80 g', calories: 320 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Seler', amount: '1/4 szt', calories: 20 }, { name: 'Mąka pszenna', amount: '2 łyżki', calories: 73 }, { name: 'Masło', amount: '30 g', calories: 215 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1498, servings: 6,
@@ -1064,7 +1064,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z19', name: 'Zupa szczawiowa z jajkiem', category: 'Zupy', time: '35 min',
-    thumbnail: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z19.webp',
     instructions: '1. Szczaw dokładnie umyj pod bieżącą wodą; oderwij grubsze łodygi i zostaw tylko liście.\n2. W garnku zeszklij cebulę pokrojoną w kostkę na maśle przez 5 minut.\n3. Dodaj posiekany szczaw i podsmaż z cebulą przez 8–10 minut — szczaw zmniejszy objętość i zmieni kolor.\n4. Wlej bulion drobiowy (800 ml) i gotuj na małym ogniu przez 10 minut.\n5. Zblenduj zupę na gładki krem; śmietanę wymieszaj z łyżką mąki i zahartuj gorącą zupą.\n6. Dodaj śmietanę do zupy ciągle mieszając; gotuj na małym ogniu jeszcze 5 minut aż sos zgęstnieje.\n7. Dopraw solą, odrobiną cukru (szczaw jest kwaśny) i pieprzem; podawaj z jajkami na twardo i świeżym pieczywem.',
     ingredients: [{ name: 'Szczaw świeży', amount: '300 g', calories: 60 }, { name: 'Bulion drobiowy', amount: '800 ml', calories: 60 }, { name: 'Śmietana', amount: '200 ml', calories: 380 }, { name: 'Jajka', amount: '4 szt', calories: 312 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Mąka pszenna', amount: '1 łyżka', calories: 36 }, { name: 'Masło', amount: '30 g', calories: 215 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1163, servings: 4,
@@ -1072,7 +1072,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z20', name: 'Zupa rybna z warzywami', category: 'Zupy', time: '50 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z20.webp',
     instructions: '1. Głowy i ości rybie opłucz; zalej 1,5 l zimnej wody z marchewką, pietruszką, cebulą i przyprawami; gotuj 25–30 minut.\n2. Wywar przecedź przez gęste sito lub gazę — musi być klarowny.\n3. Filety z dorsza i łososia pokrój w kostkę ok. 3 cm; oprósz lekko solą.\n4. Wywar zagotuj; dodaj kawałki dorsza i gotuj 5 minut na małym ogniu.\n5. Dodaj kawałki łososia i gotuj kolejne 3–4 minuty — łosoś gotuje się szybciej.\n6. Dopraw koperkiem (hojnie), sokiem z cytryny, solą i białym pieprzem.\n7. Podawaj od razu — ryba traci jakość przy odgrzewaniu; w miseczkach z grzankami czosnkowymi i klinem cytryny.',
     ingredients: [{ name: 'Filet z dorsza', amount: '400 g', calories: 376 }, { name: 'Filet z łososia', amount: '200 g', calories: 416 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Koperek', amount: '30 g', calories: 10 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 964, servings: 4,
@@ -1080,7 +1080,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z21', name: 'Minestrone po polsku', category: 'Zupy', time: '45 min',
-    thumbnail: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z21.webp',
     instructions: '1. Cebulę i czosnek posiekaj; zeszklij na oliwie przez 5 minut; dodaj marchew pokrojoną w kostkę i smaż 3 minuty.\n2. Ziemniaki obierz i pokrój w kostkę; cukinię pokrój w półplasterki.\n3. Do garnka dodaj ziemniaki, cukinię, fasolę z puszki (odsączoną) i pomidory z puszki; wlej bulion (1,2 l).\n4. Zagotuj i gotuj na średnim ogniu przez 20 minut aż ziemniaki zmiękną.\n5. Makaron połam na kawałki i dodaj do zupy; gotuj dalsze 8–10 minut.\n6. Dopraw bazylią, oregano, solą i pieprzem; sprawdź czy makaron jest al dente.\n7. Podawaj posypaną tartym parmezanem i skroploną oliwą extra virgin; podawaj z pieczywem.',
     ingredients: [{ name: 'Fasola biała z puszki', amount: '200 g', calories: 260 }, { name: 'Cukinia', amount: '200 g', calories: 36 }, { name: 'Pomidory z puszki', amount: '400 g', calories: 80 }, { name: 'Makaron rurki', amount: '100 g', calories: 360 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Bulion', amount: '1,2 l', calories: 144 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1727, servings: 4,
@@ -1122,7 +1122,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd23', name: 'Flaki warszawskie', category: 'Dania główne', time: '3 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d23.webp',
     instructions: '1. Flaki wielokrotnie opłucz w zimnej wodzie; wrzuć do garnka z zimną wodą, zagotuj i odlej — powtórz raz.\n2. Gotuj flaki w świeżej wodzie z warzywami (marchew, pietruszka, seler, cebula) i przyprawami przez 2 godziny.\n3. Ugotowane flaki wyjmij, ostudź i pokrój w cienkie paski 5–6 cm długości; wywar zachowaj.\n4. W osobnym garnku przygotuj zasmażkę: roztop masło, dodaj mąkę i smaż 3 minuty mieszając; dodaj słodką i ostrą paprykę oraz imbir.\n5. Stopniowo wlewaj wywar z flaków do zasmażki, ciągle mieszając — powstaje gęsty sos.\n6. Dodaj flaki do sosu i gotuj razem 20 minut; dopraw majerankiem, gałką muszkatołową, solą i pieprzem.\n7. Podawaj gorące w miseczkach, posypane tartym serem żółtym; tradycyjnie z pieczywem.',
     ingredients: [{ name: 'Flaki wołowe', amount: '1 kg', calories: 900 }, { name: 'Marchew', amount: '3 szt', calories: 75 }, { name: 'Pietruszka', amount: '2 szt', calories: 60 }, { name: 'Masło', amount: '60 g', calories: 430 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Seler', amount: '1/4 szt', calories: 20 }, { name: 'Mąka pszenna', amount: '50 g', calories: 182 }, { name: 'Ser żółty', amount: '100 g', calories: 356 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2103, servings: 6,
@@ -1130,7 +1130,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd24', name: 'Karkówka z grilla', category: 'Dania główne', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d24.webp',
     instructions: '1. Karkówkę pokrój na plastry grubości 2 cm — nie cieniej, bo wyschnie na grillu.\n2. Marynatę przygotuj: oliwa, roztarty czosnek, majeranek, słodka papryka, sól i pieprz; natrzyj każdy plaster z obu stron.\n3. Wstaw do lodówki na min. 2 godziny (najlepiej całą noc) — im dłużej marynuje, tym lepszy smak.\n4. Ruszt lub patelnię grillową mocno rozgrzej — musi być naprawdę gorący; delikatnie naoliwij.\n5. Karkówkę grilluj bez ruszania przez 7–8 minut; dopiero wtedy obróć i grilluj kolejne 7 minut.\n6. Sprawdź gotowość — nakłucie powinno wydzielić klarowne soki bez różowego zabarwienia.\n7. Odczekaj 3–4 minuty przed podaniem; podawaj z chlebem, surówką z kapusty i sosem musztardowo-miodowym.',
     ingredients: [{ name: 'Karkówka wieprzowa', amount: '800 g', calories: 1760 }, { name: 'Oliwa', amount: '3 łyżki', calories: 360 }, { name: 'Czosnek', amount: '4 ząbki', calories: 20 }, { name: 'Papryka słodka', amount: '1 łyżka', calories: 18 }, { name: 'Kapusta', amount: '500 g', calories: 125 }, { name: 'Miód', amount: '2 łyżki', calories: 120 }, { name: 'Musztarda', amount: '1 łyżka', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2418, servings: 4,
@@ -1154,7 +1154,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd27', name: 'Mielony w sosie pieczarkowym', category: 'Dania główne', time: '45 min',
-    thumbnail: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d27.webp',
     instructions: '1. Bułkę namocz w wodzie lub mleku przez 10 minut, następnie dokładnie odciśnij — nadmiar wilgoci sprawi, że kotlety będą się rozpadać.\n2. Mięso mielone wymieszaj z odciśniętą bułką, jajkiem, drobno pokrojoną cebulą (1 szt), przeciśniętym czosnkiem, solą, pieprzem i majerankiem — masa powinna być zwarta.\n3. Zwilżonymi dłońmi formuj podłużne kotlety o kształcie bolońskim, ok. 2 cm grubości.\n4. Obtocz kotlety w mące i obsmaż na oleju ze wszystkich stron na złotobrązowy kolor — po ok. 3 minuty na stronę; odłóż na talerz.\n5. Na tej samej patelni zeszklij posiekaną drugą cebulę; dodaj pieczarki pokrojone w plastry i smaż na dużym ogniu do odparowania wody — ok. 8 minut.\n6. Wlej śmietanę i 150 ml wywaru lub wody; wymieszaj; dopraw solą, pieprzem i tymiankiem.\n7. Ułóż kotlety w sosie, przykryj i duś na małym ogniu przez 20 minut; podawaj z ziemniakami purée lub kaszą i surówką.',
     ingredients: [{ name: 'Mięso mielone mieszane', amount: '600 g', calories: 1020 }, { name: 'Pieczarki', amount: '400 g', calories: 100 }, { name: 'Śmietana', amount: '200 ml', calories: 380 }, { name: 'Bułka czerstwa', amount: '1 szt', calories: 120 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Olej', amount: '2 łyżki', calories: 240 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2495, servings: 4,
@@ -1170,7 +1170,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd29', name: 'Boeuf bourguignon po polsku', category: 'Dania główne', time: '3 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d29.webp',
     instructions: '1. Wołowinę pokrój w kostkę ok. 4 cm; osusz papierowym ręcznikiem — suche mięso lepiej się rumieni.\n2. Na oleju w żeliwnym garnku (lub naczyniu żaroodpornym) obsmaż mięso partiami na bardzo dużym ogniu — każda porcja powinna leżeć luźno, inaczej zamiast smażyć będzie się gotować; obsmaż ze wszystkich stron na ciemnobrązowy kolor.\n3. W tym samym garnku podsmaż pokrojony w plastry boczek, cebulki (lub cebulę w ćwiartkach) i marchew w kawałkach przez 5 minut.\n4. Wróć mięso do garnka; wlej czerwone wino i zagotuj — gotuj 2 minuty pozwalając odparować alkoholowi.\n5. Wlej bulion wołowy (300 ml); dodaj bouquet garni (liść laurowy, tymianek, natka pietruszki związana nicią); dopraw solą i pieprzem; przykryj pokrywką.\n6. Wstaw do piekarnika nagrzanego do 160°C i duś przez 2–2,5 godziny — mięso ma być tak miękkie, że rozchodzi się pod widelcem.\n7. Na ostatnie 20 minut dodaj pieczarki zrumienione osobno na maśle; usuń bouquet garni; podawaj z ziemniakami purée i pietruszką.',
     ingredients: [{ name: 'Wołowina łopatka', amount: '800 g', calories: 1840 }, { name: 'Czerwone wino', amount: '300 ml', calories: 225 }, { name: 'Boczek', amount: '150 g', calories: 510 }, { name: 'Pieczarki', amount: '300 g', calories: 75 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Masło', amount: '30 g', calories: 215 }, { name: 'Olej', amount: '2 łyżki', calories: 240 }, { name: 'Bulion', amount: '300 ml', calories: 36 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 3733, servings: 5,
@@ -1220,7 +1220,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 's17', name: 'Chleb ze smalcem i ogórkiem', category: 'Śniadania', time: '5 min',
-    thumbnail: 'https://images.unsplash.com/photo-1509482560494-4126f8225994?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/s17.webp',
     instructions: '1. Chleb żytni na zakwasie (najlepiej razowy lub mieszany) pokrój w grube kromki ok. 1 cm — cienkie plastry będą się łamać pod smalcem.\n2. Smalec domowy ze skwarkami wyjmij z lodówki 10 minut przed podaniem — zimny smalec jest twardy i kruszy chleb przy smarowaniu.\n3. Każdą kromkę posmaruj hojną warstwą smalca ze skwarkami — nie żałuj, to polska tradycja.\n4. Posyp gruboziarnistą solą morską lub himalajską — kryształki soli dodają przyjemnej tekstury i intensywniejszego smaku.\n5. Ogórek kiszony pokrój w cienkie plasterki (ok. 3–4 mm); cebulę pokrój w cienkie piórka lub półplasterki.\n6. Ułóż plastry ogórka kiszonego i cebuli na kromkach; możesz też dodać plasterek rzodkiewki lub kiszony czosnek.\n7. Posyp roztartym w dłoni suszonym majerankiem i opcjonalnie szczyptą kminku; podawaj z gorącą herbatą lub kwasem chlebowym.',
     ingredients: [{ name: 'Chleb żytni', amount: '4 kromki', calories: 390 }, { name: 'Smalec ze skwarkami', amount: '60 g', calories: 540 }, { name: 'Ogórek kiszony', amount: '2 szt', calories: 30 }, { name: 'Cebula', amount: '0,5 szt', calories: 20 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 980, servings: 2,
@@ -1236,7 +1236,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 's19', name: 'Shakshuka polska', category: 'Śniadania', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/s19.webp',
     instructions: '1. W głębokiej patelni (najlepiej żeliwnej) rozgrzej oliwę; cebulę pokrojoną w piórka smaż przez 6–7 minut na średnim ogniu do miękkości i złotego koloru.\n2. Dodaj posiekany czosnek (2 ząbki) i paprykę pokrojoną w paski; smaż kolejne 5 minut.\n3. Dopraw słodką papryką (1 łyżeczka), kminkiem (1/2 łyżeczki) i opcjonalnie ostrą papryką — przyprawy smaż przez 1 minutę dla uwolnienia aromatów.\n4. Wrzuć pomidory z puszki krojone; rozgniot łyżką na sos; gotuj na średnim ogniu 10 minut aż sos zgęstnieje; dopraw solą i pieprzem.\n5. Łyżką zrób 4 głębokie, równomiernie rozłożone wgłębienia w sosie pomidorowym.\n6. Do każdego wgłębienia ostrożnie wbij jajko tak by żółtko się nie rozbiło; przykryj pokrywką.\n7. Gotuj na małym ogniu 5–7 minut — białka mają być całkowicie ścięte, żółtka runnery; posyp pietruszką lub kolendrą i podawaj z pieczywem.',
     ingredients: [{ name: 'Jajka', amount: '4 szt', calories: 312 }, { name: 'Pomidory z puszki', amount: '400 g', calories: 80 }, { name: 'Papryka czerwona', amount: '1 szt', calories: 37 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 724, servings: 2,
@@ -1254,7 +1254,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── NOWE SAŁATKI (sa7–sa12) ──────────────────────────────────────────────
   {
     id: 'sa7', name: 'Sałatka grecka z papryką', category: 'Sałatki', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa7.webp',
     instructions: '1. Ogórek pokrój grubymi półplasterkami (ok. 1 cm) — zbyt cienki robi się wodnisty; pomidory pokrój w ćwiartki lub ósemki.\n2. Cebulę czerwoną pokrój w cienkie piórka; jeśli jest bardzo ostra, namocz przez 10 minut w zimnej wodzie z solą — łagodnieje.\n3. Paprykę (zieloną lub czerwoną) pokrój w kostkę ok. 2 cm.\n4. W dużej misie połącz ogórek, pomidory, cebulę i paprykę; dodaj czarne oliwki bez pestek (całe lub przekrojone).\n5. Fetę pokrusz ręcznie na duże nieregularne kawałki — duże kawałki mają lepszą teksturę niż drobno pokruszone.\n6. Ułóż fetę na wierzchu sałatki; skrop obficie oliwą extra virgin (3 łyżki), posyp suszonym oregano (1 łyżeczka).\n7. Dopraw solą i pieprzem; wymieszaj delikatnie tuż przed podaniem; opcjonalnie skrop sokiem z cytryny i podawaj z pieczywem pita.',
     ingredients: [{ name: 'Pomidory', amount: '3 szt', calories: 54 }, { name: 'Ogórek', amount: '1 szt', calories: 30 }, { name: 'Ser feta', amount: '150 g', calories: 375 }, { name: 'Oliwki czarne', amount: '80 g', calories: 115 }, { name: 'Cebula czerwona', amount: '1 szt', calories: 40 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Papryka', amount: '1 szt', calories: 37 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 908, servings: 3,
@@ -1270,7 +1270,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sa9', name: 'Sałatka caprese', category: 'Sałatki', time: '10 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa9.webp',
     instructions: '1. Pomidory (najlepiej różne kolory — czerwone, żółte, czarne) pokrój w równe plastry grubości ok. 1 cm; lekko osól i odczekaj 5 minut — puścą sok.\n2. Mozzarellę di bufala lub świeżą kulkową odsącz z zalewy i pokrój w plastry tej samej grubości co pomidory.\n3. Na dużym płaskim talerzu lub desce układaj naprzemiennie plasterki pomidora i mozzarelli — lekko zachodzące na siebie.\n4. Pomiędzy każdą parą plastrów tucz liść świeżej bazylii lub połóż na wierzchu — bazylia nie powinna być siekana, bo ciemnieje.\n5. Skrop obficie oliwą extra virgin najwyższej jakości — jakość oliwy decyduje tu o całości smaku.\n6. Skrop octem balsamicznym lub glazurą balsamiczną — krem balsamiczny jest słodszy i gęstszy, idealny do caprese.\n7. Dopraw gruboziarnistą solą morską i świeżo zmielonym czarnym pieprzem; podawaj natychmiast — sałatka nie czeka.',
     ingredients: [{ name: 'Pomidory', amount: '4 szt', calories: 72 }, { name: 'Mozzarella', amount: '200 g', calories: 560 }, { name: 'Bazylia świeża', amount: '20 g', calories: 8 }, { name: 'Oliwa z oliwek', amount: '3 łyżki', calories: 360 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1000, servings: 4,
@@ -1278,7 +1278,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sa10', name: 'Sałatka cezar z kurczakiem', category: 'Sałatki', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa10.webp',
     instructions: '1. Pierś z kurczaka natrzyj oliwą, solą i pieprzem; grilluj na patelni grillowej lub zwykłej przez 6–7 minut z każdej strony; odczekaj 5 minut i pokrój w ukośne plastry.\n2. Chleb tostowy lub bagietkę pokrój w kostkę 1,5 cm; wymieszaj z oliwą, czosnkiem i solą; upiecz w 200°C przez 8–10 minut do złotego koloru i chrupkości.\n3. Sos Cezar: w misce wymieszaj majonez (4 łyżki), startą łyżkę parmezanu, sok z połowy cytryny, przeciśnięty czosnek, łyżeczkę musztardy Dijon i łyżkę sosu Worcestershire; dopraw solą i pieprzem.\n4. Sałatę lodową porwij na nieregularne kawałki — nóż utlenia liście; osusz w wirówce lub ręcznikiem.\n5. W dużej misce wymieszaj sałatę z 3/4 sosu Cezar — liście mają być delikatnie pokryte sosem, nie pływać w nim.\n6. Przełóż na talerze; ułóż plastry kurczaka i grzanki; polej pozostałym sosem.\n7. Posyp obficie świeżo startym parmezanem i opcjonalnie listkami anchois; podawaj natychmiast — grzanki szybko miękną.',
     ingredients: [{ name: 'Sałata lodowa', amount: '300 g', calories: 42 }, { name: 'Pierś z kurczaka', amount: '300 g', calories: 495 }, { name: 'Parmezan', amount: '60 g', calories: 240 }, { name: 'Majonez', amount: '80 g', calories: 544 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Musztarda', amount: '1 łyżka', calories: 15 }, { name: 'Chleb tostowy', amount: '2 kromki', calories: 174 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1782, servings: 3,
@@ -1286,7 +1286,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sa11', name: 'Sałatka ziemniaczana z koperkiem', category: 'Sałatki', time: '35 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa11.webp',
     instructions: '1. Ziemniaki szoruj szczotką i gotuj w mundurkach w osolonej wodzie do miękkości — ok. 20–25 minut zależnie od wielkości; sprawdź wykałaczką.\n2. Ugotowane ziemniaki wyjmij i ostudź do temperatury umożliwiającej dotykanie; obierz i pokrój w kostkę ok. 2 cm — lekko ciepłe ziemniaki wchłoną dressing lepiej niż zimne.\n3. Cebulę (lub szczypiorek) drobno posiekaj; jeśli cebula jest ostra, sparz wrzątkiem lub namocz w zimnej wodzie.\n4. Koperek świeży obficie posiekaj — koperek to kluczowa przyprawa tej sałatki.\n5. Sos: wymieszaj majonez (4–5 łyżek) z musztardą (1 łyżka), solą i pieprzem; możesz dodać łyżkę octu jabłkowego lub soku z cytryny dla kwasowości.\n6. Wymieszaj pokrojone ziemniaki z cebulą, koperkiem i sosem majonezowym — zrób to delikatnie by ziemniaki się nie rozpadły.\n7. Schłodź w lodówce min. 30 minut przed podaniem — zimna sałatka jest smaczniejsza; przed podaniem sprawdź doprawienie i dodaj posiekany szczypiorek.',
     ingredients: [{ name: 'Ziemniaki', amount: '800 g', calories: 616 }, { name: 'Majonez', amount: '120 g', calories: 816 }, { name: 'Koperek', amount: '40 g', calories: 14 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Musztarda', amount: '1 łyżka', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1518, servings: 5,
@@ -1336,7 +1336,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'm10', name: 'Carbonara po polsku', category: 'Makarony', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/m10.webp',
     instructions: '1. Boczek wędzony pokrój w kostkę lub paski; smaż na suchej patelni na średnim ogniu do chrupkości; odłóż na papierowy ręcznik; zachowaj łyżkę tłuszczu z boczku.\n2. W miseczce rozkłóć 2 jajka + 2 żółtka z 80 g startego parmezanu; dopraw obficie czarnym pieprzem — masa ma być gęsta.\n3. Makaron spaghetti gotuj al dente w mocno osolonej wodzie (woda powinna smakować jak słone morze); zachowaj 200 ml wody po gotowaniu.\n4. KLUCZOWY KROK — zdejmij patelnię z boczkiem z ognia całkowicie lub zostaw na resztkowym cieple.\n5. Odcedź makaron (zachowaj wodę!); od razu wrzuć na patelnię z boczkiem; wymieszaj energicznie.\n6. Wylej masę jajeczną na makaron i SZYBKO mieszaj chwytając patelnię — jajka nie mogą się ściąć w jajecznicę; dodawaj po łyżce wody po gotowaniu by uzyskać kremową konsystencję.\n7. Podawaj natychmiast — carbonara nie czeka; posyp resztą parmezanu i obficie czarnym pieprzem.',
     ingredients: [{ name: 'Makaron spaghetti', amount: '400 g', calories: 1440 }, { name: 'Boczek wędzony', amount: '200 g', calories: 680 }, { name: 'Jajka + żółtka', amount: '4 szt', calories: 312 }, { name: 'Parmezan', amount: '80 g', calories: 320 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2752, servings: 4,
@@ -1346,7 +1346,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── NOWE WEGETARIAŃSKIE (w7–w14) ─────────────────────────────────────────
   {
     id: 'w7', name: 'Falafel z dipem tahini', category: 'Wegetariańskie', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/w7.webp',
     instructions: '1. Ciecierzycę ugotowaną (lub z puszki, dobrze odsączoną) umieść w blenderze lub robocie kuchennym; dodaj cebulę (1/4), czosnek, świeżą kolendrę, pietruszkę, kminek, solę i pieprz.\n2. Blenduj krótko do gruboziarnistej konsystencji — masa nie powinna być gładka, lecz lekko szorstka; jeśli jest zbyt sucha, dodaj łyżkę wody.\n3. Formuj mokrymi dłońmi kulki wielkości orzecha włoskiego lub owalne placuszki; odstawiaj na talerzu.\n4. Opcja smażona: smaż partiami w głębokim oleju (180°C) przez 3–4 minuty do złotego koloru; odsącz na papierowym ręczniku.\n5. Opcja pieczona: ułóż na blasze z papierem posmarowanej olejem; piecz w 200°C przez 20–22 minuty, obracając w połowie czasu.\n6. Sos tahini: wymieszaj 3 łyżki tahini z sokiem z cytryny, 1 ząbkiem czosnku, solą i wodą do kremowej konsystencji — dodawaj wodę stopniowo.\n7. Podawaj falafel w pitce z sałatą, pomidorem, ogórkiem i obfitym polaniem sosu tahini; posyp sumbakiem.',
     ingredients: [{ name: 'Ciecierzyca gotowana', amount: '400 g', calories: 656 }, { name: 'Tahini', amount: '3 łyżki', calories: 267 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Oliwa do smażenia', amount: '40 ml', calories: 360 }, { name: 'Cebula', amount: '1/4 szt', calories: 10 }, { name: 'Pomidor', amount: '1 szt', calories: 18 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1343, servings: 4,
@@ -1362,7 +1362,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'w9', name: 'Makaron z pesto i pomidorkami', category: 'Wegetariańskie', time: '20 min',
-    thumbnail: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/w9.webp',
     instructions: '1. Pesto: do blendera wrzuć świeże liście bazylii (50 g), starty parmezan, orzechy pinii (lub nerkowca/migdały), 1 ząbek czosnku, sól i 6 łyżek oliwy extra virgin; blenduj krótko do gruboziarnistej pasty (nie gładkiej).\n2. Makaron gotuj al dente w mocno osolonej wodzie; zachowaj 150 ml wody po gotowaniu.\n3. Pomidorki cherry przekrój na pół; opcjonalnie podsmaż przez 2–3 minuty na oliwie dla głębszego smaku.\n4. Pesto przełóż do dużej miski; rozcieńcz 2–3 łyżkami wody po gotowaniu makaronu — sos będzie kremowy i jedwabiście pokryje makaron.\n5. Odcedź makaron (zachowaj wodę!) i od razu przełóż do miski z pesto; wymieszaj energicznie — makaron musi być gorący, żeby wchłonął sos.\n6. Dodaj pomidorki i wymieszaj delikatnie; jeśli pesto jest za gęste, dodaj więcej wody po gotowaniu.\n7. Przełóż na talerze; posyp dodatkowym tartym parmezanem, listkami bazylii i skrop oliwą; podawaj natychmiast.',
     ingredients: [{ name: 'Makaron', amount: '400 g', calories: 1440 }, { name: 'Bazylia', amount: '50 g', calories: 20 }, { name: 'Parmezan', amount: '80 g', calories: 320 }, { name: 'Pomidorki cherry', amount: '200 g', calories: 36 }, { name: 'Czosnek', amount: '1 ząbek', calories: 5 }, { name: 'Oliwa z oliwek', amount: '6 łyżek', calories: 720 }, { name: 'Orzeszki piniowe', amount: '50 g', calories: 336 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2877, servings: 4,
@@ -1436,7 +1436,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'de10', name: 'Kisiel owocowy domowy', category: 'Desery', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/de10.webp',
     instructions: '1. Owoce (maliny, porzeczki, truskawki — świeże lub mrożone) wrzuć do rondelka; dodaj cukier (ilość zależna od kwaśności owoców) i 500 ml wody.\n2. Gotuj na średnim ogniu przez 5–7 minut aż owoce zmiękną i puszczą soki; dla mrożonych owoców wystarczy 3–4 minuty od zagotowania.\n3. Mąkę ziemniaczaną (50 g) rozrób w 100 ml ZIMNEJ wody — musi być zimna, ciepła woda zrobi grudki; wymieszaj do gładkości.\n4. Zagotuj owoce i zmniejsz ogień; wlej zawiesinę mąki CIENKIM STRUMIENIEM stale mieszając trzepaczką — wlewaj powoli.\n5. Mieszaj ciągle przez 2–3 minuty aż kisiel zgęstnieje i stanie się półprzezroczysty; skosztuj i dosłódź jeśli potrzeba.\n6. Zdejmij z ognia — kisiel przy gotowaniu będzie rzadszy niż przy stygnięciu; nie gotuj zbyt długo by nie stracił gęstości.\n7. Przelej do miseczek lub pucharków; podawaj ciepły lub schłodź w lodówce przez 2–3 godziny; podawaj z bitą śmietaną lub mlekiem.',
     ingredients: [{ name: 'Maliny lub porzeczki', amount: '400 g', calories: 200 }, { name: 'Mąka ziemniaczana', amount: '50 g', calories: 170 }, { name: 'Cukier', amount: '80 g', calories: 320 }, { name: 'Woda', amount: '600 ml', calories: 0 }],
     totalCalories: 690, servings: 4,
@@ -1444,7 +1444,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'de11', name: 'Panna cotta z owocami', category: 'Desery', time: '15 min + 3 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/de11.webp',
     instructions: '1. Żelatynę (10 g) wsyp do zimnej wody (50 ml) i odstaw na 5–10 minut do napęcznienia.\n2. Śmietankę 30% wlej do rondelka; dodaj cukier i laskę wanilii (rozciętą, z wyskrobany miąższem); podgrzewaj na średnim ogniu mieszając aż cukier się rozpuści i śmietanka osiągnie temperaturę tuż przed gotowaniem (nie gotuj!).\n3. Zdejmij z ognia; wyjmij laskę wanilii; dodaj napęczniałą żelatynę i wymieszaj do całkowitego rozpuszczenia — jeśli żelatyna nie chce się rozpuścić, podgrzej delikatnie na małym ogniu (nie gotuj).\n4. Przelej masę przez sitko do foremek lub pucharków (każdy ok. 150 ml); poczekaj aż przestygnie do temperatury pokojowej.\n5. Przykryj folią spożywczą i wstaw do lodówki na minimum 3–4 godziny, najlepiej na całą noc.\n6. Sos owocowy: owoce leśne (świeże lub mrożone) podgrzej z łyżką cukru przez 5 minut; opcjonalnie zblenduj i przecedź.\n7. Panna cottę wyjmij z foremki (obwiedź brzeg nożem lub zanurz foremkę na 3 sekundy w gorącej wodzie) na talerz; polej sosem i podawaj.',
     ingredients: [{ name: 'Śmietanka 30%', amount: '400 ml', calories: 1400 }, { name: 'Cukier', amount: '80 g', calories: 320 }, { name: 'Żelatyna', amount: '10 g', calories: 34 }, { name: 'Owoce leśne', amount: '200 g', calories: 80 }],
     totalCalories: 1834, servings: 6,
@@ -1452,7 +1452,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'de12', name: 'Tort bezowy Pavlova', category: 'Desery', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/de12.webp',
     instructions: '1. Piekarnik nagrzej do 120°C (termoobieg), NIE 150°C — niska temperatura to sekret idelanej, chrupiącej z zewnątrz i miękkiej w środku bezy.\n2. Białka jaj (w temperaturze pokojowej) umieść w czystej, odtłuszczonej misce; dodaj szczyptę soli; ubijaj mikserem od wolnych do szybkich obrotów do momentu gdy piana będzie sztywna.\n3. Stopniowo dodawaj cukier (łyżka po łyżce), ubijając po każdej dodanej porcji przez 30 sekund — beza powinna być błyszcząca i gładka.\n4. Dodaj ocet (1 łyżeczka) i mąkę ziemniaczaną (1 łyżka) — mieszaj szpatułką; te składniki nadają bezę marshmallowy środek.\n5. Na blasze z papierem narysuj kółko (ok. 22 cm); wyłóż bezę w tym kręgu formując kopułkę z lekkim zagłębieniem w środku.\n6. Piecz w 120°C przez 1,5 godziny; wyłącz piekarnik i zostaw bezę w środku na 1 godzinę — gwałtowne studzenie powoduje pęknięcia.\n7. Schłodzoną bezę wyłóż na talerz; przykryj ubitą śmietanką; udekoruj sezonowymi owocami i podawaj natychmiast.',
     ingredients: [{ name: 'Białka jaj', amount: '5 szt', calories: 85 }, { name: 'Cukier', amount: '250 g', calories: 1000 }, { name: 'Śmietanka 36%', amount: '300 ml', calories: 1050 }, { name: 'Owoce mieszane', amount: '300 g', calories: 150 }, { name: 'Mąka ziemniaczana', amount: '1 łyżka', calories: 35 }],
     totalCalories: 2320, servings: 10,
@@ -1468,7 +1468,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'de14', name: 'Rogaliki z dżemem', category: 'Desery', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/de14.webp',
     instructions: '1. Drożdże (7 g suszone lub 25 g świeże) rozrób w ciepłym mleku (50 ml) z łyżeczką cukru; odstaw na 10 minut aż zaczyn się spieni.\n2. Mąkę przesiej do misy; dodaj cukier, szczyptę soli, jajko, miękkie masło w kostkach, śmietanę (50 ml) i zaczyn drożdżowy; zagnieć do gładkiego, elastycznego ciasta (ok. 10 minut ręcznie).\n3. Ciasto przykryj ściereczką i odstaw w ciepłe miejsce na 1 godzinę aż podwoi objętość.\n4. Wyrośnięte ciasto odgazuj; podziel na 3–4 porcje; każdą rozwałkuj w okrągły placek i podziel na trójkąty (jak pizzę — ok. 8 trójkątów z jednego placka).\n5. Na szerszy koniec każdego trójkąta nałóż łyżeczkę dżemu różanego lub śliwkowego (nie za dużo — wypłynie).\n6. Zwijaj od podstawy trójkąta ku wierzchołkowi; wciągaj lekko boki do środka by dżem nie wyciekał; uformuj rogalik wyginając końce.\n7. Ułóż na blasze z papierem; posmaruj rozbełtanym jajkiem; piecz w 180°C przez 15–18 minut do złocistego koloru; po wyjęciu oprósz cukrem pudrem.',
     ingredients: [{ name: 'Mąka pszenna', amount: '400 g', calories: 1360 }, { name: 'Masło', amount: '150 g', calories: 1075 }, { name: 'Dżem różany', amount: '200 g', calories: 520 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Jajko do posmarowania', amount: '1 szt', calories: 78 }, { name: 'Cukier', amount: '2 łyżki', calories: 100 }, { name: 'Śmietana', amount: '50 ml', calories: 92 }, { name: 'Drożdże', amount: '25 g', calories: 25 }],
     totalCalories: 3328, servings: 16,
@@ -1478,7 +1478,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── NOWE PRZEKĄSKI (p9–p14) ──────────────────────────────────────────────
   {
     id: 'p9', name: 'Hummus domowy', category: 'Przekąski', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/p9.webp',
     instructions: '1. Ciecierzycę z puszki odcedź, ale zachowaj wodę spod niej (aquafaba) — to sekret kremowego hummusu.\n2. Dla jeszcze gładszego hummusu: obierz ciecierzycę ze skórek przesypując do miski z wodą i wyciśnij każde ziarnko — zajmuje to chwilę ale efekt jest jedwabisty.\n3. Do blendera lub food processora wrzuć ciecierzycę, tahini (3 łyżki), sok z cytryny (2 łyżki), przeciśnięty czosnek (1–2 ząbki), sól i kmin (1/2 łyżeczki).\n4. Blenduj 3–4 minuty na gładką masę; stopniowo dodawaj wodę spod ciecierzycy (3–4 łyżki) — konsystencja powinna być kremowa i puszysta.\n5. Spróbuj i dopraw — więcej soli, cytryny lub tahini jeśli potrzeba; blenduj jeszcze chwilę.\n6. Przełóż do miski; łyżką zrób charakterystyczne zagłębienie w środku; wylej 2 łyżki oliwy extra virgin.\n7. Posyp słodką papryką, posiekaną pietruszką i opcjonalnie prażonymi ziarnami kuminu; podawaj z pitą, warzywami lub crackerami.',
     ingredients: [{ name: 'Ciecierzyca z puszki', amount: '400 g', calories: 656 }, { name: 'Tahini', amount: '3 łyżki', calories: 267 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Czosnek', amount: '2 ząbki', calories: 10 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1190, servings: 6,
@@ -1486,7 +1486,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'p10', name: 'Nachos z dipem serowym', category: 'Przekąski', time: '20 min',
-    thumbnail: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/p10.webp',
     instructions: '1. Piekarnik nagrzej do 200°C; blachę wyłóż papierem do pieczenia.\n2. Chipsy nachos ułóż na blasze JEDNĄ WARSTWĄ — zbyt grubo ułożone będą parować zamiast chrupieć.\n3. Ser cheddar zetrzyj na grubych oczkach; posyp obficie nachos; możesz dodać pokrojone jalapeños z puszki.\n4. Zapiekaj w 200°C przez 7–8 minut aż ser się całkowicie roztopi i lekko zarumieni na brzegach.\n5. Dip serowy: w małym rondelku podgrzej mleko (50 ml) na małym ogniu; dodaj pokrojony cheddar (100 g) i starty czosnek (1 ząbek); mieszaj na małym ogniu aż ser się roztopi i sos będzie gładki.\n6. Dopraw dip solą, pieprzem i ostrą papryką; jeśli jest zbyt gęsty, dodaj odrobinę mleka.\n7. Wyjmij nachos z piekarnika; przełóż na talerz; podawaj gorące z dipem serowym, salsą pomidorową i guacamole; jedz natychmiast — nachos szybko mięknie.',
     ingredients: [{ name: 'Nachos', amount: '200 g', calories: 1000 }, { name: 'Ser cheddar', amount: '250 g', calories: 1000 }, { name: 'Mleko', amount: '50 ml', calories: 25 }, { name: 'Czosnek', amount: '1 ząbek', calories: 5 }, { name: 'Salsa pomidorowa', amount: '100 g', calories: 30 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2060, servings: 4,
@@ -1502,7 +1502,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'p12', name: 'Tapenade z oliwek', category: 'Przekąski', time: '10 min',
-    thumbnail: 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/p12.webp',
     instructions: '1. Czarne oliwki odsącz i osusz papierowym ręcznikiem — zbyt mokre rozcieńczą pastę.\n2. Do blendera lub food processora wrzuć oliwki, opłukane kapary (2 łyżki), anchois (2–3 filety — dają głębię smaku umami), posiekany czosnek (1 ząbek) i sok z połowy cytryny.\n3. Blenduj kilka sekund do gruboziarnistej pasty — tapenade NIE powinna być gładkim puree, lecz mieć wyraźną teksturę.\n4. Przy wolno pracującym blenderze dodaj oliwę (3–4 łyżki) cienkim strumieniem i mieszaj — pasta powinna być wilgotna i kremowa.\n5. Dopraw świeżo zmielonym pieprzem, oregano i ewentualnie szczyptą tymianku; soli zazwyczaj nie trzeba — anchois i kapary są słone.\n6. Spróbuj i dostosuj smak — więcej cytryny dla świeżości, więcej oliwy dla miękkości.\n7. Przechowuj w lodówce pod warstwą oliwy (do 2 tygodni); podawaj na opieczonej bagietce, z krakersami lub jako dip do warzyw.',
     ingredients: [{ name: 'Oliwki czarne', amount: '200 g', calories: 287 }, { name: 'Kapary', amount: '2 łyżki', calories: 10 }, { name: 'Oliwa z oliwek', amount: '4 łyżki', calories: 480 }, { name: 'Czosnek', amount: '1 ząbek', calories: 5 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 799, servings: 4,
@@ -1528,7 +1528,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── NOWE DIETY BIAŁKOWEJ (db16–db25) ─────────────────────────────────────
   {
     id: 'db16', name: 'Stek wołowy z warzywami', category: 'Dieta białkowa', time: '20 min',
-    thumbnail: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/db16.webp',
     instructions: '1. Stek wyjmij z lodówki 30 minut przed smażeniem — mięso w temperaturze pokojowej smaży się równomierniej; osusz dokładnie papierowym ręcznikiem — wilgoć to wróg rumienienia.\n2. Natrzeć stek solą gruboziarnistą i świeżo zmielonym pieprzem z obu stron; skrop oliwą i natrzyj.\n3. Patelnię żeliwną lub grubodennią rozgrzewaj na dużym ogniu przez 3–4 minuty aż będzie bardzo gorąca — stuk stelu w kontakcie powinien gwałtownie syczeć.\n4. Połóż stek na patelnię i NIE ruszaj przez 3 minuty (medium-rare: 2,5 min; medium: 3 min; well-done: 4 min); obróć jeden raz i smaż kolejne 3 minuty.\n5. W ostatniej minucie dodaj masło, gałązkę rozmarynu i ząbek czosnku; polewaj stek roztopionym masłem łyżką.\n6. Zdejmij stek na deskę i odczekaj MINIMUM 5 minut przed krojeniem — soki się redystrybują; jeśli kroisz za wcześnie, wszystkie soki wyciekną.\n7. Szparagi i pomidorki grilluj na tej samej patelni przez 3–4 minuty; podawaj stek z warzywami i ziołowym masłem na wierzchu.',
     ingredients: [{ name: 'Stek wołowy rostbef', amount: '400 g', calories: 720 }, { name: 'Szparagi', amount: '200 g', calories: 44 }, { name: 'Pomidorki cherry', amount: '150 g', calories: 27 }, { name: 'Masło', amount: '20 g', calories: 143 }, { name: 'Czosnek', amount: '1 ząbek', calories: 5 }, { name: 'Oliwa z oliwek', amount: '1 łyżka', calories: 120 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1059, servings: 2,
@@ -1576,7 +1576,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'db22', name: 'Sałatka niçoise', category: 'Dieta białkowa', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/db22.webp',
     instructions: '1. Jajka ugotuj na twardo (10 minut od zagotowania); przelej zimną wodą; obierz i przekrój na połówki lub ćwiartki.\n2. Fasolkę szparagową oczyść i zblanszuj w osolonej wodzie przez 4–5 minut aż będzie jasno zielona i al dente; od razu przelej lodowatą wodą (zatrzymuje kolor i chrupkość).\n3. Ziemniaki małe gotuj w mundurkach do miękkości; obierz i pokrój w ćwiartki; lekko ostudź.\n4. Dressing: wymieszaj 4 łyżki oliwy extra virgin, łyżkę octu winnego, łyżeczkę musztardy Dijon, przeciśnięty czosnek, sól i pieprz; emulguj trzepaczką.\n5. Sałatę umyj i osusz; ułóż na dużym płaskim talerzu lub półmisku jako podstawę.\n6. Na sałacie ułóż grupami: ziemniaki, fasolkę, tuńczyka (odcedzonego i rozkładanego w płatach), jajka, oliwki i pomidorki cherry.\n7. Polej dressingiem bezpośrednio przed podaniem; udekoruj kaparami i anchois (opcjonalnie); podawaj od razu.',
     ingredients: [{ name: 'Tuńczyk w oliwie', amount: '200 g', calories: 350 }, { name: 'Jajka', amount: '4 szt', calories: 312 }, { name: 'Fasolka szparagowa', amount: '200 g', calories: 62 }, { name: 'Ziemniaki', amount: '300 g', calories: 231 }, { name: 'Czosnek', amount: '1 ząbek', calories: 5 }, { name: 'Oliwa z oliwek', amount: '4 łyżki', calories: 480 }, { name: 'Pomidorki cherry', amount: '150 g', calories: 27 }, { name: 'Musztarda', amount: '1 łyżka', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1482, servings: 3,
@@ -1610,7 +1610,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── NOWE FIT I DIETA (f17–f27) ───────────────────────────────────────────
   {
     id: 'f17', name: 'Smoothie mango-bananowe', category: 'Fit i Dieta', time: '5 min',
-    thumbnail: 'https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/f17.webp',
     instructions: '1. Mango mrożone i banana wyjmij z zamrażarki 2–3 minuty przed blendowaniem — zbyt twarde mogą uszkodzić blender.\n2. Wrzuć mango i banana do blendera; dodaj mleko kokosowe lub migdałowe (200 ml).\n3. Dodaj sok z połowy limonki — kwasowość balansuje słodycz i ożywia smak mango.\n4. Blenduj przez 60–90 sekund na gładką, jedwabistą masę; przy potrzebie, dodaj 2–3 łyżki mleka dla rzadszej konsystencji.\n5. Spróbuj — jeśli chcesz słodszego, dodaj łyżeczkę miodu lub syropu z agawy i blenduj 10 sekund.\n6. Przelej do wysokiej szklanki lub mason jara; konsystencja powinna być gęstsza niż sok, ale płynna jak shake.\n7. Udekoruj świeżymi kawałkami mango, plasterkiem limonki i listkiem świeżej mięty; podawaj od razu z rurką.',
     ingredients: [{ name: 'Mrożone mango', amount: '200 g', calories: 120 }, { name: 'Banan', amount: '1 szt', calories: 105 }, { name: 'Mleko kokosowe', amount: '200 ml', calories: 290 }, { name: 'Limonka', amount: '0,5 szt', calories: 10 }, { name: 'Miód', amount: '1 łyżeczka', calories: 21 }],
     totalCalories: 546, servings: 1,
@@ -1634,7 +1634,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'f20', name: 'Wrapy z krewetkami i awokado', category: 'Fit i Dieta', time: '20 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/f20.webp',
     instructions: '1. Krewetki obrane osusz papierowym ręcznikiem; oprósz solą, pieprzem i słodką papryką.\n2. Na patelni rozgrzej oliwę na dużym ogniu; dodaj posiekany czosnek (2 ząbki) i chili (do smaku); smaż 30 sekund.\n3. Dodaj krewetki i smaż 1,5–2 minuty z każdej strony — gotowe gdy zmienią kolor na różowy i się zarolują; nie przesmaż, staną się gumowate.\n4. Guacamole: awokado rozgnieć widelcem z sokiem z połowy limonki, solą i opcjonalnie czosnkiem i posiekaną kolendrą.\n5. Tortille razowe podgrzej na suchej patelni 30 sekund z każdej strony lub zawiń w folię aluminiową i podgrzej w piekarniku.\n6. Na każdą tortillę rozsmaruj warstwę guacamole; ułóż liście sałaty (nie za dużo — trudno się zwija), pomidory w plasterkach, ogórek i krewetki.\n7. Zwiń ciasno od brzegu, zawijając boki do środka; pokrój na skos; podawaj od razu z dodatkowym guacamole i salsą.',
     ingredients: [{ name: 'Krewetki', amount: '300 g', calories: 285 }, { name: 'Awokado', amount: '1 szt', calories: 240 }, { name: 'Tortilla razowa', amount: '2 szt', calories: 300 }, { name: 'Sałata', amount: '60 g', calories: 9 }, { name: 'Czosnek', amount: '2 ząbki', calories: 10 }, { name: 'Oliwa z oliwek', amount: '1 łyżka', calories: 120 }, { name: 'Pomidor', amount: '1 szt', calories: 18 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 982, servings: 2,
@@ -1650,7 +1650,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'f22', name: 'Avocado toast z jajkiem', category: 'Fit i Dieta', time: '10 min',
-    thumbnail: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/f22.webp',
     instructions: '1. Chleb razowy lub na zakwasie pokrój na grubą kromkę (1,5 cm); opiecz w tosterze lub na suchej patelni do złotego, chrupiącego koloru.\n2. Awokado przekrój na pół; wyjmij pestkę; wyciśnij miąższ łyżką do miseczki; skrop sokiem z cytryny i dodaj szczyptę soli morskiej.\n3. Rozgnieć awokado widelcem — nie zbyt gładko, mała faktura jest lepsza; opcjonalnie dodaj posiekaną kolendrę lub czosnek w proszku.\n4. Jajko sadzone: na małej patelni rozgrzej łyżeczkę oleju na małym ogniu; wbij jajko i smaż pod przykryciem 3 minuty — białko ścięte, żółtko runnery; dopraw solą.\n5. Posmaruj ciepły tost obfitą warstwą avocado — nie żałuj, cały przekrój chleba powinien być pokryty.\n6. Połóż jajko sadzone na środku avocado.\n7. Posyp płatkami chili (ile chcesz), ziarnami sezamu i kiełkami rzodkiewki; opcjonalnie dodaj sól morską w płatkach i skrop oliwą; jedz od razu.',
     ingredients: [{ name: 'Chleb razowy', amount: '1 kromka', calories: 100 }, { name: 'Awokado', amount: '1 szt', calories: 240 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Kiełki', amount: '30 g', calories: 15 }, { name: 'Olej', amount: '1 łyżeczka', calories: 40 }, { name: 'Oliwa z oliwek', amount: '1 łyżeczka', calories: 40 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 530, servings: 1,
@@ -1658,7 +1658,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'f23', name: 'Granola domowa z orzechami', category: 'Fit i Dieta', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/f23.webp',
     instructions: '1. Piekarnik nagrzej do 160°C; blachę wyłóż papierem do pieczenia — wyższa temperatura pali orzech szybciej, niska zapewnia równomierne pieczenie.\n2. W dużej misce wymieszaj płatki owsiane (300 g) z grubo posiekanymi orzechami mieszanymi (migdały, orzechy włoskie, nerkowce, pekan) i wiórkami kokosowymi.\n3. W małym rondelku podgrzej olej kokosowy (2 łyżki) z miodem (3 łyżki) i opcjonalnie szczyptą soli i cynamonu aż się połączą; ostudź 2 minuty.\n4. Wylej mieszankę miodu na płatki i wymieszaj rękami lub łyżką by każdy element był pokryty — równe pokrycie = równomierne chrupiecie.\n5. Rozłóż na blasze RÓWNĄ CIENKĄ WARSTWĄ — im cieńsza, tym chrupkość lepsza; nie ubijaj.\n6. Piecz 20–25 minut; mieszaj co 10 minut i obracaj blachę dla równomierności; granola jest gotowa gdy ma złotobrązowy kolor.\n7. Ostudź CAŁKOWICIE na blasze — NIE mieszaj przy stygnięciu; granola robi się chrupka przy stygnięciu; przechowuj w szczelnym słoiku do 2 tygodni.',
     ingredients: [{ name: 'Płatki owsiane', amount: '300 g', calories: 1167 }, { name: 'Mieszane orzechy', amount: '100 g', calories: 650 }, { name: 'Miód', amount: '3 łyżki', calories: 180 }, { name: 'Olej kokosowy', amount: '2 łyżki', calories: 240 }],
     totalCalories: 2237, servings: 10,
@@ -1674,7 +1674,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'f25', name: 'Tacos z kurczakiem i warzywami', category: 'Fit i Dieta', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/f25.webp',
     instructions: '1. Pierś z kurczaka pokrój w wąskie paski (jak do stir-fry); oprósz solą, słodką papryką (1 łyżeczka), kminkiem (1/2 łyżeczki), czosnkiem w proszku i pieprzem — wymieszaj.\n2. Na patelni rozgrzej oliwę na dużym ogniu; obsmaż kurczaka przez 6–8 minut mieszając regularnie — paski powinny być złote i w pełni ugotowane.\n3. Tortille podgrzej: na suchej patelni po 20 sekund z każdej strony lub zawiń w folię i wstaw do piekarnika 180°C na 5 minut.\n4. Przygotuj składniki: sałatę porwij na kawałki, pomidory pokrój w kostkę, cebulę czerwoną w cienkie piórka, kolendrę grubo posiekaj.\n5. Na każdą tortillę nałóż warstwę kurczaka po środku (nie za dużo — tortilla musi się dać złożyć).\n6. Dodaj sałatę, pomidory, cebulę i kolendrę; skrop sokiem z limonki; nałóż łyżkę jogurtu greckiego zamiast śmietany.\n7. Zwiń lub złóż tortillę na pół; jedz od razu — dla wygody przekrój na pół ukośnym cięciem.',
     ingredients: [{ name: 'Pierś z kurczaka', amount: '300 g', calories: 495 }, { name: 'Tortilla pszenna', amount: '4 szt', calories: 600 }, { name: 'Jogurt grecki 0%', amount: '100 g', calories: 57 }, { name: 'Pomidor', amount: '2 szt', calories: 36 }, { name: 'Cebula czerwona', amount: '1/2 szt', calories: 20 }, { name: 'Czosnek granulowany', amount: 'szczypta', calories: 2 }, { name: 'Oliwa z oliwek', amount: '1 łyżka', calories: 120 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1330, servings: 2,
@@ -1707,7 +1707,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'gr3', name: 'Szaszłyki z kurczaka z papryką', category: 'Grillowane', time: '35 min',
-    thumbnail: 'https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/gr3.webp',
     instructions: '1. Piersi z kurczaka (600 g) pokrój w sześcianki ok. 3×3 cm — równe kawałki = równomierne grillowanie; za duże będą surowe w środku.\n2. Przygotuj marynatę: jogurt naturalny (150 g), curry (1 łyżeczka), kurkuma, czosnek, imbir, sól i sok z limonki — jogurt zmiękczy mięso.\n3. Marynuj kurczaka minimum 1 godzinę (najlepiej 4 godziny) w lodówce.\n4. Paprykę (czerwoną i żółtą) oraz cebulę pokrój w kawałki podobne do kurczaka; cukinia w półplasterki 1 cm.\n5. Nabijaj na patyczki (uprzednio moczone 30 minut w wodzie — nie spalą się) na przemian: kurczak, papryka, cebula, kurczak, cukinia.\n6. Grill rozgrzej mocno; grilluj szaszłyki 12–15 minut obracając co 3–4 minuty; gotowe gdy mięso jest białe w środku i złote na zewnątrz.\n7. Podawaj na ryżu basmati lub w chlebie pita z jogurtem miętowym i sałatką z pomidorów.',
     ingredients: [{ name: 'Pierś z kurczaka', amount: '600 g', calories: 990 }, { name: 'Papryka', amount: '2 szt', calories: 60 }, { name: 'Jogurt naturalny', amount: '150 g', calories: 90 }, { name: 'Cukinia', amount: '1 szt', calories: 30 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Ryż', amount: '100 g', calories: 360 }, { name: 'Pomidory', amount: '400 g', calories: 72 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1697, servings: 3,
@@ -1789,7 +1789,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'kr3', name: 'Golonka pieczona po polsku', category: 'Kuchnia regionalna', time: '3 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/kr3.webp',
     instructions: '1. Golonkę wieprzową (1,2 kg) umyj; na skórze natnij krzyżakowy wzór ostrym nożem głęboko na 5 mm — ułatwi odprowadzenie tłuszczu i marynowanie.\n2. Gotuj w wodzie z włoszczyzną, solą, pieprzem, zielem angielskim i liściem laurowym przez 1,5 godziny — mięso powinno być prawie miękkie.\n3. Wyjmij golonkę i osusz; natrzyj marynatą: czosnek (6 ząbków), majeranek (2 łyżki), kminek (1 łyżeczka), sól, pieprz i odrobina oliwy.\n4. Przełóż do naczynia żaroodpornego skórą do góry; wlej szklankę wywaru.\n5. Piecz w piekarniku 180°C przez 1 godzinę; co 20 minut polewaj golonkę własnym sosem — skóra będzie chrupiąca i złota.\n6. W ostatnich 15 minutach pomiń polewanie; zwiększ temperaturę do 220°C — skóra nabierze chrupkości i głębokiego koloru.\n7. Podawaj z pieczonymi ziemniakami, kwaszoną kapustą i chrzanem; sos z pieczenia przecedź i podaj osobno.',
     ingredients: [{ name: 'Golonka wieprzowa', amount: '1,2 kg', calories: 2640 }, { name: 'Czosnek', amount: '6 ząbków', calories: 30 }, { name: 'Majeranek', amount: '2 łyżki', calories: 15 }, { name: 'Włoszczyzna', amount: '300 g', calories: 90 }, { name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Kapusta', amount: '500 g', calories: 125 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 3602, servings: 4,
@@ -1797,7 +1797,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'kr4', name: 'Pierogi ruskie', category: 'Kuchnia regionalna', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/kr4.webp',
     instructions: '1. Farsz: ugotuj ziemniaki (500 g) i odcedź; rozgnieć tłuczkiem; zeszklij cebulę (1 duża) na maśle do złota.\n2. Wymieszaj ziemniaki z cebulą, twarogiem (300 g) i startym serem żółtym (opcja); dopraw solą, pieprzem i odrobiną kminku; farsz powinien być wilgotny ale spoisty.\n3. Ciasto: przesiej mąkę (400 g) na stolnicę; zrób wgłębienie; wbij jajko, wlej ok. 150 ml ciepłej wody i łyżkę oleju; wyrób elastyczne, nieklejące ciasto; odpocznij 30 minut pod ściereczką.\n4. Cienko rozwałkuj ciasto (2–3 mm); wycinaj kółka szklanką (8 cm średnicy).\n5. Na środek każdego kółka nałóż łyżkę farszu; złóż na pół i dokładnie sklej brzegi — pierogi nie mogą się rozklajać podczas gotowania; można docisnąć widelcem dla ozdoby.\n6. Gotuj partiami w osolonej wodzie — ok. 3–4 minuty od wypłynięcia; wyjmuj łyżką cedzakową.\n7. Podawaj polane zrumienioną cebulką na maśle lub przesmaż na patelni do złota; opcjonalnie ze śmietaną.',
     ingredients: [{ name: 'Mąka pszenna', amount: '400 g', calories: 1360 }, { name: 'Ziemniaki', amount: '500 g', calories: 385 }, { name: 'Twaróg', amount: '300 g', calories: 330 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Masło', amount: '30 g', calories: 215 }, { name: 'Olej', amount: '1 łyżka', calories: 120 }, { name: 'Śmietana', amount: '200 ml', calories: 368 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2936, servings: 5,
@@ -1839,7 +1839,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── ŚWIĄTECZNE ─────────────────────────────────────────────────────────────
   {
     id: 'sw1', name: 'Barszcz wigilijny z uszkami', category: 'Wigilia', time: '2,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sw1.webp',
     instructions: '1. Grzyby suszone (50 g) namocz przez noc; następnego dnia ugotuj w tej samej wodzie do miękkości; wyjmij i drobno posiekaj; wywaru nie wylewaj.\n2. Buraki czerwone (1 kg) obierz, zetrzyj na grubej tarce lub pokrój w słupki; zagotuj w wywarze warzywnym (1,5 l).\n3. Dodaj wywar grzybowy (bez ewentualnego osadu z dna), liść laurowy, ziele angielskie, pieprz; gotuj 25 minut.\n4. Barszcz przecedź przez gęste sito; dopraw do smaku sokiem z cytryny, cukrem (1–2 łyżeczki), solą — powinien być wyraźnie kwaśno-słodki; kolor musi być głęboki rubinowy.\n5. Uszka: zagnieć ciasto z 300 g mąki, 1 jajka, 3 łyżek wody; odpocznij 30 minut; farsz z posiekanych grzybów i kapusty kiszonej z cebulką.\n6. Wycinaj małe kółka (5 cm), nakładaj pół łyżeczki farszu, zlepiaj w uszko — muszą być ciasno zamknięte; gotuj 3 minuty od wypłynięcia.\n7. Podawaj wigilijny barszcz gorący z kilkoma uszkami; tradycyjnie spożywany jako pierwsza potrawa wigilijnej kolacji.',
     ingredients: [{ name: 'Buraki czerwone', amount: '1 kg', calories: 430 }, { name: 'Grzyby suszone', amount: '50 g', calories: 117 }, { name: 'Mąka na uszka', amount: '300 g', calories: 1020 }, { name: 'Kapusta kiszona', amount: '200 g', calories: 20 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Cukier', amount: '2 łyżeczki', calories: 40 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1802, servings: 6,
@@ -1887,7 +1887,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sw7', name: 'Kapusta z grochem wigilijna', category: 'Wigilia', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sw7.webp',
     instructions: '1. Groch łuskany (300 g) namocz na noc; gotuj w świeżej wodzie przez 40–50 minut do miękkości; odcedź i rozgnieć widelcem (nie zupełnie gładko).\n2. Kapustę kiszoną (600 g) przepłucz, posiekaj, gotuj w wodzie 30 minut do miękkości.\n3. Grzyby suszone (30 g) namocz 2 godziny; ugotuj w tej samej wodzie; posiekaj drobno; wywar zachowaj.\n4. Na patelni zeszklij cebulę (2 szt) na oleju (4 łyżki); gdy złota, dodaj grzyby i smaż razem 5 minut.\n5. Wymieszaj kapustę kiszoną z grochem, cebulką z grzybami i odrobiną wywaru grzybowego.\n6. Duś razem na małym ogniu 20 minut mieszając; dopraw majerankiem, pieprzem, solą; smak powinien być wyraźnie kwaskowaty.\n7. Podawaj jako wigilijnąpotrawę; danie smakuje lepiej podgrzewane następnego dnia.',
     ingredients: [{ name: 'Groch łuskany', amount: '300 g', calories: 1020 }, { name: 'Kapusta kiszona', amount: '600 g', calories: 60 }, { name: 'Grzyby suszone', amount: '30 g', calories: 70 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Olej', amount: '4 łyżki', calories: 480 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1710, servings: 6,
@@ -1895,7 +1895,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sw8', name: 'Mazurek kajmakowy wielkanocny', category: 'Wielkanoc', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sw8.webp',
     instructions: '1. Spód kruchy: wymieszaj mąkę (300 g), masło zimne (200 g) w kawałkach, cukier puder (100 g), żółtka (2 szt) i szczyptę soli; zagnieć szybko do połączenia; nie wyrabiaj — ciasto ma być kruche.\n2. Owiń folią, wstaw do lodówki na 30 minut.\n3. Rozwałkuj między dwoma arkuszami papieru do pieczenia na prostokąt ok. 35×25 cm, grubość 3–4 mm; nałóż na formę lub blachę wyłożoną papierem; nakłuj widelcem.\n4. Piecz 175°C przez 20–25 minut do złotego koloru; ostudź całkowicie.\n5. Kajmak: puszka mleka skondensowanego słodzonego gotowana przez 2 godziny w wodzie (lub użyj gotowy dulce de leche); ostudź i rozsmaruj grubą warstwą na spodzie.\n6. Udekoruj migdałami, orzechami, bakaliami, kandyzowaną skórką pomarańczową lub polej czekoladą.\n7. Wstaw do lodówki na 1 godzinę by kajmak stężał; kroić ostrym nożem maczanym w ciepłej wodzie.',
     ingredients: [{ name: 'Mąka pszenna', amount: '300 g', calories: 1020 }, { name: 'Masło', amount: '200 g', calories: 1440 }, { name: 'Kajmak (mleko skondensowane)', amount: '400 g', calories: 1280 }, { name: 'Bakalie i orzechy', amount: '100 g', calories: 520 }, { name: 'Cukier puder', amount: '100 g', calories: 400 }, { name: 'Żółtka', amount: '2 szt', calories: 110 }],
     totalCalories: 4770, servings: 12,
@@ -1911,7 +1911,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sw10', name: 'Babka wielkanocna drożdżowa', category: 'Wielkanoc', time: '2,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sw10.webp',
     instructions: '1. Drożdże (40 g świeżych) pokrusz do miseczki; dodaj 2 łyżki cukru, 100 ml ciepłego mleka; wymieszaj i odstaw na 15 minut aż zaczynią bubblować.\n2. Mąkę (500 g) przesiej do dużej miski; dodaj cukier (150 g), szczyptę soli, skórkę cytryny i wanilię; wymieszaj.\n3. Dodaj rozczyn drożdżowy, 4 żółtka i miękkie masło (150 g) w kawałkach; wyrabiaj ciasto 10–15 minut aż będzie gładkie, elastyczne i odchodzi od miski.\n4. Przykryj ściereczką; odstaw w ciepłe miejsce na 1–1,5 godziny do podwojenia objętości.\n5. Rodzynki (150 g) opłucz, osusz; delikatnie wgnieć w wyrośnięte ciasto; przełóż do formy babki wysmarowanej masłem i posypanej bułką tartą.\n6. Odstaw na 30 minut do ponownego wyrośnięcia; piecz w 180°C przez 40–45 minut; patyczek ma wychodzić suchy.\n7. Ostudź 10 minut w formie, wyjmij; oblej lukrem cytrynowym lub polewą cukrową; tradycyjnie na środku wielkanocnego stołu.',
     ingredients: [{ name: 'Mąka pszenna', amount: '500 g', calories: 1700 }, { name: 'Masło', amount: '150 g', calories: 1080 }, { name: 'Cukier', amount: '150 g', calories: 600 }, { name: 'Rodzynki', amount: '150 g', calories: 450 }, { name: 'Mleko', amount: '100 ml', calories: 50 }, { name: 'Drożdże', amount: '40 g', calories: 40 }, { name: 'Bułka tarta', amount: '1 łyżka', calories: 40 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Żółtka', amount: '4 szt', calories: 220 }],
     totalCalories: 4197, servings: 12,
@@ -1921,7 +1921,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── ŚRÓDZIEMNOMORSKA ──────────────────────────────────────────────────────
   {
     id: 'sm1', name: 'Sałatka grecka', category: 'Śródziemnomorska', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm1.webp',
     instructions: '1. Pomidory umyj i pokrój w ósemki lub grubą kostkę — powinny być dojrzałe i soczyste.\n2. Ogórka umyj, przekrój wzdłuż i pokrój w półplasterki grubości ok. 1 cm; nie obieraj — skórka dodaje chrupkości.\n3. Cebulę czerwoną pokrój w cienkie piórka; zalej przez 5 minut zimną wodą, żeby zmiękczyć ostrość.\n4. Oliwki czarne (bez pestek) odsącz z zalewy; możesz zostawić w całości lub przekroić na pół.\n5. Fetę pokrój w dużą kostkę ok. 2 cm lub pokrusz na duże kawałki — nie kruszyć za drobno.\n6. W misce wymieszaj delikatnie wszystkie warzywa; skrop hojnie oliwą z oliwek (3–4 łyżki), sokiem z cytryny; dopraw solą, pieprzem i oregano.\n7. Na wierzchu ułóż fetę i oliwki; podawaj od razu z pieczywem pita lub bagietką.',
     ingredients: [{ name: 'Pomidory', amount: '4 szt', calories: 100 }, { name: 'Ogórek', amount: '1 szt', calories: 30 }, { name: 'Feta', amount: '200 g', calories: 500 }, { name: 'Oliwki czarne', amount: '100 g', calories: 120 }, { name: 'Oliwa z oliwek', amount: '3 łyżki', calories: 360 }, { name: 'Cebula czerwona', amount: '1 szt', calories: 40 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1167, servings: 4,
@@ -1929,7 +1929,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sm2', name: 'Zupa minestrone', category: 'Śródziemnomorska', time: '45 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm2.webp',
     instructions: '1. Cebulę, marchew i seler pokrój w drobną kostkę; podsmaż na oliwie z oliwek (2 łyżki) przez 8 minut na średnim ogniu do zeszklenia.\n2. Dodaj starty czosnek (2 ząbki) i smaż jeszcze 1 minutę, aż zapachnie.\n3. Wlej bulion warzywny (1,2 l), dodaj puszkę pomidorów krojonych i łyżeczkę suszonego tymianku.\n4. Cukinię i paprykę pokrój w kostkę; dorzuć do garnka po 10 minutach gotowania.\n5. Dodaj odsączoną fasolę biała z puszki i makaron (małe rurki lub conchiglie); gotuj kolejne 10 minut.\n6. Wrzuć garść liści szpinaku baby; gotuj 2 minuty, aż zwiędną.\n7. Dopraw solą, pieprzem i świeżą bazylią; podawaj z tartym parmezanem i grzankami z baguette skropionymi oliwą.',
     ingredients: [{ name: 'Cukinia', amount: '1 szt', calories: 50 }, { name: 'Fasola biała', amount: '240 g', calories: 220 }, { name: 'Szpinak baby', amount: '100 g', calories: 23 }, { name: 'Makaron', amount: '100 g', calories: 350 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '2 ząbki', calories: 10 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Seler', amount: '1/4 szt', calories: 20 }, { name: 'Pomidory', amount: '400 g', calories: 72 }, { name: 'Bulion', amount: '1,2 l', calories: 144 }, { name: 'Papryka', amount: '1 szt', calories: 37 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1296, servings: 4,
@@ -1953,7 +1953,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sm5', name: 'Frittata ze szpinakiem i fetą', category: 'Śródziemnomorska', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm5.webp',
     instructions: '1. Piekarnik nastaw na grill lub 220°C; weź patelnię żaroodporną o średnicy 24–26 cm.\n2. Szpinak (200 g) podsmaż przez 2–3 minuty na oliwie (1 łyżka) z czosnkiem — aż zwiędnie i wyparuje woda.\n3. W misce roztrzep 8 jajek z 2 łyżkami mleka, solą, pieprzem i szczyptą gałki muszkatołowej.\n4. Cebulę czerwoną pokrój w piórka i podsmaż 5 minut; dodaj do patelni ze szpinakiem.\n5. Wlej masę jajeczną; gotuj na średnim ogniu 3–4 minuty, aż brzegi zaczną się ścinać.\n6. Na wierzchu rozkrusz fetę (120 g) i dodaj półkrążki pomidorków cherry; wstaw patelnię do piekarnika na 4–5 minut, aż wierzch się zetnie.\n7. Pokrój w trójkąty i podawaj ciepłą lub zimną z sałatką i pieczywem.',
     ingredients: [{ name: 'Jajka', amount: '8 szt', calories: 624 }, { name: 'Szpinak', amount: '200 g', calories: 46 }, { name: 'Feta', amount: '120 g', calories: 300 }, { name: 'Oliwa z oliwek', amount: '1 łyżka', calories: 120 }, { name: 'Cebula czerwona', amount: '1 szt', calories: 40 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Mleko', amount: '2 łyżki', calories: 10 }, { name: 'Pomidorki cherry', amount: '100 g', calories: 18 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1173, servings: 4,
@@ -1961,7 +1961,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sm6', name: 'Makaron ze szpinakiem i orzechami', category: 'Śródziemnomorska', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm6.webp',
     instructions: '1. Makaron penne lub rigatoni ugotuj al dente w dużej ilości osolonej wody (o 2 minuty krócej niż na opakowaniu); zachowaj szklankę wody z gotowania.\n2. Czosnek (3 ząbki) posiekaj cienko; podsmaż na oliwie z oliwek (3 łyżki) na małym ogniu — nie rumienić, ma być złoty i aromatyczny.\n3. Szpinak (300 g) dodaj do patelni z czosnkiem na silny ogień; mieszaj przez 2–3 minuty aż zwiędnie.\n4. Wlej do patelni 3–4 łyżki wody z gotowania makaronu; zamieszaj tworząc kremowy sos.\n5. Dodaj odsączony makaron do patelni; wymieszaj energicznie, polewając kolejnymi łyżkami wody makaronowej do kremowej konsystencji.\n6. Zdejmij z ognia; dodaj połowę startego parmezanu i wymieszaj.\n7. Nałóż do misek; posyp prażonymi orzechami piniowymi, resztą parmezanu i skrop oliwą.',
     ingredients: [{ name: 'Makaron penne', amount: '320 g', calories: 1120 }, { name: 'Szpinak', amount: '300 g', calories: 69 }, { name: 'Orzechy pinii', amount: '60 g', calories: 390 }, { name: 'Oliwa z oliwek', amount: '3 łyżki', calories: 360 }, { name: 'Parmezan', amount: '60 g', calories: 259 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }],
     totalCalories: 2213, servings: 4,
@@ -1977,7 +1977,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sm8', name: 'Hummus z pita i warzywami', category: 'Śródziemnomorska', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1577805947697-89e18249d767?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm8.webp',
     instructions: '1. Ciecierzycę z puszki dokładnie odsącz i opłucz; zachowaj 3–4 łyżki aquafaby (wody z puszki) — sprawi, że hummus będzie kremowy.\n2. Do blendera wrzuć ciecierzycę, tahini (2 łyżki), sok z połowy cytryny, 1 ząbek czosnku i łyżeczkę soli.\n3. Blenduj przez 2–3 minuty na wysokich obrotach; dodawaj łyżkami aquafabę lub zimną wodę aż uzyskasz gładką, kremową konsystencję.\n4. Skosztuj i dopraw — może potrzebować więcej cytryny, soli lub tahini.\n5. Przełóż do miski; łyżką zrób spiralny rowek i wlej oliwę z oliwek (2 łyżki); posyp papryką wędzoną.\n6. Chleb pita podsmaż lub podgrzej na suchej patelni przez 2 minuty; pokrój w trójkąty.\n7. Podawaj hummus z pitą, paluszkami marchewki, ogórka i papryki do maczania.',
     ingredients: [{ name: 'Ciecierzyca z puszki', amount: '400 g', calories: 400 }, { name: 'Tahini', amount: '2 łyżki', calories: 178 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Chleb pita', amount: '2 szt', calories: 340 }, { name: 'Czosnek', amount: '1 ząbek', calories: 5 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }],
     totalCalories: 1230, servings: 4,
@@ -1985,7 +1985,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sm9', name: 'Tabbouleh z kuskusem', category: 'Śródziemnomorska', time: '20 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm9.webp',
     instructions: '1. Kuskus wsyp do miski, zalej wrzącym bulionem warzywnym (1:1), przykryj folią lub talerzykiem; po 5 minutach rozkrusz widelcem.\n2. Pomidory pokrój w drobną kostkę; odsącz na sitku przez kilka minut, żeby pozbyć się nadmiaru soku.\n3. Ogórka pokrój w drobną kostkę; cebulę dymkę posiekaj razem ze szczypiorem.\n4. Natkę pietruszki drobno posiekaj — tabbouleh ma być zielone, pietruszki nie żałuj.\n5. W dużej misce wymieszaj ostudzone kuskus z pomidorami, ogórkiem, dymką i pietruszką.\n6. Dressing: oliwa z oliwek (3 łyżki) + sok z cytryny (2 łyżki) + sól + pieprz; polej sałatkę i dokładnie wymieszaj.\n7. Wstaw do lodówki na 15 minut by smaki się przegryzły; podawaj schłodzoną z grillowanym mięsem lub jako samodzielne danie.',
     ingredients: [{ name: 'Kuskus', amount: '200 g', calories: 700 }, { name: 'Natka pietruszki', amount: '1 pęczek', calories: 30 }, { name: 'Oliwa z oliwek', amount: '3 łyżki', calories: 360 }, { name: 'Pomidory', amount: '3 szt', calories: 75 }, { name: 'Cebula dymka', amount: '1 pęczek', calories: 30 }, { name: 'Bulion', amount: '200 ml', calories: 24 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1236, servings: 4,
@@ -2003,7 +2003,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── NISKOKALORYCZNE ───────────────────────────────────────────────────────
   {
     id: 'nk1', name: 'Zupa krem z cukinii', category: 'Niskokaloryczne', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/nk1.webp',
     instructions: '1. Cukinie (3 szt) umyj i pokrój w grubą kostkę; nie obieraj — skórka zawiera wartości odżywcze i daje ładny kolor.\n2. Cebulę posiekaj i zeszklij 5 minut na odrobinie oliwy (1 łyżka) na średnim ogniu.\n3. Dodaj czosnek (2 ząbki), smaż jeszcze minutę; dorzuć cukinię i smaż razem 3–4 minuty.\n4. Zalej bulionem warzywnym (800 ml) i gotuj na małym ogniu 15 minut, aż cukinia będzie zupełnie miękka.\n5. Zdejmij z ognia; zblenduj całość blenderem zanurzeniowym na gładki krem.\n6. Dodaj łyżkę serka śmietankowego light lub jogurtu greckiego 0% dla kremowości; dopraw solą i pieprzem.\n7. Podawaj z grzanką z chleba razowego, posypaną świeżymi ziołami i skropioną odrobiną oliwy.',
     ingredients: [{ name: 'Cukinia', amount: '3 szt', calories: 150 }, { name: 'Bulion warzywny', amount: '800 ml', calories: 30 }, { name: 'Serek śmietankowy light', amount: '50 g', calories: 70 }, { name: 'Oliwa', amount: '1 łyżka', calories: 120 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Czosnek', amount: '2 ząbki', calories: 10 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 420, servings: 4,
@@ -2011,7 +2011,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'nk2', name: 'Zupa krem z brokułów', category: 'Niskokaloryczne', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/nk2.webp',
     instructions: '1. Brokuły podziel na różyczki; obierz i pokrój łodygę w plastry — jest równie smaczna i odżywcza.\n2. W garnku zeszklij cebulę (1 szt) na łyżce oliwy przez 5 minut; dodaj czosnek i smaż 1 minutę.\n3. Dorzuć brokuły; zalej bulionem warzywnym (900 ml) i gotuj 12 minut, aż brokuły będą miękkie.\n4. Dodaj 100 g twarożku chudego lub jogurtu greckiego.\n5. Zblenduj na gładki krem; jeśli za gęsty, dolej trochę bulionu.\n6. Dopraw solą, pieprzem, gałką muszkatołową i sokiem z cytryny.\n7. Podawaj w misce z łyżką jogurtu greckiego, prażonymi pestkami dyni i pieczywem razowym.',
     ingredients: [{ name: 'Brokuły', amount: '600 g', calories: 204 }, { name: 'Jogurt grecki 0%', amount: '150 g', calories: 86 }, { name: 'Bulion warzywny', amount: '900 ml', calories: 35 }, { name: 'Oliwa', amount: '1 łyżka', calories: 120 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 517, servings: 4,
@@ -2067,7 +2067,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'nk9', name: 'Zupa dyniowa z imbirem', category: 'Niskokaloryczne', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/nk9.webp',
     instructions: '1. Dynię (hokkaido lub butternut) umyj, przekrój, usuń pestki i pokrój w kostkę z 2–3 cm; dynię hokkaido można zostawić ze skórką.\n2. Cebulę i czosnek (3 ząbki) posiekaj; zeszklij 5 minut na łyżce oliwy.\n3. Dodaj dynię, starty imbir świeży (2 cm kawałka) i łyżeczkę curry; smaż razem 3 minuty mieszając.\n4. Zalej bulionem warzywnym (800 ml) i gotuj 20–25 minut aż dynia będzie miękka.\n5. Zblenduj całość na gładki, aksamitny krem; jeśli zbyt gęsty, dolej bulionu.\n6. Dopraw solą, pieprzem, sokiem z limonki i ewentualnie odrobiną mleka kokosowego light (50 ml).\n7. Podawaj w misce z kroplą jogurtu, prażonymi pestkami dyni i świeżą kolendrą lub natką.',
     ingredients: [{ name: 'Dynia', amount: '700 g', calories: 196 }, { name: 'Bulion warzywny', amount: '800 ml', calories: 30 }, { name: 'Imbir świeży', amount: '20 g', calories: 16 }, { name: 'Oliwa', amount: '1 łyżka', calories: 120 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Mleko kokosowe light', amount: '50 ml', calories: 35 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 452, servings: 4,
@@ -2094,7 +2094,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   // ── POPULARNE (uzupełnienie bazy) ─────────────────────────────────────────
   {
     id: 'pp1', name: 'Krokiety z kapustą i grzybami', category: 'Wigilia', time: '1 godz 30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1565299543923-37dd37887442?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp1.webp',
     instructions: '1. Grzyby suszone zalej szklanką wrzątku i odstaw na 30 minut, a potem ugotuj je w tej samej wodzie do miękkości (ok. 20 minut).\n2. Kapustę kiszoną odciśnij, posiekaj i duś pod przykryciem z odrobiną wody z grzybów przez 30 minut, aż zmięknie, a płyn odparuje.\n3. Cebulę pokrój w kostkę i zeszklij na maśle; dodaj do kapusty razem z posiekanymi grzybami, dopraw solą i pieprzem i wystudź.\n4. Ciasto: zmiksuj mąkę, mleko, 2 jajka, szczyptę soli i łyżkę oleju; po 15 minutach usmaż 10 cienkich naleśników na lekko natłuszczonej patelni.\n5. Na brzeg każdego naleśnika nałóż 2 łyżki farszu, złóż boki do środka i zwiń ciasno w rulon.\n6. Pozostałe 2 jajka roztrzep; krokiety obtaczaj kolejno w jajku i w bułce tartej, dociskając panierkę dłonią.\n7. Smaż na rozgrzanym oleju po 3–4 minuty z każdej strony na złoty kolor; świetnie smakują z czerwonym barszczem.',
     ingredients: [{ name: 'Mąka pszenna', amount: '250 g', calories: 910 }, { name: 'Mleko', amount: '500 ml', calories: 250 }, { name: 'Jajka', amount: '4 szt', calories: 280 }, { name: 'Kapusta kiszona', amount: '500 g', calories: 100 }, { name: 'Grzyby suszone', amount: '30 g', calories: 84 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Masło', amount: '20 g', calories: 147 }, { name: 'Bułka tarta', amount: '100 g', calories: 385 }, { name: 'Olej', amount: '6 łyżek', calories: 530 }, { name: 'Przyprawy (sól, pieprz)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2726, servings: 5,
@@ -2102,7 +2102,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp2', name: 'Krokiety z mięsem i pieczarkami', category: 'Dania główne', time: '1 godz 15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1565299543923-37dd37887442?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp2.webp',
     instructions: '1. Cebulę pokrój w drobną kostkę i zeszklij na maśle, dodaj pokrojone pieczarki i smaż, aż odparuje woda.\n2. Dodaj mięso mielone i smaż 10–12 minut, rozbijając grudki łopatką, aż całkowicie się zetnie.\n3. Dopraw farsz solą, pieprzem i majerankiem, a potem wystudź — ciepły farsz rozrywa naleśniki.\n4. Ciasto: zmiksuj mąkę, mleko, 2 jajka, szczyptę soli i łyżkę oleju; po 15 minutach usmaż 10 cienkich naleśników.\n5. Na brzeg każdego naleśnika nałóż 2 łyżki farszu, złóż boki do środka i zwiń ciasno w rulon.\n6. Pozostałe 2 jajka roztrzep; krokiety obtaczaj kolejno w jajku i w bułce tartej, dociskając panierkę dłonią.\n7. Smaż na rozgrzanym oleju po 3–4 minuty z każdej strony, aż będą złociste i chrupiące.',
     ingredients: [{ name: 'Mąka pszenna', amount: '250 g', calories: 910 }, { name: 'Mleko', amount: '500 ml', calories: 250 }, { name: 'Jajka', amount: '4 szt', calories: 280 }, { name: 'Mięso mielone wieprzowo-wołowe', amount: '400 g', calories: 1000 }, { name: 'Pieczarki', amount: '200 g', calories: 44 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Masło', amount: '20 g', calories: 147 }, { name: 'Bułka tarta', amount: '100 g', calories: 385 }, { name: 'Olej', amount: '6 łyżek', calories: 530 }, { name: 'Przyprawy (sól, pieprz, majeranek)', amount: 'do smaku', calories: 0 }],
     totalCalories: 3586, servings: 5,
@@ -2110,7 +2110,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp3', name: 'Pierogi z mięsem', category: 'Dania główne', time: '1 godz 30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp3.webp',
     instructions: '1. Mąkę przesiej na stolnicę, dodaj jajko, olej, szczyptę soli i stopniowo ok. 250 ml ciepłej wody; zagnieć gładkie, elastyczne ciasto.\n2. Ciasto przykryj miską i odstaw na 20 minut — łatwiej się wałkuje i nie kurczy.\n3. Cebulę pokrój w kostkę i zeszklij na połowie masła, dodaj mięso mielone i smaż 15 minut, rozbijając grudki.\n4. Mięso zmiel jeszcze raz lub zblenduj — farsz będzie zwarty i soczysty; dopraw solą, pieprzem i majerankiem.\n5. Ciasto rozwałkuj na grubość 2 mm, wycinaj szklanką krążki, nakładaj łyżeczkę farszu i dokładnie sklejaj brzegi.\n6. Gotuj partiami w dużym garnku osolonej wody przez 3 minuty od wypłynięcia; wyjmuj łyżką cedzakową.\n7. Podawaj polane pozostałym roztopionym masłem.',
     ingredients: [{ name: 'Mąka pszenna', amount: '500 g', calories: 1820 }, { name: 'Jajko', amount: '1 szt', calories: 70 }, { name: 'Olej', amount: '2 łyżki', calories: 177 }, { name: 'Mięso mielone wieprzowe', amount: '500 g', calories: 1300 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Masło', amount: '30 g', calories: 220 }, { name: 'Przyprawy (sól, pieprz, majeranek)', amount: 'do smaku', calories: 0 }],
     totalCalories: 3667, servings: 6,
@@ -2118,7 +2118,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp4', name: 'Pierogi z jagodami i słodką śmietaną', category: 'Dania główne', time: '1 godz 15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp4.webp',
     instructions: '1. Mąkę przesiej, dodaj jajko, olej, szczyptę soli i ok. 250 ml ciepłej wody; zagnieć gładkie ciasto i odstaw pod miską na 20 minut.\n2. Jagody przebierz, opłucz i dokładnie osusz na ręczniku papierowym — mokre owoce puszczą sok i rozkleją pierogi.\n3. Jagody wymieszaj delikatnie z mąką ziemniaczaną i łyżką cukru; mąka zwiąże sok podczas gotowania.\n4. Ciasto rozwałkuj cienko, wycinaj krążki, nakładaj po łyżeczce jagód i bardzo starannie sklejaj brzegi.\n5. Gotuj partiami w osolonej wodzie przez 2–3 minuty od wypłynięcia — dłużej nie, bo owoce pękną.\n6. Śmietanę wymieszaj z pozostałym cukrem i cukrem waniliowym.\n7. Podawaj od razu, polane słodką śmietaną.',
     ingredients: [{ name: 'Mąka pszenna', amount: '500 g', calories: 1820 }, { name: 'Jajko', amount: '1 szt', calories: 70 }, { name: 'Olej', amount: '1 łyżka', calories: 88 }, { name: 'Jagody', amount: '500 g', calories: 285 }, { name: 'Mąka ziemniaczana', amount: '1 łyżka', calories: 33 }, { name: 'Cukier', amount: '3 łyżki', calories: 180 }, { name: 'Cukier waniliowy', amount: '16 g', calories: 64 }, { name: 'Śmietana 18%', amount: '200 ml', calories: 372 }, { name: 'Szczypta soli', amount: 'do smaku', calories: 0 }],
     totalCalories: 2912, servings: 5,
@@ -2126,7 +2126,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp5', name: 'Pierogi leniwe', category: 'Dania główne', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp5.webp',
     instructions: '1. Twaróg rozgnieć dokładnie widelcem lub przeciśnij przez praskę — bez grudek kluski będą gładkie.\n2. Dodaj jajka, szczyptę soli i stopniowo mąkę; zagnieć krótko miękkie ciasto, tylko do połączenia składników.\n3. Podziel ciasto na 3 części, z każdej uformuj wałek o grubości 2–3 cm i lekko go spłaszcz.\n4. Krój ukośnie na kluski szerokości 2 cm.\n5. Gotuj partiami w osolonej wodzie przez 2 minuty od wypłynięcia.\n6. Na patelni roztop masło i zrumień na nim bułkę tartą na złoty kolor.\n7. Kluski polej masłem z bułką tartą i posyp cukrem.',
     ingredients: [{ name: 'Twaróg półtłusty', amount: '500 g', calories: 665 }, { name: 'Jajka', amount: '2 szt', calories: 140 }, { name: 'Mąka pszenna', amount: '150 g', calories: 546 }, { name: 'Masło', amount: '30 g', calories: 220 }, { name: 'Bułka tarta', amount: '30 g', calories: 115 }, { name: 'Cukier', amount: '2 łyżki', calories: 120 }, { name: 'Szczypta soli', amount: 'do smaku', calories: 0 }],
     totalCalories: 1806, servings: 4,
@@ -2134,7 +2134,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp6', name: 'Knedle ze śliwkami', category: 'Dania główne', time: '1 godz 15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp6.webp',
     instructions: '1. Ziemniaki ugotuj w mundurkach, obierz i jeszcze ciepłe przeciśnij przez praskę; całkowicie wystudź.\n2. Do ziemniaków dodaj mąkę ziemniaczaną, mąkę pszenną, jajko i szczyptę soli; zagnieć gładkie, niekleiste ciasto.\n3. Śliwki umyj, natnij z boku i wyjmij pestki, a w ich miejsce wsyp odrobinę cukru z cynamonem.\n4. Z ciasta odrywaj kawałki wielkości jajka, spłaszczaj na dłoni, owijaj nimi śliwkę i formuj gładkie kule.\n5. Gotuj partiami w osolonej wodzie przez 5 minut od wypłynięcia.\n6. Na patelni roztop masło i zrumień na nim bułkę tartą.\n7. Knedle obtocz w maśle z bułką tartą i posyp pozostałym cukrem.',
     ingredients: [{ name: 'Ziemniaki', amount: '1 kg', calories: 770 }, { name: 'Mąka ziemniaczana', amount: '100 g', calories: 330 }, { name: 'Mąka pszenna', amount: '100 g', calories: 364 }, { name: 'Jajko', amount: '1 szt', calories: 70 }, { name: 'Śliwki węgierki', amount: '16 szt', calories: 184 }, { name: 'Cukier', amount: '3 łyżki', calories: 180 }, { name: 'Masło', amount: '50 g', calories: 367 }, { name: 'Bułka tarta', amount: '50 g', calories: 193 }, { name: 'Cynamon, szczypta soli', amount: 'do smaku', calories: 0 }],
     totalCalories: 2458, servings: 4,
@@ -2142,7 +2142,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp7', name: 'Placki po węgiersku', category: 'Dania główne', time: '1 godz 30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1598866594230-a7c12756260f?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp7.webp',
     instructions: '1. Mięso pokrój w kostkę 2 cm, oprósz solą, pieprzem i papryką słodką i obsmaż partiami na 2 łyżkach oleju.\n2. Dodaj jedną pokrojoną cebulę i czosnek, smaż 3 minuty, podlej 300 ml wody i duś pod przykryciem 45 minut.\n3. Wrzuć pokrojoną w paski paprykę i koncentrat pomidorowy, duś kolejne 15 minut, aż sos zgęstnieje.\n4. Na placki: ziemniaki obierz i zetrzyj na drobnej tarce razem z drugą cebulą; odlej nadmiar soku.\n5. Do masy ziemniaczanej dodaj jajko, mąkę i sól, dokładnie wymieszaj.\n6. Smaż cienkie, duże placki na pozostałym oleju po 3–4 minuty z każdej strony, aż będą chrupiące.\n7. Na każdy placek nałóż gulasz, złóż na pół i podawaj z łyżką śmietany.',
     ingredients: [{ name: 'Łopatka wieprzowa', amount: '500 g', calories: 1150 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '2 ząbki', calories: 8 }, { name: 'Papryka czerwona', amount: '2 szt', calories: 90 }, { name: 'Koncentrat pomidorowy', amount: '2 łyżki', calories: 40 }, { name: 'Ziemniaki', amount: '1 kg', calories: 770 }, { name: 'Jajko', amount: '1 szt', calories: 70 }, { name: 'Mąka pszenna', amount: '3 łyżki', calories: 164 }, { name: 'Olej', amount: '6 łyżek', calories: 530 }, { name: 'Śmietana 18%', amount: '100 ml', calories: 186 }, { name: 'Przyprawy (sól, pieprz, papryka słodka)', amount: 'do smaku', calories: 0 }],
     totalCalories: 3088, servings: 4,
@@ -2150,7 +2150,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp8', name: 'Kotlet de volaille', category: 'Dania główne', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1599921841143-819065a55cc6?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp8.webp',
     instructions: '1. Masło wymieszaj z posiekaną natką pietruszki i szczyptą soli, uformuj 4 wałeczki i zamroź na 30 minut.\n2. Filety z kurczaka przekrój poziomo „na książkę”, przykryj folią i rozbij tłuczkiem na cienkie płaty.\n3. Mięso oprósz solą i pieprzem, a na brzegu połóż zmrożony wałeczek masła.\n4. Zwiń ciasno, zakładając boki do środka — masło nie może wypłynąć podczas smażenia.\n5. Kotlety obtaczaj kolejno w mące, roztrzepanych jajkach i bułce tartej, dociskając panierkę.\n6. Smaż na rozgrzanym oleju na średnim ogniu po 5–6 minut z każdej strony, aż będą złociste.\n7. Przełóż do piekarnika nagrzanego do 180°C na 10 minut, żeby mięso doszło w środku.',
     ingredients: [{ name: 'Filety z piersi kurczaka', amount: '600 g', calories: 660 }, { name: 'Masło', amount: '80 g', calories: 587 }, { name: 'Natka pietruszki', amount: '2 łyżki', calories: 5 }, { name: 'Mąka pszenna', amount: '3 łyżki', calories: 164 }, { name: 'Jajka', amount: '2 szt', calories: 140 }, { name: 'Bułka tarta', amount: '100 g', calories: 385 }, { name: 'Olej', amount: '6 łyżek', calories: 530 }, { name: 'Przyprawy (sól, pieprz)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2471, servings: 4,
@@ -2174,7 +2174,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp11', name: 'Łazanki z kapustą i kiełbasą', category: 'Makarony', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp11.webp',
     instructions: '1. Boczek pokrój w kostkę i wytop na suchej patelni; dodaj pokrojoną cebulę i zeszklij.\n2. Kapustę białą poszatkuj, kapustę kiszoną odciśnij i posiekaj; obie włóż do garnka z odrobiną wody.\n3. Duś kapustę pod przykryciem ok. 30 minut, aż zmięknie, a potem dodaj boczek z cebulą.\n4. Kiełbasę pokrój w półplasterki, podsmaż na oleju i dodaj do kapusty.\n5. Dopraw solą, pieprzem, majerankiem i kminkiem; duś razem jeszcze 10 minut.\n6. Makaron łazanki ugotuj al dente w osolonej wodzie i odcedź.\n7. Wymieszaj makaron z kapustą i podsmaż wszystko razem 3–4 minuty, żeby smaki się połączyły.',
     ingredients: [{ name: 'Makaron łazanki', amount: '300 g', calories: 1080 }, { name: 'Kapusta biała', amount: '600 g', calories: 150 }, { name: 'Kapusta kiszona', amount: '300 g', calories: 60 }, { name: 'Kiełbasa', amount: '250 g', calories: 650 }, { name: 'Boczek wędzony', amount: '100 g', calories: 470 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Olej', amount: '1 łyżka', calories: 88 }, { name: 'Przyprawy (sól, pieprz, majeranek, kminek)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2578, servings: 4,
@@ -2190,7 +2190,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp13', name: 'Gulasz z indyka z pieczarkami', category: 'Dania główne', time: '45 min',
-    thumbnail: 'https://images.unsplash.com/photo-1530554764233-e79e16c91d08?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp13.webp',
     instructions: '1. Mięso z indyka pokrój w kostkę, oprósz solą, pieprzem i papryką słodką.\n2. Obsmaż mięso partiami na rozgrzanym oleju, aż zbieleje ze wszystkich stron.\n3. Dodaj pokrojoną cebulę i przeciśnięty czosnek, smaż 3 minuty.\n4. Wrzuć pokrojone w plasterki pieczarki i paprykę w paski, smaż, aż pieczarki puszczą sok.\n5. Podlej 300 ml wody i duś pod przykryciem 25 minut.\n6. Śmietanę wymieszaj z mąką, zahartuj chochlą gorącego sosu i wlej do garnka.\n7. Gotuj jeszcze 3 minuty, mieszając, aż sos zgęstnieje; dopraw do smaku.',
     ingredients: [{ name: 'Mięso z indyka (udziec lub pierś)', amount: '700 g', calories: 800 }, { name: 'Olej', amount: '2 łyżki', calories: 177 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '2 ząbki', calories: 8 }, { name: 'Pieczarki', amount: '300 g', calories: 66 }, { name: 'Papryka czerwona', amount: '1 szt', calories: 45 }, { name: 'Śmietana 18%', amount: '150 ml', calories: 279 }, { name: 'Mąka pszenna', amount: '1 łyżka', calories: 36 }, { name: 'Przyprawy (sól, pieprz, papryka słodka)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1491, servings: 4,
@@ -2214,7 +2214,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp16', name: 'Pizza domowa z salami i pieczarkami', category: 'Dania główne', time: '1 godz 40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp16.webp',
     instructions: '1. Drożdże rozpuść w 300 ml ciepłej wody z cukrem i odstaw na 10 minut, aż zaczną się pienić.\n2. Mąkę wymieszaj z solą, wlej drożdże i 2 łyżki oliwy; wyrabiaj ciasto 8–10 minut, aż będzie gładkie i elastyczne.\n3. Przykryj ściereczką i odstaw w ciepłe miejsce na godzinę, aż podwoi objętość.\n4. Piekarnik nagrzej do 250°C razem z blachą.\n5. Ciasto podziel na 2 części, rozciągnij rękami na cienkie placki i posmaruj passatą wymieszaną z łyżką oliwy i oregano.\n6. Rozłóż porwaną mozzarellę, plasterki salami i pieczarek.\n7. Piecz 10–12 minut, aż brzegi się zrumienią, a ser zacznie bąbelkować.',
     ingredients: [{ name: 'Mąka pszenna', amount: '500 g', calories: 1820 }, { name: 'Drożdże świeże', amount: '15 g', calories: 16 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Oliwa z oliwek', amount: '3 łyżki', calories: 265 }, { name: 'Passata pomidorowa', amount: '200 g', calories: 60 }, { name: 'Mozzarella', amount: '250 g', calories: 625 }, { name: 'Salami', amount: '100 g', calories: 400 }, { name: 'Pieczarki', amount: '150 g', calories: 33 }, { name: 'Przyprawy (sól, oregano)', amount: 'do smaku', calories: 0 }],
     totalCalories: 3239, servings: 4,
@@ -2230,7 +2230,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp18', name: 'Kotlety mielone z kurczaka', category: 'Dania główne', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp18.webp',
     instructions: '1. Bułkę namocz w mleku i dokładnie odciśnij.\n2. Cebulę zetrzyj na drobnej tarce lub posiekaj bardzo drobno.\n3. W misce połącz mięso, bułkę, cebulę, jajko, posiekany koperek, sól i pieprz; wyrabiaj 2–3 minuty.\n4. Mokrymi rękami formuj owalne kotlety grubości ok. 2 cm.\n5. Obtaczaj je w bułce tartej, lekko dociskając.\n6. Smaż na rozgrzanym oleju na średnim ogniu po 5 minut z każdej strony.\n7. Na koniec przykryj patelnię i smaż jeszcze 3 minuty na małym ogniu, żeby środek był dopieczony.',
     ingredients: [{ name: 'Mięso mielone z kurczaka', amount: '600 g', calories: 900 }, { name: 'Bułka pszenna', amount: '1 szt', calories: 160 }, { name: 'Mleko', amount: '50 ml', calories: 25 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Jajko', amount: '1 szt', calories: 70 }, { name: 'Koperek', amount: '2 łyżki', calories: 5 }, { name: 'Bułka tarta', amount: '50 g', calories: 193 }, { name: 'Olej', amount: '4 łyżki', calories: 354 }, { name: 'Przyprawy (sól, pieprz)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1747, servings: 4,
@@ -2238,7 +2238,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp19', name: 'Kapusta zasmażana z boczkiem', category: 'Kuchnia regionalna', time: '1 godz',
-    thumbnail: 'https://www.themealdb.com/images/media/meals/tkxquw1628771028.jpg',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp19.webp',
     instructions: '1. Kapustę kiszoną odciśnij (jeśli jest bardzo kwaśna, przepłucz) i posiekaj.\n2. Włóż do garnka, zalej 300 ml wody, dodaj kminek i gotuj pod przykryciem 30–40 minut do miękkości.\n3. Boczek pokrój w kostkę i wytop na patelni na chrupko.\n4. Dodaj pokrojoną cebulę i smaż, aż się zeszkli.\n5. Wsyp mąkę i smaż, mieszając, 2 minuty, aż powstanie jasnozłota zasmażka.\n6. Zasmażkę dodaj do kapusty, dokładnie wymieszaj i gotuj 5 minut, aż zgęstnieje.\n7. Dopraw solą, pieprzem, majerankiem i szczyptą cukru.',
     ingredients: [{ name: 'Kapusta kiszona', amount: '800 g', calories: 160 }, { name: 'Boczek wędzony', amount: '100 g', calories: 470 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Mąka pszenna', amount: '2 łyżki', calories: 73 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Przyprawy (sól, pieprz, kminek, majeranek)', amount: 'do smaku', calories: 0 }],
     totalCalories: 763, servings: 4,
@@ -2262,7 +2262,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp22', name: 'Surówka z kiszonej kapusty', category: 'Sałatki', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp22.webp',
     instructions: '1. Kapustę kiszoną odciśnij z nadmiaru soku i posiekaj na krótsze kawałki.\n2. Marchew obierz i zetrzyj na grubej tarce.\n3. Jabłko zetrzyj ze skórką na grubej tarce.\n4. Cebulę pokrój w bardzo cienkie piórka.\n5. Połącz wszystkie warzywa w misce.\n6. Dodaj olej, cukier i pieprz, dokładnie wymieszaj.\n7. Odstaw na 15 minut, żeby smaki się połączyły.',
     ingredients: [{ name: 'Kapusta kiszona', amount: '500 g', calories: 100 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Jabłko', amount: '1 szt', calories: 70 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Olej', amount: '2 łyżki', calories: 177 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Przyprawy (pieprz)', amount: 'do smaku', calories: 0 }],
     totalCalories: 457, servings: 4,
@@ -2270,7 +2270,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp23', name: 'Zupa pieczarkowa', category: 'Zupy', time: '50 min',
-    thumbnail: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp23.webp',
     instructions: '1. Marchew, pietruszkę i seler obierz, pokrój w kostkę, zalej 1,5 l wody i gotuj 20 minut.\n2. Ziemniaki obierz, pokrój w kostkę i dodaj do garnka; gotuj kolejne 10 minut.\n3. Cebulę posiekaj i zeszklij na maśle.\n4. Dodaj pokrojone w plasterki pieczarki i smaż 8 minut, aż odparują i się zarumienią.\n5. Pieczarki z cebulą przełóż do zupy i gotuj razem 10 minut.\n6. Śmietanę wymieszaj z mąką, zahartuj chochlą gorącej zupy i wlej do garnka, stale mieszając.\n7. Zagotuj, dopraw solą i pieprzem, podawaj posypaną koperkiem.',
     ingredients: [{ name: 'Pieczarki', amount: '500 g', calories: 110 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Pietruszka (korzeń)', amount: '1 szt', calories: 30 }, { name: 'Seler', amount: '1/4 szt', calories: 20 }, { name: 'Ziemniaki', amount: '300 g', calories: 231 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Masło', amount: '30 g', calories: 220 }, { name: 'Śmietana 18%', amount: '200 ml', calories: 372 }, { name: 'Mąka pszenna', amount: '1 łyżka', calories: 36 }, { name: 'Koperek', amount: '2 łyżki', calories: 5 }, { name: 'Przyprawy (sól, pieprz)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1114, servings: 4,
@@ -2286,7 +2286,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp25', name: 'Zupa gulaszowa', category: 'Zupy', time: '1 godz 20 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp25.webp',
     instructions: '1. Mięso pokrój w kostkę 1,5 cm i obsmaż partiami na rozgrzanym oleju w dużym garnku.\n2. Dodaj posiekaną cebulę i czosnek, smaż 3 minuty, a potem wsyp paprykę słodką i ostrą w proszku.\n3. Wlej 1,8 l wody, zagotuj i gotuj pod przykryciem 40 minut na małym ogniu.\n4. Dodaj pokrojoną w kostkę marchew i ziemniaki, gotuj 15 minut.\n5. Wrzuć paprykę czerwoną w kostkę i koncentrat pomidorowy, gotuj kolejne 10 minut.\n6. Dopraw solą, pieprzem, kminkiem i majerankiem — zupa ma być wyrazista i lekko pikantna.\n7. Odstaw na 10 minut przed podaniem, żeby smaki się połączyły.',
     ingredients: [{ name: 'Łopatka wieprzowa', amount: '400 g', calories: 920 }, { name: 'Olej', amount: '2 łyżki', calories: 177 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 12 }, { name: 'Marchew', amount: '1 szt', calories: 25 }, { name: 'Ziemniaki', amount: '500 g', calories: 385 }, { name: 'Papryka czerwona', amount: '2 szt', calories: 90 }, { name: 'Koncentrat pomidorowy', amount: '3 łyżki', calories: 60 }, { name: 'Przyprawy (sól, pieprz, papryka słodka i ostra, kminek, majeranek)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1749, servings: 5,
@@ -2294,7 +2294,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp26', name: 'Barszcz ukraiński', category: 'Zupy', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp26.webp',
     instructions: '1. Marchew, pietruszkę i cebulę obierz, pokrój w kostkę, zalej 2 l wody i gotuj 15 minut.\n2. Buraki obierz i pokrój w cienkie słupki; dodaj do garnka razem z ziemniakami w kostkę.\n3. Gotuj 15 minut, a następnie wrzuć poszatkowaną kapustę i gotuj kolejne 10 minut.\n4. Dodaj odsączoną fasolę i koncentrat pomidorowy, gotuj 5 minut.\n5. Dopraw sokiem z cytryny, przeciśniętym czosnkiem, solą i pieprzem.\n6. Śmietanę zahartuj chochlą gorącego barszczu i wlej do garnka, mieszając.\n7. Podgrzej, nie gotując, i podawaj posypany natką pietruszki.',
     ingredients: [{ name: 'Buraki', amount: '500 g', calories: 215 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Pietruszka (korzeń)', amount: '1 szt', calories: 30 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Ziemniaki', amount: '300 g', calories: 231 }, { name: 'Kapusta biała', amount: '300 g', calories: 75 }, { name: 'Fasola biała (konserwowa)', amount: '240 g', calories: 230 }, { name: 'Koncentrat pomidorowy', amount: '2 łyżki', calories: 40 }, { name: 'Cytryna', amount: '1/2 szt', calories: 10 }, { name: 'Czosnek', amount: '2 ząbki', calories: 8 }, { name: 'Śmietana 18%', amount: '150 ml', calories: 279 }, { name: 'Natka pietruszki', amount: '2 łyżki', calories: 5 }, { name: 'Przyprawy (sól, pieprz)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1213, servings: 6,
@@ -2310,7 +2310,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp28', name: 'Pączki z konfiturą różaną', category: 'Desery', time: '2 godz 30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp28.webp',
     instructions: '1. Drożdże rozetrzyj z łyżką cukru, dodaj 100 ml ciepłego mleka i 2 łyżki mąki; odstaw zaczyn na 15 minut.\n2. Żółtka i jajko ubij z resztą cukru na jasną, puszystą masę.\n3. Do miski przesiej mąkę, dodaj zaczyn, masę jajeczną, resztę mleka, spirytus i szczyptę soli; wyrabiaj 10 minut.\n4. Pod koniec wyrabiania dodawaj stopniowo roztopione, przestudzone masło, aż ciasto zacznie odchodzić od ręki.\n5. Odstaw ciasto pod ściereczką na godzinę, potem rozwałkuj na grubość 2 cm, wycinaj szklanką krążki i odstaw na kolejne 20 minut.\n6. Smaż w oleju rozgrzanym do 170°C po 2 minuty z każdej strony — dzięki spirytusowi pączki mniej nasiąkają tłuszczem.\n7. Odsącz na ręczniku papierowym, nadziej konfiturą różaną za pomocą rękawa cukierniczego i oprósz cukrem pudrem.',
     ingredients: [{ name: 'Mąka pszenna', amount: '500 g', calories: 1820 }, { name: 'Drożdże świeże', amount: '40 g', calories: 42 }, { name: 'Mleko', amount: '250 ml', calories: 125 }, { name: 'Cukier', amount: '80 g', calories: 320 }, { name: 'Żółtka', amount: '4 szt', calories: 220 }, { name: 'Jajko', amount: '1 szt', calories: 70 }, { name: 'Masło', amount: '60 g', calories: 440 }, { name: 'Spirytus', amount: '1 łyżka', calories: 30 }, { name: 'Konfitura z róży', amount: '200 g', calories: 560 }, { name: 'Olej do smażenia (wchłonięty)', amount: '100 ml', calories: 884 }, { name: 'Cukier puder', amount: '50 g', calories: 200 }, { name: 'Szczypta soli', amount: 'do smaku', calories: 0 }],
     totalCalories: 4711, servings: 16,
@@ -2318,7 +2318,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp29', name: 'Faworki (chruściki)', category: 'Desery', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp29.webp',
     instructions: '1. Mąkę przesiej na stolnicę, dodaj żółtka, śmietanę, spirytus i szczyptę soli.\n2. Zagnieć ciasto, a potem tłucz je wałkiem przez 10 minut, co chwilę składając na pół — pojawią się pęcherzyki powietrza.\n3. Rozwałkuj ciasto bardzo cienko (ok. 1 mm) — im cieniej, tym bardziej kruche faworki.\n4. Pokrój na paski 3 × 10 cm, na środku każdego zrób nacięcie i przełóż przez nie jeden koniec.\n5. Rozgrzej olej do 180°C i smaż faworki partiami po ok. 30 sekund z każdej strony, aż będą jasnozłote.\n6. Wyjmuj łyżką cedzakową na ręcznik papierowy.\n7. Po przestudzeniu obficie oprósz cukrem pudrem.',
     ingredients: [{ name: 'Mąka pszenna', amount: '250 g', calories: 910 }, { name: 'Żółtka', amount: '4 szt', calories: 220 }, { name: 'Śmietana 18%', amount: '3 łyżki', calories: 84 }, { name: 'Spirytus', amount: '1 łyżka', calories: 30 }, { name: 'Olej do smażenia (wchłonięty)', amount: '60 ml', calories: 530 }, { name: 'Cukier puder', amount: '40 g', calories: 160 }, { name: 'Szczypta soli', amount: 'do smaku', calories: 0 }],
     totalCalories: 1934, servings: 8,
@@ -2334,7 +2334,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp31', name: 'Karpatka', category: 'Desery', time: '5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp31.webp',
     instructions: '1. Ciasto: zagotuj 250 ml wody ze 125 g masła, od razu wsyp mąkę i ucieraj energicznie na małym ogniu, aż masa odejdzie od garnka.\n2. Przestudź i wbijaj jajka pojedynczo, miksując do uzyskania gładkiego, lśniącego ciasta.\n3. Podziel ciasto na 2 części i rozsmaruj cienko na dwóch blachach wyłożonych papierem — nierówności są pożądane.\n4. Piecz każdy blat w 200°C przez 25–30 minut, nie otwierając piekarnika w pierwszych 20 minutach.\n5. Krem: w 250 ml mleka rozmieszaj budynie z cukrem, resztę mleka zagotuj, wlej budyń i gotuj, mieszając, aż zgęstnieje; wystudź pod folią.\n6. Miękkie masło (200 g) utrzyj na puch i dodawaj po łyżce zimnego budyniu, miksując.\n7. Przełóż blaty kremem, schłodź co najmniej 3 godziny i oprósz cukrem pudrem.',
     ingredients: [{ name: 'Masło', amount: '325 g', calories: 2389 }, { name: 'Mąka pszenna', amount: '150 g', calories: 546 }, { name: 'Jajka', amount: '5 szt', calories: 350 }, { name: 'Mleko', amount: '750 ml', calories: 375 }, { name: 'Budyń waniliowy (proszek)', amount: '2 opakowania', calories: 290 }, { name: 'Cukier', amount: '150 g', calories: 600 }, { name: 'Cukier puder', amount: '20 g', calories: 80 }],
     totalCalories: 4630, servings: 12,
@@ -2342,7 +2342,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp32', name: 'Ciasto drożdżowe ze śliwkami i kruszonką', category: 'Desery', time: '2 godz 30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp32.webp',
     instructions: '1. Drożdże rozetrzyj z łyżką cukru, dodaj ciepłe mleko i 2 łyżki mąki; odstaw na 15 minut.\n2. 400 g mąki wymieszaj ze 100 g cukru, jajkami, zaczynem i roztopionym masłem (60 g); wyrabiaj 10 minut.\n3. Ciasto odstaw pod ściereczką na godzinę do wyrośnięcia.\n4. Kruszonka: 100 g mąki, 80 g cukru i 70 g zimnego masła rozcieraj palcami, aż powstaną grudki.\n5. Śliwki umyj, przekrój na pół i usuń pestki.\n6. Wyrośnięte ciasto rozłóż na blasze wyłożonej papierem, gęsto ułóż śliwki, posyp kruszonką i odstaw na 20 minut.\n7. Piecz w 180°C przez 40–45 minut, aż kruszonka będzie złota.',
     ingredients: [{ name: 'Mąka pszenna', amount: '500 g', calories: 1820 }, { name: 'Drożdże świeże', amount: '25 g', calories: 26 }, { name: 'Mleko', amount: '200 ml', calories: 100 }, { name: 'Cukier', amount: '180 g', calories: 720 }, { name: 'Jajka', amount: '2 szt', calories: 140 }, { name: 'Masło', amount: '130 g', calories: 955 }, { name: 'Śliwki', amount: '800 g', calories: 368 }],
     totalCalories: 4129, servings: 16,
@@ -2358,7 +2358,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp34', name: 'Tiramisu', category: 'Desery', time: '40 min + 6 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp34.webp',
     instructions: '1. Zaparz mocną kawę (300 ml), wystudź i wymieszaj z amaretto.\n2. Żółtka ubij z cukrem nad parą przez 5 minut, aż masa zgęstnieje i zjaśnieje; przestudź.\n3. Do żółtek dodawaj po łyżce mascarpone, miksując na niskich obrotach.\n4. Białka ubij na sztywną pianę i delikatnie wmieszaj do kremu szpatułką.\n5. Biszkopty maczaj krótko (1–2 sekundy) w kawie i ułóż ciasno na dnie naczynia.\n6. Wyłóż połowę kremu, ułóż drugą warstwę biszkoptów i przykryj resztą kremu.\n7. Schłodź co najmniej 6 godzin, a przed podaniem oprósz kakao przez sitko.',
     ingredients: [{ name: 'Mascarpone', amount: '500 g', calories: 2150 }, { name: 'Jajka (żółtka i białka)', amount: '4 szt', calories: 280 }, { name: 'Cukier', amount: '100 g', calories: 400 }, { name: 'Biszkopty podłużne', amount: '200 g', calories: 780 }, { name: 'Kawa', amount: '300 ml', calories: 6 }, { name: 'Amaretto (opcjonalnie)', amount: '3 łyżki', calories: 140 }, { name: 'Kakao', amount: '2 łyżki', calories: 46 }],
     totalCalories: 3802, servings: 8,
@@ -2366,7 +2366,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp35', name: 'Gofry z bitą śmietaną i truskawkami', category: 'Desery', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1565299543923-37dd37887442?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp35.webp',
     instructions: '1. Masło roztop i przestudź.\n2. Żółtka wymieszaj z mlekiem, masłem i cukrem.\n3. Wsyp mąkę przesianą z proszkiem do pieczenia i szczyptą soli; wymieszaj na gładkie ciasto.\n4. Białka ubij na sztywną pianę i delikatnie wmieszaj do ciasta — gofry będą lekkie i chrupiące.\n5. Rozgrzej gofrownicę, nakładaj ciasto i piecz 3–4 minuty, aż gofry będą złote.\n6. Śmietanę kremówkę ubij na sztywno.\n7. Podawaj gofry od razu, z bitą śmietaną i pokrojonymi truskawkami.',
     ingredients: [{ name: 'Mąka pszenna', amount: '300 g', calories: 1092 }, { name: 'Mleko', amount: '450 ml', calories: 225 }, { name: 'Jajka', amount: '3 szt', calories: 210 }, { name: 'Masło', amount: '80 g', calories: 587 }, { name: 'Cukier', amount: '2 łyżki', calories: 120 }, { name: 'Proszek do pieczenia', amount: '2 łyżeczki', calories: 10 }, { name: 'Śmietana kremówka 30%', amount: '200 ml', calories: 580 }, { name: 'Truskawki', amount: '250 g', calories: 80 }, { name: 'Szczypta soli', amount: 'do smaku', calories: 0 }],
     totalCalories: 2904, servings: 6,
@@ -2374,7 +2374,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp36', name: 'Ciasto marchewkowe z kremem', category: 'Desery', time: '1 godz 30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp36.webp',
     instructions: '1. Marchew obierz i zetrzyj na drobnej tarce; orzechy posiekaj.\n2. Jajka ubij z cukrem trzcinowym na puszystą masę, a potem wlewaj cienkim strumieniem olej, miksując.\n3. Mąkę przesiej z proszkiem do pieczenia, sodą, cynamonem i szczyptą soli; wmieszaj do masy jajecznej.\n4. Dodaj marchew i orzechy, wymieszaj łyżką.\n5. Przelej do formy 24 cm wyłożonej papierem i piecz w 175°C przez 50–55 minut, do suchego patyczka.\n6. Krem: miękkie masło utrzyj z cukrem pudrem, dodaj zimny serek śmietankowy i krótko zmiksuj.\n7. Wystudzone ciasto posmaruj kremem i schłodź przez godzinę.',
     ingredients: [{ name: 'Marchew', amount: '300 g', calories: 123 }, { name: 'Jajka', amount: '3 szt', calories: 210 }, { name: 'Cukier trzcinowy', amount: '180 g', calories: 700 }, { name: 'Olej', amount: '180 ml', calories: 1590 }, { name: 'Mąka pszenna', amount: '250 g', calories: 910 }, { name: 'Proszek do pieczenia', amount: '2 łyżeczki', calories: 10 }, { name: 'Soda oczyszczona', amount: '1 łyżeczka', calories: 0 }, { name: 'Orzechy włoskie', amount: '80 g', calories: 523 }, { name: 'Masło', amount: '50 g', calories: 367 }, { name: 'Cukier puder', amount: '60 g', calories: 240 }, { name: 'Serek śmietankowy', amount: '250 g', calories: 600 }, { name: 'Cynamon, szczypta soli', amount: 'do smaku', calories: 0 }],
     totalCalories: 5273, servings: 16,
@@ -2382,7 +2382,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp37', name: 'Chleb bananowy', category: 'Desery', time: '1 godz 15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp37.webp',
     instructions: '1. Bardzo dojrzałe banany rozgnieć widelcem na gładkie purée.\n2. Masło roztop i wymieszaj z bananami i cukrem.\n3. Dodaj jajka i dokładnie wymieszaj.\n4. Mąkę przesiej z sodą, cynamonem i szczyptą soli, wsyp do masy i wymieszaj tylko do połączenia.\n5. Wmieszaj posiekane orzechy.\n6. Przelej do keksówki wyłożonej papierem i piecz w 175°C przez 55–60 minut, do suchego patyczka.\n7. Wystudź w formie 10 minut, a potem na kratce.',
     ingredients: [{ name: 'Banany', amount: '3 szt', calories: 320 }, { name: 'Masło', amount: '80 g', calories: 587 }, { name: 'Cukier', amount: '100 g', calories: 400 }, { name: 'Jajka', amount: '2 szt', calories: 140 }, { name: 'Mąka pszenna', amount: '250 g', calories: 910 }, { name: 'Soda oczyszczona', amount: '1 łyżeczka', calories: 0 }, { name: 'Orzechy włoskie', amount: '50 g', calories: 327 }, { name: 'Cynamon, szczypta soli', amount: 'do smaku', calories: 0 }],
     totalCalories: 2684, servings: 10,
@@ -2390,7 +2390,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp38', name: 'Pierniczki świąteczne z lukrem', category: 'Boże Narodzenie', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp38.webp',
     instructions: '1. Miód podgrzej z cukrem i masłem, aż się rozpuszczą; przestudź do letniej temperatury.\n2. Mąkę przesiej z kakao, sodą i przyprawą do piernika.\n3. Dodaj miodową masę i jajko, zagnieć gładkie ciasto; zawiń w folię i schłodź godzinę.\n4. Rozwałkuj ciasto na grubość 4 mm i wykrawaj foremkami pierniczki.\n5. Układaj na blasze wyłożonej papierem i piecz w 180°C przez 8–10 minut.\n6. Lukier: białko ubij z cukrem pudrem na gęstą, lśniącą masę.\n7. Wystudzone pierniczki udekoruj lukrem i odstaw do wyschnięcia; w puszce zmiękną po kilku dniach.',
     ingredients: [{ name: 'Miód', amount: '200 g', calories: 640 }, { name: 'Cukier', amount: '100 g', calories: 400 }, { name: 'Masło', amount: '100 g', calories: 735 }, { name: 'Mąka pszenna', amount: '500 g', calories: 1820 }, { name: 'Kakao', amount: '1 łyżka', calories: 23 }, { name: 'Soda oczyszczona', amount: '1 łyżeczka', calories: 0 }, { name: 'Przyprawa do piernika', amount: '20 g', calories: 60 }, { name: 'Jajko', amount: '1 szt', calories: 70 }, { name: 'Białko', amount: '1 szt', calories: 17 }, { name: 'Cukier puder', amount: '150 g', calories: 600 }],
     totalCalories: 4365, servings: 20,
@@ -2398,7 +2398,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp39', name: 'Sałatka gyros', category: 'Sałatki', time: '30 min + 3 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp39.webp',
     instructions: '1. Pierś z kurczaka pokrój w kostkę, wymieszaj z olejem i przyprawą gyros; odstaw na 15 minut.\n2. Usmaż kurczaka na rozgrzanej patelni przez 8 minut i całkowicie wystudź.\n3. Kapustę pekińską poszatkuj, paprykę i ogórki konserwowe pokrój w kostkę, cebulę posiekaj; kukurydzę odsącz.\n4. Sos: wymieszaj majonez z jogurtem naturalnym.\n5. W szklanej misce układaj warstwami: kurczaka, cebulę, ogórki, kukurydzę i paprykę.\n6. Posmaruj cienko ketchupem, wyłóż sos i przykryj kapustą pekińską.\n7. Schłodź co najmniej 3 godziny — najlepsza jest przygotowana dzień wcześniej.',
     ingredients: [{ name: 'Pierś z kurczaka', amount: '500 g', calories: 550 }, { name: 'Olej', amount: '1 łyżka', calories: 88 }, { name: 'Kapusta pekińska', amount: '400 g', calories: 64 }, { name: 'Papryka czerwona', amount: '1 szt', calories: 45 }, { name: 'Ogórki konserwowe', amount: '4 szt', calories: 22 }, { name: 'Cebula czerwona', amount: '1 szt', calories: 40 }, { name: 'Kukurydza konserwowa', amount: '1 puszka', calories: 190 }, { name: 'Majonez', amount: '100 g', calories: 700 }, { name: 'Jogurt naturalny', amount: '100 g', calories: 60 }, { name: 'Ketchup', amount: '80 g', calories: 90 }, { name: 'Przyprawy (gyros)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1849, servings: 8,
@@ -2438,7 +2438,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'pp44', name: 'Tosty z szynką i serem', category: 'Śniadania', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1509482560494-4126f8225994?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/pp44.webp',
     instructions: '1. Kromki chleba tostowego posmaruj cienko masłem z jednej strony.\n2. Na nieposmarowanej stronie połowy kromek ułóż plaster sera, szynki i drugi plaster sera.\n3. Pomidor pokrój w cienkie plastry i dodaj do tostów.\n4. Przykryj pozostałymi kromkami, masłem na zewnątrz.\n5. Rozgrzej opiekacz lub patelnię na średnim ogniu.\n6. Opiekaj tosty 3–4 minuty (na patelni po 2–3 minuty z każdej strony), aż ser się roztopi, a pieczywo zrumieni.\n7. Przekrój ukośnie i podawaj od razu, opcjonalnie z ketchupem.',
     ingredients: [{ name: 'Chleb tostowy', amount: '8 kromek', calories: 530 }, { name: 'Masło', amount: '30 g', calories: 220 }, { name: 'Ser żółty', amount: '8 plasterków', calories: 560 }, { name: 'Szynka', amount: '4 plasterki', calories: 90 }, { name: 'Pomidor', amount: '1 szt', calories: 27 }, { name: 'Ketchup (opcjonalnie)', amount: '2 łyżki', calories: 45 }],
     totalCalories: 1472, servings: 4,
@@ -2456,7 +2456,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'kr10', name: 'Pyzy ziemniaczane z mięsem', category: 'Kuchnia regionalna', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/kr10.webp',
     instructions: '1. Połowę ziemniaków ugotuj w osolonej wodzie i przeciśnij przez praskę; drugą połowę zetrzyj na drobnej tarce i mocno odciśnij przez gazę.\n2. Wodę po odciśniętych ziemniakach odstaw na 10 minut — na dnie osadzi się skrobia, którą dodaj z powrotem do masy.\n3. Połącz oba rodzaje ziemniaków, skrobię, jajko i mąkę ziemniaczaną; dopraw solą i wyrób gładkie ciasto.\n4. Farsz: cebulę zeszklij na oleju, wymieszaj z mięsem mielonym, podsmaż 8 minut i dopraw solą, pieprzem i majerankiem.\n5. Z ciasta formuj placuszki, na środek kładź łyżkę farszu i zlepiaj w kulki wielkości mandarynki.\n6. Gotuj partiami w osolonej wodzie ok. 15 minut od wypłynięcia; podawaj polane skwarkami z cebulką.',
     ingredients: [{ name: 'Ziemniaki', amount: '1,2 kg', calories: 924 }, { name: 'Mięso mielone wieprzowe', amount: '400 g', calories: 1040 }, { name: 'Mąka ziemniaczana', amount: '100 g', calories: 340 }, { name: 'Jajko', amount: '1 szt', calories: 77 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Boczek na skwarki', amount: '100 g', calories: 340 }, { name: 'Olej', amount: '1 łyżka', calories: 88 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2889, servings: 4,
@@ -2464,7 +2464,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'kr11', name: 'Zalewajka łódzka', category: 'Kuchnia regionalna', time: '50 min',
-    thumbnail: 'https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/kr11.webp',
     instructions: '1. Ziemniaki obierz i pokrój w kostkę, marchew w plasterki; zalej 1,5 l wody, dodaj liść laurowy i ziele angielskie, gotuj 15 minut.\n2. Kiełbasę pokrój w półplasterki i podsmaż na suchej patelni, aż puści tłuszcz; dodaj pokrojoną cebulę i smaż do zeszklenia.\n3. Przełóż kiełbasę z cebulą do garnka z ziemniakami.\n4. Wlej zakwas żytni, cały czas mieszając, i gotuj 10 minut na małym ogniu.\n5. Dodaj przeciśnięty czosnek i majeranek roztarty w dłoniach; dopraw solą i pieprzem.\n6. Podawaj gorącą, w głębokich talerzach, z pajdą chleba — w Łodzi zalewajka to klasyczne danie robotnicze.',
     ingredients: [{ name: 'Ziemniaki', amount: '600 g', calories: 462 }, { name: 'Zakwas żytni', amount: '500 ml', calories: 160 }, { name: 'Kiełbasa', amount: '250 g', calories: 750 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Marchew', amount: '1 szt', calories: 33 }, { name: 'Czosnek', amount: '3 ząbki', calories: 23 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1468, servings: 4,
@@ -2472,7 +2472,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'kr12', name: 'Kartacze suwalskie', category: 'Kuchnia regionalna', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/kr12.webp',
     instructions: '1. Dwie trzecie ziemniaków zetrzyj na drobnej tarce i odciśnij w gazie; resztę ugotuj i przeciśnij przez praskę.\n2. Wodę z odciśniętych ziemniaków odstaw, zlej ją, a osiadłą skrobię dodaj do masy razem z ugotowanymi ziemniakami; posól.\n3. Farsz: mięso mielone wymieszaj z drobno posiekaną, zeszkloną cebulą, czosnkiem, solą, pieprzem i majerankiem.\n4. Mokrymi dłońmi formuj z ciasta owalne placki, nakładaj farsz i sklejaj w podłużne kartacze (kształt sterowca).\n5. Wkładaj do osolonego wrzątku i gotuj na małym ogniu 25 minut — woda ma tylko lekko mrugać, inaczej kartacze się rozpadną.\n6. Podawaj z sosem ze skwarek, cebuli i śmietany.',
     ingredients: [{ name: 'Ziemniaki', amount: '1,5 kg', calories: 1155 }, { name: 'Mięso mielone wieprzowe', amount: '500 g', calories: 1300 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '2 ząbki', calories: 15 }, { name: 'Boczek', amount: '100 g', calories: 340 }, { name: 'Śmietana 18%', amount: '150 ml', calories: 278 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 3168, servings: 4,
@@ -2480,7 +2480,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'kr13', name: 'Rolada śląska z modrą kapustą', category: 'Kuchnia regionalna', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/kr13.webp',
     instructions: '1. Plastry wołowiny rozbij cienko tłuczkiem, posól, popieprz i posmaruj musztardą.\n2. Na każdym plastrze ułóż pasek boczku, kawałek ogórka kiszonego i cebuli; zwiń ciasno i spnij wykałaczką lub nicią.\n3. Rolady obsmaż na oleju ze wszystkich stron na brązowo, przełóż do garnka, podlej szklanką wody i duś pod przykryciem 1,5 godziny.\n4. Modra kapusta: kapustę czerwoną poszatkuj, skrop sokiem z cytryny (zachowa kolor), duś z pokrojonym jabłkiem, łyżką cukru i odrobiną wody 30 minut.\n5. Sos spod rolad zagęść łyżką mąki rozmieszanej w zimnej wodzie i zagotuj.\n6. Podawaj rolady z kluskami śląskimi i modrą kapustą — klasyczny niedzielny obiad na Śląsku.',
     ingredients: [{ name: 'Wołowina (zrazówka)', amount: '600 g', calories: 1020 }, { name: 'Boczek wędzony', amount: '80 g', calories: 272 }, { name: 'Ogórki kiszone', amount: '2 szt', calories: 14 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Musztarda', amount: '2 łyżki', calories: 30 }, { name: 'Olej', amount: '2 łyżki', calories: 176 }, { name: 'Kapusta czerwona', amount: '600 g', calories: 186 }, { name: 'Jabłko', amount: '1 szt', calories: 78 }, { name: 'Mąka pszenna', amount: '1 łyżka', calories: 35 }, { name: 'Cukier', amount: '1 łyżka', calories: 48 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1939, servings: 4,
@@ -2544,7 +2544,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'nk13', name: 'Kapusta duszona z pomidorami', category: 'Niskokaloryczne', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/nk13.webp',
     instructions: '1. Kapustę białą poszatkuj, cebulę pokrój w kostkę, marchew zetrzyj na grubej tarce.\n2. Na łyżce oleju zeszklij cebulę, dodaj kapustę i marchew, podlej pół szklanki wody.\n3. Duś pod przykryciem 20 minut, od czasu do czasu mieszając.\n4. Dodaj passatę pomidorową, słodką paprykę, kminek, sól i pieprz.\n5. Duś jeszcze 10 minut, aż kapusta zmięknie, a sos zgęstnieje.\n6. Podawaj jako samodzielne lekkie danie albo dodatek do pieczonego mięsa.',
     ingredients: [{ name: 'Kapusta biała', amount: '1 kg', calories: 250 }, { name: 'Passata pomidorowa', amount: '400 g', calories: 140 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Marchew', amount: '1 szt', calories: 41 }, { name: 'Olej', amount: '1 łyżka', calories: 88 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 559, servings: 4,
@@ -2568,7 +2568,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sm11', name: 'Ratatouille', category: 'Śródziemnomorska', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm11.webp',
     instructions: '1. Bakłażana, cukinię, paprykę i cebulę pokrój w kostkę ok. 2 cm.\n2. Bakłażana podsmaż osobno na 2 łyżkach oliwy, aż się zrumieni, i odłóż — usmażony razem z resztą zrobiłby się gąbczasty.\n3. Na pozostałej oliwie zeszklij cebulę i czosnek, dodaj paprykę i cukinię, smaż 8 minut.\n4. Dodaj bakłażana, pokrojone pomidory, tymianek, liść laurowy, sól i pieprz.\n5. Duś pod przykryciem na małym ogniu 30 minut, delikatnie mieszając.\n6. Na koniec dodaj świeżą bazylię; podawaj z pieczywem — na drugi dzień smakuje jeszcze lepiej.',
     ingredients: [{ name: 'Bakłażan', amount: '1 szt', calories: 88 }, { name: 'Cukinia', amount: '1 szt', calories: 60 }, { name: 'Papryka', amount: '2 szt', calories: 90 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Pomidory', amount: '4 szt', calories: 90 }, { name: 'Oliwa z oliwek', amount: '4 łyżki', calories: 352 }, { name: 'Czosnek', amount: '3 ząbki', calories: 23 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 743, servings: 4,
@@ -2584,7 +2584,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sm13', name: 'Pasta e fagioli', category: 'Śródziemnomorska', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm13.webp',
     instructions: '1. Na oliwie zeszklij pokrojoną cebulę, marchew i seler naciowy (włoskie soffritto) przez 8 minut.\n2. Dodaj czosnek i rozmaryn, smaż minutę.\n3. Wlej passatę i bulion, dodaj odsączoną fasolę cannellini; gotuj 10 minut.\n4. Jedną trzecią zupy zblenduj i wlej z powrotem — zupa nabierze kremowej konsystencji.\n5. Wsyp drobny makaron (np. ditalini) i gotuj do miękkości, ok. 8 minut, w razie potrzeby dolewając wody.\n6. Podawaj z kroplą oliwy i startym parmezanem.',
     ingredients: [{ name: 'Fasola cannellini z puszki', amount: '400 g', calories: 360 }, { name: 'Makaron drobny', amount: '150 g', calories: 525 }, { name: 'Passata pomidorowa', amount: '300 g', calories: 105 }, { name: 'Bulion warzywny', amount: '1 l', calories: 50 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Marchew', amount: '1 szt', calories: 33 }, { name: 'Seler naciowy', amount: '2 łodygi', calories: 13 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 176 }, { name: 'Parmezan', amount: '30 g', calories: 120 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1422, servings: 4,
@@ -2592,7 +2592,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sm14', name: 'Spaghetti aglio e olio', category: 'Śródziemnomorska', time: '20 min',
-    thumbnail: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm14.webp',
     instructions: '1. Makaron ugotuj al dente w mocno osolonej wodzie; odlej szklankę wody z gotowania.\n2. W tym czasie czosnek pokrój w cienkie plasterki.\n3. Na patelni na małym ogniu rozgrzej oliwę z czosnkiem i płatkami chili — czosnek ma się zezłocić, nie przypalić (inaczej będzie gorzki).\n4. Przełóż makaron na patelnię, dolej pół szklanki wody z gotowania i energicznie mieszaj, aż powstanie lekki sos.\n5. Dodaj dużo posiekanej natki pietruszki.\n6. Podawaj od razu, opcjonalnie z parmezanem.',
     ingredients: [{ name: 'Makaron spaghetti', amount: '200 g', calories: 700 }, { name: 'Oliwa z oliwek', amount: '4 łyżki', calories: 352 }, { name: 'Czosnek', amount: '5 ząbków', calories: 38 }, { name: 'Natka pietruszki', amount: '1 pęczek', calories: 11 }, { name: 'Płatki chili', amount: '1/2 łyżeczki', calories: 0 }],
     totalCalories: 1101, servings: 2,
@@ -2600,7 +2600,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sm15', name: 'Fasolka szparagowa z pomidorami i czosnkiem', category: 'Śródziemnomorska', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm15.webp',
     instructions: '1. Fasolkę oczyść z końcówek i gotuj w osolonej wodzie 5 minut; przelej zimną wodą, żeby zachowała kolor.\n2. Na oliwie podsmaż czosnek w plasterkach i cebulę.\n3. Dodaj pokrojone pomidory i duś 5 minut, aż puszczą sok.\n4. Wrzuć fasolkę, dopraw solą, pieprzem i oregano, duś razem 5 minut.\n5. Posyp pokruszoną fetą.\n6. Podawaj jako dodatek do ryby albo samodzielnie z pieczywem.',
     ingredients: [{ name: 'Fasolka szparagowa', amount: '600 g', calories: 186 }, { name: 'Pomidory', amount: '3 szt', calories: 72 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Czosnek', amount: '3 ząbki', calories: 23 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 176 }, { name: 'Ser feta', amount: '80 g', calories: 212 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 709, servings: 4,
@@ -2608,7 +2608,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sm16', name: 'Gazpacho', category: 'Śródziemnomorska', time: '15 min + 2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm16.webp',
     instructions: '1. Dojrzałe pomidory sparz, obierz ze skórki i pokrój; ogórka obierz, paprykę oczyść z gniazd nasiennych.\n2. Pieczywo namocz na chwilę w wodzie i odciśnij.\n3. Wszystkie warzywa, pieczywo, czosnek, oliwę i ocet winny zblenduj na gładko.\n4. Dopraw solą i pieprzem; jeśli zupa jest zbyt gęsta, dolej trochę zimnej wody.\n5. Schłodź w lodówce co najmniej 2 godziny.\n6. Podawaj bardzo zimne, posypane drobno pokrojonym ogórkiem i grzankami.',
     ingredients: [{ name: 'Pomidory', amount: '1 kg', calories: 180 }, { name: 'Ogórek', amount: '1 szt', calories: 38 }, { name: 'Papryka czerwona', amount: '1 szt', calories: 45 }, { name: 'Pieczywo pszenne', amount: '50 g', calories: 130 }, { name: 'Oliwa z oliwek', amount: '3 łyżki', calories: 264 }, { name: 'Ocet winny', amount: '1 łyżka', calories: 3 }, { name: 'Czosnek', amount: '1 ząbek', calories: 8 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 668, servings: 4,
@@ -2616,7 +2616,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'm11', name: 'Penne arrabbiata', category: 'Makarony', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/m11.webp',
     instructions: '1. Na oliwie podsmaż na małym ogniu czosnek w plasterkach i płatki chili przez minutę.\n2. Dodaj pomidory z puszki, rozgnieć je łyżką, posól i duś 15 minut, aż sos zgęstnieje.\n3. W tym czasie ugotuj penne al dente w osolonej wodzie.\n4. Odcedź makaron, zachowując pół szklanki wody z gotowania.\n5. Wymieszaj makaron z sosem, w razie potrzeby rozluźnij go wodą z gotowania.\n6. Podawaj z posiekaną natką i startym parmezanem — sos ma być wyraźnie pikantny.',
     ingredients: [{ name: 'Makaron penne', amount: '400 g', calories: 1400 }, { name: 'Pomidory z puszki', amount: '800 g', calories: 160 }, { name: 'Oliwa z oliwek', amount: '3 łyżki', calories: 264 }, { name: 'Czosnek', amount: '4 ząbki', calories: 30 }, { name: 'Parmezan', amount: '40 g', calories: 160 }, { name: 'Płatki chili', amount: '1 łyżeczka', calories: 0 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2014, servings: 4,
@@ -2648,7 +2648,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'm15', name: 'Lasagne ze szpinakiem i ricottą', category: 'Makarony', time: '1 godz 15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/m15.webp',
     instructions: '1. Szpinak (mrożony lub świeży) podgrzej na patelni z czosnkiem, odparuj wodę i ostudź.\n2. Wymieszaj szpinak z ricottą, jajkiem, połową parmezanu, gałką muszkatołową, solą i pieprzem.\n3. Sos beszamelowy: na maśle zasmaż mąkę, stopniowo wlewaj mleko, cały czas mieszając, i gotuj do zgęstnienia.\n4. W naczyniu żaroodpornym układaj warstwy: odrobina sosu, płaty lasagne, farsz, sos — i tak do wyczerpania składników.\n5. Ostatnią warstwę polej sosem i posyp mozzarellą oraz resztą parmezanu.\n6. Piecz 40 minut w 180°C; przed krojeniem odstaw na 10 minut.',
     ingredients: [{ name: 'Płaty lasagne', amount: '250 g', calories: 875 }, { name: 'Szpinak', amount: '600 g', calories: 138 }, { name: 'Ricotta', amount: '250 g', calories: 438 }, { name: 'Mozzarella', amount: '125 g', calories: 313 }, { name: 'Parmezan', amount: '50 g', calories: 200 }, { name: 'Jajko', amount: '1 szt', calories: 77 }, { name: 'Mleko', amount: '600 ml', calories: 300 }, { name: 'Masło', amount: '40 g', calories: 296 }, { name: 'Mąka pszenna', amount: '40 g', calories: 138 }, { name: 'Czosnek', amount: '2 ząbki', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2790, servings: 6,
@@ -2656,7 +2656,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sw11', name: 'Śledź pod pierzynką', category: 'Wigilia', time: '45 min + 2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sw11.webp',
     instructions: '1. Ziemniaki, marchew i buraki ugotuj w mundurkach, ostudź i obierz; jajka ugotuj na twardo.\n2. Filety śledziowe (jeśli bardzo słone — namocz na godzinę w mleku) pokrój w kostkę i rozłóż na dnie półmiska.\n3. Na śledziu ułóż drobno posiekaną cebulę, a na niej starte ziemniaki; posmaruj cienko majonezem.\n4. Kolejno układaj warstwy: starta marchew, majonez, starte jajka, majonez, starte buraki.\n5. Wierzch posmaruj majonezem wymieszanym z odrobiną soku z buraków.\n6. Schłódź co najmniej 2 godziny, żeby warstwy się przegryzły; posyp koperkiem.',
     ingredients: [{ name: 'Filety śledziowe', amount: '400 g', calories: 640 }, { name: 'Ziemniaki', amount: '400 g', calories: 308 }, { name: 'Marchew', amount: '300 g', calories: 123 }, { name: 'Buraki', amount: '400 g', calories: 172 }, { name: 'Jajka', amount: '4 szt', calories: 308 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Majonez', amount: '200 g', calories: 1360 }],
     totalCalories: 2951, servings: 8,
@@ -2672,7 +2672,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sw13', name: 'Uszka z grzybami', category: 'Wigilia', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sw13.webp',
     instructions: '1. Grzyby suszone namocz na noc, następnie ugotuj w tej samej wodzie do miękkości (ok. 30 minut); wywar zachowaj do barszczu.\n2. Grzyby odcedź i bardzo drobno posiekaj; cebulę zeszklij na maśle i dodaj do grzybów.\n3. Dodaj bułkę tartą (zwiąże farsz), sól i pieprz.\n4. Z mąki, jajka, ciepłej wody i szczypty soli zagnieć elastyczne ciasto; odstaw pod miską na 20 minut.\n5. Rozwałkuj cienko, wycinaj kwadraty 4×4 cm, nakładaj farsz, składaj w trójkąty i sklejaj rogi, tworząc uszka.\n6. Gotuj w osolonej wodzie 3 minuty od wypłynięcia; podawaj w czerwonym barszczu.',
     ingredients: [{ name: 'Mąka pszenna', amount: '300 g', calories: 1035 }, { name: 'Jajko', amount: '1 szt', calories: 77 }, { name: 'Grzyby suszone', amount: '50 g', calories: 140 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Masło', amount: '30 g', calories: 222 }, { name: 'Bułka tarta', amount: '2 łyżki', calories: 76 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1630, servings: 6,
@@ -2696,7 +2696,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sa13', name: 'Sałatka z kurczakiem i ananasem', category: 'Sałatki', time: '25 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa13.webp',
     instructions: '1. Pierś z kurczaka posól, popieprz, oprósz curry i usmaż na łyżce oleju; ostudź i pokrój w kostkę.\n2. Ananasa z puszki odsącz i pokrój w kostkę; kukurydzę odsącz.\n3. Por pokrój w cienkie półplasterki, ser żółty w kostkę.\n4. Majonez wymieszaj z jogurtem, solą i szczyptą curry.\n5. Połącz wszystkie składniki z sosem.\n6. Schłódź 30 minut przed podaniem — to sałatka, która znika z imprezowego stołu pierwsza.',
     ingredients: [{ name: 'Pierś z kurczaka', amount: '400 g', calories: 440 }, { name: 'Ananas z puszki', amount: '300 g', calories: 180 }, { name: 'Kukurydza z puszki', amount: '200 g', calories: 160 }, { name: 'Por', amount: '1 szt', calories: 47 }, { name: 'Ser żółty', amount: '100 g', calories: 350 }, { name: 'Majonez', amount: '3 łyżki', calories: 306 }, { name: 'Jogurt naturalny', amount: '100 g', calories: 60 }, { name: 'Olej', amount: '1 łyżka', calories: 88 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1631, servings: 4,
@@ -2728,7 +2728,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'sa17', name: 'Sałatka z pomidorów z cebulą i szczypiorkiem', category: 'Sałatki', time: '10 min',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sa17.webp',
     instructions: '1. Dojrzałe pomidory pokrój w ósemki lub grube plastry.\n2. Cebulę pokrój w cienkie piórka, szczypiorek posiekaj.\n3. Ułóż pomidory na półmisku, posyp cebulą.\n4. Posól, popieprz i skrop olejem rzepakowym lub oliwą.\n5. Posyp hojnie szczypiorkiem.\n6. Odstaw na 5 minut, żeby pomidory puściły sok — najprostszy i najlepszy dodatek do obiadu.',
     ingredients: [{ name: 'Pomidory', amount: '6 szt', calories: 144 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Szczypiorek', amount: '1 pęczek', calories: 6 }, { name: 'Olej rzepakowy', amount: '2 łyżki', calories: 176 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 366, servings: 4,
@@ -2832,7 +2832,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'z26', name: 'Zupa z młodej kapusty', category: 'Zupy', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z26.webp',
     instructions: '1. Młodą kapustę poszatkuj, ziemniaki pokrój w kostkę, marchew w plasterki.\n2. Na łyżce masła zeszklij cebulę, dodaj kapustę i duś 5 minut.\n3. Zalej bulionem, dodaj ziemniaki i marchew; gotuj 20 minut.\n4. Dodaj pokrojone pomidory i gotuj jeszcze 5 minut.\n5. Zabiel zupę śmietaną zahartowaną gorącym wywarem, dopraw solą i pieprzem.\n6. Na koniec wrzuć dużo posiekanego koperku.',
     ingredients: [{ name: 'Młoda kapusta', amount: '600 g', calories: 150 }, { name: 'Ziemniaki', amount: '400 g', calories: 308 }, { name: 'Marchew', amount: '1 szt', calories: 41 }, { name: 'Pomidory', amount: '2 szt', calories: 45 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Bulion warzywny', amount: '1,5 l', calories: 75 }, { name: 'Masło', amount: '15 g', calories: 111 }, { name: 'Śmietana 18%', amount: '100 ml', calories: 185 }, { name: 'Koperek', amount: '1 pęczek', calories: 8 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 963, servings: 4,
@@ -2840,7 +2840,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd33', name: 'Udka z kurczaka pieczone z ziemniakami', category: 'Dania główne', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d33.webp',
     instructions: '1. Udka natrzyj solą, pieprzem, słodką papryką, czosnkiem i odrobiną oleju; odstaw na 30 minut (lub na noc).\n2. Ziemniaki pokrój w ćwiartki, wymieszaj z oliwą, solą i rozmarynem.\n3. Ułóż ziemniaki w brytfannie, a na nich udka skórą do góry.\n4. Piecz 50 minut w 200°C, aż skórka będzie chrupiąca, a ziemniaki złote.\n5. W połowie pieczenia polej ziemniaki tłuszczem z kurczaka.\n6. Podawaj z mizerią lub surówką z kapusty.',
     ingredients: [{ name: 'Udka z kurczaka', amount: '1 kg', calories: 1900 }, { name: 'Ziemniaki', amount: '1 kg', calories: 770 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 176 }, { name: 'Czosnek', amount: '3 ząbki', calories: 23 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2869, servings: 4,
@@ -2848,7 +2848,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd34', name: 'Polędwiczki wieprzowe w sosie pieczarkowym', category: 'Dania główne', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d34.webp',
     instructions: '1. Polędwiczki oczyść z błon, pokrój w medaliony grubości 3 cm i lekko rozpłaszcz dłonią.\n2. Posól, popieprz i obsmaż na oleju po 2–3 minuty z każdej strony; odłóż.\n3. Na tej samej patelni podsmaż cebulę i pokrojone pieczarki, aż odparuje woda.\n4. Wlej śmietanę i pół szklanki bulionu, zagotuj.\n5. Włóż medaliony z powrotem i duś pod przykryciem 8 minut na małym ogniu.\n6. Posyp natką; podawaj z ziemniakami lub kaszą.',
     ingredients: [{ name: 'Polędwiczka wieprzowa', amount: '600 g', calories: 840 }, { name: 'Pieczarki', amount: '400 g', calories: 88 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Śmietana 18%', amount: '200 ml', calories: 370 }, { name: 'Olej', amount: '2 łyżki', calories: 176 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1514, servings: 4,
@@ -2856,7 +2856,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'd35', name: 'Kotlety z indyka w sezamie', category: 'Dania główne', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1599921841143-819065a55cc6?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/d35.webp',
     instructions: '1. Pierś z indyka pokrój na 4 plastry i rozbij tłuczkiem przez folię na grubość 1 cm.\n2. Posól, popieprz i oprósz słodką papryką.\n3. Obtocz kolejno w mące, roztrzepanym jajku i mieszance bułki tartej z sezamem.\n4. Smaż na rozgrzanym oleju po 3–4 minuty z każdej strony na złoto.\n5. Odsącz na ręczniku papierowym.\n6. Podawaj z ziemniakami i surówką z marchewki.',
     ingredients: [{ name: 'Pierś z indyka', amount: '600 g', calories: 630 }, { name: 'Sezam', amount: '40 g', calories: 228 }, { name: 'Bułka tarta', amount: '60 g', calories: 228 }, { name: 'Jajko', amount: '1 szt', calories: 77 }, { name: 'Mąka pszenna', amount: '2 łyżki', calories: 69 }, { name: 'Olej', amount: '4 łyżki', calories: 352 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1584, servings: 4,
@@ -2880,7 +2880,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 's21', name: 'Jajka sadzone ze szpinakiem', category: 'Śniadania', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/s21.webp',
     instructions: '1. Na patelni rozgrzej łyżkę masła i podsmaż przeciśnięty czosnek przez 30 sekund.\n2. Dodaj świeży szpinak i smaż, mieszając, aż zwiędnie; dopraw solą i gałką muszkatołową.\n3. Zrób w szpinaku 4 dołki i wbij do nich jajka.\n4. Przykryj patelnię i smaż na małym ogniu 3–4 minuty, aż białka się zetną, a żółtka pozostaną płynne.\n5. Posyp pieprzem i odrobiną startego sera.\n6. Podawaj z pieczywem razowym.',
     ingredients: [{ name: 'Jajka', amount: '4 szt', calories: 308 }, { name: 'Szpinak świeży', amount: '200 g', calories: 46 }, { name: 'Masło', amount: '10 g', calories: 74 }, { name: 'Czosnek', amount: '1 ząbek', calories: 8 }, { name: 'Parmezan', amount: '15 g', calories: 60 }, { name: 'Chleb razowy', amount: '2 kromki', calories: 161 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 657, servings: 2,
@@ -2952,7 +2952,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'de19', name: 'Drożdżówki z serem', category: 'Desery', time: '2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/de19.webp',
     instructions: '1. Drożdże rozczyń w ciepłym mleku z łyżką cukru i łyżką mąki; odstaw na 15 minut.\n2. Mąkę, resztę cukru, jajko, roztopione masło i rozczyn wyrób na gładkie ciasto; odstaw do wyrośnięcia na godzinę.\n3. Twaróg zmiel, wymieszaj z żółtkiem, cukrem waniliowym i cukrem.\n4. Ciasto podziel na 12 części, uformuj płaskie bułeczki i zrób w środku zagłębienie.\n5. Nałóż ser, posmaruj brzegi jajkiem i odstaw na 20 minut.\n6. Piecz 18–20 minut w 180°C na złoto.',
     ingredients: [{ name: 'Mąka pszenna', amount: '500 g', calories: 1725 }, { name: 'Mleko', amount: '250 ml', calories: 125 }, { name: 'Masło', amount: '80 g', calories: 592 }, { name: 'Cukier', amount: '100 g', calories: 400 }, { name: 'Jajka', amount: '2 szt', calories: 154 }, { name: 'Drożdże świeże', amount: '25 g', calories: 25 }, { name: 'Twaróg półtłusty', amount: '400 g', calories: 520 }],
     totalCalories: 3541, servings: 12,
@@ -3058,7 +3058,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'f37', name: 'Chili con carne z indyka', category: 'Fit i Dieta', time: '45 min',
-    thumbnail: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/f37.webp',
     instructions: '1. Na oliwie zeszklij cebulę, paprykę i czosnek.\n2. Dodaj mielonego indyka i obsmaż, rozbijając łyżką.\n3. Wsyp kumin, słodką i wędzoną paprykę, chili i oregano; smaż minutę, aż przyprawy zapachną.\n4. Dodaj pomidory z puszki, koncentrat i szklankę wody; duś 20 minut.\n5. Wmieszaj odsączoną fasolę i kukurydzę, gotuj 5 minut; dopraw solą i sokiem z limonki.\n6. Podawaj z łyżką jogurtu greckiego zamiast śmietany.',
     ingredients: [{ name: 'Indyk mielony', amount: '500 g', calories: 750 }, { name: 'Fasola czerwona z puszki', amount: '400 g', calories: 400 }, { name: 'Pomidory z puszki', amount: '400 g', calories: 80 }, { name: 'Kukurydza', amount: '150 g', calories: 120 }, { name: 'Papryka', amount: '1 szt', calories: 45 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Koncentrat pomidorowy', amount: '1 łyżka', calories: 16 }, { name: 'Oliwa z oliwek', amount: '1 łyżka', calories: 88 }, { name: 'Jogurt grecki 0%', amount: '120 g', calories: 66 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1605, servings: 4,
@@ -3098,7 +3098,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'f42', name: 'Zupa pomidorowa z soczewicą', category: 'Fit i Dieta', time: '35 min',
-    thumbnail: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/f42.webp',
     instructions: '1. Na łyżce oliwy zeszklij cebulę, marchew i czosnek.\n2. Wsyp przepłukaną czerwoną soczewicę i kumin, wymieszaj.\n3. Dodaj pomidory z puszki i bulion; gotuj 20 minut, aż soczewica się rozpadnie.\n4. Zblenduj częściowo lub całkowicie — zupa zgęstnieje sama, bez śmietany i mąki.\n5. Dopraw solą, pieprzem, słodką papryką i sokiem z cytryny.\n6. Podawaj z natką — sycąca i bogata w białko roślinne.',
     ingredients: [{ name: 'Soczewica czerwona', amount: '160 g', calories: 560 }, { name: 'Pomidory z puszki', amount: '800 g', calories: 160 }, { name: 'Bulion warzywny', amount: '800 ml', calories: 40 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Marchew', amount: '1 szt', calories: 41 }, { name: 'Oliwa z oliwek', amount: '1 łyżka', calories: 88 }, { name: 'Czosnek', amount: '2 ząbki', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 944, servings: 4,
@@ -3186,7 +3186,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'nk24', name: 'Tzatziki z warzywami', category: 'Niskokaloryczne', time: '15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1509482560494-4126f8225994?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/nk24.webp',
     instructions: '1. Ogórka zetrzyj na grubej tarce, posól i odstaw na 10 minut.\n2. Mocno odciśnij ogórka z wody w dłoniach lub przez gazę — inaczej tzatziki będzie wodniste.\n3. Wymieszaj z jogurtem greckim 0%, przeciśniętym czosnkiem, koperkiem i sokiem z cytryny.\n4. Dopraw solą i pieprzem.\n5. Schłódź 15 minut.\n6. Podawaj z paprykami i rzodkiewkami lub jako sos do grillowanego mięsa.',
     ingredients: [{ name: 'Jogurt grecki 0%', amount: '400 g', calories: 220 }, { name: 'Ogórek', amount: '1 szt', calories: 38 }, { name: 'Czosnek', amount: '2 ząbki', calories: 15 }, { name: 'Koperek', amount: 'pęczek', calories: 9 }, { name: 'Papryka', amount: '2 szt', calories: 90 }, { name: 'Rzodkiewki', amount: 'pęczek', calories: 24 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 396, servings: 4,
@@ -3306,7 +3306,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'wg1', name: 'Zakwas buraczany na barszcz wigilijny', category: 'Wigilia', time: '20 min + 5 dni',
-    thumbnail: 'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/wg1.webp',
     instructions: '1. Zakwas nastaw 5–7 dni przed Wigilią. Buraki obierz i pokrój w grube plastry.\n2. Ułóż buraki w wyparzonym słoju na przemian z pokrojonym czosnkiem, liściem laurowym i zielem angielskim.\n3. Zalej przegotowaną, letnią wodą z rozpuszczoną solą (1 łyżka na litr) i dodaj skórkę chleba żytniego — przyspieszy fermentację.\n4. Przykryj gazą i odstaw w ciepłym miejscu; codziennie zbieraj ewentualny biały nalot.\n5. Po 3–4 dniach wyjmij chleb; zakwas jest gotowy, gdy jest klarowny, rubinowy i przyjemnie kwaśny.\n6. Przelej do butelek i trzymaj w lodówce — dodasz go do barszczu na sam koniec, nie gotując.',
     ingredients: [{ name: 'Buraki', amount: '1 kg', calories: 430 }, { name: 'Czosnek', amount: '4 ząbki', calories: 30 }, { name: 'Chleb żytni (skórka)', amount: '1 kromka', calories: 75 }, { name: 'Woda z solą', amount: '2 l', calories: 0 }, { name: 'Przyprawy (sól, pieprz, liść laurowy, ziele angielskie)', amount: 'do smaku', calories: 0 }],
     totalCalories: 535, servings: 8,
@@ -3346,7 +3346,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'wg6', name: 'Karp smażony po polsku', category: 'Wigilia', time: '40 min + 2 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/wg6.webp',
     instructions: '1. Karpia oczyść, odetnij głowę i ogon (zachowaj na zupę), pokrój w dzwonka grubości 2 cm.\n2. Skrop sokiem z cytryny, posól i odstaw do lodówki na 2 godziny — mięso straci mulisty posmak.\n3. Osusz dzwonka ręcznikiem, oprósz pieprzem i obtocz w mące (można pół na pół z bułką tartą).\n4. Smaż na rozgrzanym oleju rzepakowym lub klarowanym maśle po 5–6 minut z każdej strony, aż skórka będzie chrupiąca.\n5. Nie przewracaj za wcześnie — ryba sama odejdzie od patelni, gdy się zrumieni.\n6. Odsącz na ręczniku i podawaj z cytryną; tradycyjnie z kapustą z grochem lub ziemniakami.',
     ingredients: [{ name: 'Karp (ok. 900 g dzwonek bez głowy i ogona)', amount: '1,5 kg', calories: 1125 }, { name: 'Mąka pszenna', amount: '80 g', calories: 276 }, { name: 'Olej rzepakowy', amount: '100 ml', calories: 880 }, { name: 'Cytryna', amount: '1 szt', calories: 29 }, { name: 'Przyprawy (sól, pieprz, liść laurowy, ziele angielskie)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2310, servings: 6,
@@ -3354,7 +3354,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'wg7', name: 'Karp pieczony z jabłkami i cebulą', category: 'Wigilia', time: '1 godz 15 min',
-    thumbnail: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/wg7.webp',
     instructions: '1. Karpia oczyść, natnij skórę co 3 cm i natrzyj w środku i z zewnątrz solą, pieprzem, majerankiem i czosnkiem.\n2. Odstaw na godzinę w chłodne miejsce.\n3. Jabłka pokrój w ćwiartki, cebulę w grube krążki, ułóż na dnie natłuszczonego naczynia.\n4. Do brzucha ryby włóż kilka ćwiartek jabłka, plastry cytryny i gałązki tymianku.\n5. Ułóż karpia na jabłkach, posmaruj masłem i piecz 45–50 minut w 190°C, polewając sosem z naczynia.\n6. Delikatniejszy niż smażony — mięso jest soczyste i nie nasiąka tłuszczem.',
     ingredients: [{ name: 'Karp (cały, ok. 900 g mięsa)', amount: '1,5 kg', calories: 1125 }, { name: 'Jabłka', amount: '3 szt', calories: 234 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Masło', amount: '40 g', calories: 296 }, { name: 'Cytryna', amount: '1 szt', calories: 29 }, { name: 'Czosnek', amount: '3 ząbki', calories: 23 }, { name: 'Przyprawy (sól, pieprz, liść laurowy, ziele angielskie)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1787, servings: 6,
@@ -3386,7 +3386,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'wg11', name: 'Rolmopsy domowe', category: 'Wigilia', time: '30 min + 3 dni',
-    thumbnail: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/wg11.webp',
     instructions: '1. Płaty śledzi solonych mocz w zimnej wodzie 2–3 godziny, zmieniając wodę; osusz.\n2. Na każdy płat połóż pasek ogórka kiszonego, piórko cebuli i odrobinę musztardy; zwiń ciasno od ogona i spnij wykałaczką.\n3. Zalewa: zagotuj wodę z octem, cukrem, liściem laurowym, zielem, ziarnami gorczycy i pieprzu; ostudź.\n4. Ułóż rolmopsy w słoju, przekładając krążkami cebuli i marchwi.\n5. Zalej zimną zalewą, zakręć i wstaw do lodówki na 3 dni.\n6. Podawaj z pieczywem — w lodówce wytrzymują do 2 tygodni.',
     ingredients: [{ name: 'Płaty śledziowe solone', amount: '600 g', calories: 960 }, { name: 'Ogórki kiszone', amount: '2 szt', calories: 14 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Marchew', amount: '1 szt', calories: 41 }, { name: 'Musztarda', amount: '2 łyżki', calories: 30 }, { name: 'Ocet 10%', amount: '100 ml', calories: 20 }, { name: 'Cukier', amount: '3 łyżki', calories: 144 }, { name: 'Przyprawy (sól, pieprz, liść laurowy, ziele angielskie)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1289, servings: 8,
@@ -3394,7 +3394,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'wg12', name: 'Śledź po japońsku', category: 'Wigilia', time: '30 min',
-    thumbnail: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/wg12.webp',
     instructions: '1. Jajka ugotuj na twardo, ostudź, obierz i przekrój wzdłuż na połówki.\n2. Płaty śledzi (matjasy) pokrój na kawałki długości jajka.\n3. Na półmisku ułóż połówki jajek żółtkiem do dołu.\n4. Na każdej połówce połóż kawałek śledzia.\n5. Majonez wymieszaj z keczupem lub koncentratem i tartym chrzanem; polej śledzie.\n6. Posyp szczypiorkiem i natką — klasyk wigilijnych i sylwestrowych stołów.',
     ingredients: [{ name: 'Śledzie matjasy', amount: '400 g', calories: 880 }, { name: 'Jajka', amount: '6 szt', calories: 462 }, { name: 'Majonez', amount: '4 łyżki', calories: 408 }, { name: 'Koncentrat pomidorowy', amount: '1 łyżka', calories: 16 }, { name: 'Chrzan tarty', amount: '1 łyżka', calories: 11 }, { name: 'Szczypiorek', amount: 'pęczek', calories: 3 }],
     totalCalories: 1780, servings: 6,
@@ -3418,7 +3418,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'wg15', name: 'Kapusta wigilijna z grzybami', category: 'Wigilia', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/wg15.webp',
     instructions: '1. Grzyby suszone namocz na noc i ugotuj do miękkości; pokrój w paski, wywar zachowaj.\n2. Kapustę kiszoną przepłucz (jeśli bardzo kwaśna) i posiekaj; zalej wodą, by ledwo przykryła, i gotuj 40 minut.\n3. Dodaj grzyby z wywarem i gotuj kolejne 20 minut.\n4. Cebulę pokrój w kostkę i zeszklij na oleju; dodaj do kapusty.\n5. Zagęść lekko zasmażką z łyżki mąki i oleju, dopraw pieprzem, solą i szczyptą cukru.\n6. Kapusta jest najlepsza odgrzewana na drugi dzień — można ugotować ją dzień wcześniej.',
     ingredients: [{ name: 'Kapusta kiszona', amount: '1 kg', calories: 130 }, { name: 'Grzyby suszone', amount: '40 g', calories: 112 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Olej', amount: '3 łyżki', calories: 264 }, { name: 'Mąka pszenna', amount: '1 łyżka', calories: 35 }, { name: 'Przyprawy (sól, pieprz, liść laurowy, ziele angielskie)', amount: 'do smaku', calories: 0 }],
     totalCalories: 621, servings: 8,
@@ -3426,7 +3426,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'wg16', name: 'Pierogi z soczewicą i grzybami', category: 'Wigilia', time: '1,5 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1604152135912-04a022e23696?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/wg16.webp',
     instructions: '1. Soczewicę zieloną ugotuj do miękkości; grzyby suszone namocz i ugotuj, posiekaj.\n2. Cebulę zeszklij na oleju, połącz z soczewicą i grzybami, dopraw majerankiem, solą i pieprzem; rozgnieć na farsz.\n3. Z mąki, ciepłej wody, łyżki oleju i szczypty soli zagnieć elastyczne ciasto; odstaw pod miską na 20 minut.\n4. Rozwałkuj cienko, wykrawaj krążki, nakładaj farsz i dokładnie sklejaj brzegi.\n5. Gotuj partiami w osolonej wodzie 3 minuty od wypłynięcia.\n6. Podawaj ze zrumienioną cebulką — postna, sycąca alternatywa dla pierogów z kapustą.',
     ingredients: [{ name: 'Mąka pszenna', amount: '450 g', calories: 1553 }, { name: 'Soczewica zielona', amount: '150 g', calories: 525 }, { name: 'Grzyby suszone', amount: '30 g', calories: 84 }, { name: 'Cebula', amount: '3 szt', calories: 120 }, { name: 'Olej', amount: '4 łyżki', calories: 352 }, { name: 'Przyprawy (sól, pieprz, liść laurowy, ziele angielskie)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2634, servings: 6,
@@ -3474,7 +3474,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'wg22', name: 'Kluski z makiem', category: 'Wigilia', time: '40 min',
-    thumbnail: 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/wg22.webp',
     instructions: '1. Mak sparz wrzątkiem i odstaw na 30 minut; odcedź i zmiel dwukrotnie (lub zmiksuj).\n2. Utrzyj mak z miodem, cukrem, roztopionym masłem i posiekanymi bakaliami.\n3. Makaron (łazanki lub drobne kluseczki) ugotuj al dente i odcedź.\n4. Wymieszaj ciepły makaron z masą makową.\n5. Dodaj skórkę pomarańczową i posiekane orzechy.\n6. Podawaj na ciepło lub na zimno — wigilijny deser Wielkopolski i Śląska.',
     ingredients: [{ name: 'Mak niebieski', amount: '200 g', calories: 1050 }, { name: 'Makaron', amount: '300 g', calories: 1050 }, { name: 'Miód', amount: '4 łyżki', calories: 243 }, { name: 'Cukier', amount: '2 łyżki', calories: 96 }, { name: 'Masło', amount: '30 g', calories: 222 }, { name: 'Rodzynki i orzechy', amount: '100 g', calories: 650 }, { name: 'Skórka pomarańczowa', amount: '30 g', calories: 90 }],
     totalCalories: 3401, servings: 8,
@@ -3482,7 +3482,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'wg23', name: 'Makiełki śląskie', category: 'Wigilia', time: '30 min + noc',
-    thumbnail: 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/wg23.webp',
     instructions: '1. Mak zalej wrzątkiem i odstaw na kilka godzin, odcedź i zmiel trzykrotnie.\n2. Mleko zagotuj z cukrem i miodem, wsyp mak i gotuj 5 minut, mieszając.\n3. Dodaj masło, rodzynki, posiekane migdały, orzechy i skórkę pomarańczową.\n4. Bułki pszenne (najlepiej czerstwe) pokrój w kostkę lub plastry.\n5. W misce układaj warstwami bułkę i masę makową, aż bułka nasiąknie.\n6. Schłódź przez noc — tradycyjny śląski deser wigilijny.',
     ingredients: [{ name: 'Mak niebieski', amount: '300 g', calories: 1575 }, { name: 'Mleko', amount: '600 ml', calories: 300 }, { name: 'Bułki pszenne (czerstwe)', amount: '4 szt', calories: 728 }, { name: 'Miód', amount: '4 łyżki', calories: 243 }, { name: 'Cukier', amount: '80 g', calories: 320 }, { name: 'Masło', amount: '50 g', calories: 370 }, { name: 'Rodzynki', amount: '80 g', calories: 240 }, { name: 'Migdały i orzechy', amount: '80 g', calories: 480 }],
     totalCalories: 4256, servings: 10,
@@ -3498,7 +3498,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'wg25', name: 'Moczka śląska', category: 'Wigilia', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/wg25.webp',
     instructions: '1. Ugotuj wywar z włoszczyzny (bez soli); przecedź.\n2. Do wywaru włóż pokruszony piernik i gotuj, aż się rozpadnie.\n3. Dodaj suszone śliwki, morele, figi, rodzynki i migdały; gotuj 15 minut.\n4. Wlej sok z cytryny i kilka łyżek powideł, dosłodź cukrem lub miodem.\n5. Moczka ma być gęsta, słodko-kwaśna i ciemnobrązowa.\n6. Podawaj na ciepło lub na zimno — prawie zapomniany, bardzo stary śląski deser wigilijny.',
     ingredients: [{ name: 'Piernik', amount: '300 g', calories: 1050 }, { name: 'Śliwki suszone', amount: '150 g', calories: 360 }, { name: 'Morele suszone', amount: '100 g', calories: 240 }, { name: 'Figi suszone', amount: '100 g', calories: 250 }, { name: 'Rodzynki', amount: '80 g', calories: 240 }, { name: 'Migdały', amount: '60 g', calories: 360 }, { name: 'Powidła śliwkowe', amount: '100 g', calories: 200 }, { name: 'Marchew i pietruszka (na wywar)', amount: '300 g', calories: 123 }, { name: 'Cytryna', amount: '1 szt', calories: 29 }],
     totalCalories: 2852, servings: 10,
@@ -3506,7 +3506,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'wg26', name: 'Kompot z suszu wigilijny', category: 'Wigilia', time: '40 min + noc',
-    thumbnail: 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/wg26.webp',
     instructions: '1. Susz (śliwki wędzone, gruszki, jabłka, morele) opłucz i namocz na noc w 2,5 l wody.\n2. Gotuj w tej samej wodzie 30 minut na małym ogniu z laską cynamonu, goździkami i kawałkiem imbiru.\n3. Dosłodź miodem lub cukrem do smaku.\n4. Dodaj sok i skórkę z pomarańczy.\n5. Odstaw do wystygnięcia — kompot nabierze mocy.\n6. Podawaj ciepły lub zimny razem z owocami; tradycyjnie wspomaga trawienie po obfitej kolacji.',
     ingredients: [{ name: 'Susz kompotowy', amount: '400 g', calories: 1000 }, { name: 'Miód', amount: '4 łyżki', calories: 243 }, { name: 'Pomarańcza', amount: '1 szt', calories: 94 }],
     totalCalories: 1337, servings: 10,
@@ -3522,7 +3522,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'bn2', name: 'Gęś pieczona z jabłkami i majerankiem', category: 'Boże Narodzenie', time: '4 godz + noc',
-    thumbnail: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/bn2.webp',
     instructions: '1. Gęś oczyść, odetnij nadmiar tłuszczu przy kuprze; natrzyj solą, pieprzem i majerankiem, zostaw na noc.\n2. Skórę ponakłuwaj widelcem (bez przebijania mięsa) — tłuszcz będzie miał którędy wytopić.\n3. Do środka włóż ćwiartki jabłek z majerankiem i kilka śliwek suszonych.\n4. Piecz w 160°C ok. 3 godzin (40 minut na kilogram), polewając wytopionym tłuszczem.\n5. Na koniec zwiększ temperaturę do 220°C na 15 minut, żeby skóra była chrupiąca.\n6. Wytopiony tłuszcz zachowaj — najlepszy do pieczenia ziemniaków. Podawaj z modrą kapustą i kluskami śląskimi.',
     ingredients: [{ name: 'Gęś (cała, ok. 2 kg mięsa ze skórą)', amount: '4 kg', calories: 6600 }, { name: 'Jabłka', amount: '4 szt', calories: 312 }, { name: 'Śliwki suszone', amount: '100 g', calories: 240 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 7152, servings: 8,
@@ -3546,7 +3546,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'bn5', name: 'Pasztet z królika', category: 'Boże Narodzenie', time: '3 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1509482560494-4126f8225994?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/bn5.webp',
     instructions: '1. Królika i wieprzowinę ugotuj z włoszczyzną i przyprawami do miękkości (ok. 1,5 godziny); mięso oddziel od kości.\n2. Wątróbki krótko podsmaż z cebulą na maśle.\n3. Mięso, wątróbki i warzywa z wywaru zmiel dwukrotnie przez maszynkę na drobnym sitku.\n4. Dodaj jajka, namoczoną bułkę, gałkę muszkatołową, majeranek, sól i pieprz; wyrób gładką masę, w razie potrzeby rozrzedzając wywarem.\n5. Przełóż do formy wyłożonej boczkiem i piecz w kąpieli wodnej 70 minut w 170°C.\n6. Ostudź pod lekkim obciążeniem i schłódź przez noc — kroi się wtedy idealnie.',
     ingredients: [{ name: 'Królik (ok. 750 g mięsa)', amount: '1,2 kg', calories: 1013 }, { name: 'Karkówka wieprzowa', amount: '400 g', calories: 920 }, { name: 'Wątróbka drobiowa', amount: '250 g', calories: 300 }, { name: 'Boczek (do formy)', amount: '150 g', calories: 510 }, { name: 'Jajka', amount: '3 szt', calories: 231 }, { name: 'Bułka pszenna', amount: '1 szt', calories: 182 }, { name: 'Marchew', amount: '2 szt', calories: 82 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Masło', amount: '30 g', calories: 222 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 3540, servings: 12,
@@ -3554,7 +3554,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'bn6', name: 'Zimne nóżki (galareta wieprzowa)', category: 'Boże Narodzenie', time: '4 godz + noc',
-    thumbnail: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/bn6.webp',
     instructions: '1. Nóżki wieprzowe dokładnie oczyść, zalej zimną wodą, zagotuj i wylej pierwszą wodę.\n2. Zalej świeżą wodą, dodaj włoszczyznę, cebulę i przyprawy; gotuj na małym ogniu 3–4 godziny, aż mięso odejdzie od kości.\n3. Wyjmij mięso, pokrój drobno; wywar przecedź przez gazę i dopraw solą, pieprzem i czosnkiem.\n4. Na dnie miseczek ułóż marchewkę, groszek, plasterki jajka i natkę, a na nich mięso.\n5. Zalej wywarem i odstaw w zimne miejsce na noc, aż stężeje (nóżki mają naturalną żelatynę).\n6. Zdejmij tłuszcz z wierzchu i podawaj z octem lub cytryną.',
     ingredients: [{ name: 'Nóżki wieprzowe (ok. 600 g mięsa)', amount: '1,5 kg', calories: 1380 }, { name: 'Marchew', amount: '2 szt', calories: 82 }, { name: 'Pietruszka (korzeń)', amount: '1 szt', calories: 55 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Jajka', amount: '2 szt', calories: 154 }, { name: 'Groszek', amount: '50 g', calories: 40 }, { name: 'Czosnek', amount: '4 ząbki', calories: 30 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1781, servings: 8,
@@ -3562,7 +3562,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'bn7', name: 'Kapusta czerwona zasmażana z jabłkiem', category: 'Boże Narodzenie', time: '45 min',
-    thumbnail: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/bn7.webp',
     instructions: '1. Kapustę czerwoną poszatkuj cienko, skrop sokiem z cytryny — zachowa piękny kolor.\n2. Na maśle zeszklij cebulę, dodaj kapustę i pół szklanki wody; duś pod przykryciem 25 minut.\n3. Dodaj starte jabłka, łyżkę cukru lub miodu i odrobinę octu winnego.\n4. Duś jeszcze 10 minut, aż kapusta będzie miękka.\n5. Dopraw solą, pieprzem i szczyptą goździków.\n6. Klasyczny dodatek do gęsi, kaczki i rolady śląskiej.',
     ingredients: [{ name: 'Kapusta czerwona', amount: '1 kg', calories: 310 }, { name: 'Jabłka', amount: '2 szt', calories: 156 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Masło', amount: '30 g', calories: 222 }, { name: 'Miód', amount: '1 łyżka', calories: 61 }, { name: 'Cytryna', amount: '1/2 szt', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 804, servings: 6,
@@ -3570,7 +3570,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
   },
   {
     id: 'bn8', name: 'Sałatka jarzynowa świąteczna z jabłkiem', category: 'Boże Narodzenie', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
+    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/bn8.webp',
     instructions: '1. Marchew, pietruszkę, seler i ziemniaki ugotuj w mundurkach; jajka na twardo. Ostudź wszystko całkowicie.\n2. Obierz warzywa i pokrój w drobną, równą kostkę (ok. 0,5 cm) — to sekret dobrej jarzynowej.\n3. Ogórki kiszone, jabłko i cebulę pokrój tak samo; groszek odsącz.\n4. Majonez wymieszaj z łyżką musztardy i jogurtem.\n5. Połącz składniki z sosem, dopraw solą i pieprzem.\n6. Schłódź kilka godzin; sałatka jest najlepsza na drugi dzień.',
     ingredients: [{ name: 'Ziemniaki', amount: '400 g', calories: 308 }, { name: 'Marchew', amount: '3 szt', calories: 123 }, { name: 'Pietruszka (korzeń)', amount: '2 szt', calories: 110 }, { name: 'Seler', amount: '1/2 szt', calories: 84 }, { name: 'Jajka', amount: '5 szt', calories: 385 }, { name: 'Ogórki kiszone', amount: '4 szt', calories: 29 }, { name: 'Jabłko', amount: '1 szt', calories: 78 }, { name: 'Groszek', amount: '200 g', calories: 160 }, { name: 'Majonez', amount: '200 g', calories: 1360 }, { name: 'Jogurt naturalny', amount: '100 g', calories: 60 }, { name: 'Musztarda', amount: '1 łyżka', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2712, servings: 10,
