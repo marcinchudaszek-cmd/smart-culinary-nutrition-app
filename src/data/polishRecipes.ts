@@ -14,6 +14,16 @@ export interface PolishRecipe {
   macros?: RecipeMacros;
 }
 
+/** Id usuniętych duplikatów (3.18.0) → zachowany przepis; ulubione i plany posiłków ze starym id dalej działają. */
+export const RECIPE_ALIASES: Record<string, string> = { kr2: 'd16', sm2: 'z21', gr4: 'd24' };
+
+/** Przepis z katalogu po id (z uwzględnieniem usuniętych duplikatów). */
+export function findCatalogRecipe(id: string | undefined): PolishRecipe | undefined {
+  if (!id) return undefined;
+  const target = RECIPE_ALIASES[id] ?? id;
+  return POLISH_RECIPES.find((r) => r.id === target);
+}
+
 /** Przepis z katalogu w postaci używanej przez widoki — jedno miejsce zamiast kopii w każdym widoku. */
 export function catalogToRecipe(r: PolishRecipe): Recipe {
   return {
@@ -30,17 +40,17 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     id: 'z1', name: 'Rosół z kurczaka', category: 'Zupy', time: '3 godz',
     thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z1.webp',
     instructions: '1. Kurczaka umyj i umieść w dużym garnku, zalej 3 litrami zimnej wody — zimna woda zapewnia klarowny rosół.\n2. Zagotuj na dużym ogniu, a gdy pojawi się szara piana (szumowiny), zbieraj ją łyżką cedzakową przez 5–10 minut.\n3. Cebulę przekrój na pół i przypiecz bezpośrednio nad palnikiem lub na suchej patelni na ciemnobrązowo — doda rosołowi złotego koloru i głębokiego smaku.\n4. Dodaj do garnka podpieczoną cebulę, obrane marchewki, pietruszkę, kawałek selera, liść laurowy, ziele angielskie i kilka ziaren pieprzu.\n5. Zmniejsz ogień do minimum, przykryj garnek i gotuj spokojnie przez 2–3 godziny — rosół nie powinien wrzeć, tylko delikatnie „pyrkotać".\n6. Pod koniec gotowania dopraw solą do smaku; rosół wyjmij, kurczaka odłóż na bok i oddziel mięso od kości.\n7. Rosół przecedź przez drobne sito lub gazę, ugotuj w nim makaron nitki i podawaj posypany świeżą natką pietruszki.',
-    ingredients: [{ name: 'Kurczak', amount: '1,2 kg', calories: 1980 }, { name: 'Marchew', amount: '3 szt', calories: 75 }, { name: 'Pietruszka', amount: '2 szt', calories: 60 }, { name: 'Makaron nitki', amount: '200 g', calories: 312 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
-    totalCalories: 2507, servings: 6,
-    macros: { protein: 245.1, carbs: 110.7, fat: 122.6 },
+    ingredients: [{ name: 'Kurczak', amount: '1,2 kg', calories: 1980 }, { name: 'Marchew', amount: '3 szt', calories: 75 }, { name: 'Pietruszka', amount: '2 szt', calories: 60 }, { name: 'Makaron nitki', amount: '200 g', calories: 700 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
+    totalCalories: 2895, servings: 6,
+    macros: { protein: 258.4, carbs: 190.5, fat: 124.2 },
   },
   {
     id: 'z2', name: 'Zupa pomidorowa', category: 'Zupy', time: '45 min',
     thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/z2.webp',
     instructions: '1. Ugotuj wywar: kurczaka zalej 1,5 l wody, dodaj marchew, pietruszkę i cebulę, gotuj 45 minut na małym ogniu.\n2. Kurczaka wyjmij, mięso oddziel od kości i odłóż; wywar przecedź przez sito.\n3. Pomidory sparz wrzątkiem, obierz ze skórki i zblenduj lub przeciśnij przez sito — unikniesz grudek.\n4. Przetarte pomidory wlej do wywaru, zagotuj i gotuj 10 minut na średnim ogniu.\n5. Śmietanę zahartuj: wlej do niej chochlę gorącej zupy, wymieszaj, a dopiero potem dodaj do garnka — zapobiegnie to warzeniu się.\n6. Wrzuć z powrotem kawałki mięsa z kurczaka, dopraw solą, pieprzem i szczyptą cukru.\n7. Ugotuj osobno ryż lub makaron, przełóż do talerzy i zalej gorącą zupą pomidorową.',
-    ingredients: [{ name: 'Pomidory', amount: '1 kg', calories: 180 }, { name: 'Śmietana', amount: '200 ml', calories: 340 }, { name: 'Kurczak', amount: '500 g', calories: 825 }, { name: 'Makaron', amount: '200 g', calories: 312 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
-    totalCalories: 1807, servings: 4,
-    macros: { protein: 121.3, carbs: 138.9, fat: 85.9 },
+    ingredients: [{ name: 'Pomidory', amount: '1 kg', calories: 180 }, { name: 'Śmietana', amount: '200 ml', calories: 340 }, { name: 'Kurczak', amount: '500 g', calories: 825 }, { name: 'Makaron', amount: '200 g', calories: 700 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
+    totalCalories: 2195, servings: 4,
+    macros: { protein: 134.6, carbs: 218.8, fat: 87.6 },
   },
   {
     id: 'z3', name: 'Żurek staropolski', category: 'Zupy', time: '30 min',
@@ -56,7 +66,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Buraki obierz i zetrzyj na grubej tarce; przełóż do garnka z wrzącym wywarem warzywnym (1,5 l) i gotuj 20 minut na małym ogniu.\n2. Dodaj kilka ziaren pieprzu, liść laurowy i ziele angielskie; nie gotuj zbyt długo — buraki tracą kolor.\n3. Barszcz przecedź przez gęste sito lub gazę, dopraw sokiem z cytryny, odrobiną cukru i solą — powinien mieć wyraźnie kwaśno-słodki smak.\n4. Na uszka: zagnieć ciasto z 200 g mąki, jajka i 2 łyżek wody; odwij i cienko rozwałkuj.\n5. Farsz: grzyby namoczone przez noc ugotuj i drobno posiekaj razem z odsączoną kapustą kiszoną; przypraw pieprzem i cebulką.\n6. Wycinaj kółka o średnicy 4 cm, nakładaj po 1/2 łyżeczki farszu, sklejaj w kształt uszka; gotuj w osolonej wodzie 3–4 minuty od wypłynięcia.\n7. Podawaj gorący barszcz z kilkoma uszkami w miseczce i posyp natką pietruszki.',
     ingredients: [{ name: 'Buraki czerwone', amount: '800 g', calories: 344 }, { name: 'Mąka na uszka', amount: '200 g', calories: 680 }, { name: 'Grzyby suszone', amount: '50 g', calories: 117 }, { name: 'Kapusta kwaszona', amount: '200 g', calories: 20 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Jajka', amount: '2 szt', calories: 156 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1434, servings: 4,
-    macros: { protein: 59.5, carbs: 269.3, fat: 16.8 },
+    macros: { protein: 60, carbs: 269.1, fat: 16.9 },
   },
   {
     id: 'z5', name: 'Kapuśniak z żeberkami', category: 'Zupy', time: '2 godz',
@@ -64,7 +74,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Żeberka wieprzowe zalej 1,5 l zimnej wody, zagotuj i zbierz szumowiny; dodaj marchew, cebulę, liść laurowy i ziele angielskie.\n2. Gotuj na małym ogniu pod przykryciem 1 godzinę, aż mięso będzie miękkie i będzie odchodzić od kości.\n3. Żeberka wyjmij, oddziel mięso od kości i pokrój na kawałki; wywar zachowaj.\n4. Kapustę kiszoną przepłucz jeśli jest bardzo kwaśna, lub zostaw bez płukania dla intensywniejszego smaku; pokrój na mniejsze kawałki.\n5. Do wywaru dodaj kapustę i gotuj 20 minut; dorzuć obrane i pokrojone w kostkę ziemniaki.\n6. Po kolejnych 15 minutach dodaj mięso z żeberek, cebulę pokrojoną w piórka i przypraw hojnie majerankiem, solą i pieprzem.\n7. Gotuj jeszcze 10 minut, aż ziemniaki zmiękną; podawaj gorący kapuśniak z pieczywem żytnim.',
     ingredients: [{ name: 'Żeberka wieprzowe', amount: '500 g', calories: 1250 }, { name: 'Kapusta kiszona', amount: '500 g', calories: 50 }, { name: 'Ziemniaki', amount: '400 g', calories: 308 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1698, servings: 4,
-    macros: { protein: 89.7, carbs: 100.7, fat: 101.9 },
+    macros: { protein: 91, carbs: 100.2, fat: 102.1 },
   },
   {
     id: 'z6', name: 'Zupa grochowa z boczkiem', category: 'Zupy', time: '1,5 godz',
@@ -122,7 +132,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Grzyby suszone namocz w ciepłej wodzie przez 2 godziny; wyjmij, posiekaj i zachowaj wodę po moczeniu.\n2. Boczek pokrój w kostkę i podsmaż na dużej patelni lub w garnku żeliwnym, aż będzie złocisty i chrupiący.\n3. Mięso wieprzowe (karkówkę lub łopatkę) pokrój w kostkę 2–3 cm; obsmaż partiami na tłuszczu z boczku do brązowej skórki ze wszystkich stron.\n4. Dodaj kapustę kiszoną (jeśli bardzo kwaśna — przepłucz), pokrojone grzyby, kiełbasę w plastrach i przecedzoną wodę z moczenia grzybów.\n5. Dodaj liście laurowe, ziele angielskie, kilka ziaren pieprzu i majeranek; wlej wywar mięsny lub wodę (ok. 300 ml).\n6. Gotuj pod przykryciem na małym ogniu przez 2 godziny, mieszając co 30 minut; bigos powinien gęstnieć.\n7. Dopraw solą, pieprzem i odrobiną czerwonego wina; bigos smakuje najlepiej następnego dnia po odgrzaniu.',
     ingredients: [{ name: 'Kapusta kiszona', amount: '500 g', calories: 50 }, { name: 'Boczek', amount: '200 g', calories: 600 }, { name: 'Kiełbasa', amount: '300 g', calories: 690 }, { name: 'Grzyby suszone', amount: '30 g', calories: 70 }, { name: 'Wieprzowina', amount: '500 g', calories: 910 }, { name: 'Wino', amount: '100 ml', calories: 85 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2405, servings: 6,
-    macros: { protein: 129.5, carbs: 24.3, fat: 189.8 },
+    macros: { protein: 130.7, carbs: 23.8, fat: 190 },
   },
   {
     id: 'd2', name: 'Kotlet schabowy', category: 'Dania główne', time: '30 min',
@@ -146,7 +156,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Grzyby suszone namocz w ciepłej wodzie przez 2–3 godziny; ugotuj w tej samej wodzie 30 minut, wyjmij i drobno posiekaj.\n2. Kapustę kiszoną przepłucz, wyciśnij i posiekaj; podduś na patelni z odrobiną oleju przez 15 minut do zmięknięcia.\n3. Wymieszaj kapustę z posiekanymi grzybami; dopraw solą, pieprzem i szczypiorkiem — farsz musi być suchy, nie wodnisty.\n4. Ciasto: z 400 g mąki, jajka, szczypty soli i 150 ml ciepłej wody zagnieć gładkie ciasto; owiń folią i odstaw 30 minut.\n5. Ciasto cienko rozwałkuj i wycinaj kółka o średnicy 8 cm; nakładaj solidną łyżeczkę farszu na każde kółko.\n6. Sklejaj brzegi mocno, formując charakterystyczny grzebień; upewnij się, że farsz nie jest przy krawędziach.\n7. Gotuj w osolonej wodzie partiami przez 4 minuty od wypłynięcia; podawaj przesmażone na patelni na maśle z cebulką.',
     ingredients: [{ name: 'Kapusta kiszona', amount: '500 g', calories: 50 }, { name: 'Grzyby suszone', amount: '60 g', calories: 140 }, { name: 'Mąka pszenna', amount: '400 g', calories: 1360 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Jajka', amount: '2 szt', calories: 156 }, { name: 'Masło', amount: '30 g', calories: 215 }, { name: 'Olej', amount: '2 łyżki', calories: 240 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2201, servings: 4,
-    macros: { protein: 68.3, carbs: 325.8, fat: 68.8 },
+    macros: { protein: 69.5, carbs: 325.3, fat: 69 },
   },
   {
     id: 'd5', name: 'Gołąbki w sosie pomidorowym', category: 'Dania główne', time: '2 godz',
@@ -326,7 +336,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Marchew, ziemniaki i pietruszkę ugotuj w całości w osolonej wodzie do miękkości; odcedź i ostudź do temperatury pokojowej.\n2. Ugotowane warzywa obierz i pokrój w równą kostkę ok. 8 mm — jednorodna wielkość to klucz do dobrego wyglądu.\n3. Ogórek kiszony pokrój w kostkę tej samej wielkości; jabłko obierz, usuń gniazdo i pokrój podobnie.\n4. Dodaj odsączony groszek z puszki do wszystkich pokrojonych warzyw i owoców.\n5. Majonez wymieszaj z łyżką musztardy dla głębszego smaku; dodaj do sałatki i wymieszaj delikatnie.\n6. Dopraw solą i pieprzem; smakuj i w razie potrzeby dodaj więcej majonezu lub musztardy.\n7. Przykryj folią spożywczą i wstaw do lodówki na co najmniej godzinę — smaki się przegryzą; podawaj schłodzoną.',
     ingredients: [{ name: 'Marchew', amount: '3 szt', calories: 75 }, { name: 'Ziemniaki', amount: '4 szt', calories: 308 }, { name: 'Majonez', amount: '150 g', calories: 1020 }, { name: 'Groszek konserwowy', amount: '200 g', calories: 130 }, { name: 'Jabłko', amount: '1 szt', calories: 72 }, { name: 'Musztarda', amount: '1 łyżka', calories: 15 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1620, servings: 6,
-    macros: { protein: 22.1, carbs: 107.3, fat: 124.5 },
+    macros: { protein: 21.2, carbs: 130.1, fat: 115.1 },
   },
   {
     id: 'sa2', name: 'Surówka z marchewki', category: 'Sałatki', time: '10 min',
@@ -1248,7 +1258,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Piekarnik nagrzej do 170°C; blachę wyłóż papierem do pieczenia.\n2. W dużej misce wymieszaj płatki owsiane z grubo posiekanymi orzechami, migdałami, wiórkami kokosowymi i siemieniem lnianym.\n3. W małym rondelku roztop olej kokosowy z miodem na małym ogniu (lub podgrzej 30 sekund w mikrofalówce); dodaj szczyptę soli i opcjonalnie cynamonu.\n4. Wylej mieszaninę miodu na płatki i dokładnie wymieszaj by każdy element był pokryty — to gwarantuje równomierne przypieczenie.\n5. Rozłóż równomiernie na blasze warstwą ok. 1 cm — zbyt gęsta warstwa nie chrupie dobrze.\n6. Piecz 15 minut; w połowie (po 7–8 min) dokładnie przemieszaj by granola piekła się równomiernie.\n7. Ostudź całkowicie na blasze — granola wygląda miękka po wyjęciu ale stwardnieje przy stygnięciu; przechowuj w szczelnym słoiku; podawaj z jogurtem naturalnym i owocami.',
     ingredients: [{ name: 'Płatki owsiane', amount: '200 g', calories: 778 }, { name: 'Orzechy mieszane', amount: '80 g', calories: 520 }, { name: 'Miód', amount: '3 łyżki', calories: 180 }, { name: 'Wiórki kokosowe', amount: '30 g', calories: 195 }, { name: 'Olej kokosowy', amount: '2 łyżki', calories: 240 }],
     totalCalories: 1913, servings: 6,
-    macros: { protein: 41.5, carbs: 189.2, fat: 113.5 },
+    macros: { protein: 41.6, carbs: 193, fat: 113.2 },
   },
 
   // ── NOWE SAŁATKI (sa7–sa12) ──────────────────────────────────────────────
@@ -1572,7 +1582,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Banany muszą być bardzo dojrzałe (żółte z brązowymi plamami) — dają naturalną słodycz; rozgnieć widelcem na gładką papkę.\n2. W misce połącz rozgniecione banany z jajkami; wymieszaj widelcem lub trzepaczką do jednolitej masy.\n3. Dodaj odżywkę białkową (waniliową lub naturalną), proszek do pieczenia (1/4 łyżeczki) i opcjonalnie szczyptę cynamonu; wymieszaj.\n4. Ciasto będzie rzadsze niż tradycyjne — to normalne; odstaw na 2 minuty by składniki się połączyły.\n5. Patelnię nieprzywierającą rozgrzej na średnim ogniu bez tłuszczu (lub minimalną ilością oleju kokosowego); wylej łyżkę ciasta na placuszek.\n6. Smaż 2 minuty aż brzegi będą suche i pojawią się bąbelki; obróć i smaż 1–2 minuty — te placuszki są delikatniejsze od tradycyjnych, obracaj ostrożnie.\n7. Podawaj gorące z jogurtem greckim, świeżymi owocami (banany, jagody, truskawki) i kroplą syropu klonowego.',
     ingredients: [{ name: 'Banan', amount: '2 szt', calories: 210 }, { name: 'Jajka', amount: '3 szt', calories: 234 }, { name: 'Odżywka białkowa', amount: '30 g', calories: 120 }, { name: 'Jogurt grecki', amount: '150 g', calories: 130 }, { name: 'Olej kokosowy', amount: '1 łyżeczka', calories: 40 }],
     totalCalories: 734, servings: 2,
-    macros: { protein: 54.8, carbs: 61.5, fat: 32.7 },
+    macros: { protein: 52, carbs: 62.3, fat: 34.2 },
   },
   {
     id: 'db22', name: 'Sałatka niçoise', category: 'Dieta białkowa', time: '30 min',
@@ -1701,9 +1711,9 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     id: 'gr2', name: 'Żeberka BBQ', category: 'Grillowane', time: '3 godz',
     thumbnail: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400',
     instructions: '1. Żeberka wieprzowe (ok. 1,5 kg) oczyść z błonki z wewnętrznej strony — podważ nożem przy kości i ściągnij — bez tej czynności żeberka będą twarde.\n2. Przygotuj rub: wymieszaj brązowy cukier (2 łyżki), słodką paprykę (2 łyżki), czosnek w proszku, cebulę w proszku, kminek, sól i cayenne; natrzyj żeberka ze wszystkich stron.\n3. Owiń szczelnie folią aluminiową i wstaw do piekarnika 150°C na 2 godziny — wstępne pieczenie sprawia że mięso odpada od kości.\n4. Przygotuj sos BBQ: zeszklij cebulę, dodaj ketchup, ocet jabłkowy, brązowy cukier, sos Worcestershire i wędzoną paprykę; gotuj 15 minut.\n5. Wyjmij żeberka z folii; posmaruj obficie sosem BBQ z obu stron.\n6. Połóż na gorącym grillu (lub grill pan) na 10–15 minut, obracając i smarując sosem co 3–4 minuty — chcemy skarmelizowaną, lekko przypalona glazurę.\n7. Podawaj z frytkami lub kukurydzą z grilla i dodatkowym sosem BBQ do maczania.',
-    ingredients: [{ name: 'Żeberka wieprzowe', amount: '1,5 kg', calories: 3750 }, { name: 'Ketchup', amount: '200 g', calories: 100 }, { name: 'Brązowy cukier', amount: '3 łyżki', calories: 135 }, { name: 'Przyprawy BBQ', amount: '30 g', calories: 60 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }],
-    totalCalories: 4100, servings: 4,
-    macros: { protein: 236.3, carbs: 80.8, fat: 304.4 },
+    ingredients: [{ name: 'Żeberka wieprzowe', amount: '1,5 kg', calories: 3750 }, { name: 'Ketchup', amount: '200 g', calories: 220 }, { name: 'Brązowy cukier', amount: '3 łyżki', calories: 135 }, { name: 'Przyprawy BBQ', amount: '30 g', calories: 60 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }],
+    totalCalories: 4220, servings: 4,
+    macros: { protein: 237.9, carbs: 108.1, fat: 304.6 },
   },
   {
     id: 'gr3', name: 'Szaszłyki z kurczaka z papryką', category: 'Grillowane', time: '35 min',
@@ -1712,14 +1722,6 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     ingredients: [{ name: 'Pierś z kurczaka', amount: '600 g', calories: 990 }, { name: 'Papryka', amount: '2 szt', calories: 60 }, { name: 'Jogurt naturalny', amount: '150 g', calories: 90 }, { name: 'Cukinia', amount: '1 szt', calories: 30 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Ryż', amount: '100 g', calories: 360 }, { name: 'Pomidory', amount: '400 g', calories: 72 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1697, servings: 3,
     macros: { protein: 231.2, carbs: 141.2, fat: 18.9 },
-  },
-  {
-    id: 'gr4', name: 'Karkówka z grilla w marynacie', category: 'Grillowane', time: '1 godz',
-    thumbnail: 'https://images.unsplash.com/photo-1558030006-450675393462?w=400',
-    instructions: '1. Karkówkę pokrój w plastry grubości ok. 1,5 cm — zbyt cienkie wyschną, za grube będą surowe w środku.\n2. Przygotuj marynatę: musztarda (2 łyżki), olej (3 łyżki), czosnek (3 ząbki rozgniecione), majeranek, tymianek, sól, pieprz i odrobina chili.\n3. Każdy plaster natrzyj marynatą z obu stron; ułóż w misce, przykryj i wstaw do lodówki na minimum 2 godziny.\n4. Wyjmij mięso 30 minut przed grillowaniem — zimne mięso z lodówki na grill = nierówne wypieczenie.\n5. Grill rozgrzej mocno; karkówkę połóż na ruszt i grilluj 5–7 minut z każdej strony bez ruszania — raz obrócona, nie więcej.\n6. Sprawdź wypieczenie: nakłuj — sok przezroczysty oznacza gotowość; wewnętrzna temperatura powinna wynosić 70°C.\n7. Odpocznij 3–4 minuty pod folią przed podaniem; podawaj z chlebem z grilla, surówką z kapusty i musztardą.',
-    ingredients: [{ name: 'Karkówka wieprzowa', amount: '800 g', calories: 2160 }, { name: 'Musztarda', amount: '2 łyżki', calories: 30 }, { name: 'Olej', amount: '3 łyżki', calories: 360 }, { name: 'Czosnek', amount: '3 ząbki', calories: 15 }, { name: 'Kapusta', amount: '500 g', calories: 125 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
-    totalCalories: 2690, servings: 4,
-    macros: { protein: 159.2, carbs: 35.1, fat: 212.3 },
   },
   {
     id: 'gr5', name: 'Grillowany łosoś z cytryną i koperkiem', category: 'Grillowane', time: '20 min',
@@ -1777,15 +1779,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Kapustę kiszoną (1 kg) odciśnij z nadmiaru soku; grubo posiekaj — jeśli bardzo kwaśna, przepłucz raz zimną wodą; świeżą kapustę (500 g) szatkuj.\n2. Mięsa pokrój w kostkę: boczek wędzony (200 g), kiełbasę myśliwską (300 g), resztki mięs pieczonych lub gulaszowych (300 g).\n3. Na głębokiej patelni obsmaż boczek na złoto; dodaj kiełbasę i obsmaż; wyjmij mięsa, zostaw tłuszcz.\n4. Na tym tłuszczu zeszklij cebulę; dodaj obie kapusty i duś mieszając 10 minut.\n5. Przełóż do garnka; dodaj mięsa, namoczone i ugotowane grzyby suszone (50 g) z wodą z moczenia przecedzoną przez gazę, liść laurowy, ziele angielskie, pieprz, majeranek.\n6. Duś pod przykryciem na małym ogniu 1,5–2 godziny mieszając co 30 minut; dodaj kieliszek czerwonego wina lub śliwowicy.\n7. Dopraw do smaku; najlepszy jest następnego dnia — bigos odgrzewany kilkukrotnie nabiera głębi; podawaj z ciemnym chlebem.',
     ingredients: [{ name: 'Kapusta kiszona', amount: '1 kg', calories: 100 }, { name: 'Kiełbasa myśliwska', amount: '300 g', calories: 900 }, { name: 'Boczek wędzony', amount: '200 g', calories: 680 }, { name: 'Grzyby suszone', amount: '50 g', calories: 117 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Wino', amount: '100 ml', calories: 85 }, { name: 'Kapusta biała', amount: '500 g', calories: 125 }, { name: 'Resztki mięs pieczonych', amount: '300 g', calories: 750 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2837, servings: 6,
-    macros: { protein: 144, carbs: 91.7, fat: 205.3 },
-  },
-  {
-    id: 'kr2', name: 'Kluski śląskie z dziurką', category: 'Kuchnia regionalna', time: '45 min',
-    thumbnail: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400',
-    instructions: '1. Ziemniaki (1 kg) ugotuj w osolonej wodzie do miękkości; odlej, osusz 2 minuty na małym ogniu — im suchsze, tym lepsze kluski.\n2. Zestaw z ognia, zgnieć dokładnie tłuczkiem lub przetrzyj przez praskę — bez grudek; ostudź do temperatury pokojowej.\n3. Dodaj 1 jajko i tyle mąki ziemniaczanej (ok. 200–250 g) by ciasto odchodziło od rąk — ilość mąki zależy od wilgotności ziemniaków.\n4. Wyrób gładkie, sprężyste ciasto; nie za twarde (kluski będą twarde), nie za miękkie (rozpadną się).\n5. Formuj kluski: weź porcję ciasta wielkości orzecha włoskiego, uformuj kulkę, zrób kciukiem wgłębienie na środku — charakterystyczna dziurka śląska.\n6. Gotuj partiami w osolonej wrzącej wodzie; kluski gotowe gdy wypłyną na powierzchnię + 2 minuty; wyjmij łyżką cedzakową.\n7. Podawaj z zasmażką ze słoniny lub boczku z cebulką, polane tłuszczem; tradycyjnie z bigosem lub kapustą duszoną.',
-    ingredients: [{ name: 'Ziemniaki', amount: '1 kg', calories: 770 }, { name: 'Mąka ziemniaczana', amount: '250 g', calories: 875 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Boczek do zasmażki', amount: '100 g', calories: 340 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Kapusta', amount: '500 g', calories: 125 }],
-    totalCalories: 2268, servings: 4,
-    macros: { protein: 49.2, carbs: 437.1, fat: 39.5 },
+    macros: { protein: 146.5, carbs: 90.8, fat: 205.7 },
   },
   {
     id: 'kr3', name: 'Golonka pieczona po polsku', category: 'Kuchnia regionalna', time: '3 godz',
@@ -1817,7 +1811,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Oscypek (250 g) pokrój w plastry grubości ok. 1 cm — za cienkie się rozpadną, za grube nie nagrzeją w środku.\n2. Patelnia grillowa lub grill: rozgrzej MOCNO na dużym ogniu bez tłuszczu — ser będzie się grillować na suchej powierzchni.\n3. Plastry oscypka połóż na gorącą patelnię; grilluj 2–3 minuty bez ruszania — powstanie złota, lekko przypalona skórka.\n4. Delikatnie odwróć szeroką łopatką; grilluj drugą stronę 1–2 minuty — oscypek nie stopnieje dzięki swojej zwartej strukturze.\n5. Sos żurawinowy: dżem żurawinowy (3 łyżki) podgrzej z łyżką wody i odrobiną soku z pomarańczy do konsystencji sosu.\n6. Ułóż grillowane plastry oscypka na talerzu.\n7. Polej sosem żurawinowym; udekoruj listkami świeżej mięty; podawaj z ciepłym pieczywem lub samodzielnie jako przekąska.',
     ingredients: [{ name: 'Oscypek', amount: '250 g', calories: 875 }, { name: 'Dżem żurawinowy', amount: '100 g', calories: 260 }, { name: 'Zioła', amount: '10 g', calories: 5 }],
     totalCalories: 1140, servings: 3,
-    macros: { protein: 62.3, carbs: 6.6, fat: 67.8 },
+    macros: { protein: 62.8, carbs: 71.1, fat: 68 },
   },
   {
     id: 'kr7', name: 'Czernina (zupa z kaczki)', category: 'Kuchnia regionalna', time: '2 godz',
@@ -1843,7 +1837,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Grzyby suszone (50 g) namocz przez noc; następnego dnia ugotuj w tej samej wodzie do miękkości; wyjmij i drobno posiekaj; wywaru nie wylewaj.\n2. Buraki czerwone (1 kg) obierz, zetrzyj na grubej tarce lub pokrój w słupki; zagotuj w wywarze warzywnym (1,5 l).\n3. Dodaj wywar grzybowy (bez ewentualnego osadu z dna), liść laurowy, ziele angielskie, pieprz; gotuj 25 minut.\n4. Barszcz przecedź przez gęste sito; dopraw do smaku sokiem z cytryny, cukrem (1–2 łyżeczki), solą — powinien być wyraźnie kwaśno-słodki; kolor musi być głęboki rubinowy.\n5. Uszka: zagnieć ciasto z 300 g mąki, 1 jajka, 3 łyżek wody; odpocznij 30 minut; farsz z posiekanych grzybów i kapusty kiszonej z cebulką.\n6. Wycinaj małe kółka (5 cm), nakładaj pół łyżeczki farszu, zlepiaj w uszko — muszą być ciasno zamknięte; gotuj 3 minuty od wypłynięcia.\n7. Podawaj wigilijny barszcz gorący z kilkoma uszkami; tradycyjnie spożywany jako pierwsza potrawa wigilijnej kolacji.',
     ingredients: [{ name: 'Buraki czerwone', amount: '1 kg', calories: 430 }, { name: 'Grzyby suszone', amount: '50 g', calories: 117 }, { name: 'Mąka na uszka', amount: '300 g', calories: 1020 }, { name: 'Kapusta kiszona', amount: '200 g', calories: 20 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Jajko', amount: '1 szt', calories: 78 }, { name: 'Cukier', amount: '2 łyżeczki', calories: 40 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1802, servings: 6,
-    macros: { protein: 65.6, carbs: 364, fat: 12.8 },
+    macros: { protein: 66.1, carbs: 363.9, fat: 12.9 },
   },
   {
     id: 'sw2', name: 'Karp po żydowsku w galarecie', category: 'Wigilia', time: '2 godz',
@@ -1891,7 +1885,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Groch łuskany (300 g) namocz na noc; gotuj w świeżej wodzie przez 40–50 minut do miękkości; odcedź i rozgnieć widelcem (nie zupełnie gładko).\n2. Kapustę kiszoną (600 g) przepłucz, posiekaj, gotuj w wodzie 30 minut do miękkości.\n3. Grzyby suszone (30 g) namocz 2 godziny; ugotuj w tej samej wodzie; posiekaj drobno; wywar zachowaj.\n4. Na patelni zeszklij cebulę (2 szt) na oleju (4 łyżki); gdy złota, dodaj grzyby i smaż razem 5 minut.\n5. Wymieszaj kapustę kiszoną z grochem, cebulką z grzybami i odrobiną wywaru grzybowego.\n6. Duś razem na małym ogniu 20 minut mieszając; dopraw majerankiem, pieprzem, solą; smak powinien być wyraźnie kwaskowaty.\n7. Podawaj jako wigilijnąpotrawę; danie smakuje lepiej podgrzewane następnego dnia.',
     ingredients: [{ name: 'Groch łuskany', amount: '300 g', calories: 1020 }, { name: 'Kapusta kiszona', amount: '600 g', calories: 60 }, { name: 'Grzyby suszone', amount: '30 g', calories: 70 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Olej', amount: '4 łyżki', calories: 480 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1710, servings: 6,
-    macros: { protein: 79.8, carbs: 198.4, fat: 60.2 },
+    macros: { protein: 81.3, carbs: 197.8, fat: 60.5 },
   },
   {
     id: 'sw8', name: 'Mazurek kajmakowy wielkanocny', category: 'Wielkanoc', time: '1,5 godz',
@@ -1926,14 +1920,6 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     ingredients: [{ name: 'Pomidory', amount: '4 szt', calories: 100 }, { name: 'Ogórek', amount: '1 szt', calories: 30 }, { name: 'Feta', amount: '200 g', calories: 500 }, { name: 'Oliwki czarne', amount: '100 g', calories: 120 }, { name: 'Oliwa z oliwek', amount: '3 łyżki', calories: 360 }, { name: 'Cebula czerwona', amount: '1 szt', calories: 40 }, { name: 'Cytryna', amount: '1 szt', calories: 17 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1167, servings: 4,
     macros: { protein: 34.7, carbs: 52.7, fat: 93.1 },
-  },
-  {
-    id: 'sm2', name: 'Zupa minestrone', category: 'Śródziemnomorska', time: '45 min',
-    thumbnail: 'https://beagleapps.pl/apps/kulinapp/zdjecia/sm2.webp',
-    instructions: '1. Cebulę, marchew i seler pokrój w drobną kostkę; podsmaż na oliwie z oliwek (2 łyżki) przez 8 minut na średnim ogniu do zeszklenia.\n2. Dodaj starty czosnek (2 ząbki) i smaż jeszcze 1 minutę, aż zapachnie.\n3. Wlej bulion warzywny (1,2 l), dodaj puszkę pomidorów krojonych i łyżeczkę suszonego tymianku.\n4. Cukinię i paprykę pokrój w kostkę; dorzuć do garnka po 10 minutach gotowania.\n5. Dodaj odsączoną fasolę biała z puszki i makaron (małe rurki lub conchiglie); gotuj kolejne 10 minut.\n6. Wrzuć garść liści szpinaku baby; gotuj 2 minuty, aż zwiędną.\n7. Dopraw solą, pieprzem i świeżą bazylią; podawaj z tartym parmezanem i grzankami z baguette skropionymi oliwą.',
-    ingredients: [{ name: 'Cukinia', amount: '1 szt', calories: 50 }, { name: 'Fasola biała', amount: '240 g', calories: 220 }, { name: 'Szpinak baby', amount: '100 g', calories: 23 }, { name: 'Makaron', amount: '100 g', calories: 350 }, { name: 'Oliwa z oliwek', amount: '2 łyżki', calories: 240 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Czosnek', amount: '2 ząbki', calories: 10 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Seler', amount: '1/4 szt', calories: 20 }, { name: 'Pomidory', amount: '400 g', calories: 72 }, { name: 'Bulion', amount: '1,2 l', calories: 144 }, { name: 'Papryka', amount: '1 szt', calories: 37 }, { name: 'Przyprawy (sól, pieprz, zioła)', amount: 'do smaku', calories: 0 }],
-    totalCalories: 1296, servings: 4,
-    macros: { protein: 57, carbs: 188.8, fat: 38.3 },
   },
   {
     id: 'sm3', name: 'Łosoś z cytryną i ziołami', category: 'Śródziemnomorska', time: '30 min',
@@ -2098,7 +2084,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Grzyby suszone zalej szklanką wrzątku i odstaw na 30 minut, a potem ugotuj je w tej samej wodzie do miękkości (ok. 20 minut).\n2. Kapustę kiszoną odciśnij, posiekaj i duś pod przykryciem z odrobiną wody z grzybów przez 30 minut, aż zmięknie, a płyn odparuje.\n3. Cebulę pokrój w kostkę i zeszklij na maśle; dodaj do kapusty razem z posiekanymi grzybami, dopraw solą i pieprzem i wystudź.\n4. Ciasto: zmiksuj mąkę, mleko, 2 jajka, szczyptę soli i łyżkę oleju; po 15 minutach usmaż 10 cienkich naleśników na lekko natłuszczonej patelni.\n5. Na brzeg każdego naleśnika nałóż 2 łyżki farszu, złóż boki do środka i zwiń ciasno w rulon.\n6. Pozostałe 2 jajka roztrzep; krokiety obtaczaj kolejno w jajku i w bułce tartej, dociskając panierkę dłonią.\n7. Smaż na rozgrzanym oleju po 3–4 minuty z każdej strony na złoty kolor; świetnie smakują z czerwonym barszczem.',
     ingredients: [{ name: 'Mąka pszenna', amount: '250 g', calories: 910 }, { name: 'Mleko', amount: '500 ml', calories: 250 }, { name: 'Jajka', amount: '4 szt', calories: 280 }, { name: 'Kapusta kiszona', amount: '500 g', calories: 100 }, { name: 'Grzyby suszone', amount: '30 g', calories: 84 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Masło', amount: '20 g', calories: 147 }, { name: 'Bułka tarta', amount: '100 g', calories: 385 }, { name: 'Olej', amount: '6 łyżek', calories: 530 }, { name: 'Przyprawy (sól, pieprz)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2726, servings: 5,
-    macros: { protein: 93.6, carbs: 336.4, fat: 115.1 },
+    macros: { protein: 96.1, carbs: 335.5, fat: 115.5 },
   },
   {
     id: 'pp2', name: 'Krokiety z mięsem i pieczarkami', category: 'Dania główne', time: '1 godz 15 min',
@@ -2178,7 +2164,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Boczek pokrój w kostkę i wytop na suchej patelni; dodaj pokrojoną cebulę i zeszklij.\n2. Kapustę białą poszatkuj, kapustę kiszoną odciśnij i posiekaj; obie włóż do garnka z odrobiną wody.\n3. Duś kapustę pod przykryciem ok. 30 minut, aż zmięknie, a potem dodaj boczek z cebulą.\n4. Kiełbasę pokrój w półplasterki, podsmaż na oleju i dodaj do kapusty.\n5. Dopraw solą, pieprzem, majerankiem i kminkiem; duś razem jeszcze 10 minut.\n6. Makaron łazanki ugotuj al dente w osolonej wodzie i odcedź.\n7. Wymieszaj makaron z kapustą i podsmaż wszystko razem 3–4 minuty, żeby smaki się połączyły.',
     ingredients: [{ name: 'Makaron łazanki', amount: '300 g', calories: 1080 }, { name: 'Kapusta biała', amount: '600 g', calories: 150 }, { name: 'Kapusta kiszona', amount: '300 g', calories: 60 }, { name: 'Kiełbasa', amount: '250 g', calories: 650 }, { name: 'Boczek wędzony', amount: '100 g', calories: 470 }, { name: 'Cebula', amount: '2 szt', calories: 80 }, { name: 'Olej', amount: '1 łyżka', calories: 88 }, { name: 'Przyprawy (sól, pieprz, majeranek, kminek)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2578, servings: 4,
-    macros: { protein: 94.9, carbs: 292.7, fat: 118.4 },
+    macros: { protein: 96.4, carbs: 292.2, fat: 118.6 },
   },
   {
     id: 'pp12', name: 'Kaszanka z cebulą i jabłkiem', category: 'Dania główne', time: '25 min',
@@ -2242,7 +2228,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Kapustę kiszoną odciśnij (jeśli jest bardzo kwaśna, przepłucz) i posiekaj.\n2. Włóż do garnka, zalej 300 ml wody, dodaj kminek i gotuj pod przykryciem 30–40 minut do miękkości.\n3. Boczek pokrój w kostkę i wytop na patelni na chrupko.\n4. Dodaj pokrojoną cebulę i smaż, aż się zeszkli.\n5. Wsyp mąkę i smaż, mieszając, 2 minuty, aż powstanie jasnozłota zasmażka.\n6. Zasmażkę dodaj do kapusty, dokładnie wymieszaj i gotuj 5 minut, aż zgęstnieje.\n7. Dopraw solą, pieprzem, majerankiem i szczyptą cukru.',
     ingredients: [{ name: 'Kapusta kiszona', amount: '800 g', calories: 160 }, { name: 'Boczek wędzony', amount: '100 g', calories: 470 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Mąka pszenna', amount: '2 łyżki', calories: 73 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Przyprawy (sól, pieprz, kminek, majeranek)', amount: 'do smaku', calories: 0 }],
     totalCalories: 763, servings: 4,
-    macros: { protein: 28.1, carbs: 67.6, fat: 45.2 },
+    macros: { protein: 32.1, carbs: 66.2, fat: 45.8 },
   },
   {
     id: 'pp20', name: 'Ziemniaki opiekane z czosnkiem i rozmarynem', category: 'Wegetariańskie', time: '50 min',
@@ -2266,7 +2252,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Kapustę kiszoną odciśnij z nadmiaru soku i posiekaj na krótsze kawałki.\n2. Marchew obierz i zetrzyj na grubej tarce.\n3. Jabłko zetrzyj ze skórką na grubej tarce.\n4. Cebulę pokrój w bardzo cienkie piórka.\n5. Połącz wszystkie warzywa w misce.\n6. Dodaj olej, cukier i pieprz, dokładnie wymieszaj.\n7. Odstaw na 15 minut, żeby smaki się połączyły.',
     ingredients: [{ name: 'Kapusta kiszona', amount: '500 g', calories: 100 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Jabłko', amount: '1 szt', calories: 70 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Olej', amount: '2 łyżki', calories: 177 }, { name: 'Cukier', amount: '1 łyżeczka', calories: 20 }, { name: 'Przyprawy (pieprz)', amount: 'do smaku', calories: 0 }],
     totalCalories: 457, servings: 4,
-    macros: { protein: 7.8, carbs: 68.6, fat: 21.1 },
+    macros: { protein: 10.3, carbs: 67.6, fat: 21.5 },
   },
   {
     id: 'pp23', name: 'Zupa pieczarkowa', category: 'Zupy', time: '50 min',
@@ -2298,7 +2284,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Marchew, pietruszkę i cebulę obierz, pokrój w kostkę, zalej 2 l wody i gotuj 15 minut.\n2. Buraki obierz i pokrój w cienkie słupki; dodaj do garnka razem z ziemniakami w kostkę.\n3. Gotuj 15 minut, a następnie wrzuć poszatkowaną kapustę i gotuj kolejne 10 minut.\n4. Dodaj odsączoną fasolę i koncentrat pomidorowy, gotuj 5 minut.\n5. Dopraw sokiem z cytryny, przeciśniętym czosnkiem, solą i pieprzem.\n6. Śmietanę zahartuj chochlą gorącego barszczu i wlej do garnka, mieszając.\n7. Podgrzej, nie gotując, i podawaj posypany natką pietruszki.',
     ingredients: [{ name: 'Buraki', amount: '500 g', calories: 215 }, { name: 'Marchew', amount: '2 szt', calories: 50 }, { name: 'Pietruszka (korzeń)', amount: '1 szt', calories: 30 }, { name: 'Cebula', amount: '1 szt', calories: 40 }, { name: 'Ziemniaki', amount: '300 g', calories: 231 }, { name: 'Kapusta biała', amount: '300 g', calories: 75 }, { name: 'Fasola biała (konserwowa)', amount: '240 g', calories: 230 }, { name: 'Koncentrat pomidorowy', amount: '2 łyżki', calories: 40 }, { name: 'Cytryna', amount: '1/2 szt', calories: 10 }, { name: 'Czosnek', amount: '2 ząbki', calories: 8 }, { name: 'Śmietana 18%', amount: '150 ml', calories: 279 }, { name: 'Natka pietruszki', amount: '2 łyżki', calories: 5 }, { name: 'Przyprawy (sól, pieprz)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1213, servings: 6,
-    macros: { protein: 44.9, carbs: 161.8, fat: 47.6 },
+    macros: { protein: 43.9, carbs: 196.3, fat: 31 },
   },
   {
     id: 'pp27', name: 'Zupa serowa z porem i mięsem mielonym', category: 'Zupy', time: '45 min',
@@ -2402,7 +2388,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Pierś z kurczaka pokrój w kostkę, wymieszaj z olejem i przyprawą gyros; odstaw na 15 minut.\n2. Usmaż kurczaka na rozgrzanej patelni przez 8 minut i całkowicie wystudź.\n3. Kapustę pekińską poszatkuj, paprykę i ogórki konserwowe pokrój w kostkę, cebulę posiekaj; kukurydzę odsącz.\n4. Sos: wymieszaj majonez z jogurtem naturalnym.\n5. W szklanej misce układaj warstwami: kurczaka, cebulę, ogórki, kukurydzę i paprykę.\n6. Posmaruj cienko ketchupem, wyłóż sos i przykryj kapustą pekińską.\n7. Schłodź co najmniej 3 godziny — najlepsza jest przygotowana dzień wcześniej.',
     ingredients: [{ name: 'Pierś z kurczaka', amount: '500 g', calories: 550 }, { name: 'Olej', amount: '1 łyżka', calories: 88 }, { name: 'Kapusta pekińska', amount: '400 g', calories: 64 }, { name: 'Papryka czerwona', amount: '1 szt', calories: 45 }, { name: 'Ogórki konserwowe', amount: '4 szt', calories: 22 }, { name: 'Cebula czerwona', amount: '1 szt', calories: 40 }, { name: 'Kukurydza konserwowa', amount: '1 puszka', calories: 190 }, { name: 'Majonez', amount: '100 g', calories: 700 }, { name: 'Jogurt naturalny', amount: '100 g', calories: 60 }, { name: 'Ketchup', amount: '80 g', calories: 90 }, { name: 'Przyprawy (gyros)', amount: 'do smaku', calories: 0 }],
     totalCalories: 1849, servings: 8,
-    macros: { protein: 143.2, carbs: 60.8, fat: 114 },
+    macros: { protein: 134.7, carbs: 100.9, fat: 100.2 },
   },
   {
     id: 'pp40', name: 'Sałatka makaronowa z kurczakiem', category: 'Sałatki', time: '40 min',
@@ -2410,7 +2396,7 @@ export const POLISH_RECIPES: PolishRecipe[] = [
     instructions: '1. Makaron ugotuj al dente w osolonej wodzie, przelej zimną wodą i odsącz.\n2. Pierś z kurczaka oprósz solą i pieprzem, usmaż na oleju, wystudź i pokrój w kostkę.\n3. Ser żółty i ogórki konserwowe pokrój w kostkę, a paprykę w drobne paseczki.\n4. Kukurydzę odsącz z zalewy.\n5. Majonez wymieszaj z jogurtem, solą, pieprzem i posiekanym szczypiorkiem.\n6. W dużej misce połącz wszystkie składniki z sosem.\n7. Schłodź przez godzinę przed podaniem.',
     ingredients: [{ name: 'Makaron świderki', amount: '250 g', calories: 900 }, { name: 'Pierś z kurczaka', amount: '300 g', calories: 330 }, { name: 'Olej', amount: '1 łyżka', calories: 88 }, { name: 'Ser żółty', amount: '150 g', calories: 525 }, { name: 'Ogórki konserwowe', amount: '3 szt', calories: 17 }, { name: 'Papryka czerwona', amount: '1 szt', calories: 45 }, { name: 'Kukurydza konserwowa', amount: '200 g', calories: 160 }, { name: 'Majonez', amount: '100 g', calories: 700 }, { name: 'Jogurt naturalny', amount: '100 g', calories: 60 }, { name: 'Szczypiorek', amount: '2 łyżki', calories: 3 }, { name: 'Przyprawy (sól, pieprz)', amount: 'do smaku', calories: 0 }],
     totalCalories: 2828, servings: 8,
-    macros: { protein: 159, carbs: 201.8, fat: 152.2 },
+    macros: { protein: 151.8, carbs: 235.2, fat: 140.7 },
   },
   {
     id: 'pp41', name: 'Śledzie po kaszubsku', category: 'Wigilia', time: '30 min + 12 godz',

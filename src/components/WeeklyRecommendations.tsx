@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Sparkles, Loader, ChevronDown, ChevronUp, RefreshCw } from 'lucide-react';
 import { useAppStore, activeAI } from '../store/useAppStore';
 import { callAI, parseAiJson } from '../lib/aiProvider';
-import { POLISH_RECIPES, catalogToRecipe } from '../data/polishRecipes';
+import { POLISH_RECIPES, catalogToRecipe, findCatalogRecipe } from '../data/polishRecipes';
 import { onImgError } from '../lib/images';
 import toast from 'react-hot-toast';
 import { toLocalISO } from '../lib/date';
@@ -85,7 +85,7 @@ Odpowiedz WYŁĄCZNIE jako JSON (bez markdown):
   }
 
   function openRecipe(rec: Recommendation) {
-    const r = POLISH_RECIPES.find(p => p.id === rec.recipeId);
+    const r = findCatalogRecipe(rec.recipeId);
     if (!r) { toast.error('Przepis nie znaleziony'); return; }
     setSelectedRecipe(catalogToRecipe(r));
     setActiveView('recipe-detail');
@@ -144,7 +144,7 @@ Odpowiedz WYŁĄCZNIE jako JSON (bez markdown):
           {!loading && recs.length > 0 && (
             <div className="space-y-2">
               {recs.map((rec, i) => {
-                const recipe = POLISH_RECIPES.find(r => r.id === rec.recipeId);
+                const recipe = findCatalogRecipe(rec.recipeId);
                 return (
                   <button
                     key={i}

@@ -26,6 +26,9 @@ import OnboardingView from './views/OnboardingView';
 import ChristmasMenuView from './views/ChristmasMenuView';
 import PhotoCalorieScanner from './components/PhotoCalorieScanner';
 import TimerChip from './components/TimerChip';
+import UpdatePrompt from './components/UpdatePrompt';
+import { markVersionSeen } from './lib/changelog';
+import { appVersion } from './lib/appInfo';
 
 // Dokąd prowadzi systemowe „wstecz" z danego ekranu (null = wyjście z aplikacji).
 function backTarget(): ActiveView | null {
@@ -102,6 +105,11 @@ export default function App() {
     return () => { unsub(); clearTimeout(timer); void tap.then((h) => h.remove()); };
   }, []);
 
+  // Nowa instalacja: zapamiętujemy wersję od razu, żeby po onboardingu nie wyskoczyło „Co nowego”.
+  useEffect(() => {
+    if (!useAppStore.getState().onboardingDone) markVersionSeen(appVersion);
+  }, []);
+
   // Tło dokumentu pod widokiem (np. przy przewijaniu poza krawędź) zgodne z motywem.
   useEffect(() => {
     document.documentElement.style.background = darkMode ? '#111827' : '#f9fafb';
@@ -159,6 +167,9 @@ export default function App() {
 
       {/* Minutnik gotowania — koniec odliczania pilnowany w całej aplikacji */}
       <TimerChip visible={activeView !== 'recipe-detail'} />
+
+      {/* Aktualizacja z Google Play + „Co nowego” po aktualizacji */}
+      <UpdatePrompt />
 
       {showGlobalScanner && (
         <PhotoCalorieScanner onClose={() => setShowGlobalScanner(false)} />

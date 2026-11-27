@@ -8,11 +8,18 @@ import fs from 'fs';
 import { DB } from './skladniki.mjs';
 
 const ZAPISZ = process.argv.includes('--zapisz');
+// --przelicz: liczy od nowa makro wszystkich przepisów spoza partii generatora (scripts/przepisy/dane),
+// np. po poprawce reguł albo kalorii składników.
+const PRZELICZ = process.argv.includes('--przelicz');
+const GENERATOR = new Set();
+for (const f of fs.readdirSync('scripts/przepisy/dane')) for (const r of (await import('./dane/' + f)).default) GENERATOR.add(r.name);
 const PROG = 0.9;
 
 // [wzorzec nazwy (małe litery), klucz w DB] — kolejność ma znaczenie: szczegółowe przed ogólnymi.
 const RULES = [
-  [/wino|piwo|amaretto|spirytus/, 'alkohol'],
+  [/(^|\s)(wino|piwo)|amaretto|spirytus/, 'alkohol'], // nie „żurawinowy”
+  [/odżywka białkowa/, 'odzywka_bialkowa'], [/wiórki kokosowe/, 'wiorki_kokosowe'], [/serek wiejski/, 'serek_wiejski'],
+  [/kapusta (kiszona|kwaszona)/, 'kapusta_kiszona'],
   [/mąka ziemniaczana|skrobia/, 'maka_ziemniaczana'], [/mąka owsiana/, 'maka_owsiana'], [/mąka/, 'maka_pszenna'], [/ziemniak/, 'ziemniaki'], [/majonez/, 'majonez'],
   [/masło orzechowe/, 'maslo_orzechowe'], [/masło/, 'maslo'], [/bułka tarta/, 'bulka_tarta'],
   [/ciasto francuskie/, 'ciasto_francuskie'], [/smalec/, 'smalec'], [/oliwa|olej/, 'olej'],
@@ -47,7 +54,7 @@ const RULES = [
   [/ricotta/, 'ricotta'], [/oscypek/, 'oscypek'], [/serek homogenizowany/, 'serek_homog'],
   [/serek śmietankowy|kremowy serek/, 'serek_smietankowy'], [/serek topiony/, 'serek_topiony'],
   [/twaróg chudy/, 'twarog_chudy'], [/twaróg (tłusty|trójmielony)/, 'twarog_tlusty'], [/twaróg/, 'twarog_poltlusty'],
-  [/ser|gorgonzola/, 'ser_zolty'],
+  [/(^|[\s(])ser([\s,)]|$)|gorgonzola/, 'ser_zolty'], // nie „konserwowy”
   [/skyr/, 'skyr'], [/jogurt grecki 0%/, 'jogurt_grecki_0'], [/jogurt grecki/, 'jogurt_grecki'],
   [/jogurt/, 'jogurt_naturalny'], [/kefir/, 'kefir'],
   [/śmietan.*36/, 'smietanka_36'], [/śmietan.*30|kremówk/, 'smietanka_30'],
@@ -114,7 +121,7 @@ const allUnknown = {};
 let done = 0, skipped = 0;
 for (const f of files) {
   let src = fs.readFileSync(f.path, 'utf8');
-  const list = evalArray(src, f.marker).filter((r) => !r.macros);
+  const list = evalArray(src, f.marker).filter((r) => PRZELICZ ? !GENERATOR.has(r.name) : !r.macros);
   for (const r of list) {
     const { cover, unknown, macros } = macrosFor(r);
     unknown.forEach((u) => (allUnknown[u] = (allUnknown[u] || 0) + 1));
@@ -125,7 +132,11 @@ for (const f of files) {
     const start = src.indexOf(`id: '${r.id}',`);
     let end = src.indexOf("id: '", start + 5);
     if (end < 0) end = src.indexOf('\n];', start);
-    const block = src.slice(start, end);
+    let block = src.slice(start, end);
+    if (r.macros) { // przeliczenie: usuń starą linię makro
+      const old = block.match(/\n\s*macros: \{[^}]*\},/);
+      if (old) { src = src.slice(0, start + old.index) + src.slice(start + old.index + old[0].length); end -= old[0].length; block = src.slice(start, end); }
+    }
     const line = `macros: { protein: ${macros.protein}, carbs: ${macros.carbs}, fat: ${macros.fat} },`;
     const m = block.match(/\n(\s*)(totalCalories: \d+, )?servings: \d+,[^\n]*\n/);
     if (!m) throw new Error('nie znaleziono servings w ' + r.id);

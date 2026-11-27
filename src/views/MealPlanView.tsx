@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, X, ShoppingCart, Plus, Check, FileText } from 'lucide-react';
 import PdfDietImporter from '../components/PdfDietImporter';
 import { useAppStore, MealSlot } from '../store/useAppStore';
-import { POLISH_RECIPES } from '../data/polishRecipes';
+import { POLISH_RECIPES, findCatalogRecipe } from '../data/polishRecipes';
 import toast from 'react-hot-toast';
 import { todayISO, toLocalISO } from '../lib/date';
 import { onImgError } from '../lib/images';
@@ -66,7 +66,7 @@ export default function MealPlanView() {
   }, [myRecipes, pickerSearch]);
 
   function getRecipe(id: string) {
-    return [...POLISH_RECIPES, ...myRecipes].find(r => r.id === id);
+    return myRecipes.find(r => r.id === id) ?? findCatalogRecipe(id);
   }
 
   // ---- Shopping list ----

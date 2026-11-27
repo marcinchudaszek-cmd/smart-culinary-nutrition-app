@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Plus, Trash2, BookOpen, Flame, Search, Heart } from 'lucide-react';
 import { useAppStore } from '../store/useAppStore';
-import { POLISH_RECIPES, catalogToRecipe } from '../data/polishRecipes';
+import { POLISH_RECIPES, catalogToRecipe, findCatalogRecipe, RECIPE_ALIASES } from '../data/polishRecipes';
 import { onImgError } from '../lib/images';
 import toast from 'react-hot-toast';
 
@@ -26,8 +26,10 @@ export default function MyRecipesView() {
     ...POLISH_RECIPES.filter(r => !myIds.has(r.id)).map(catalogToRecipe),
     ...myRecipes,
   ];
+  // Ulubione z id usuniętego duplikatu pokazują zachowany przepis.
+  const favIds = new Set(favoriteIds.map(id => RECIPE_ALIASES[id] ?? id));
   const favorites = allRecipes.filter(r =>
-    favoriteIds.includes(r.id) &&
+    favIds.has(r.id) &&
     r.name.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -35,7 +37,7 @@ export default function MyRecipesView() {
     // Check myRecipes first, then POLISH_RECIPES
     const myR = myRecipes.find(r => r.id === id);
     if (myR) { setSelectedRecipe(myR); setActiveView('recipe-detail'); return; }
-    const pr = POLISH_RECIPES.find(r => r.id === id);
+    const pr = findCatalogRecipe(id);
     if (pr) {
       setSelectedRecipe(catalogToRecipe(pr));
       setActiveView('recipe-detail');

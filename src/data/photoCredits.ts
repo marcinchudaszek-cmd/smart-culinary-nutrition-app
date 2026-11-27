@@ -141,7 +141,6 @@ export const PHOTO_CREDITS: Record<string, PhotoCredit> = {
   'sm14.webp': { source: 'commons', author: 'matsuyuki', license: 'CC BY-SA 2.0', url: 'https://commons.wikimedia.org/wiki/File:Spaghetti_aglio_olio_e_peperoncino_by_matsuyuki.jpg' },
   'sm15.webp': { source: 'commons', author: 'Aw58', license: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Fasolka_szparagowa_-_2023.07.13.jpg' },
   'sm16.webp': { source: 'commons', author: 'Bocadorada', license: 'CC BY-SA 2.0', url: 'https://commons.wikimedia.org/wiki/File:Gazpacho_Cazuela_Barro.jpg' },
-  'sm2.webp': { source: 'commons', author: 'MOs810', license: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Minestrone_in_Poznan.jpg' },
   'sm5.webp': { source: 'commons', author: 'Dedda 71', license: 'CC BY 3.0', url: 'https://commons.wikimedia.org/wiki/File:Frittata_slice.jpg' },
   'sm6.webp': { source: 'commons', author: 'Aw58', license: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Makaron_z_tu%C5%84czykiem_i_szpinakiem_-_2024.08.07.jpg' },
   'sm8.webp': { source: 'commons', author: 'Vegan Feast Catering', license: 'CC BY 2.0', url: 'https://commons.wikimedia.org/wiki/File:Pita_and_Hummus_(3870546157).jpg' },

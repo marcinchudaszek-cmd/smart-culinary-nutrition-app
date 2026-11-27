@@ -16,3 +16,10 @@ node scripts/przepisy/dodaj-przepisy.mjs src/data/polishRecipes.ts src/store/use
 ```
 
 Uwaga: sekcja `MOVE` w skrypcie przenosi wskazane przepisy do kategorii — przy nowej partii wyczyść ją.
+
+## Kontrola jakości (3.18.0)
+
+- `sprawdz-katalog.mjs` — zdublowane nazwy, suma kalorii składników ≠ total, kcal na porcję, makro ≠ kalorie.
+- `sprawdz-kalorie.mjs` — kalorie składników podanych w g/ml porównane z bazą (ponad 2× różnicy).
+- `makro-starych.mjs --przelicz --zapisz` — przelicza makro wszystkich przepisów spoza partii generatora (po poprawce reguł/kalorii).
+- Usunięte duplikaty mają przekierowanie w `RECIPE_ALIASES` (polishRecipes.ts) — przepisy szukaj po id przez `findCatalogRecipe()`.
